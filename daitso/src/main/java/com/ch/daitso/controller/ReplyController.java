@@ -28,8 +28,9 @@ public class ReplyController {
 	private ProductService ps;
 	
 	@RequestMapping("replyWriteForm2")
-	public String replyWriteForm(int rno,int num,String pageNum,Model model) {
-		   model.addAttribute("num",num);
+	public String replyWriteForm(int rno,int p_num,String pageNum,Model model) {
+		   
+		   model.addAttribute("p_num",p_num);
 		   model.addAttribute("rno",rno);
 		   model.addAttribute("pageNum",pageNum);
 		return "admin/review/replyWriteForm";
