@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ch.daitso.model.NoticeBoard;
 import com.ch.daitso.model.Reply;
 import com.ch.daitso.service.NoticeService;
+import com.ch.daitso.service.ProductService;
 import com.ch.daitso.service.ReplyService;
 
 @Controller
@@ -23,14 +24,17 @@ public class ReplyController {
 	@Autowired
 	private NoticeService ns;
 	
-	@RequestMapping("replyWriteForm")
+	@Autowired
+	private ProductService ps;
+	
+	@RequestMapping("replyWriteForm2")
 	public String replyWriteForm(int rno,int num,String pageNum,Model model) {
 		   model.addAttribute("num",num);
 		   model.addAttribute("rno",rno);
 		   model.addAttribute("pageNum",pageNum);
 		return "admin/review/replyWriteForm";
 	}
-	@RequestMapping("replyWrite")
+	@RequestMapping("replyWrite2")
 	public String replyWrite(Reply board, Model model, HttpSession session
 			,String pageNum,int rno,int num) throws IOException {
 		int result = 0;
@@ -44,7 +48,7 @@ public class ReplyController {
 		model.addAttribute("pageNum",pageNum);
 		return "admin/review/replyWrite";
 	}
-	@RequestMapping("replyList")
+	@RequestMapping("replyList2")
 	   public String replyList(int num,String pageNum,Model model) {
 		NoticeBoard board = ns.select(num);
 		//하나의 게시물에 여러 댓글
@@ -54,16 +58,16 @@ public class ReplyController {
 		  
 		   return "admin/review/replyList";
 	   }
-	@RequestMapping("rDelete")
+	@RequestMapping("rDelete2")
 	public String rDelete(Reply rb) {
 		rs.delete(rb);
-		return "redirect:replyList.do?num="+rb.getNum();
+		return "redirect:replyList2.do?num="+rb.getNum();
 	}
 	//댓글 수정
-		@RequestMapping("rUpdate")
+		@RequestMapping("rUpdate2")
 		public String rUpdate(Reply rb) {
 			rs.update(rb);
-			return "redirect:replyList.do?num="+rb.getNum();
+			return "redirect:replyList2.do?num="+rb.getNum();
 		}
 	
 }

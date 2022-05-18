@@ -7,7 +7,7 @@
     // 댓글 삭제
 	function rDelete(num, rno) {
 		var sendData = "num="+num+"&rno="+rno;
-		$.post("rDelete.do", sendData, function(data) {
+		$.post("rDelete2.do", sendData, function(data) {
 			alert("삭제 되었습니다");
 			$("#rbdListDisp").html(data);
 		});
@@ -27,11 +27,11 @@
 	}
 	//댓글 수정중 취소 누르면 다시 목록보이게
 	function lst(num) {
-		$('#rbdListDisp').load('replyList.do?num='+num);
+		$('#rbdListDisp').load('replyList2.do?num='+num);
 	}
 	function up(num, rno) {
 		var sendData = "replytext="+$('#rt').val()+"&num="+num+"&rno="+rno;
-		$.post('rUpdate.do' , sendData, function(data){
+		$.post('rUpdate2.do' , sendData, function(data){
 			alert("수정 되었습니다.")
 			$('#rbdListDisp').html(data); 
 		})

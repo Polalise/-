@@ -5,6 +5,8 @@ drop table replyBoard CASCADE CONSTRAINTS;
 drop table reply CASCADE CONSTRAINTS;
 drop table product CASCADE CONSTRAINTS;
 drop table chat;
+drop table report;
+drop table likes;
 
 create table member (
 	id varchar2(500) primary key,
@@ -43,7 +45,7 @@ CREATE TABLE product(
 	thumnails3 varchar2(100),
 	thumnails4 varchar2(100),
 	thumnails5 varchar2(100),
-	id VARCHAR2(500) REFERENCES member123 ON DELETE CASCADE
+	id VARCHAR2(500) REFERENCES member ON DELETE CASCADE
 );
 
 create table chat(
@@ -82,7 +84,7 @@ create table reply (
 	regdate date not null,
 	del char(1) default 'n' ,
 	rating number ,
-	num number not null references notice_board(num),
+	num number not null references product(p_num),
 	id  varchar2(100) not null references member(id)
 );
 
