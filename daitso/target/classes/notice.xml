@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace xml의 이름 -->
+<mapper namespace="noticens">
+  <!-- 글의 총갯수 -->
+	<!-- <select id="getTotal" resultType="integer">
+		select count(*) from notice_board
+	</select> -->
+	 <select id="getTotal" resultType="integer" parameterType="notice">
+    select count(*) from notice_board
+     <where>  
+             <!-- keyword에 값이 있으면 검색 없으면 생략-->
+       <if test="keyword!=null and keyword !=''">
+           <if test="search=='subcon'">
+              subject like '%'||#{keyword}||'%' or 
+              content like '%'||#{keyword}||'%'
+           </if>
+           <if test="search!='subcon'">
+          ${search} like '%'||#{keyword}||'%'
+          </if>
+       </if>
+    </where>
+ </select> 
+	<!-- 목록보여주기 -->
+	<!-- <select id="list" parameterType="map" resultType="notice">
+		select * from (select a.* , rowNum rn from (select * from notice_board
+		order by num ) a) where rn between #{startRow} and #{endRow}
+	</select> -->
+	 <select id="list" parameterType="notice" resultType="notice">
+    select * from (select a.* , rowNum rn from (select * from notice_board
+    <!--where는 테이블로 부터 데이터 추출 조건 where뒤에 문자이 있으면 where를 추가하고 없으면 where생략 -->
+       <!-- where 뒤에 있으면 쓰고 없으면 원래대로 써라 -->
+     <where>  
+             <!-- keyword에 값이 있으면 검색 없으면 생략-->
+       <if test="keyword!=null and keyword !=''">
+           <if test="search=='subcon'">
+              subject like '%'||#{keyword}||'%' or 
+              content like '%'||#{keyword}||'%'
+           </if>
+           <if test="search!='subcon'">
+          ${search} like '%'||#{keyword}||'%'
+          </if>
+       </if>
+    </where>
+    order by num ) a) where rn between #{startRow} and #{endRow}
+ </select>
+	<select id="getMaxNum" resultType="integer">
+		<!-- 제일큰수 가져와서 +1 하고 값이 없으면 0 -->
+		select nvl(max(num),0) + 1 from notice_board
+	</select>
+	<!-- 글작성 -->
+	<insert id="insert" parameterType="notice">
+		insert into notice_board
+		values(#{num},#{subject},#{content},0,sysdate,sysdate,
+		#{fileName},'n',#{id})
+	</insert>
+	<!-- 조회수증가 -->
+	<update id="updateReadCount" parameterType="integer">
+		update notice_board
+		set readcount = readcount + 1 where num=#{num}
+	</update>
+	<!-- <게시글 상세보기 정보가져오기> -->
+	<select id="select" parameterType="integer" resultType="notice">
+		select *
+		from notice_board where num=#{num}
+	</select>
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="notice">
+		update notice_board set subject=#{subject},content=#{content}
+		<!-- 파일이 수정됐으면 변경하고 안됐으면 변경하지 마라 where앞에는 컴마(,)가 없음 -->
+		<if test="fileName != null"> , fileName=#{fileName} </if>
+		where num=#{num}
+	</update>
+	<!-- 게시글 삭제 -->
+	<update id="delete" parameterType="integer">
+		update notice_board set del='y' where num=#{num}
+	</update>
+	<!-- 총게시글수 -->
+	<select id = "getNoticeCount" resultType="int">
+     select count(*) from notice_board 
+   </select>
+</mapper>

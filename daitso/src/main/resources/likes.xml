@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="likesns">
+	
+	<insert id="addLikes" parameterType="likes">
+		insert into likes values(#{id},#{p_num})
+	</insert>
+
+	<select id="searchList" parameterType="map" resultType="likes">
+		select * from likes where id=#{id} and p_num=#{p_num}
+	</select>
+	
+	<delete id="deleteLikes" parameterType="likes">
+		delete likes where id=#{id} and p_num=#{p_num}
+	</delete>
+	
+	<select id="searchLikes" parameterType="map" resultType="likes">
+		select * from likes where id=#{id} and p_num=#{p_num}
+	</select>
+	
+	
+</mapper>

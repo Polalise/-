@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace xml의 이름 -->
+<mapper namespace="rboardns">
+	<select id="list" parameterType="integer" resultType="rboard">
+		select * from replyBoard where bno=#{bno} order by rno
+	</select>
+	<insert id="insert" parameterType="rboard"> <!-- rno의 수를 자동으로 증가 시키는 코드 -->
+		<selectKey keyProperty="rno" order="BEFORE" resultType="integer">
+			select nvl(max(rno),0) + 1 rno from replyBoard
+		</selectKey>
+		insert into replyBoard values (#{rno},#{bno},#{replytext},
+			#{replier},	sysdate,sysdate,'n')
+	</insert>
+	<update id="update" parameterType="rboard">
+		update replyBoard set replytext=#{replytext},updatedate=sysdate where rno=#{rno}				
+	</update>
+	<update id="delete" parameterType="rboard">
+		update replyBoard set del='y' where rno=#{rno}
+	</update>
+</mapper>
