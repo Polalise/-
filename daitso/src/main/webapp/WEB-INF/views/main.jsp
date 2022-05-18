@@ -12,6 +12,7 @@
 	<div><a href="loginForm.do" class="btn">로그인</a></div>
 	<div><a href="p_list.do" class="btn">리스트</a></div>
 	<a>Test</a>
+	<div>변경사항 체크해주시길 바랍니다</div>
 </div>
 </body>
 </html>
