@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ch.daitso.model.Likes;
 import com.ch.daitso.model.Member;
 import com.ch.daitso.model.Product;
+import com.ch.daitso.service.LikesService;
 import com.ch.daitso.service.MemberService;
 import com.ch.daitso.service.PageBean;
 import com.ch.daitso.service.ProductService;
@@ -28,6 +29,9 @@ public class ProductController {
 	
 	@Autowired
 	private MemberService ms;
+	
+	@Autowired
+	private LikesService ls;
 	
 	@RequestMapping("p_list")
 	public String list(Product product,String pageNum,Model model ) {
@@ -115,7 +119,7 @@ public class ProductController {
 		return "insert";
 	}
 	@RequestMapping("p_view")
-	public String view(int p_num, String pageNum, Model model){
+	public String view(int p_num, String pageNum, Model model, HttpSession session){
 		ps.updateReadCount(p_num);
 		Product product = ps.select(p_num);
 		model.addAttribute("product", product); 
