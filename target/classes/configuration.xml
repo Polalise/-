@@ -6,12 +6,15 @@
 		<typeAlias alias="member" type="com.ch.daitso.model.Member" />
 		<typeAlias alias="product" type="com.ch.daitso.model.Product" />
 		<typeAlias alias="chat" type="com.ch.daitso.model.Chat" />
-		
+		<typeAlias alias="likes" type="com.ch.daitso.model.Likes"/>
+		<typeAlias alias="report" type="com.ch.daitso.model.report"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="member.xml" />
 		<mapper resource="product.xml" />
 		<mapper resource="chat.xml" />
+		<mapper resource="likes.xml"/>
+		<mapper resource="report.xml"/>
 	</mappers>
 </configuration>
 
