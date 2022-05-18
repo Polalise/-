@@ -65,7 +65,7 @@
 <div class="review2" align="center" style="width: 35%"  >
 <h2 class="text-primary">리뷰 작성</h2>
 <!-- submit할 때 action에 값이 없으면 자신(view.do)을 한번 더 수행 -->
-<form action="replyWrite.do" name="review" id="review" style="margin-top: 50px;">
+<form action="replyWrite2.do" name="review" id="review" style="margin-top: 50px;">
 	<input type="hidden" name="num" value="1">
 	<input type="hidden" name="rno" value="${rno }">
  <table class="table table-hover"> 

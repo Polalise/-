@@ -5,22 +5,22 @@
 <mapper namespace="replyns">
 <select id="getMaxNum" resultType="integer">
 		<!-- 제일큰수 가져와서 +1 하고 값이 없으면 0 -->
-		select nvl(max(rno),0) + 1 from replyBoard
+		select nvl(max(rno),0) + 1 from reply
 	</select>
 	<!-- 글작성 -->
 	<insert id="insert" parameterType="reply">
-		insert into replyBoard
+		insert into reply
 		values(#{rno},#{replytext},sysdate,'n',#{rating},#{num},
 		#{id})
 	</insert>
 		<select id="list" parameterType="integer" resultType="reply">
-		select * from replyBoard where num=#{num} order by rno
+		select * from reply where num=#{num} order by rno
 	</select>
 	<update id="delete" parameterType="reply">
-	   update replyboard set del='y' where rno=#{rno}
+	   update reply set del='y' where rno=#{rno}
 	</update>
 	<!-- 댓글수정 -->
 	<update id="update" parameterType="reply">
-	    update replyboard set replytext=#{replytext},regdate=sysdate where rno=#{rno}
+	    update reply set replytext=#{replytext},regdate=sysdate where rno=#{rno}
 	</update>
 </mapper>

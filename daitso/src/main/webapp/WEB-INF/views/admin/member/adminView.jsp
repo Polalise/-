@@ -51,7 +51,7 @@
 			</tr>
 			<tr>
 				<th class="col-md-2 text-center">레벨</th>
-				<td class="col-md-5">${member.level }</td>
+				<td class="col-md-5">${member.grade}</td>
 			</tr>
 				<tr>
 				<th class="col-md-2 text-center">등록일</th>

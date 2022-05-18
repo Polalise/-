@@ -45,6 +45,8 @@
 	<update id="updatePassword" parameterType="member">
 		update member set password=#{password} where id=#{id}
 	</update>
+	
+	
 		<!-- 관리자 회원 수 확인 -->
 	<select resultType="integer" parameterType="member"
 		id="getMbTotal">
@@ -55,7 +57,7 @@
            <if test="search=='subcon'">
               id like '%'||#{keyword}||'%' or 
               name like '%'||#{keyword}||'%' or
-              nickname like '%'||#{keyword}||'%'
+              nickName like '%'||#{keyword}||'%'
            </if>
            <if test="search!='subcon'">
           ${search} like '%'||#{keyword}||'%'
@@ -76,7 +78,7 @@
            <if test="search=='subcon'">
                id like '%'||#{keyword}||'%' or 
               name like '%'||#{keyword}||'%' or
-              nickname like '%'||#{keyword}||'%'
+              nickName like '%'||#{keyword}||'%'
            </if>
            <if test="search!='subcon'">
           ${search} like '%'||#{keyword}||'%'
@@ -100,7 +102,7 @@
 	<!-- 관리자 회원 정보 변경-->
 	<update id="adminUpdate" parameterType="member">
 		update member set password=#{password},name=#{name},nickName=#{nickName},
-		 address=#{address},phone=#{phone},email=#{email},"level"=#{level}
+		 address=#{address},phone=#{phone},email=#{email},grade=#{grade}
 		 where id=#{id}
 	</update>
 <!-- 총회원수 -->
