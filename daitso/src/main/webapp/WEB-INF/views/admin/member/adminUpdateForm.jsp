@@ -62,7 +62,7 @@
 				</tr>
 				<tr>
 					<td class="col-md-5 text-center">레벨</td>
-					<td class="col-md-7"><input type="text" name="level" value="${member.level }" class="inputline1"
+					<td class="col-md-7"><input type="text" name="level" value="${member.grade }" class="inputline1"
 						required="required"></td>
 				</tr>
 				<tr>

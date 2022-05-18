@@ -150,7 +150,7 @@ window.onload = function() {
 			<th class="col-md-1 text-center">주소</th>
 			<th class="col-md-1 text-center">핸드폰번호</th>
 			<th class="col-md-1 text-center">이메일</th>
-			<th class="col-md-1 text-center">레벨</th>
+			<th class="col-md-1 text-center">등급</th>
 			<th class="col-md-1 text-center">가입일</th>
 			<th class="col-md-1 text-center">탈퇴 여부</th>				
 		</tr>
@@ -176,7 +176,7 @@ window.onload = function() {
 						    <td class="col-md-1 text-center">${member.address }</td>
 						    <td class="col-md-1 text-center">${member.phone }</td>
 						    <td class="col-md-1 text-center">${member.email }</td>
-						    <td class="col-md-1 text-center">${member.level }</td>
+						    <td class="col-md-1 text-center">${member.grade }</td>
 							<td class="col-md-1 text-center">${member.reg_date }</td>
 							
 								<c:if test="${member.id == 'admin' }">
