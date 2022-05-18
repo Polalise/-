@@ -36,10 +36,11 @@ public class MemberController {
 	@Autowired
 	private ProductService ps;
 	
-	 @Autowired
-     private NoticeService ns ;
-     @Autowired
-     private EventService es ;
+	@Autowired
+    private NoticeService ns ;
+   
+	@Autowired
+    private EventService es ;
      
 	
 	// 임시로 만든 메인 화면
@@ -113,7 +114,7 @@ public class MemberController {
 	
 	// 로그인
 	@RequestMapping("login")
-	public String login(Member member, Model model, HttpSession session, String pageNum) {
+	public String login(Member member, Model model, HttpSession session, String pageNum, Product product) {
 		int result = 0;
 		// member : 화면에서 입력한 데이터, member2 : 읽은 데이터 아이디로 검색할 데이터가 있으면 중복입력
 		Member member2 = ms.selectId(member.getId());
@@ -127,10 +128,10 @@ public class MemberController {
 				if (pageNum == null || pageNum.equals("")) pageNum = "1";
 				int rowPerPage = 10;
 				int currentPage = Integer.parseInt(pageNum);
-				int total = ps.getTotal();
+				int total = ps.getTotal(product);
 				int startRow = (currentPage - 1) * rowPerPage + 1;
 				int endRow = startRow + rowPerPage - 1;
-				List<Product> list = ps.list(startRow, endRow);
+				List<Product> list = ps.list(product);
 				PageBean pb = new PageBean(currentPage,rowPerPage,total);
 				int p_num = total - startRow + 1;
 				model.addAttribute("p_num", p_num);
