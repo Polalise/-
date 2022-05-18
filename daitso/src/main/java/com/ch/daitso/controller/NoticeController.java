@@ -22,7 +22,7 @@ public class NoticeController {
 	@Autowired
 	private NoticeService ns;
 	
-	@RequestMapping("main")
+	@RequestMapping("adminMain")
 	public String main() {
 
 		return "admin/consumerCenter/main";
