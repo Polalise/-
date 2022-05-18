@@ -66,7 +66,7 @@
 <h2 class="text-primary">리뷰 작성</h2>
 <!-- submit할 때 action에 값이 없으면 자신(view.do)을 한번 더 수행 -->
 <form action="replyWrite2.do" name="review" id="review" style="margin-top: 50px;">
-	<input type="hidden" name="num" value="1">
+	<input type="hidden" name="p_num" value="${p_num }">
 	<input type="hidden" name="rno" value="${rno }">
  <table class="table table-hover"> 
 	<!-- 회원게시판에서 작성자는 로그인 사람의 이름이나 별명(여기서는 게시글 쓴 사람으로 정의) -->
