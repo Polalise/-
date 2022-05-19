@@ -138,10 +138,11 @@ public class MemberController {
 				model.addAttribute("p_num", p_num);
 				model.addAttribute("pb", pb);
 				model.addAttribute("list", list);
+				System.out.println("id="+session.getAttribute("id"));
 			}
 		}
 		model.addAttribute("result", result);
-		return "admin/consumerCenter/main";
+		return "/member/login";
 	}
 	
 	// 로그인 하면 갈 화면 지정

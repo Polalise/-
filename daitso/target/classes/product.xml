@@ -78,4 +78,8 @@
 		#{ip},'n',#{p_value},#{p_tag},#{thumnails,jdbcType=VARCHAR},#{thumnails2,jdbcType=VARCHAR},#{thumnails3,jdbcType=VARCHAR}
 		,#{thumnails4,jdbcType=VARCHAR},#{thumnails5,jdbcType=VARCHAR})
 	</insert>
+	<!-- 판매자 아이디 가져오기 -->
+	<select id="select" parameterType="integer" resultType="product"> <!-- view -->
+		select * from product where p_num=#{p_num}
+	</select>
 </mapper>

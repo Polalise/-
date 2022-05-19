@@ -68,9 +68,10 @@
 <form action="replyWrite2.do" name="review" id="review" style="margin-top: 50px;">
 	<input type="hidden" name="p_num" value="${p_num }">
 	<input type="hidden" name="rno" value="${rno }">
+	<input type="hidden" name="id" value="${id }">
  <table class="table table-hover"> 
 	<!-- 회원게시판에서 작성자는 로그인 사람의 이름이나 별명(여기서는 게시글 쓴 사람으로 정의) -->
-	<tr><th>작성자</th><td><input type="text" name="id" value="admin"></td></tr>
+	<!-- <tr><th>작성자</th><td><input type="text" name="id" value="admin"></td></tr> -->
 	 <tr><th>별점</th> <td> <fieldset>
             <legend></legend>
             <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>

@@ -36,7 +36,7 @@
       <a href="noticeList.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>
       <a href="noticeUpdateForm.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
       <!-- 회원 게시판인 경우에는 폼없이 삭제 여부를 묻고 삭제 ,비회원인 경우에는 암호를 확인하기 위한 화면-->
-       <a href="noticeDeleteForm.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-danger">삭제</a></td></tr>
+       <a href="noticeDelete.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-danger">삭제</a></td></tr>
    
   </table>
 </div>

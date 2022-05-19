@@ -39,8 +39,8 @@ public class ChatDaoImpl implements ChatDao {
 		return sst.selectList("chatns.readChatHistory", chatRoomTemp);
 	}
 
-	@Override
-	public Chat addChatRoom(Chat chat) {
-		return sst.insert("chatns.addChatRoom", chat);
-	}
+//	@Override
+//	public Chat addChatRoom(Chat chat) {
+//		return sst.insert("chatns.addChatRoom", chat);
+//	}
 }

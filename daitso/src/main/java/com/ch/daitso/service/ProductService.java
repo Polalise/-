@@ -13,5 +13,6 @@ public interface ProductService {
 	int update(Product product);
 	int delete(Product product);
 	List<Product> list(Product product);
+	Product select2(int p_num);
 
 }

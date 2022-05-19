@@ -26,10 +26,11 @@ public class NoticeController {
 	
 	@Autowired
 	private MemberService ms;
+
 	@RequestMapping("adminMain")
 	public String main(HttpSession session,Member member,Model model) {
 		 // String id = (String)session.getAttribute("id");
-		  session.setAttribute("id", member.getId());
+		 // session.setAttribute("id", member.getId());
 		 // model.addAttribute("id", id);
 		  model.addAttribute("member", member);
 		return "admin/consumerCenter/main";
@@ -52,7 +53,7 @@ public class NoticeController {
 		   PageBean pb = new PageBean(currentPage,rowPerPage,total);
 		   //답글 번호 순서 
 		   //id 세션가져오기
-		   session.setAttribute("id", member.getId());
+		//  session.setAttribute("id", member.getId());
 		//  String id = (String)session.getAttribute("id");
 		//  model.addAttribute("id", id);
 			model.addAttribute("member", member);
@@ -69,7 +70,7 @@ public class NoticeController {
 	  @RequestMapping("noticeWriteForm")
 	   public String noticeWriteForm(int num,String pageNum,Model model,HttpSession session,Member member) {
 	//	  String id = (String)session.getAttribute("id");
-		  session.setAttribute("id", member.getId());
+	//	  session.setAttribute("id", member.getId());
 			model.addAttribute("member", member);
 		 //  model.addAttribute("id",id);
 		   model.addAttribute("num",num);
@@ -81,17 +82,26 @@ public class NoticeController {
 	  public String noticeWrite(NoticeBoard board, Model model, HttpSession session,Member member
 				,String pageNum,int num) throws IOException {
 		//  String id = (String)session.getAttribute("id");
-		  session.setAttribute("id", member.getId());
+		//  session.setAttribute("id", member.getId());
 			model.addAttribute("member", member);
 			int result = 0;
 			// num을 자동을 1씩 증가
 		 	   int number = ns.getMaxNum();
-				String fileName = board.getFile().getOriginalFilename();
-				board.setFileName(fileName);
-				String real = session.getServletContext().getRealPath("/resources/upload");
-				FileOutputStream fos = new FileOutputStream(new File(real+"/"+fileName));
-				fos.write(board.getFile().getBytes());
-				fos.close();
+//				String fileName = board.getFile().getOriginalFilename();
+//				board.setFileName(fileName);
+//				String real = session.getServletContext().getRealPath("/resources/upload");
+//				FileOutputStream fos = new FileOutputStream(new File(real+"/"+fileName));
+//				fos.write(board.getFile().getBytes());
+//				fos.close();
+		 	//fileName에는 null(현재거 그대로 사용)일수도 있고 값(사진변경)이 넘어 올 수 도 있다.
+		    	String fileName = board.getFile().getOriginalFilename();
+		    	if (fileName != null && !fileName.equals("")) {// 값이 있을때만 처리
+		    		board.setFileName(fileName);
+		    		String real = session.getServletContext().getRealPath("resources/upload");
+		    		FileOutputStream fos = new FileOutputStream(new File(real+"/"+fileName));
+		    		fos.write(board.getFile().getBytes());
+		    		fos.close();
+		    	}
 				board.setNum(number);
 				result = ns.insert(board);
 
@@ -137,22 +147,20 @@ public class NoticeController {
 		   model.addAttribute("num",num);
 			return "admin/notice_board/noticeUpdate";
 		}
-	     @RequestMapping("noticeDeleteForm")
-	     public String updateDeleteForm(Model model,String pageNum,int num) {
-	  	   NoticeBoard board = ns.select(num);
-	  	   model.addAttribute("pageNum",pageNum);
-	  	   model.addAttribute("num",num);
-	  	   model.addAttribute("board",board);
-	  	   
-			return "admin/notice_board/noticeDeleteForm";
-		}
+//	     @RequestMapping("noticeDeleteForm")
+//	     public String updateDeleteForm(Model model,String pageNum,int num,Member member) {
+//	  	   NoticeBoard board = ns.select(num);
+//	  	   model.addAttribute("pageNum",pageNum);
+//	  	   model.addAttribute("num",num);
+//	  	   model.addAttribute("board",board);
+//	  	   
+//			return "admin/notice_board/noticeDeleteForm";
+//		}
 	     @RequestMapping("noticeDelete")
 	     public String delete(Model model,String pageNum,int num,NoticeBoard board) {
 	  	   int result = 0;
-//	  	   Board board2 = bs.select(board.getNum());
-//	  	   if (board2.getPassword().equals(board.getPassword()))
+
 	  	   result= ns.delete(num);
-//	  	   else result= -1;
 	  	   model.addAttribute("result",result);
 	  	   model.addAttribute("pageNum",pageNum);
 	  	   model.addAttribute("num",num);

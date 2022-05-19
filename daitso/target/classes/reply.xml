@@ -10,11 +10,11 @@
 	<!-- 글작성 -->
 	<insert id="insert" parameterType="reply">
 		insert into reply
-		values(#{rno},#{replytext},sysdate,'n',#{rating},#{num},
+		values(#{rno},#{replytext},sysdate,'n',#{rating},#{p_num},
 		#{id})
 	</insert>
-		<select id="list" parameterType="integer" resultType="reply">
-		select * from reply where num=#{num} order by rno
+		<select id="list" parameterType="string" resultType="reply">
+		select * from reply where id=#{id} order by rno
 	</select>
 	<update id="delete" parameterType="reply">
 	   update reply set del='y' where rno=#{rno}

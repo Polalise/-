@@ -100,7 +100,7 @@
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="num" value="${num }"> 
 			<input	type="hidden" name="pageNum" value="${pageNum }">
-			 <input	type="text" name="id" value="${id }"> 
+			 <input	type="hidden" name="id" value="${id }"> 
 			<h2 class="text-primary">이벤트 작성</h2>
 			<table class="table table-bordered">
 				  <%-- <tr>

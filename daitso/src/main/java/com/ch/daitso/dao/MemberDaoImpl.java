@@ -117,4 +117,10 @@ public class MemberDaoImpl implements MemberDao {
 	public List<Member> list(Member member) {
 		return sst.selectList("memberns.list",member);
 	}
+    //별점 등급 영향
+	@Override
+	public void star(int rating) {
+		sst.update("memberns.star",rating);
+		
+	}
 }

@@ -21,6 +21,7 @@ create table member (
 	del char(1) default 'n',
 	photoName varchar2(500)
 );
+delete from member where id='admin';
 insert into member values('admin','1','관리자','매니저',sysdate,'서울','010-2884-1234','dsa@nav.com',0,'n','asd');
 select * from member;
 select * from notice_board;
@@ -64,7 +65,7 @@ create table notice_board(
 	readcount number default 0, -- 읽은 횟수
 	reg_date date not null, -- 작성일
 	update_date date not null,  --업데이트 날짜
-	fileName varchar(1000) , --- 파일이름
+	fileName varchar(1000), --- 파일이름
 	del char(1) default'n',
 	id varchar2(20) references member(id)
 );
@@ -76,7 +77,7 @@ create table event_board(
 	e_readcount number default 0, -- 읽은 횟수
 	e_start_date date not null, -- 작성일
 	e_end_date date not null,  --업데이트 날짜
-	e_fileName varchar(1000) , --- 파일이름
+	e_fileName varchar(1000), --- 파일이름
 	e_del char(1) default'n',
 	id varchar2(20) references member(id)
 );
@@ -86,7 +87,7 @@ create table reply (
 	regdate date not null,
 	del char(1) default 'n' ,
 	rating number ,
-	num number not null references product(p_num),
+	p_num number not null references product(p_num),
 	id  varchar2(100) not null references member(id)
 );
 

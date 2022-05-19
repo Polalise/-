@@ -10,9 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ch.daitso.model.NoticeBoard;
+import com.ch.daitso.model.Member;
+import com.ch.daitso.model.Product;
 import com.ch.daitso.model.Reply;
-import com.ch.daitso.service.NoticeService;
+import com.ch.daitso.service.MemberService;
 import com.ch.daitso.service.ProductService;
 import com.ch.daitso.service.ReplyService;
 
@@ -22,7 +23,7 @@ public class ReplyController {
 	private ReplyService rs;
 	
 	@Autowired
-	private NoticeService ns;
+	private MemberService ms;
 	
 	@Autowired
 	private ProductService ps;
@@ -36,12 +37,15 @@ public class ReplyController {
 		return "admin/review/replyWriteForm";
 	}
 	@RequestMapping("replyWrite2")
-	public String replyWrite(Reply board, Model model, HttpSession session
-			,String pageNum,int rno,int num) throws IOException {
+	public String replyWrite(Reply board, Model model, HttpSession session,int rating
+			,String pageNum,int rno,int p_num) throws IOException {
 		int result = 0;
 		// num을 자동을 1씩 증가
 	 	    int number = rs.getMaxNum();		
 			board.setRno(number);
+			//별점에 대한 등급영향 grage = rating
+			ms.star(rating);
+			//일단 판매자 게시물(num)에 대하여 인서트를 한다
 			result = rs.insert(board);
 			
 		model.addAttribute("board", board);
@@ -50,11 +54,13 @@ public class ReplyController {
 		return "admin/review/replyWrite";
 	}
 	@RequestMapping("replyList2")
-	   public String replyList(int num,String pageNum,Model model) {
-		NoticeBoard board = ns.select(num);
+	   public String replyList(int p_num,String pageNum,Model model,Product product,Member member) {
+			/* NoticeBoard board = ns.select(num); */
+		Product product2 = ps.select2(product.getP_num()); //판매자 아이디 정보가져와
+        member.setId(product2.getId());  // 저장
 		//하나의 게시물에 여러 댓글
-		List<Reply> rbdList = rs.list(num);
-		model.addAttribute("board", board);
+		List<Reply> rbdList = rs.list(member.getId()); // 판매자에 대한 리뷰라 판매자 아이디
+	//	model.addAttribute("product", product);
 		model.addAttribute("rbdList", rbdList);
 		  
 		   return "admin/review/replyList";

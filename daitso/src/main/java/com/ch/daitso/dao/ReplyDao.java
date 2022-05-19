@@ -10,7 +10,7 @@ public interface ReplyDao {
 
 	int insert(Reply board);
 
-	List<Reply> list(int num);
+	List<Reply> list(String id);
 
 	void delete(Reply rb);
 

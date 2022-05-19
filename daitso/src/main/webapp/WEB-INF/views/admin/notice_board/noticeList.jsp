@@ -12,7 +12,7 @@
 		<h2 class="text-primary">게시글 목록</h2>
 		<table class="table table-striped">
 			<tr>
-				<th>번호</th>
+				<!-- <th>번호</th> -->
 				<th>제목</th>
 				<th>작성자</th>
 				<th>조회수</th>
@@ -27,7 +27,7 @@
 				<c:forEach var="notice" items="${list }">
 
 					<tr>
-						<td>${num }<c:set var="num" value="${num - 1}"></c:set> <%-- ${board.num } --%></td>
+						<%-- <td>${num }<c:set var="num" value="${num - 1}"></c:set> ${board.num }</td> --%>
 						<c:if test="${notice.del == 'y' }">
 							<td colspan="4">삭제된 글입니다.</td>
 						</c:if>

@@ -24,8 +24,8 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<Reply> list(int num) {
-		return rd.list(num);
+	public List<Reply> list(String id) {
+		return rd.list(id);
 	}
 
 	@Override
