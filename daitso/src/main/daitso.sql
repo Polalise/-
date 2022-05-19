@@ -97,6 +97,7 @@ create table replyBoard (
 	updatedate date not null,
 	del char(1) 
 );
+
 create table report(
 	report_num number primary key,
 	reporter_id VARCHAR2(100) REFERENCES member ON DELETE CASCADE,
@@ -107,6 +108,7 @@ create table report(
 	progress VARCHAR2(20) not null,
 	report_date date
 );
+
 CREATE TABLE likes(
     id VARCHAR2(100) REFERENCES member ON DELETE CASCADE,
     p_num NUMBER REFERENCES product ON DELETE CASCADE,
