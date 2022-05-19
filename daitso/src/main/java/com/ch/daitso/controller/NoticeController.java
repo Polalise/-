@@ -14,7 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ch.daitso.model.Member;
 import com.ch.daitso.model.NoticeBoard;
+import com.ch.daitso.service.MemberService;
 import com.ch.daitso.service.NoticeService;
 import com.ch.daitso.service.PageBean;
 @Controller
@@ -22,13 +24,18 @@ public class NoticeController {
 	@Autowired
 	private NoticeService ns;
 	
+	@Autowired
+	private MemberService ms;
 	@RequestMapping("adminMain")
-	public String main() {
-
+	public String main(HttpSession session,Member member,Model model) {
+		 // String id = (String)session.getAttribute("id");
+		  session.setAttribute("id", member.getId());
+		 // model.addAttribute("id", id);
+		  model.addAttribute("member", member);
 		return "admin/consumerCenter/main";
 	}
 	  @RequestMapping("noticeList")
-	   public String noticeList(NoticeBoard board,String pageNum,Model model) {
+	   public String noticeList(NoticeBoard board,String pageNum,Model model,HttpSession session,Member member) {
 		   if(pageNum == null || pageNum.equals("")) pageNum = "1";
 		   int rowPerPage = 10;
 		   int currentPage = Integer.parseInt(pageNum);
@@ -44,6 +51,11 @@ public class NoticeController {
 		   //페이징 하기
 		   PageBean pb = new PageBean(currentPage,rowPerPage,total);
 		   //답글 번호 순서 
+		   //id 세션가져오기
+		   session.setAttribute("id", member.getId());
+		//  String id = (String)session.getAttribute("id");
+		//  model.addAttribute("id", id);
+			model.addAttribute("member", member);
 			//검색 한글로 계속유지하게 
 			String[] title = {"작성자","제목","내용","제목+내용"};
 			model.addAttribute("title", title);
@@ -51,20 +63,26 @@ public class NoticeController {
 		   model.addAttribute("pb",pb);
 		   model.addAttribute("list",list);
 		   model.addAttribute("total",total);
-		  
+		//   model.addAttribute("id",id);
 		   return "admin/notice_board/noticeList";
 	   }
 	  @RequestMapping("noticeWriteForm")
-	   public String noticeWriteForm(int num,String pageNum,Model model) {
-	
+	   public String noticeWriteForm(int num,String pageNum,Model model,HttpSession session,Member member) {
+	//	  String id = (String)session.getAttribute("id");
+		  session.setAttribute("id", member.getId());
+			model.addAttribute("member", member);
+		 //  model.addAttribute("id",id);
 		   model.addAttribute("num",num);
 		   model.addAttribute("pageNum",pageNum);
 
 		   return "admin/notice_board/noticeWriteForm";
 	   }
 	  @RequestMapping("noticeWrite")
-	  public String noticeWrite(NoticeBoard board, Model model, HttpSession session
+	  public String noticeWrite(NoticeBoard board, Model model, HttpSession session,Member member
 				,String pageNum,int num) throws IOException {
+		//  String id = (String)session.getAttribute("id");
+		  session.setAttribute("id", member.getId());
+			model.addAttribute("member", member);
 			int result = 0;
 			// num을 자동을 1씩 증가
 		 	   int number = ns.getMaxNum();
@@ -77,6 +95,7 @@ public class NoticeController {
 				board.setNum(number);
 				result = ns.insert(board);
 
+		 //  model.addAttribute("id",id);
 			model.addAttribute("result", result);
 			model.addAttribute("pageNum",pageNum);
 	    	return "admin/notice_board/noticeWrite";

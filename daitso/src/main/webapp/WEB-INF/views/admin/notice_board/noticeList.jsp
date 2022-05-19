@@ -33,12 +33,13 @@
 						</c:if>
 						<c:if test="${notice.del != 'y' }">
 							<td title="${notice.content}"><a
-								href="noticeView.do?num=${notice.num }&pageNum=${pb.currentPage}&id=${notice.id}"
+								href="noticeView.do?num=${notice.num }&pageNum=${pb.currentPage}"
+								<%-- href="noticeView.do?num=${notice.num }&pageNum=${pb.currentPage}&id=${notice.id}" --%>
 								class="btn btn-info btn-sm">${notice.subject }</a> <!-- 조회수 늘리면 hot.gif 보여줘 -->
 								<c:if test="${notice.readcount > 50 }">
 									<img alt="" src="resources/images/hot.gif">
 								</c:if></td>
-							<td>${notice.id }</td>
+							<td>${id}</td>
 							<td>${notice.readcount }</td>
 							<td>${notice.reg_date }</td>
 						</c:if>
@@ -50,13 +51,13 @@
 			<ul class="pagination">
 				<!-- 제일처음으로 가기 -->
 				<c:if test="${pb.startPage > pb.pagePerBlock}">
-					<li><a href="list.do?pageNum=1"> <span
+					<li><a href="noticeList.do?pageNum=1"> <span
 							class="glyphicon glyphicon-backward"></span>
 					</a></li>
 				</c:if>
 				<!-- 블럭 뒤로오게하기 -->
 				<c:if test="${pb.startPage > pb.pagePerBlock}">
-					<li><a href="list.do?pageNum=${pb.startPage-1 }"> <span
+					<li><a href="noticeList.do?pageNum=${pb.startPage-1 }"> <span
 							class="glyphicon glyphicon-triangle-left"></span>
 					</a></li>
 				</c:if>
@@ -64,22 +65,22 @@
 				<c:forEach var="i" begin="${pb.startPage}" end="${pb.endPage }">
 					<!-- page 누를때 안누를때 구분하려고 -->
 					<c:if test="${pb.currentPage == i }">
-						<li class="active"><a href="list.do?pageNum=${i }">${i }</a></li>
+						<li class="active"><a href="noticeList.do?pageNum=${i }">${i }</a></li>
 					</c:if>
 					<c:if test="${pb.currentPage != i }">
-						<li><a href="list.do?pageNum=${i }">${i }</a></li>
+						<li><a href="noticeList.do?pageNum=${i }">${i }</a></li>
 					</c:if>
 				</c:forEach>
 				<!-- 블럭 움직이는것 -->
 				<c:if test="${pb.endPage < pb.totalPage}">
-					<li><a href="list.do?pageNum=${pb.endPage+1 }"> <span
+					<li><a href="noticeList.do?pageNum=${pb.endPage+1 }"> <span
 							class="glyphicon glyphicon-triangle-right"></span>
 					</a></li>
 				</c:if>
 				<!-- 제일끝으로가는거 -->
 				<!-- 보여줄것이 남아 있으면 endPage보다 totalpage가 크다 -->
 				<c:if test="${pb.endPage < pb.totalPage}">
-					<li><a href="list.do?pageNum=${pb.totalPage }"> <span
+					<li><a href="noticeList.do?pageNum=${pb.totalPage }"> <span
 							class="glyphicon glyphicon-forward"></span>
 					</a></li>
 				</c:if>

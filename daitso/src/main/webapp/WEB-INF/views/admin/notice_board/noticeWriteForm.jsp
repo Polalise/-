@@ -100,14 +100,14 @@
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="num" value="${num }"> 
 			<input	type="hidden" name="pageNum" value="${pageNum }">
+			 <input	type="text" name="id" value="${id }"> 
 			<h2 class="text-primary">이벤트 작성</h2>
 			<table class="table table-bordered">
-				<tr>
+				  <%-- <tr>
 					<td>아이디 <span class="glyphicon glyphicon-user"></span></td>
-					<td><input type="text" name="id" required="required"
-						autofocus="autofocus"></td>
-				</tr>
-				<tr>
+					<td><input type="text" name="id"  readonly="readonly" value="${sessionScope.id}"></td>
+				</tr>  --%>
+				<tr> 
 					<td>제목</td>
 					<td><input type="text" name="subject" required="required"></td>
 				</tr>

@@ -4,9 +4,9 @@ drop table event_board CASCADE CONSTRAINTS;
 drop table replyBoard CASCADE CONSTRAINTS;
 drop table reply CASCADE CONSTRAINTS;
 drop table product CASCADE CONSTRAINTS;
-drop table chat;
-drop table report;
-drop table likes;
+drop table chat CASCADE CONSTRAINTS;
+drop table report CASCADE CONSTRAINTS;
+drop table likes CASCADE CONSTRAINTS;
 
 create table member (
 	id varchar2(500) primary key,
@@ -21,7 +21,9 @@ create table member (
 	del char(1) default 'n',
 	photoName varchar2(500)
 );
-
+insert into member values('admin','1','관리자','매니저',sysdate,'서울','010-2884-1234','dsa@nav.com',0,'n','asd');
+select * from member;
+select * from notice_board;
 
 CREATE TABLE product(
 	p_num NUMBER primary key,

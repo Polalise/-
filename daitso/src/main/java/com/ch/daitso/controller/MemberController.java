@@ -134,13 +134,14 @@ public class MemberController {
 				List<Product> list = ps.list(product);
 				PageBean pb = new PageBean(currentPage,rowPerPage,total);
 				int p_num = total - startRow + 1;
+				
 				model.addAttribute("p_num", p_num);
 				model.addAttribute("pb", pb);
 				model.addAttribute("list", list);
 			}
 		}
 		model.addAttribute("result", result);
-		return "/product/list";
+		return "admin/consumerCenter/main";
 	}
 	
 	// 로그인 하면 갈 화면 지정

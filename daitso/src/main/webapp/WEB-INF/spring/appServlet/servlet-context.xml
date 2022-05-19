@@ -36,8 +36,9 @@
 			<mapping path="/member/m_delete.do"/> -->
 			<mapping path="/p_insertForm.do"/>
 			<mapping path="/chatRoom.do"/>
-			
-			
+			 <mapping path="/noticeList.do"/>
+			<mapping path="/noticeWriteForm.do"/>
+			<mapping path="/noticeWrite.do"/> 
 			<beans:ref bean="lc"/>
 		</interceptor>
 	</interceptors>
