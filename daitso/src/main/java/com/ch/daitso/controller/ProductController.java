@@ -54,7 +54,7 @@ public class ProductController {
 		model.addAttribute("p_num", p_num);
 		model.addAttribute("pb", pb);
 		model.addAttribute("list", list);
-		return "list"; 
+		return "/product/list"; 
 	}
 	@RequestMapping("p_insertForm")
 	public String insertForm(int p_num, String pageNum,Model model,HttpSession session, Member member) {
@@ -64,7 +64,7 @@ public class ProductController {
 		model.addAttribute("member", member2);
 		model.addAttribute("p_num",p_num);
 		model.addAttribute("pageNum", pageNum);
-		return "insertForm"; 
+		return "/product/insertForm"; 
 	}
 	@RequestMapping("p_insert")
 	public String insert(Product product, String pageNum, Model model, HttpServletRequest request, HttpSession session) throws IOException {
@@ -116,7 +116,7 @@ public class ProductController {
 		model.addAttribute("thumnails5",thumnails5); 
 		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("result", result);
-		return "insert";
+		return "/product/insert";
 	}
 	@RequestMapping("p_view")
 	public String view(int p_num, String pageNum, Model model, HttpSession session){
@@ -132,14 +132,14 @@ public class ProductController {
 		if(likes2 == null)
 			model.addAttribute("likes", "");
 		else model.addAttribute("likes", "1");
-		return "view";
+		return "/product/view";
 	} 
 	@RequestMapping("p_updateForm")
 	public String updateForm(int p_num, String pageNum, Model model) {
 		Product product = ps.select(p_num);
 		model.addAttribute("product", product);
 		model.addAttribute("pageNum", pageNum);
-		return "updateForm";
+		return "/product/updateForm";
 	}
 	@RequestMapping("p_update")
 	public String update(Product product,String pageNum,Model model, HttpSession session) throws IOException {
@@ -186,7 +186,7 @@ public class ProductController {
 		model.addAttribute("thumnails5",thumnails5); 
 		model.addAttribute("result",result);
 		model.addAttribute("pageNum", pageNum);
-		return "update";
+		return "/product/update";
 	}
 	@RequestMapping("p_delete")
 	public String delete(int p_num,String pageNum, Model model) {
@@ -195,7 +195,7 @@ public class ProductController {
 		result = ps.delete(product);
 		model.addAttribute("result",result);
 		model.addAttribute("pageNum", pageNum);
-		return "delete"; 
+		return "/product/delete"; 
 	}
 }
 	//photo zone

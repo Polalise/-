@@ -101,11 +101,11 @@
 </head>
 <body>
 <div class="first">
-	<form method="post" action="reportAction.po">
+	<form method="post" action="reportAction.do">
         <div class="report_header">신고하기</div>
-        <input type="hidden" name="p_num" value="${report.p_num }">
-		<input type="hidden" name="reporter_id" value="${report.reporter_id }">
-		<input type="hidden" name="criminal_id" value="${report.criminal_id }">
+        <input type="text" name="p_num" value="${report.p_num }">
+		<input type="text" name="reporter_id" value="${report.reporter_id }">
+		<input type="text" name="criminal_id" value="${report.criminal_id }">
         <div class="product_info">
             <!-- <span class="thumbnail"><img src="images/kim.jpg"></span> -->
         </div>

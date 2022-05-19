@@ -16,7 +16,7 @@
 		}
 		function up(bno, rno) {
 			var sendData = "replytext=" +$("#rt").val()+"&bno="+bno+"&rno="+rno;
-			$.post('rUpdate.po',sendData, function(data) {
+			$.post('rUpdate.do',sendData, function(data) {
 				alert("수정 되었습니다"); 
 				$("#rbdListDisp").html(data);
 			});	
