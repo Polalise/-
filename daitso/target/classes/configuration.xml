@@ -11,6 +11,7 @@
 		<typeAlias alias="reply" type="com.ch.daitso.model.Reply" />
 		<typeAlias alias="likes" type="com.ch.daitso.model.Likes"/>
 		<typeAlias alias="report" type="com.ch.daitso.model.Report"/>
+		<typeAlias alias="myPage" type="com.ch.daitso.model.Mypage"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="member.xml" />
@@ -21,6 +22,7 @@
 		<mapper resource="reply.xml" />
 		<mapper resource="likes.xml" />
 		<mapper resource="report.xml" />
+		<mapper resource="myPage.xml"/>
 	</mappers>
 </configuration>
 

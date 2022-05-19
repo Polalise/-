@@ -1,0 +1,91 @@
+.first{
+    border: solid 1px red;
+    height: 610px;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.report_header{
+    border: solid 1px violet;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    font-size: large;
+}
+.sec{
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    width: 500px;
+    border: solid 1px green;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+}
+.product_info{
+    width: 570px;
+    height: 300px;
+    border: solid 1px blue;
+    margin-top: 15px;
+    margin-left: 13px;
+    margin-right: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.textBox{
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 560px;
+    height: 6.25em;
+    border: solid 1px black;
+    resize: none;
+}
+.submit_btn{
+    height: 30px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.thumbnail{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+}
+
+.thumbnail img{  
+    height: 250px;
+    width: 250px;
+}
+
+.pro_info{
+    /* border: solid 1px red; */
+    margin-right: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 250px;
+    width: 250px;
+    text-align: left;
+}
+.pro_info ul{
+    padding-left: 0px;
+    margin-left: 0px;
+}
+.pro_info ul li{
+    list-style: none;
+    margin-bottom: 16px;
+    border: solid 1px black;
+}
+.pro_info a{
+    display: inline-block;
+    margin-bottom: 16px;
+    margin-left: 15px;
+}
