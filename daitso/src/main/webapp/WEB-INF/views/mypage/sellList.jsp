@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../../../resources/css/myPage.css">
-<link rel="stylesheet" href="../../../resources/css/sellList.css">
+<link rel="stylesheet" href="${path}/resources/css/myPage.css">
+<link rel="stylesheet" href="${path}/resources/css/sellList.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -17,12 +17,12 @@
 				left menu
 				<h2>마이페이지</h2>
 				<ul class="ulc">
-					<li>프로필 이에요</li>
-					<li>채팅이에요</li>
-					<li>찜했어요</li>
-					<li>샀어요</li>
-					<li>팔았어요</li>
-					<li>리뷰에요</li>
+					<li><a href="myProfileForm.do">내 정보</a></li>
+					<li><a href="">채팅목록</a></li>
+					<li><a href="myBuyList.do">구매한 물품</a></li>
+					<li><a href="mySellList.do">판매한 물품</a></li>
+					<li><a href="myLikeList.do">찜한 물품</a></li>
+					<li><a href="">리뷰 목록</a></li>
 				</ul>
 				<div class="fired">
 					<a>회원 탈퇴</a>
@@ -35,12 +35,22 @@
 				</div>
 				<div class="viewList">
 					<div class="product">
-						<span class="thumbnail">썸네일</span> <a>상품이름</a> <a>언제팔았니</a> <a>얼마에팔았니</a>
-						<a>리뷰</a>
+						<c:if test="${empty mySellList}">
+						아직 판매한 적이 없어요!
+					</c:if>
+						<c:if test="${not empty mySellList}">
+							<c:forEach var="product" items="${mySellList }">
+								<span class="thumbnail">
+								<img src="${path}/resources/upload/${product.thumnails}"></span>
+								<a>${product.p_name}</a>
+								<a>${product.updateday}</a>
+								<a>${product.price}</a>
+								<a>리뷰</a>
+							</c:forEach>
+						</c:if>
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </body>

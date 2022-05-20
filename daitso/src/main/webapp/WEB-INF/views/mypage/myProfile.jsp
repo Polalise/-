@@ -4,10 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../../../resources/css/myPage.css">
-<link rel="stylesheet" href="../../../resources/css/myProfile.css">
+<link rel="stylesheet" href="${path}/resources/css/myPage.css">
+<link rel="stylesheet" href="${path}/resources/css/myProfile.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function(){
+		
+	});
+</script>
 </head>
 <body>
 	<div class="my_layout">
@@ -18,32 +23,41 @@
 				<h2>마이페이지</h2>
 				<ul class="ulc">
 					<li><a href="myProfileForm.do">내 정보</a></li>
-					<li>채팅이에요</li>
-					<li>찜했어요</li>
-					<li>샀어요</li>
-					<li>팔았어요</li>
-					<li>리뷰에요</li>
+					<li><a href="">채팅목록</a></li>
+					<li><a href="myBuyList.do">구매한 물품</a></li>
+					<li><a href="mySellList.do">판매한 물품</a></li>
+					<li><a href="myLikeList.do">찜한 물품</a></li>
+					<li><a href="">리뷰 목록</a></li>
 				</ul>
 				<div class="fired">
 					<a>회원 탈퇴</a>
 				</div>
 			</div>
 			<div class="profileBox">
-				<div class="tier" id="platinum">
+				<div class="tier" id="tier-">
 					<div class="content">
+					<!-- 프로필 사진 -->
 						<div class="pic">
-							<img alt="" src="images/jang.jpg"> <span class="tierPic"><img
-								alt="" src="images/vip.png"></span>
+							<img alt="" src="${path}/resources/upload/${member.photoName}">
+					<!-- 티어 아이콘 -->		
+							<span class="tierPic">
+							<img alt="" src="images/vip.png"></span>
 						</div>
 					</div>
 					<div class="profile">
-						<div class="name">이름</div>
+						<div class="name">${member.nickName} 님 의 가입일은 ${member.regdate} 입니다</div>
 						<div class="etc">
-							<a>내용 1</a> <br /> <a>내용 2</a> <br /> <a>내용 3</a> <br /> <a>내용
-								4</a>
+							<a>판매한 횟수 : ${productCountS}</a> <br/>
+							<a>구매한 횟수 : ${productCountB}</a> <br/>
+							<a>찜한 횟수 : ${likesCount} </a> <br/>
+							<a>본명 : ${member.name }</a>
 						</div>
 					</div>
-					<span class="Lv">lv</span> <span class="Per">%</span>
+					<!-- 레벨 진행도 -->
+						<!-- 각 왼쪽 Lv , 오른쪽 % 표시 -->
+						<span class="Lv">lv</span>
+						<span class="Per">%</span>
+					<!-- 레벨 bar -->
 					<progress class="level" value="10" max="100" ></progress>
 				</div>
 			</div>

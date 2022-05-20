@@ -91,32 +91,32 @@
 }
 
 /* 실버 */
-#silver {
+#tier-silver {
   background: linear-gradient(to right, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
 }
 
 /* 골드 */
-#gold {
+#tier-gold {
   background: linear-gradient(15deg, #f5b100, #fff8bd);
 }
 
 /* 플래티넘 */
-#platinum {
+#tier-platinum {
   background: linear-gradient(105deg, #2affb8, #2fddbd);
 }
 
 /* 다이아 */
-#diamond {
+#tier-diamond {
   background: linear-gradient(-139deg, #b2fefa, #0ed2f7);
 }
 
 /* vip */
-#vip {
+#tier-vip {
   background: linear-gradient(to right, #feac5e, #c779d0, #4cb0b8);
 }
 
 /* 불량유저 */
-#warning {
+#tier-warning {
   background-color: #ef473a;
 }
 

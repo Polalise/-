@@ -2,31 +2,45 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="myPagens">
-<!-- 내 정보 전부 받아오기 -->
-<select id="myInfo">
-	select * from member where id=#{id}
-</select>
-<!-- 내 정보 수정하기 -->
-<update id="updateProfile">
-	update member set nickName=#{nickName},address=#{address},
-	phone=#{phone},email=#{email},photoName=#{photoName}
-	where id=#{id}
-</update>
-<!-- 내 정보중 레벨 받아오기 -->
-<select id="myLevel">
-	select grade from member where id=#{id}
-</select>
-<!-- 내가 산 물품 목록 가져오기 -->
-<select id="myBuyList">
-	select * from product where p_write=#{id} and p_value='구매'
-</select>
-<!-- 내가 판 물품 목록 가져오기 -->
-<select id="mySellList">
-	select * from product where p_write=#{id} and p_value='판매'
-</select>
-<!-- 내 좋아요 물품 목록 가져오기 -->
-<select id="likeList">
-	select * from likes where id=#{id}
-</select>
+	<!-- 내 정보 수정하기 -->
+	<update id="updateProfile">
+		update member set nickName=#{nickName},address=#{address},
+		phone=#{phone},email=#{email},photoName=#{photoName}
+		where id=#{id}
+	</update>
+	
+	<!-- 내가 산 물품 목록 가져오기 -->
+	<select id="myBuyList" parameterType="string" resultType="product">
+		select * from product where buyer=#{id} and p_value='구매'
+	</select>
+	
+	<!-- 산 물품 목록 갯수 -->
+	<select id="myBuyCount" parameterType="string" resultType="integer">
+		select count(*) from product where buyer=#{id}
+	</select>
+	
+	<!-- 내가 판 물품 목록 가져오기 -->
+	<select id="mySellList" parameterType="string" resultType="product">
+		select * from product where p_writer=#{id} and p_value='판매'
+	</select>
+	
+	<!-- 판 물품 목록 갯수 -->
+	<select id="mySellCount" parameterType="string" resultType="integer">
+		select count(*) from product where p_writer=#{id}
+	</select>
+	
+	<!-- 내 좋아요 물품 목록 가져오기 -->
+	<select id="likeList" parameterType="string" resultType="likes">
+		select p_num from likes where id=#{id}
+	</select>
+	
+	<select id="likeListInfo" parameterType="integer" resultType="product">
+		select * from product where p_num= #{p_num}
+	</select>
+	
+	<!-- 내 좋아요 한 물품 갯수 -->
+	<select id="likeCount" parameterType="string" resultType="integer">
+		select count(*) from likes where id=#{id}
+	</select>
 
 </mapper>

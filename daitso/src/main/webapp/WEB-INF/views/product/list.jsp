@@ -120,6 +120,7 @@ select option[value=""][disabled] {
 		</div>
 		<div align="center">
 			<a href="p_insertForm.do?p_num=0&pageNum=1" class="btn btn-success">게시글 입력</a>
+			<a href="myProfileForm.do" class="btn">마이페이지</a>
 		</div>
 	</div>
 </body>

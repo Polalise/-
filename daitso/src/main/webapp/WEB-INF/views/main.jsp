@@ -11,8 +11,7 @@
 <div class="container">
 	<div><a href="loginForm.do" class="btn">로그인</a></div>
 	<div><a href="p_list.do" class="btn">리스트</a></div>
-
-	<a>absddq6asd</a>
+	<a href="myProfileForm.do" class="btn">마이페이지</a>
 
 </div>
 </body>

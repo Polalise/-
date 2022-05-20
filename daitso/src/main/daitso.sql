@@ -8,6 +8,8 @@ drop table chat;
 drop table report;
 drop table likes;
 
+select * from member;
+
 create table member (
 	id varchar2(500) primary key,
 	password varchar2(500) not null,

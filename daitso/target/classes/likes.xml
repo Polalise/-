@@ -15,9 +15,4 @@
 		delete likes where id=#{id} and p_num=#{p_num}
 	</delete>
 	
-<!-- 	<select id="searchLikes" parameterType="map" resultType="likes">
-		select * from likes where id=#{id} and p_num=#{p_num}
-	</select> -->
-	
-	
 </mapper>
