@@ -37,14 +37,15 @@ public class ReplyController {
 		return "admin/review/replyWriteForm";
 	}
 	@RequestMapping("replyWrite2")
-	public String replyWrite(Reply board, Model model, HttpSession session,int rating
+	public String replyWrite(Reply board, Model model, HttpSession session,int rating,Member member,Product product
 			,String pageNum,int rno,int p_num) throws IOException {
 		int result = 0;
-		// num을 자동을 1씩 증가
+		    // num을 자동을 1씩 증가
 	 	    int number = rs.getMaxNum();		
 			board.setRno(number);
 			//별점에 대한 등급영향 grage = rating
-			ms.star(rating);
+			Product product2 = ps.select2(product.getP_num()); //판매자 아이디 정보가져와
+			ms.star(product2.getId(),rating);
 			//일단 판매자 게시물(num)에 대하여 인서트를 한다
 			result = rs.insert(board);
 			

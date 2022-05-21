@@ -50,6 +50,6 @@ public interface MemberService {
 
 	List<Member> mbList(Member member);
 
-	void star(int rating);
+	void star(String id,int rating);
 
 }

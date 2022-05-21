@@ -1,6 +1,8 @@
 package com.ch.daitso.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,10 +92,10 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int adminUpdate(Member member) {
-		System.out.println("member"+member.getAddress());
-		System.out.println("member"+member.getName());
-		System.out.println("member"+member.getPassword());
-		System.out.println("member"+member.getNickName());
+//		System.out.println("member"+member.getAddress());
+//		System.out.println("member"+member.getName());
+//		System.out.println("member"+member.getPassword());
+//		System.out.println("member"+member.getNickName());
 		
 		return sst.update("memberns.adminUpdate", member);
 	}
@@ -119,8 +121,11 @@ public class MemberDaoImpl implements MemberDao {
 	}
     //별점 등급 영향
 	@Override
-	public void star(int rating) {
-		sst.update("memberns.star",rating);
+	public void star(String id,int rating) {
+		Map<String,Object> map = new HashMap<String,Object >();
+	    map.put("rating",rating);
+         map.put("id",id);
+		sst.update("memberns.star",map);
 		
 	}
 }

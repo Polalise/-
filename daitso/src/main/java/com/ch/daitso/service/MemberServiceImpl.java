@@ -112,8 +112,8 @@ public class MemberServiceImpl implements MemberService {
 	}
     //별점 등급영향
 	@Override
-	public void star(int rating) {
-		md.star(rating);
+	public void star(String id,int rating) {
+		md.star(id,rating);
 		
 	}
 }

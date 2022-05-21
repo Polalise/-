@@ -115,7 +115,7 @@
    </select>
    
    <!-- 별점 등급 영향 -->
-	<update id="star" parameterType="integer" >
+	<update id="star" parameterType="map"  >
 		update member set
 		<if test="rating = 1">
 		 grade = grade +1
@@ -132,6 +132,6 @@
 		 <if test="rating = 5">
 		 grade = grade +5
 		 </if>
-		 where grade = #{rating}
+		 where id = #{id}
 	</update>
 </mapper>
