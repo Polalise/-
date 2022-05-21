@@ -14,5 +14,7 @@ public interface ProductService {
 	int delete(Product product);
 	List<Product> list(Product product);
 	Product select2(int p_num);
+	int getProductCount();
+	int getProductCount2();
 
 }

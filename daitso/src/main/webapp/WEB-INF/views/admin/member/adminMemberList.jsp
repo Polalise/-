@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
@@ -31,22 +31,24 @@ window.onload = function() {
 	var myChart = new Chart(ctx, {
 	    type: 'bar',
 	    data: {
-	        labels: ["공지사항글", "이벤트글"],
+	        labels: ["판매글","공지사항글", "이벤트글","판매완료글"],
 	        datasets: [{
 	        	label: '게시글 수',
 	
-	            data: ['${noticeCount}', '${eventCount}'], //컨트롤러에서 모델로 받아온다.
+	            data: ['${productConunt}','${noticeCount}', '${eventCount}','${productConunt2}'], //컨트롤러에서 모델로 받아온다.
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(54, 162, 235, 0.2)'
-	
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(285, 99, 132, 0.2)',
+	                'rgba(64, 162, 235, 0.2)'
 	            ],
 	            borderColor: [
 	                'rgba(255,99,132,1)',
-	                'rgba(54, 162, 235, 1)'
-	
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(265,99,132,1)',
+	                'rgba(64, 162, 235, 1)'
 	            ],
-	            borderWidth: 2
+	            borderWidth: 4
 	        }
 	        ]
 	    },
@@ -177,7 +179,7 @@ window.onload = function() {
 						    <td class="col-md-1 text-center">${member.phone }</td>
 						    <td class="col-md-1 text-center">${member.email }</td>
 						    <td class="col-md-1 text-center">${member.grade }</td>
-							<td class="col-md-1 text-center">${member.reg_date }</td>
+							<td class="col-md-1 text-center">${member.regdate }</td>
 							
 								<c:if test="${member.id == 'admin' }">
 									<td class="col-md-2 text-center">관리자</td>

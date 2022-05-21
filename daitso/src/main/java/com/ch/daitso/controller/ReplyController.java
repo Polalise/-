@@ -45,7 +45,7 @@ public class ReplyController {
 			board.setRno(number);
 			//별점에 대한 등급영향 grage = rating
 			Product product2 = ps.select2(product.getP_num()); //판매자 아이디 정보가져와
-			ms.star(product2.getId(),rating);
+			ms.star(board.getRating(),product2.getId());
 			//일단 판매자 게시물(num)에 대하여 인서트를 한다
 			result = rs.insert(board);
 			

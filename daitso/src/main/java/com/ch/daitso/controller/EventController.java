@@ -38,7 +38,7 @@ public class EventController {
 	   //페이징 하기
 	   PageBean pb = new PageBean(currentPage,rowPerPage,total);
 	   //답글 번호 순서 
-
+	 
 	   String[] title = {"작성자","제목","내용","제목+내용"};
 		model.addAttribute("title", title);
 	   model.addAttribute("num",num);
@@ -46,7 +46,7 @@ public class EventController {
 	   model.addAttribute("list",list);
 	   model.addAttribute("total",total);
 	  
-	   return "admin/event_board/eventList";
+	   return "admin/event_board/event";
    }
    @RequestMapping("eventWriteForm")
    public String eventWriteForm(int e_num,String pageNum,Model model) {

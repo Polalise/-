@@ -50,5 +50,5 @@ public interface MemberDao {
 
 	List<Member> list(Member member);
 
-	void star(String id,int rating);
+	void star(int rating,String id);
 }

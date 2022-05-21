@@ -10,7 +10,8 @@
 <body>
 	<div class="container" align="center">
 		<h2 class="text-primary">게시글 목록</h2>
-		<table class="table table-striped">
+		<div class="table-responsive">  
+		<table class="table">
 			<tr>
 				<!-- <th>번호</th> -->
 				<th>제목</th>
@@ -47,6 +48,7 @@
 				</c:forEach>
 			</c:if>
 		</table>
+		</div>
 		<div align="center">
 			<ul class="pagination">
 				<!-- 제일처음으로 가기 -->

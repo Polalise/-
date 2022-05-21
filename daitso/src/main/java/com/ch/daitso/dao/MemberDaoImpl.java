@@ -121,8 +121,8 @@ public class MemberDaoImpl implements MemberDao {
 	}
     //별점 등급 영향
 	@Override
-	public void star(String id,int rating) {
-		Map<String,Object> map = new HashMap<String,Object >();
+	public void star(int rating,String id) {
+		Map<Object,Object> map = new HashMap<Object,Object>();
 	    map.put("rating",rating);
          map.put("id",id);
 		sst.update("memberns.star",map);

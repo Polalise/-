@@ -24,6 +24,7 @@ create table member (
 delete from member where id='admin';
 insert into member values('admin','1','관리자','매니저',sysdate,'서울','010-2884-1234','dsa@nav.com',0,'n','asd');
 select * from member;
+select * from product;
 select * from notice_board;
 
 CREATE TABLE product(
@@ -38,7 +39,7 @@ CREATE TABLE product(
 	readcount number default 0, -- 읽은 횟수
 	p_del char(1) default 'n', -- 삭제 여부 
 	updateday DATE,-- 게시글수정일
-	sel	char(1), --거례여부
+	sel	char(1) default 'n', --거례여부
 	likescount NUMBER, -- 좋아요갯수
 	p_tag	varchar2(100), --해쉬 테그
 	buyer varchar2(100), -- 구매자	
@@ -50,7 +51,12 @@ CREATE TABLE product(
 	thumnails5 varchar2(100),
 	id VARCHAR2(500) REFERENCES member ON DELETE CASCADE
 );
-
+insert into PRODUCT values(1,'asd','sa5d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'s',0,'dsa','dsa','ads','das','das2','das3','das4','das5','admin');
+insert into PRODUCT values(2,'a2sd','sa2d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'y',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a1');
+insert into PRODUCT values(3,'a3d','sa52d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'s',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a2');
+insert into PRODUCT values(4,'as5d','s3ad',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'y',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a2');
+insert into PRODUCT values(5,'as4d','sa2d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'s',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a1');
+insert into PRODUCT values(6,'a6sd','sa1d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'y',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a1');
 create table chat(
 	room_num NUMBER primary key,
 	seller_nick varchar2(500),

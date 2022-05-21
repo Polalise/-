@@ -79,7 +79,15 @@
 		,#{thumnails4,jdbcType=VARCHAR},#{thumnails5,jdbcType=VARCHAR})
 	</insert>
 	<!-- 판매자 아이디 가져오기 -->
-	<select id="select" parameterType="integer" resultType="product"> <!-- view -->
+	<select id="select2" parameterType="integer" resultType="product"> <!-- view -->
 		select * from product where p_num=#{p_num}
 	</select>
+	<!-- 총게시글수 -->
+	<select id = "getProductCount" resultType="int">
+     select count(*) from product
+   </select>
+   <!-- 판매 게시글수 -->
+	<select id = "getProductCount2" resultType="int">
+     select count(*) from product where sel = 's'
+   </select>
 </mapper>

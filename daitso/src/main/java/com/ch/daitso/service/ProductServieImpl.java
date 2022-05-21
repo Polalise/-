@@ -40,5 +40,13 @@ public class ProductServieImpl implements ProductService {
 	public Product select2(int p_num) {
 		return pd.select2(p_num);
 	}
+	@Override
+	public int getProductCount() {
+		return pd.getProductCount();
+	}
+	@Override
+	public int getProductCount2() {
+		return pd.getProductCount2();
+	}
 } 
 
