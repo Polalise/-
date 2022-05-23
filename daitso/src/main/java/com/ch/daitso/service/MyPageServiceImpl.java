@@ -37,8 +37,4 @@ public class MyPageServiceImpl implements MypageService{
 		return myd.likeCount(id);
 	}
 
-	public List<Product> likeListInfo(List<Mypage> likeList) {
-		return myd.likeListInfo(likeList);
-	}
-
 }

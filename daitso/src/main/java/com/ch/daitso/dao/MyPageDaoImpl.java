@@ -43,10 +43,5 @@ public class MyPageDaoImpl implements MypageDao{
 		return sst.selectOne("myPagens.mySellCount", id);
 	}
 
-//	찜한 목록 상세 정보	
-	public List<Product> likeListInfo(List<Mypage> likeList) {
-		return sst.selectList("myPagens.likeListInfo", likeList);
-	}
-	
 
 }

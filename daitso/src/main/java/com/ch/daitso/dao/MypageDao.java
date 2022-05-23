@@ -18,7 +18,4 @@ public interface MypageDao {
 
 	int likeCount(String id);
 
-	List<Product> likeListInfo(List<Mypage> likeList);
-
-
 }

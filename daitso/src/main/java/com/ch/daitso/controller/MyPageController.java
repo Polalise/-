@@ -38,7 +38,6 @@ public class MyPageController {
 		
 		//내 좋아요 물품 및 카운트 정보 넘기기
 		List<Mypage> likeList = mys.likeList(id);
-		List<Product> likeListInfo = mys.likeListInfo(likeList);
 		int likesCount = mys.likeCount(id);
 		
 		// 내 구매&판매 리스트
@@ -47,12 +46,47 @@ public class MyPageController {
 		// 구매 판매 카운팅
 		int productCountB = mys.myBuyCount(id);
 		int productCountS = mys.mySellCount(id);
+		// 티어
+		int tier = member2.getGrade();
+		// 티어 최대점수
+		int maxGrade = 0;
+		// 티어 최소점수
+		int minGrade = 0;
+		// 티어 배경색
+		String tierBC = "";
+		if (tier <= 20) {
+			maxGrade = 20;
+			minGrade = 0;
+			tierBC = "warning";
+		} else if (tier > 20 && tier < 50) {
+			maxGrade = 50;
+			minGrade = 20;
+			tierBC = "silver";
+		} else if (tier >= 50 && tier < 100) {
+			minGrade = 50;
+			maxGrade = 100;
+			tierBC = "gold";
+		} else if (tier >= 100 && tier < 200) {
+			minGrade = 100;
+			maxGrade = 200;
+			tierBC = "platinum";
+		} else if (tier >= 200 && tier < 300) {
+			minGrade = 200;
+			maxGrade = 300;
+			tierBC = "diamond";
+		} else if (tier >= 300) {
+			maxGrade = tier;
+			tierBC = "vip";
+		}
+		model.addAttribute("minGrade",minGrade);
+		model.addAttribute("maxGrade", maxGrade);
+		model.addAttribute("tierBC", tierBC);
 		// 구매&판매 정보 넘김
 		model.addAttribute("myBuyList",myBuyList);
 		model.addAttribute("mySellList",mySellList);
 		model.addAttribute("myBuyCount",productCountB);
 		model.addAttribute("mySellCount",productCountS);
-		model.addAttribute("likeListInfo",likeListInfo);
+		model.addAttribute("likeList",likeList);
 		model.addAttribute("likesCount",likesCount);
 		model.addAttribute("member",member2);
 		
@@ -98,11 +132,10 @@ public class MyPageController {
 		
 		//내 좋아요 물품 및 카운트 정보 넘기기
 		List<Mypage> likeList = mys.likeList(id);
-		List<Product> likeListInfo = mys.likeListInfo(likeList);
 		int likesCount = mys.likeCount(id);
-		
+		System.out.println("찜한 횟수 : " + likesCount);
+		System.out.println("찜한 게시글 info : " + likeList);
 		model.addAttribute("likeList",likeList);
-		model.addAttribute("likeListInfo",likeListInfo);
 		model.addAttribute("likesCount", likesCount);
 		
 		return "/mypage/likeList";

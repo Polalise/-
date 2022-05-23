@@ -35,11 +35,11 @@
 					찜한 상품이 없어요!
 				</c:if>
 				<c:if test="${not empty likeList }">
-					<c:forEach var="product" items="${likeListInfo }">
+					<c:forEach var="product" items="${likeList }">
 						<div class="product">
 							<div class="thumbnail">
 								<img src="${path}/resources/upload/${product.thumnails}">
-								<span class="likeBtn"> <img alt="" src="images/likes.png"></span>
+								<span class="likeBtn"> <img alt="" src="${path}/resources/images/likes.png"></span>
 							</div>
 							<div class="info">
 								<a>${product.p_name }</a> <a>${product.price }</a> <a>${product.p_date }</a>

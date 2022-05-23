@@ -30,13 +30,13 @@
 	</select>
 	
 	<!-- 내 좋아요 물품 목록 가져오기 -->
-	<select id="likeList" parameterType="string" resultType="likes">
-		select p_num from likes where id=#{id}
+	<select id="likeList" parameterType="string" resultType="product">
+		select * from likes l, product p where l.id=#{id} and l.p_num = p.p_num
 	</select>
 	
-	<select id="likeListInfo" parameterType="integer" resultType="product">
+	<!-- <select id="likeListInfo" parameterType="integer" resultType="product">
 		select * from product where p_num= #{p_num}
-	</select>
+	</select> -->
 	
 	<!-- 내 좋아요 한 물품 갯수 -->
 	<select id="likeCount" parameterType="string" resultType="integer">

@@ -18,7 +18,5 @@ public interface MypageService {
 
 	int likeCount(String id);
 
-	List<Product> likeListInfo(List<Mypage> likeList);
-
 
 }

@@ -34,14 +34,14 @@
 				</div>
 			</div>
 			<div class="profileBox">
-				<div class="tier" id="tier-">
+				<div class="tier" id="tier-${tierBC}">
 					<div class="content">
 					<!-- 프로필 사진 -->
 						<div class="pic">
 							<img alt="" src="${path}/resources/upload/${member.photoName}">
 					<!-- 티어 아이콘 -->		
 							<span class="tierPic">
-							<img alt="" src="images/vip.png"></span>
+							<img alt="" src="${path}/resources/images/${tierBC}.png"></span>
 						</div>
 					</div>
 					<div class="profile">
@@ -58,36 +58,23 @@
 						<span class="Lv">lv</span>
 						<span class="Per">%</span>
 					<!-- 레벨 bar -->
-					<progress class="level" value="10" max="100" ></progress>
+					<meter class="level" value="${member.grade}" min="${minGrade}" max="${maxGrade}"></meter>
+					<%-- <progress  value="${member.grade}" max="${maxGrade}" ></progress> --%>
 				</div>
 			</div>
 			<div class="recent">
 				<div class="buy">
 					<div class="buy_header">최근 찜한거!</div>
-					<div class="likePic">
-						<img src="images/im3.jpg" />
-					</div>
-					<div class="likePic">
-						<img src="images/jang.jpg">
-					</div>
-					<div class="likePic">
-						<img src="images/kim.jpg">
-					</div>
-					<div class="likePic">
-						<img src="images/jang.jpg">
-					</div>
-					<div class="likePic">
-						<img src="images/kim.jpg">
-					</div>
-					<div class="likePic">
-						<img src="images/jang.jpg">
-					</div>
-					<div class="likePic">
-						<img src="images/kim.jpg">
-					</div>
-					<div class="likePic">
-						<img src="images/jang.jpg">
-					</div>
+					<c:if test="${empty likeList }">
+						아직 찜한 상품이 없어요!!
+					</c:if>
+					<c:if test="${not empty likeList }">
+						<c:forEach var="product" items="${likeList }">
+							<div class="likePic">
+								<img src="${path}/resources/upload/${product.thumnails}">
+							</div>
+						</c:forEach>
+					</c:if>
 				</div>
 				<div class="event">
 					<img src="images/event.PNG" />
