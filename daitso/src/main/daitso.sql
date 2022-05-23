@@ -26,6 +26,7 @@ insert into member values('admin','1','관리자','매니저',sysdate,'서울','
 select * from member;
 select * from product;
 select * from notice_board;
+select * from reply;
 
 CREATE TABLE product(
 	p_num NUMBER primary key,

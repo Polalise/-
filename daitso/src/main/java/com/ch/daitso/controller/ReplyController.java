@@ -69,13 +69,13 @@ public class ReplyController {
 	@RequestMapping("rDelete2")
 	public String rDelete(Reply rb) {
 		rs.delete(rb);
-		return "redirect:replyList2.do?num="+rb.getNum();
+		return "redirect:replyList2.do?num="+rb.getP_num();
 	}
 	//댓글 수정
 		@RequestMapping("rUpdate2")
 		public String rUpdate(Reply rb) {
 			rs.update(rb);
-			return "redirect:replyList2.do?num="+rb.getNum();
+			return "redirect:replyList2.do?num="+rb.getP_num();
 		}
 	
 }

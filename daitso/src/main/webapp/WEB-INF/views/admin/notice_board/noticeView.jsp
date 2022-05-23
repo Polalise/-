@@ -5,12 +5,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+#total{
+ display: flex;
+ margin-top: 200px;
+}
+.container{
+  border: 2px solid blue;
+}
+#sub{
+  margin-right: 300px;
+}
+.sideMenu{
+    margin-left: 300px;
+}
+.snb{
+  font-size: 26px
+}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container" align="center">
-  <h2 class="text-primary">게시글 상세</h2>
+<div id="total">
+   <div class="sideMenu" style="border: 2px solid red;">
+     <h2>메뉴</h2> 
+    <!-- <strong>메뉴</strong> -->
+    <div class="snb">
+        <ul>
+            <!-- <li class=''><a href="">고객센터 메인<i></i></a></li> -->
+            <!-- <li class=''><a href="" title="현재선택">자주찾는 질문<i></i></a></li> -->
+            <li class=''><a href="">공지사항<i></i></a></li>
+            <li class=''><a href="">이벤트<i></i></a></li>
+            <li class=''><a href="">신고문의<i></i></a></li>
+            <li class=''><a href="">회원관리<i></i></a></li>            
+             
+        </ul>
+    </div>
+    </div>
+<div class="container" align="center" id="sub" >
+  <h2 class="text-primary">공지사항 상세</h2>
   <table class="table table-striped">
   <tr><td>제목</td><td>${board.subject }</td></tr>
 		<tr><td>조회수</td><td>${board.readcount }</td></tr>
@@ -40,6 +74,6 @@
    
   </table>
 </div>
-
+</div>
 </body>
 </html>

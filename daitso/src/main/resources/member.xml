@@ -117,21 +117,9 @@
    <!-- 별점 등급 영향 -->
 	<update id="star" parameterType="map"  >
 		update member set
-		<if test="rating = 1">
-		 grade = grade +1
-		 </if>
-		 <if test="rating= 2">
-		 grade = grade +2
-		 </if>
-		 <if test="rating = 3">
-		 grade = grade +3
-		 </if>
-		 <if test="rating= 4">
-		 grade = grade +4
-		 </if>
-		 <if test="rating = 5">
-		 grade = grade +5
-		 </if>
+		
+		 grade = grade + #{rating}
+		
 		 where id = #{id}
 	</update>
 </mapper>

@@ -4,16 +4,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+.sideMenu{
+    margin-left: 300px;
+}
+#total{
+    display: flex;
+    margin-top: 200px;
+}
+#sub{
+  margin-right: 300px;
+}
+.snb{
+  font-size: 26px
+}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container" align="center">
+<div id="total">
+   <div class="sideMenu" style="border: 2px solid red;">
+     <h2>메뉴</h2> 
+    <!-- <strong>메뉴</strong> -->
+    <div class="snb">
+        <ul>
+            <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
+            <li class=''><a href="eventList.do">이벤트<i></i></a></li>
+            <li class=''><a href="">신고문의<i></i></a></li>
+            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>               
+        </ul>
+    </div>
+    </div>
+	<div class="container" id="sub" align="center" style="border: 2px solid blue;">
 		<h2 class="text-primary">공지사항</h2>
+		    
+	   
 		<div class="table-responsive">  
 		<table class="table">
 			<tr>
-				<!-- <th>번호</th> -->
+			    <th>번호</th>
 				<th>제목</th>
 				<th>작성자</th>
 				<th>조회수</th>
@@ -28,7 +58,7 @@
 				<c:forEach var="notice" items="${list }">
 
 					<tr>
-						<%-- <td>${num }<c:set var="num" value="${num - 1}"></c:set> ${board.num }</td> --%>
+						 <td>${num }<c:set var="num" value="${num - 1}"></c:set><%-- ${board.num } --%></td> 
 						<c:if test="${notice.del == 'y' }">
 							<td colspan="4">삭제된 글입니다.</td>
 						</c:if>
@@ -115,6 +145,7 @@
 			<a href="noticeWriteForm.do?num=0&pageNum=1" class="btn btn-success">게시글
 				입력</a>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

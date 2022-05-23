@@ -357,7 +357,7 @@ public class MemberController {
 	   //회원 
 	  		int memberCount = ms.getCount();
 	  		int member2Count = ms.getCount2();
-
+			/* System.out.println("productCount2 :"+ productCount2); */
 	  		model.addAttribute("productConunt", productConunt);
 	  		model.addAttribute("productCount2", productCount2);
 	  		model.addAttribute("noticeCount", noticeCount);

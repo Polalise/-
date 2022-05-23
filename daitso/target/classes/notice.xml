@@ -43,7 +43,7 @@
           </if>
        </if>
     </where>
-    order by num ) a) where rn between #{startRow} and #{endRow}
+    order by num desc) a) where rn between #{startRow} and #{endRow}
  </select>
 	<select id="getMaxNum" resultType="integer">
 		<!-- 제일큰수 가져와서 +1 하고 값이 없으면 0 -->

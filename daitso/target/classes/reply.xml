@@ -14,7 +14,7 @@
 		#{id})
 	</insert>
 		<select id="list" parameterType="string" resultType="reply">
-		select * from reply where id=#{id} order by rno
+		select * from reply where id=#{id} order by rno desc
 	</select>
 	<update id="delete" parameterType="reply">
 	   update reply set del='y' where rno=#{rno}

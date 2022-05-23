@@ -7,6 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.container{
+ margin-top: 200px;
+}
+</style>
 </head>
 <body>
 <div class="container" align="center">
@@ -33,7 +38,7 @@
       <a href="eventUpdateForm.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
       <!-- 회원 게시판인 경우에는 폼없이 삭제 여부를 묻고 삭제 ,비회원인 경우에는 암호를 확인하기 위한 화면-->
        <a href="eventDelete.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-danger">삭제</a>
-   
+   </td></tr>
   </table>
 </div>
 

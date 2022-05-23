@@ -14,12 +14,29 @@
 <style type="text/css">
 #chart{
    margin-left: 300px;
+    border: 2px solid blue;
 }
-/* .table{
+.table{
      margin-left: 300px;
-} */
+     width:70%
+} 
 #logChart2{
       margin-left: 80px;
+}
+#memberTotal{
+ margin-top: 100px;
+  border: 2px solid red;
+  
+}
+#memberForm{
+border: 2px solid yellow;
+}
+.sideMenu{
+  font-size: 26px
+  
+}
+#sidetotal{
+  display: flex;
 }
 </style>
 <script type="text/javascript">
@@ -35,7 +52,7 @@ window.onload = function() {
 	        datasets: [{
 	        	label: '게시글 수',
 	
-	            data: ['${productConunt}','${noticeCount}', '${eventCount}','${productConunt2}'], //컨트롤러에서 모델로 받아온다.
+	            data: ['${productConunt}','${noticeCount}', '${eventCount}','${productCount2}'], //컨트롤러에서 모델로 받아온다.
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',
 	                'rgba(54, 162, 235, 0.2)',
@@ -123,10 +140,28 @@ window.onload = function() {
 </head>
 <c:set var="path" value="${pageContext.request.contextPath }"></c:set>
 <body>
+<div id="sidetotal">
+<div class="sideMenu" style="margin-top:100px; ">
+     <h2>메뉴</h2> 
+    <!-- <strong>메뉴</strong> -->
+    <div class="snb">
+        <ul>
+            <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
+            <li class=''><a href="eventList.do">이벤트<i></i></a></li>
+            <li class=''><a href="">신고문의<i></i></a></li>
+            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>               
+        </ul>
+    </div>
+    </div>
+    
+<div id="memberTotal">
 <div style="display: flex" id="chart" >
 <canvas id="logChart" class="logChart" style="width:40%"></canvas>
 <canvas id="logChart2" class="logChart2" style="width:40%"></canvas>
 </div>
+<div id="bigmember" style="display: flex">
+
+    <div id="memberForm">
 <h2 class="title" style="margin-left: 300px">회원정보</h2>
 	 <form action=" adminMemberList.do?pageNum=1">
 
@@ -143,7 +178,7 @@ window.onload = function() {
  <input type="text" name="keyword" value="${member.keyword }">
  <input type="submit" value="확인">
 </form>	
-	<table class="table" style="width:100%">
+	<table class="table" style="width:70%">
 		<tr>   
 			<th class="col-md-1 text-center">회원번호</th>
 			<th class="col-md-1 text-center">회원ID</th>
@@ -176,7 +211,7 @@ window.onload = function() {
 							<td class="col-md-1 text-center">${member.name }</td>
 							<td class="col-md-1 text-center">${member.nickName }</td>
 						    <td class="col-md-1 text-center">${member.address }</td>
-						    <td class="col-md-1 text-center">${member.phone }</td>
+						    <td class="col-md-2 text-center">${member.phone }</td>
 						    <td class="col-md-1 text-center">${member.email }</td>
 						    <td class="col-md-1 text-center">${member.grade }</td>
 							<td class="col-md-1 text-center">${member.regdate }</td>
@@ -204,6 +239,10 @@ window.onload = function() {
 				<tr><td colspan="7"></td></tr>
 			</c:if>
 		</table>   
+		</div>
+		</div>  <!-- bigmember -->
+		</div>  <!-- membertotal -->
+		</div>
 		<div align="center">
 			<ul class="pagination">
 				<!-- 시작페이지가 pagePerBlock(10)보다 크면 앞에 보여줄 페이지가 있다 -->
@@ -237,5 +276,7 @@ window.onload = function() {
 				</c:if>
 			</ul>
 		</div>
+		
+		
 </body>
 </html>

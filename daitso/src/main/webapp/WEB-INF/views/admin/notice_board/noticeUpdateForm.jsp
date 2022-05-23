@@ -7,6 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.sideMenu{
+    margin-left: 300px;
+}
+#total{
+    display: flex;
+    margin-top: 200px;
+}
+#sub{
+  margin-right: 300px;
+  border: 2px solid blue;
+}
+.snb{
+  font-size: 26px
+}
 /* drop & drag */
 .drag-over {
 	background: yellow;
@@ -94,7 +108,20 @@
 </script>
 </head>
 <body>
-	<div class="container" align="center">
+<div id="total">
+   <div class="sideMenu" style="border: 2px solid red;">
+     <h2>메뉴</h2> 
+    <!-- <strong>메뉴</strong> -->
+    <div class="snb">
+        <ul>
+            <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
+            <li class=''><a href="eventList.do">이벤트<i></i></a></li>
+            <li class=''><a href="">신고문의<i></i></a></li>
+            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>               
+        </ul>
+    </div>
+    </div>
+	<div class="container" id="sub" align="center">
 
 		<form action="noticeUpdate.do" method="post"
 			enctype="multipart/form-data" name="frm">
@@ -107,7 +134,21 @@
 					<td>아이디 <span class="glyphicon glyphicon-user"></span></td>
 					<td>${board.id }</td>
 				</tr> --%>
+				<tr> 
+					<td>제목</td>
+					<td><textarea rows="1" cols="100" name="subject" required="required" >${board.subject }</textarea>
+					<!-- <input type="text" name="subject" cols="100" required="required"> --></td>
+				</tr>
 				<tr>
+					<td>사진 <span class="glyphicon glyphicon-picture"></span></td>
+					<td><input type="file" name="file" ></td>
+				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea rows="10" cols="100" name="content" required="required">${board.content }</textarea>
+					<!-- <input type="text" name="content" required="required"> --></td>
+				</tr>
+				<%-- <tr>
 					<td>제목</td>
 					<td><input type="text" name="subject" required="required" value="${board.subject }"></td>
 				</tr>
@@ -119,7 +160,7 @@
 				<tr>
 					<td>사진 <span class="glyphicon glyphicon-picture"></span></td>
 					<td><input type="file" name="file" ></td>
-				</tr>
+				</tr> --%>
 				<tr> 
 					<td colspan="2" align="center"><input type="submit"
 						id="submit" class="btn btn-success" value="확인"></td>
@@ -127,6 +168,7 @@
 			</table>
 		</form>
 		<div id="disp"></div>
+	</div>
 	</div>
 </body>
 </html>

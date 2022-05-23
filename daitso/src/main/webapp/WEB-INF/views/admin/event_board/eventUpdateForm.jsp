@@ -7,6 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.container{
+  margin-top: 200px;
+}
 /* drop & drag */
 .drag-over {
 	background: yellow;
@@ -110,24 +113,40 @@
 				</tr> --%>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="e_subject" required="required" value="${board.e_subject }"></td>
+					<td><textarea rows="1" cols="100" name="e_subject" required="required">${board.e_subject }</textarea>
+					<%-- <input type="text" name="e_subject" required="required" value="${board.e_subject }"> --%></td>
+				</tr>
+			<%-- 	<tr>
+					<td>내용</td>
+					<td><input type="text" name="e_content" required="required" value="${board.e_content }"></td>
+				</tr> --%>
+				<tr>
+					<td>시작일
+					<td><input type="date" name="e_start_date" required="required" value="${board.e_start_date }">&nbsp;&nbsp;
+					 종료일
+					<input type="date" name="e_end_date" required="required" value="${board.e_end_date }"></td>
+				</tr>
+				<tr>
+					<td>사진 <span class="glyphicon glyphicon-picture" ></span></td>
+					<td><input type="file" name="file" ></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><input type="text" name="e_content" required="required" value="${board.e_content }"></td>
+					<td><textarea rows="10" cols="100" name="e_content" required="required" >${board.e_content }</textarea>
+					<!-- <input type="text" name="e_content" required="required"> --></td>
 				</tr>
-				<tr>
+				<%-- <tr>
 					<td>시작일</td>
 					<td><input type="date" name="e_start_date" required="required" value="${board.e_start_date }"></td>
 				 </tr>
 			     <tr>
 					<td>종료일</td>
 					<td><input type="date" name="e_end_date" required="required" value="${board.e_end_date }"></td>
-				</tr>
-				<tr>
+				</tr> --%>
+				<!-- <tr>
 					<td>사진 <span class="glyphicon glyphicon-picture"></span></td>
 					<td><input type="file" name="file" ></td>
-				</tr>
+				</tr> -->
 				<tr> 
 					<td colspan="2" align="center"><input type="submit"
 						id="submit" class="btn btn-success" value="확인"></td>

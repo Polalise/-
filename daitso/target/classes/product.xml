@@ -83,11 +83,11 @@
 		select * from product where p_num=#{p_num}
 	</select>
 	<!-- 총게시글수 -->
-	<select id = "getProductCount" resultType="int">
+	<select id = "getProductCount" resultType="integer">
      select count(*) from product
    </select>
    <!-- 판매 게시글수 -->
-	<select id = "getProductCount2" resultType="int">
+	<select id = "getProductCount2" resultType="integer">
      select count(*) from product where sel = 's'
    </select>
 </mapper>
