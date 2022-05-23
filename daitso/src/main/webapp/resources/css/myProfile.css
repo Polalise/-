@@ -118,7 +118,7 @@
 
 /* 불량유저 ~ 20 */
 #tier-warning {
-  background: linear-gradient(to right, #ef473a, #fff700);
+  background: linear-gradient(to right, #ef473a, #fff700,#ef473a, #fff700,#ef473a, #fff700);
 }
 
 /* 이름 div */

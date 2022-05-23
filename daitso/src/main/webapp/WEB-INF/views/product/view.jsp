@@ -26,22 +26,17 @@
 	});
 	
 	$(function() {
-        $('#boardListDisp').load("p_list.po","pageNum=${pageNum}");
          var like = "${likes}"
         $("#addL").on("click",function () {
             if (like == ''){
-            	alert("좋아요 입력1");
                 $.post('addLikes.do', "id=${id}&p_num=${product.p_num}", function(data) {
-                	alert("좋아요 입력2");
+                	location.reload();
                     $(".heart").attr("src","${path}/resources/images/likes.png"); 
-                    alert("좋아요 입력3");
                 });
             } else if (like != '') {
-            	alert("좋아요 삭제1");
             $.post('deleteLikes.do', "id=${id}&p_num=${product.p_num}", function(data) {
-            	alert("좋아요 삭제2");
+            		location.reload();
                     $(".heart").attr("src","${path}/resources/images/unlikes.png");
-                    alert("좋아요 삭제3");
                 });
             };
             location.reload();
