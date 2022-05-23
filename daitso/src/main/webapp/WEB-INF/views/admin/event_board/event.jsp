@@ -19,7 +19,7 @@
 		<h5 style="font-size: xx-large; margin-bottom: 20px;">이벤트 게시판</h5>
 	</div>
 	<form action=" eventList.do?pageNum=1"
-		style="margin-left: 1200px; margin-bottom: 20px;">
+		style="margin-left: 780px; margin-bottom: 20px;">
 		<select name="search">
 			<c:forTokens var="sh" items="id,e_subject,e_content,subcon"
 				delims="," varStatus="i">

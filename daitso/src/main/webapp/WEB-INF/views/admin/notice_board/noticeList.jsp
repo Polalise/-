@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container" align="center">
-		<h2 class="text-primary">게시글 목록</h2>
+		<h2 class="text-primary">공지사항</h2>
 		<div class="table-responsive">  
 		<table class="table">
 			<tr>
@@ -40,7 +40,7 @@
 								<c:if test="${notice.readcount > 50 }">
 									<img alt="" src="resources/images/hot.gif">
 								</c:if></td>
-							<td>${id}</td>
+							<td>${notice.id}</td>
 							<td>${notice.readcount }</td>
 							<td>${notice.reg_date }</td>
 						</c:if>

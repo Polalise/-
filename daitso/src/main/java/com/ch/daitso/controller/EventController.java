@@ -24,7 +24,7 @@ public class EventController {
    @RequestMapping("eventList")
    public String eventList(EventBoard board,String pageNum,Model model) {
 	   if(pageNum == null || pageNum.equals("")) pageNum = "1";
-	   int rowPerPage = 10;
+	   int rowPerPage = 8;
 	   int currentPage = Integer.parseInt(pageNum);
 //	   int total = es.getTotal();
 	   int total = es.getTotal(board);

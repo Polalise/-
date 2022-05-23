@@ -26,7 +26,15 @@ public class NoticeController {
 	
 	@Autowired
 	private MemberService ms;
-
+	//고객센터
+	@RequestMapping("adminMain2")
+	public String main2(HttpSession session,Member member,Model model) {
+		 // String id = (String)session.getAttribute("id");
+		 // session.setAttribute("id", member.getId());
+		 // model.addAttribute("id", id);
+		  model.addAttribute("member", member);
+		return "admin/consumerCenter/main2";
+	}
 	@RequestMapping("adminMain")
 	public String main(HttpSession session,Member member,Model model) {
 		 // String id = (String)session.getAttribute("id");
