@@ -23,9 +23,4 @@
 		select count(*) from likes where p_num=#{p_num}
 	</select>
 	
-	<!-- 게시글 찜 갯수 -->
-   <select id="P_likeCount" parameterType="string" resultType="integer">
-      select count(*) from likes where p_num=#{p_num}
-   </select>
-	
 </mapper>
