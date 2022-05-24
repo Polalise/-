@@ -137,10 +137,11 @@ public class MemberController {
 				model.addAttribute("p_num", p_num);
 				model.addAttribute("pb", pb);
 				model.addAttribute("list", list);
+				
 			}
 		}
 		model.addAttribute("result", result);
-		return "/product/list";
+		return "/member/login";
 	}
 	
 	// 로그인 하면 갈 화면 지정

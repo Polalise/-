@@ -54,4 +54,8 @@ public class ProductDaoImpl implements ProductDao {
 		return sst.selectList("productns.list", product);
 	}
 
+	public int changeStatus(Product product) {
+		return sst.update("myPagens.changeStatus",product);
+	}
+
 }

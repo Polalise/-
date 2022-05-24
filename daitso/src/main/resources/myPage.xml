@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myPagens">
+	<!-- 내 정보 수정하기 -->
+	<update id="updateProfile">
+		update member set nickName=#{nickName},address=#{address},
+		phone=#{phone},email=#{email},photoName=#{photoName}
+		where id=#{id}
+	</update>
+	
+	<!-- 내가 산 물품 목록 가져오기 -->
+	<select id="myBuyList" parameterType="string" resultType="product">
+		select * from product where buyer=#{id} and p_value='구매'
+	</select>
+	
+	<!-- 산 물품 목록 갯수 -->
+	<select id="myBuyCount" parameterType="string" resultType="integer">
+		select count(*) from product where buyer=#{id}
+	</select>
+	
+	<!-- 내가 판 물품 목록 가져오기 -->
+	<select id="mySellList" parameterType="string" resultType="product">
+		select * from product where p_writer=#{id} and p_value='판매'
+	</select>
+	
+	<!-- 판 물품 목록 갯수 -->
+	<select id="mySellCount" parameterType="string" resultType="integer">
+		select count(*) from product where p_writer=#{id}
+	</select>
+	
+	<!-- 내 좋아요 물품 목록 가져오기 -->
+	<select id="likeList" parameterType="string" resultType="product">
+		select * from likes l, product p where l.id=#{id} and l.p_num = p.p_num
+	</select>
+	
+	<!-- 내 좋아요 한 물품 갯수 -->
+	<select id="likeCount" parameterType="string" resultType="integer">
+		select count(*) from likes where id=#{id}
+	</select>
+	
+	<!-- 상품 배송상태 바꾸기 -->
+	<update id="changeStatus" parameterType="product">
+		update product set sel=#{sel} where p_num=#{p_num}
+	</update>
+	
+</mapper>

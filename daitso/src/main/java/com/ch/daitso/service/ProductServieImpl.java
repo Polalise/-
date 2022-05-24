@@ -36,5 +36,8 @@ public class ProductServieImpl implements ProductService {
 	public List<Product> list(Product product) {
 		return pd.list(product);
 	}
+	public int changeStatus(Product product) {
+		return pd.changeStatus(product);
+	}
 } 
 

@@ -17,6 +17,9 @@ select option[value=""][disabled] {
 }
 </style>
 <script type="text/javascript">
+$(function() {
+	
+});
 </script>
 </head>
 <body>
@@ -27,7 +30,7 @@ select option[value=""][disabled] {
 			<div class="nav" style="margin-right: 350px;">
 				<b>${member.name }님 </b>&nbsp;
 				<c:if test="${id != 'master' }">
-					<a href="/Project2/mypage/mypage.do?">마이페이지</a>
+					<a href="myProfileForm.do">마이페이지</a>
 				</c:if>
 				<c:if test="${id == 'master' }">
 					<!-- <a href='/Project2/manager/m_mypage.do'>관리자페이지</a> -->
@@ -47,7 +50,7 @@ select option[value=""][disabled] {
 							<li><a href="/Project2/main/main.do">◾메인</a></li>
 							<br>
 							<c:if test="${id != 'master' }">
-								<li><a href="/Project2/mypage/mypage.do">◾마이페이지</a></li>
+								<li><a href="myProfileForm.do">◾마이페이지</a></li>
 								<br>
 							</c:if>
 							<c:if test="${id == 'master' }">
