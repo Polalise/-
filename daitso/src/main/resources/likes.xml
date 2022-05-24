@@ -16,15 +16,8 @@
 	</delete>
 	
 	<!-- 게시글 좋아요 갯수 -->
-<<<<<<< HEAD
 	<select id="P_likeCount" parameterType="string" resultType="integer">
 		select count(*) from likes where p_num=#{p_num}
 	</select>
-=======
-   <select id="P_likeCount" parameterType="string" resultType="integer">
-      select count(*) from likes where p_num=#{p_num}
-   </select>
-	
->>>>>>> main
 	
 </mapper>
