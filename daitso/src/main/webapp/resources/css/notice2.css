@@ -1,0 +1,235 @@
+@import url(style.css);
+@import url(madia.css);
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse ;
+    margin: 0px;
+    padding: 0px;
+}
+div .text:after {
+  display:block;
+  content: '';
+  border-bottom: solid 2px green;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+div .text:hover:after { 
+	transform: scaleX(1); 
+}
+
+input[id="icon"] {
+	display: none;
+}
+
+body {
+	height: 500px;
+}
+
+input[id="icon"]+label {
+	position: fixed;
+	top: 30px;
+	display: block;
+	width: 50px;
+	height: 30px;
+	margin-left: -100px;
+	transition: all 0.35s;
+	cursor: pointer; /* 커서를 올려놓을 때 모양이 바뀐다. */
+	z-index: 2;
+}
+
+input[id="icon"]+label>span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 3px;
+	border-radius: 30px;
+	background: rgb(249, 247, 232);
+	transition: all 0.35s; /* 진행되는 과정들을 천천히 보여줄 수 있다. 0.35초 동안 진행됨 */
+	z-index: 2;
+}
+
+input[id="icon"]+label>span:nth-child(1) {
+	top: 0px;
+}
+
+input[id="icon"]+label>span:nth-child(2) {
+	top: 50%;
+	transform: translateY(-50%);
+	/* 엘리먼트를 변형할 때 쓴다. 비틀거나 구부리거나 돌릴 때 . 여러가지로 모양을 바꿀 때 */
+}
+
+input[id="icon"]+label>span:nth-child(3) {
+	bottom: 0px;
+}
+
+input[id="icon"]:checked+label>span:nth-child(1) {
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="icon"]:checked+label>span:nth-child(2) {
+	opacity: 0;
+}
+
+input[id="icon"]:checked+label>span:nth-child(3) {
+	bottom: 50%;
+	transform: translateY(50%) rotate(-45deg);
+}
+
+#icon+label+#header {
+	position: fixed; /* 스크롤을 내리더라도 같은 위치에서 붙어다닌다. */
+	width: 300px;
+	height: 100%;
+	background: rgba(51, 51, 51, 0.219);
+	top: 0px;
+	padding: 60px 25px 25px 25px;
+	box-sizing: border-box;
+	left: -300px;
+	z-index: 1;
+	transition: all 0.35s;
+}
+
+#icon:checked+label+#header {
+	left: 0px;
+}
+
+#icon:checked+label+#header>ul>li>a {
+	color: white;
+}
+
+.intro_bg {
+	background-color: rgb(98, 191, 173);
+}
+
+.header1 {
+	display: flex;
+	width: 1280px;
+	margin: auto;
+	height: 86px;
+}
+
+.search_area {
+	width: 300px;
+	height: 40px;
+	border-radius: 5px;
+	margin-top: 24px;
+	z-index: 2;
+	color: rgb(128, 128, 128);
+}
+
+.search_area>form>input {
+	border: none;
+	width: 250px;
+	height: 40px;
+	color: #000040;
+	padding-left: 10px;
+}
+
+.search_area>form>span {
+	width: 300px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.nav {
+	list-style: none;
+	display: flex;
+	justify-content: flex-end;
+	line-height: 86px;
+	width: calc(1280px - 300px);
+	color: #fff;
+	margin: auto;
+}
+
+.nav>a {
+	margin-left: 10px;
+	color: #fff;
+	font-weight: bold;
+	position: relative;
+	padding: 0px 10px;
+	letter-spacing: 0.5px;
+}
+
+.nav a::after {
+	content: "";
+	position: absolute;
+	transform: translateX(-15%);
+	width: 0;
+	left: 10px;
+	bottom: 20px;
+	height: 0;
+	border-bottom: 4px solid green;
+	transition: all .3s ease;
+}
+
+.nav a:hover:after {
+	width: 100%;
+}
+
+/* .replay{
+	border : 5px solid red;
+	
+} */
+.submit_box{
+	float : right;
+	margin-right: 60px;
+}
+.btn3{
+	width : 60px;
+	height: 40px;
+}
+.text_icon{
+	float :right;
+	
+	
+}
+
+
+/* .num1{
+	margin-left: 20px;
+}
+.num2{
+	margin-left: 20px;
+}
+.num3{
+	margin-left: 20px;
+}
+.num4{
+	margin-left: 20px;
+}
+.num5{
+	margin-left: 20px;
+}
+.num6{
+	margin-left: 20px;
+}
+.num7{
+	margin-left: 20px;
+}
+.num8{
+	margin-left: 20px;
+} */
+
+.asd{
+	float : right;
+	margin-botton: 400px;
+}
+.btnbtn {
+  background-color: white; /* Green */
+  
+  color: black;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position : absolute;
+  top : 17px;
+  left : 580px;
+  border: 2px solid #e7e7e7;
+}

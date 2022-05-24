@@ -22,22 +22,22 @@ public class ReplyBoardController {
 		List<ReplyBoard> rbdList = rbs.list(bno);
 		model.addAttribute("product", product);
 		model.addAttribute("rbdList", rbdList);
-		return "replyList";
+		return "product/replyList";
 	}
 	@RequestMapping("rInsert")
 	public String rInsert(ReplyBoard rb) {
 		rbs.insert(rb);
-		return "redirect:replyList.po?bno="+rb.getBno();			
+		return "redirect:replyList.do?bno="+rb.getBno();			
 	}
 	@RequestMapping("rUpdate")
 	public String rUpdate(ReplyBoard rb) {
 		rbs.update(rb);
-		return "redirect:replyList.po?bno="+rb.getBno();
+		return "redirect:replyList.do?bno="+rb.getBno();
 	}
 	@RequestMapping("rDelete")
 	public String rDelete(ReplyBoard rb) {
 		System.out.println("rb3:" + rb);
 		rbs.delete(rb);
-		return "redirect:replyList.po?bno="+rb.getBno();
+		return "redirect:replyList.do?bno="+rb.getBno();
 	}
 } 
