@@ -32,8 +32,7 @@ public class ReportController {
 		Product product = ps.select(p_num);
 		report.setP_num(p_num);
 		report.setReporter_id(id);
-		String badId = product.getId();
-		System.out.println("badId : " + badId );
+		String badId = product.getP_writer();
 		report.setCriminal_id(badId);
 		model.addAttribute("report", report);
 		model.addAttribute("product",product);
@@ -54,4 +53,3 @@ public class ReportController {
 //	신고 여부 체크
 	
 }
- 

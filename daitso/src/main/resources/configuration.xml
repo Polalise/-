@@ -5,7 +5,6 @@
 	<typeAliases>
 		<typeAlias alias="member" type="com.ch.daitso.model.Member" />
 		<typeAlias alias="product" type="com.ch.daitso.model.Product" />
-		<typeAlias alias="rboard" type="com.ch.daitso.model.ReplyBoard" />
 		<typeAlias alias="chat" type="com.ch.daitso.model.Chat" />
 		<typeAlias alias="notice" type="com.ch.daitso.model.NoticeBoard" />
 		<typeAlias alias="event" type="com.ch.daitso.model.EventBoard" />
@@ -17,7 +16,6 @@
 	<mappers>
 		<mapper resource="member.xml" />
 		<mapper resource="product.xml" />
-		<mapper resource="rboard.xml" />
 		<mapper resource="chat.xml" />
 		<mapper resource="notice.xml" />	
 		<mapper resource="event.xml" />

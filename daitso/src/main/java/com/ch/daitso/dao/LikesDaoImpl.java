@@ -30,8 +30,4 @@ public class LikesDaoImpl implements LikesDao {
 		return sst.selectOne("likesns.searchList",map);
 	}
 
-	public int P_likeCount(int p_num) {
-		return sst.selectOne("likesns.P_likeCount",p_num);
-	}
-
 }

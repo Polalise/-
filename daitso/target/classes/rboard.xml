@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace xml의 이름 -->
 <mapper namespace="rboardns">
-	<select id="r_list" parameterType="integer" resultType="rboard">
+	<select id="list" parameterType="integer" resultType="rboard">
 		select * from replyBoard where bno=#{bno} order by rno
 	</select>
 	<insert id="insert" parameterType="rboard"> <!-- rno의 수를 자동으로 증가 시키는 코드 -->

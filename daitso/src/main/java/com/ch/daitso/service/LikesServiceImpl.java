@@ -25,9 +25,5 @@ public class LikesServiceImpl implements LikesService {
 		return ld.searchList(id, p_num);
 	}
 
-	public int P_likeCount(int p_num) {
-		return ld.P_likeCount(p_num);
-	}
-
 
 }

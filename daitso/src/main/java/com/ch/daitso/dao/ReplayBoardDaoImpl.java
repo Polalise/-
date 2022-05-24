@@ -11,7 +11,7 @@ public class ReplayBoardDaoImpl implements ReplyBoardDao {
 	@Autowired
 	private SqlSessionTemplate sst;
 	public List<ReplyBoard> list(int bno) {
-		return sst.selectList("rboardns.r_list", bno);
+		return sst.selectList("rboardns.list", bno);
 	}
 	public void insert(ReplyBoard rb) {
 		System.out.println("rb:" + rb);
