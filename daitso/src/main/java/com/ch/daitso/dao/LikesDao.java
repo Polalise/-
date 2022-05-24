@@ -12,4 +12,6 @@ public interface LikesDao {
 
 	Likes searchList(String id, int p_num);
 
+	int P_likeCount(int p_num);
+
 }
