@@ -1,6 +1,6 @@
 .first{
     border: solid 1px red;
-    height: 610px;
+    height: 105%;
     width: 600px;
     display: flex;
     flex-wrap: wrap;
@@ -10,10 +10,12 @@
 }
 .report_header{
     border: solid 1px violet;
+    padding-top: 10px;
     width: 100%;
-    height: 40px;
+    height: 35px;
     text-align: center;
     font-size: large;
+    margin-bottom: 10px;
 }
 .sec{
     margin-top: 15px;
@@ -38,54 +40,72 @@
     display: flex;
     justify-content: space-between;
 }
-
+.textBoxArea{
+    width: 100%;
+}
 .textBox{
     margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 560px;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 90%;
     height: 6.25em;
     border: solid 1px black;
     resize: none;
 }
 .submit_btn{
-    height: 30px;
+    height: 45px;
     margin-top: 15px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    position: relative;
+    left: auto;
 }
 .thumbnail{
+    display: inline;
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 20px;
+    width: 260px;
+    height: 260px;
 }
 
 .thumbnail img{  
     height: 250px;
     width: 250px;
 }
-
-.pro_info{
-    /* border: solid 1px red; */
-    margin-right: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 250px;
-    width: 250px;
-    text-align: left;
+.criminal_Product{
+    display: flex;
+    width: 100%;
+    height: 260px;
 }
-.pro_info ul{
-    padding-left: 0px;
-    margin-left: 0px;
+.criminal_info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
 }
-.pro_info ul li{
-    list-style: none;
-    margin-bottom: 16px;
-    border: solid 1px black;
+.criminal_info a{
+    display: block;
+    width: 80%;
+    margin-left: 5%;
+    height: 30px;
 }
-.pro_info a{
-    display: inline-block;
-    margin-bottom: 16px;
-    margin-left: 15px;
+.criminal_info div{
+    display: block;
+    width: 100%;
+    height: 70px;
+    margin-top: 3%;
+}
+.criminal_info input[type=text] { 
+    border: none;
+    width: 80%;
+    margin-left: 5%;
+    height: 20px;
+}
+form input[type=submit] {
+    width: 100px;
 }

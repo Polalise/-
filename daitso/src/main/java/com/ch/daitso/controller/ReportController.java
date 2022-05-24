@@ -35,6 +35,7 @@ public class ReportController {
 		String badId = product.getP_writer();
 		report.setCriminal_id(badId);
 		model.addAttribute("report", report);
+		model.addAttribute("product",product);
 		return "/report/reportForm";
 	}
 //	신고전송	

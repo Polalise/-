@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ch.daitso.model.*;
 import com.ch.daitso.service.LikesService;
@@ -140,5 +141,12 @@ public class MyPageController {
 		
 		return "/mypage/likeList";
 	}
-
+	/*
+	 * @RequestMapping(value = "myDelAction", produces = "text/html;charset=utf-8")
+	 * 
+	 * @ResponseBody public String myDelAction(Likes likes,Model model) { int result
+	 * = ls.deleteLikes(likes); System.out.println("result : "+result);
+	 * model.addAttribute("likes",likes); return result+""; }
+	 */
+	
 }

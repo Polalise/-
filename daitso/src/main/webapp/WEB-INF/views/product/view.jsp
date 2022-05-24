@@ -14,31 +14,26 @@
 </style>
 <script type="text/javascript">
 	$(function() {
-		$('#rbdListDisp').load("replyList.po", "bno=${product.p_num}");
+		$('#rbdListDisp').load("replyList.do", "bno=${product.p_num}");
 		$('#rInsert').click(function() {
 			var sendData = $('#frm1').serialize();
-			$.post("rInsert.po", sendData, function(data) {
+			$.post("rInsert.do", sendData, function(data) {
 				alert("댓글이 입력 되었습니다");
 				$('#rbdListDisp').html(data);
 				frm1.replytext.value = ""; // 댓글 지우기
 			});
 		});
-	});
-	
-	$(function() {
-         var like = "${likes}"
+         var like = "${likes}";
         $("#addL").on("click",function () {
             if (like == ''){
                 $.post('addLikes.do', "id=${id}&p_num=${product.p_num}", function(data) {
-                	location.reload();
                     $(".heart").attr("src","${path}/resources/images/likes.png"); 
                 });
             } else if (like != '') {
             $.post('deleteLikes.do', "id=${id}&p_num=${product.p_num}", function(data) {
-            		location.reload();
                     $(".heart").attr("src","${path}/resources/images/unlikes.png");
                 });
-            };
+            }
             location.reload();
         });
 

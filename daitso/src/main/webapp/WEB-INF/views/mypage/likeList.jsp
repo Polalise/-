@@ -8,6 +8,13 @@
 <link rel="stylesheet" href="${path}/resources/css/likeList.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function delAction(p_num,id) {
+	 $.post('deleteLikes.do', "id="+id+"&p_num="+p_num, function(data) {
+ 		location.reload();
+     });
+}
+</script>
 </head>
 <body>
 	<div class="my_layout">
@@ -37,9 +44,13 @@
 				<c:if test="${not empty likeList }">
 					<c:forEach var="product" items="${likeList }">
 						<div class="product">
+						<div id="delInfo">
+							<input type="hidden" value="${product.p_num}">
+							<input type="hidden" value="${id }">
+						</div>
 							<div class="thumbnail">
 								<img src="${path}/resources/upload/${product.thumnails}">
-								<span class="likeBtn"> <img alt="" src="${path}/resources/images/likes.png"></span>
+								<span class="likeBtn" onclick="delAction(${product.p_num},'${id}')"> <img alt="" src="${path}/resources/images/likes.png"></span>
 							</div>
 							<div class="info">
 								<a>${product.p_name }</a> <a>${product.price }</a> <a>${product.p_date }</a>
