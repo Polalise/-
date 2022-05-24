@@ -5,6 +5,23 @@
 <html>
 <head>
 <style type="text/css">
+a:link {
+  text-decoration: none;
+}
+ 
+a:visited {
+  text-decoration: none;
+}
+ 
+a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+ 
+a:active {
+  text-decoration: underline;
+   font-weight: bold;
+}
 .sideMenu{
     margin-left: 300px;
 }
@@ -18,6 +35,30 @@
 .snb{
   font-size: 26px
 }
+/* 사이드 */
+ ul.mylist {
+          list-style-type: none;
+          background-color: #fff;
+          width: 200px;
+          padding: 0;
+          margin: 0;
+          border: 2px solid;
+          font-size: 20px;
+     }
+
+     li a {
+          text-decoration: none;
+          display: block;
+          color: #000;
+          padding: 8px 15px 8px 15px;
+          font-weight: bold;
+          border-bottom: 1px solid #fff;
+     }
+
+     li a:hover {
+          background-color: tomato;
+          color: #fff;
+     }
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -25,10 +66,9 @@
 <body>
 <div id="total">
    <div class="sideMenu" style="border: 2px solid red;">
-     <h2>메뉴</h2> 
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
-        <ul>
+        <ul class="mylist">
             <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
             <li class=''><a href="eventList.do">이벤트<i></i></a></li>
             <li class=''><a href="">신고문의<i></i></a></li>
@@ -43,11 +83,11 @@
 		<div class="table-responsive">  
 		<table class="table">
 			<tr>
-			    <th>번호</th>
+			    <th style="width:10%;">번호</th>
 				<th>제목</th>
-				<th>작성자</th>
-				<th>조회수</th>
-				<th>작성일</th>
+				<!-- <th>작성자</th> -->
+				<th style="width:10%;">조회수</th>
+				<th style="width:10%;">작성일</th>
 			</tr>
 			<c:if test="${empty list }">
 				<tr>
@@ -63,14 +103,14 @@
 							<td colspan="4">삭제된 글입니다.</td>
 						</c:if>
 						<c:if test="${notice.del != 'y' }">
-							<td title="${notice.content}"><a
+							<td title="${notice.content}" class="sub2"><a
 								href="noticeView.do?num=${notice.num }&pageNum=${pb.currentPage}"
 								<%-- href="noticeView.do?num=${notice.num }&pageNum=${pb.currentPage}&id=${notice.id}" --%>
-								class="btn btn-info btn-sm">${notice.subject }</a> <!-- 조회수 늘리면 hot.gif 보여줘 -->
+								class="sub2">${notice.subject }</a> <!-- 조회수 늘리면 hot.gif 보여줘 -->
 								<c:if test="${notice.readcount > 50 }">
 									<img alt="" src="resources/images/hot.gif">
 								</c:if></td>
-							<td>${notice.id}</td>
+							<%-- <td>${notice.id}</td> --%>
 							<td>${notice.readcount }</td>
 							<td>${notice.reg_date }</td>
 						</c:if>
@@ -79,6 +119,20 @@
 			</c:if>
 		</table>
 		</div>
+			<form action="noticeList.do?pageNum=1">
+<select name="search">
+   <c:forTokens var="sh" items="id,subject,content,subcon" delims="," varStatus="i">
+      <c:if test="${sh==board.search }">
+       <option value="${sh }" selected="selected">${title[i.index]}</option>
+      </c:if>
+      <c:if test="${sh!=board.search }">
+       <option value="${sh }">${title[i.index]}</option>
+      </c:if>
+   </c:forTokens>
+</select>
+ <input type="text" name="keyword" value="${board.keyword }">
+ <input type="submit" value="확인">
+</form>	
 		<div align="center">
 			<ul class="pagination">
 				<!-- 제일처음으로 가기 -->
@@ -118,33 +172,13 @@
 				</c:if>
 			</ul>
 		</div>
-		<!-- 검색 -->
-	<form action="noticeList.do?pageNum=1">
-<%-- <select name="search">
-<c:if test="${not empty board.keyword }">
-   <option value="${board.search }">${board.search }</option>
-</c:if>
-  <option value="writer">작성자</option>
-  <option value="subject">제목</option>
-  <option value="content">내용</option>
-</select> --%>
-<select name="search">
-   <c:forTokens var="sh" items="id,subject,content,subcon" delims="," varStatus="i">
-      <c:if test="${sh==board.search }">
-       <option value="${sh }" selected="selected">${title[i.index]}</option>
-      </c:if>
-      <c:if test="${sh!=board.search }">
-       <option value="${sh }">${title[i.index]}</option>
-      </c:if>
-   </c:forTokens>
-</select>
- <input type="text" name="keyword" value="${board.keyword }">
- <input type="submit" value="확인">
-</form>	
+	
+ <c:if test="${id == 'admin'}">
 		<div align="center">
 			<a href="noticeWriteForm.do?num=0&pageNum=1" class="btn btn-success">게시글
 				입력</a>
 		</div>
+		</c:if>
 	</div>
 	</div>
 </body>

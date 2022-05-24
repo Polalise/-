@@ -6,6 +6,84 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+.sideMenu{
+    /* margin-left: 300px; */
+        margin-top: 100px;
+}
+#total{
+   margin-left: 250px;
+}
+#sub{
+  margin-right: 300px;
+}
+.snb{
+  font-size: 26px
+}
+/* 사이드 */
+ ul.mylist {
+          list-style-type: none;
+          background-color: #fff;
+          width: 200px;
+          padding: 0;
+          margin: 0;
+          border: 2px solid;
+          font-size: 20px;
+     }
+
+     li.a1{
+          text-decoration: none;
+          display: block;
+          color: #000;
+          padding: 8px 15px 8px 15px;
+          font-weight: bold;
+          border-bottom: 1px solid #fff;
+     }
+
+     li.a1:hover {
+          background-color: tomato;
+          color: #fff;
+     }
+     li.a2 {
+          text-decoration: none;
+          display: block;
+          color: #000;
+          padding: 8px 15px 8px 15px;
+          font-weight: bold;
+          border-bottom: 1px solid #fff;
+     }
+
+     li.a2:hover {
+          background-color: tomato;
+          color: #fff;
+     }
+        li.a3 {
+          text-decoration: none;
+          display: block;
+          color: #000;
+          padding: 8px 15px 8px 15px;
+          font-weight: bold;
+          border-bottom: 1px solid #fff;
+     }
+
+     li.a3:hover{
+          background-color: tomato;
+          color: #fff;
+     }
+     li.a4{
+          text-decoration: none;
+          display: block;
+          color: #000;
+          padding: 8px 15px 8px 15px;
+          font-weight: bold;
+          border-bottom: 1px solid #fff;
+     }
+
+     li.a4:hover {
+          background-color: tomato;
+          color: #fff;
+     }
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -14,12 +92,25 @@
 <link rel="stylesheet" href="resources/style.css">
 </head>
 <body>
-
-	<div>
-		<h5 style="font-size: xx-large; margin-bottom: 20px;">이벤트 게시판</h5>
-	</div>
+<div id="total" style="display: flex;">
+  <div class="sideMenu" style="border: 2px solid red;">
+    <!-- <strong>메뉴</strong> -->
+    <div class="snb">
+        <ul class="mylist">
+            <li class='a1'><a href="noticeList.do">공지사항<i></i></a></li>
+            <li class='a2'><a href="eventList.do">이벤트<i></i></a></li>
+            <li class='a3'><a href="">신고문의<i></i></a></li>
+            <li class='a4'><a href="adminMemberList.do">회원관리<i></i></a></li>               
+        </ul>
+    </div>
+    </div>
+    <div id="second" style="border: 2px solid blue;">
+	<!-- <div>
+		<h5 style="font-size: xx-large; ">이벤트 게시판</h5>
+	</div> -->
+	<h5 style="font-size: xx-large; ">이벤트 게시판</h5>
 	<form action=" eventList.do?pageNum=1"
-		style="margin-left: 780px; margin-bottom: 20px;">
+		style="margin-left: 600px; margin-bottom: 20px;">
 		<select name="search">
 			<c:forTokens var="sh" items="id,e_subject,e_content,subcon"
 				delims="," varStatus="i">
@@ -155,8 +246,8 @@
 		<a href="eventWriteForm.do?e_num=0&pageNum=1" class="btn btn-success">게시글
 			입력</a>
 	</div>
-
-
+</div> <!-- second -->
+</div>
 
 
 

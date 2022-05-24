@@ -48,6 +48,30 @@
 	height: 200px;
 	padding: 3px;
 }
+/* 사이드 */
+ ul.mylist {
+          list-style-type: none;
+          background-color: #fff;
+          width: 200px;
+          padding: 0;
+          margin: 0;
+          border: 2px solid;
+          font-size: 20px;
+     }
+
+     li a {
+          text-decoration: none;
+          display: block;
+          color: #000;
+          padding: 8px 15px 8px 15px;
+          font-weight: bold;
+          border-bottom: 1px solid #fff;
+     }
+
+     li a:hover {
+          background-color: tomato;
+          color: #fff;
+     }
 </style>
 <script type="text/javascript">
  	$(document).on(
@@ -110,10 +134,9 @@
 <body>
 <div id="total">
    <div class="sideMenu" style="border: 2px solid red;">
-     <h2>메뉴</h2> 
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
-        <ul>
+        <ul class="mylist">
             <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
             <li class=''><a href="eventList.do">이벤트<i></i></a></li>
             <li class=''><a href="">신고문의<i></i></a></li>
