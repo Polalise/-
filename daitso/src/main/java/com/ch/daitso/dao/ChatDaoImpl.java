@@ -37,10 +37,10 @@ public class ChatDaoImpl implements ChatDao {
 	@Override
 	public List<Chat> readChatHistory(Chat chatRoomTemp) {
 		return sst.selectList("chatns.readChatHistory", chatRoomTemp);
-	}
+	} 
 
 	@Override
-	public Chat addChatRoom(Chat chat) {
+	public int addChatRoom(Chat chat) { 
 		return sst.insert("chatns.addChatRoom", chat);
 	}
 }

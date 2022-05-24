@@ -36,25 +36,25 @@ public class ProductController {
 	@RequestMapping("p_list")
 	public String list(Product product,String pageNum,Model model ) {
 		if (pageNum == null || pageNum.equals("")) pageNum = "1";
-		int rowPerPage = 10;
-		int currentPage = Integer.parseInt(pageNum);
-		int total = ps.getTotal(product);
-		int startRow = (currentPage - 1) * rowPerPage + 1;
-		int endRow = startRow + rowPerPage - 1;
-		product.setStartRow(startRow); 
-		product.setEndRow(endRow);
-		List<Product> list = ps.list(product);
-		PageBean pb = new PageBean(currentPage,rowPerPage,total);
-		int p_num = total - startRow + 1;
-		//매개변수로 넘어온데이터를 같은 url로 변경없이 전달할 때는 model.addAttribute 생략 가능 
-		String[] title = {"작성자","제목","내용","제목+내용"};
-//		String[] title2 = {"판매","구매"};
-		model.addAttribute("title", title);
-//	    model.addAttribute("title2", title2);
-		model.addAttribute("p_num", p_num);
-		model.addAttribute("pb", pb);
-		model.addAttribute("list", list);
-		return "/product/list"; 
+	      int rowPerPage = 10;
+	      int currentPage = Integer.parseInt(pageNum);
+	      int total = ps.getTotal(product);
+	      int startRow = (currentPage - 1) * rowPerPage + 1;
+	      int endRow = startRow + rowPerPage - 1;
+	      product.setStartRow(startRow); 
+	      product.setEndRow(endRow);
+	      List<Product> list = ps.list(product);
+	      PageBean pb = new PageBean(currentPage, rowPerPage, total);
+	      int p_num = total - startRow + 1;
+	      //매개변수로 넘어온데이터를 같은 url로 변경없이 전달할 때는 model.addAttribute 생략 가능 
+	      String[] title = {"작성자","제목","내용","제목+내용"};
+//	      String[] title2 = {"판매","구매"};
+	      model.addAttribute("title", title);
+//	       model.addAttribute("title2", title2);
+	      model.addAttribute("p_num", p_num);
+	      model.addAttribute("pb", pb);
+	      model.addAttribute("list", list);
+	      return "/product/list"; 
 	}
 	@RequestMapping("p_insertForm")
 	public String insertForm(int p_num, String pageNum,Model model,HttpSession session, Member member) {
@@ -78,6 +78,11 @@ public class ProductController {
 		String thumnails4 = product.getFile4().getOriginalFilename();
 		String thumnails5 = product.getFile5().getOriginalFilename();
 		product.setThumnails(thumnails);
+		product.setThumnails2(thumnails2);
+		product.setThumnails3(thumnails3);
+		product.setThumnails4(thumnails4);
+		product.setThumnails5(thumnails5);
+		
 					
 		String real = session.getServletContext().getRealPath("/resources/upload");	
 		if(thumnails != null && !thumnails.equals("")) {
@@ -132,6 +137,9 @@ public class ProductController {
 		if(likes2 == null)
 			model.addAttribute("likes", "");
 		else model.addAttribute("likes", "1");
+		int likesCount = ls.P_likeCount(p_num);
+		model.addAttribute("likesCount", likesCount);
+		
 		return "/product/view";
 	} 
 	@RequestMapping("p_updateForm")
@@ -145,8 +153,7 @@ public class ProductController {
 	public String update(Product product,String pageNum,Model model, HttpSession session) throws IOException {
 		int result = 0;
 		Product product2 = ps.select(product.getP_num());
-//		fileName에는 null(현재 사진 그대로 사용)일수도 있고 값(사진 변경)이 넘어올 수도 있다
-		
+//		fileName에는 null(현재 사진 그대로 사용)일수도 있고 값(사진 변경)이 넘어올 수도 있다		
 		String thumnails = product.getFile().getOriginalFilename();
 		String thumnails2 = product.getFile2().getOriginalFilename();
 		String thumnails3 = product.getFile3().getOriginalFilename();
@@ -188,6 +195,19 @@ public class ProductController {
 		model.addAttribute("pageNum", pageNum);
 		return "/product/update";
 	}
+
+	/*
+	 * @RequestMapping("buyering") public String completeding(Member member,Model
+	 * model) { int result = 0; Product product2 = ps.completeding(product2);
+	 * model.addAttribute("result",result); return "buyering"; }
+	 * 
+	 * @RequestMapping("buyer") public String completed(Member member,int
+	 * p_num,Model model) { String trader = "k1"; Product product =
+	 * ps.select(p_num); product.setBuyer(trader); int result =
+	 * ps.completed(p_num,trader);
+	 * 
+	 * return "/product/buyer"; } 
+	 */
 	@RequestMapping("p_delete")
 	public String delete(int p_num,String pageNum, Model model) {
 		int result = 0;

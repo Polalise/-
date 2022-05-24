@@ -22,7 +22,7 @@ public class ReplyBoardController {
 		List<ReplyBoard> rbdList = rbs.list(bno);
 		model.addAttribute("product", product);
 		model.addAttribute("rbdList", rbdList);
-		return "replyList";
+		return "product/replyList";
 	}
 	@RequestMapping("rInsert")
 	public String rInsert(ReplyBoard rb) {

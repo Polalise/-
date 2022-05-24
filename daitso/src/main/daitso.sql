@@ -23,30 +23,29 @@ create table member (
 	del char(1) default 'n',
 	photoName varchar2(500)
 );
-
-
+select * from product;
 CREATE TABLE product(
 	p_num NUMBER primary key,
-	p_writer varchar2(100) NOT NULL, -- 작성자
-	p_name varchar2(100), --제목
+	p_writer varchar2(500) NOT NULL, -- 작성자
+	p_name varchar2(500), --제목
 	price NUMBER NOT NULL, -- 판매가격
 	p_date DATE, -- 등록 날짜
 	p_content varchar2(4000) NOT NULL, -- 본문
-	p_local VARCHAR2(20) , -- 지역
-	p_value varchar2(10) , --판매 구매 나누기	
+	p_local VARCHAR2(500) , -- 지역
+	p_value varchar2(500) , --판매 구매 나누기	
 	readcount number default 0, -- 읽은 횟수
 	p_del char(1) default 'n', -- 삭제 여부 
 	updateday DATE,-- 게시글수정일
 	sel	char(1), --거례여부
 	likescount NUMBER, -- 좋아요갯수
-	p_tag	varchar2(100), --해쉬 테그
-	buyer varchar2(100), -- 구매자	
-	ip varchar2(20), -- 작성자 ip
-	thumnails varchar2(100) NOT NULL, -- 계시글 사진
-	thumnails2 varchar2(100),
-	thumnails3 varchar2(100),
-	thumnails4 varchar2(100),
-	thumnails5 varchar2(100),
+	p_tag	varchar2(500), --해쉬 테그
+	buyer varchar2(500), -- 구매자	
+	ip varchar2(500), -- 작성자 ip
+	thumnails varchar2(500) NOT NULL, -- 계시글 사진
+	thumnails2 varchar2(500),
+	thumnails3 varchar2(500),
+	thumnails4 varchar2(500),
+	thumnails5 varchar2(500),
 	id VARCHAR2(500) REFERENCES member ON DELETE CASCADE
 );
 
@@ -99,7 +98,7 @@ create table replyBoard (
 	updatedate date not null,
 	del char(1) 
 );
-
+select * from replyBoard;
 create table report(
 	report_num number primary key,
 	reporter_id VARCHAR2(100) REFERENCES member ON DELETE CASCADE,

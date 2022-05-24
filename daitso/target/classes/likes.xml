@@ -19,5 +19,8 @@
 	<select id="P_likeCount" parameterType="string" resultType="integer">
 		select count(*) from likes where p_num=#{p_num}
 	</select>
+   <select id="P_likeCount" parameterType="string" resultType="integer">
+      select count(*) from likes where p_num=#{p_num}
+   </select>
 	
 </mapper>
