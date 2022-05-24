@@ -43,7 +43,7 @@
           </if>
        </if>
     </where>
-    order by num ) a) where rn between #{startRow} and #{endRow}
+    order by num desc) a) where rn between #{startRow} and #{endRow}
  </select>
 	<select id="getMaxNum" resultType="integer">
 		<!-- 제일큰수 가져와서 +1 하고 값이 없으면 0 -->
@@ -53,7 +53,9 @@
 	<insert id="insert" parameterType="notice">
 		insert into notice_board
 		values(#{num},#{subject},#{content},0,sysdate,sysdate,
-		#{fileName},'n',#{id})
+		<if test="fileName != null">#{fileName}</if>
+		<if test="fileName == null">'null'</if>
+		,'n',#{id})
 	</insert>
 	<!-- 조회수증가 -->
 	<update id="updateReadCount" parameterType="integer">

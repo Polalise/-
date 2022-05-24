@@ -24,21 +24,21 @@ public class EventController {
    @RequestMapping("eventList")
    public String eventList(EventBoard board,String pageNum,Model model) {
 	   if(pageNum == null || pageNum.equals("")) pageNum = "1";
-	   int rowPerPage = 10;
+	   int rowPerPage = 8;
 	   int currentPage = Integer.parseInt(pageNum);
 //	   int total = es.getTotal();
 	   int total = es.getTotal(board);
 	   int startRow = (currentPage - 1) * rowPerPage + 1;
 	   int endRow  = startRow + rowPerPage -1;
 	   board.setStartRow(startRow);
-		board.setEndRow(endRow);
+	   board.setEndRow(endRow);
 //	   List<EventBoard> list = es.list(startRow,endRow);
 	   List<EventBoard> list = es.list(board);
 	   int num = total - startRow + 1;
 	   //페이징 하기
 	   PageBean pb = new PageBean(currentPage,rowPerPage,total);
 	   //답글 번호 순서 
-
+	 
 	   String[] title = {"작성자","제목","내용","제목+내용"};
 		model.addAttribute("title", title);
 	   model.addAttribute("num",num);
@@ -46,7 +46,7 @@ public class EventController {
 	   model.addAttribute("list",list);
 	   model.addAttribute("total",total);
 	  
-	   return "admin/event_board/eventList";
+	   return "admin/event_board/event";
    }
    @RequestMapping("eventWriteForm")
    public String eventWriteForm(int e_num,String pageNum,Model model) {
@@ -62,12 +62,20 @@ public class EventController {
 		int result = 0;
 		// num을 자동을 1씩 증가
 	 	   int number = es.getMaxNum();
-			String e_fileName = board.getFile().getOriginalFilename();
-			board.setE_fileName(e_fileName);
-			String real = session.getServletContext().getRealPath("/resources/upload");
-			FileOutputStream fos = new FileOutputStream(new File(real+"/"+e_fileName));
-			fos.write(board.getFile().getBytes());
-			fos.close();
+//			String e_fileName = board.getFile().getOriginalFilename();
+//			board.setE_fileName(e_fileName);
+//			String real = session.getServletContext().getRealPath("/resources/upload");
+//			FileOutputStream fos = new FileOutputStream(new File(real+"/"+e_fileName));
+//			fos.write(board.getFile().getBytes());
+//			fos.close();
+	 	  String e_fileName = board.getFile().getOriginalFilename();
+	    	if (e_fileName != null && !e_fileName.equals("")) {// 값이 있을때만 처리
+	    		board.setE_fileName(e_fileName);
+	    		String real = session.getServletContext().getRealPath("resources/upload");
+	    		FileOutputStream fos = new FileOutputStream(new File(real+"/"+e_fileName));
+	    		fos.write(board.getFile().getBytes());
+	    		fos.close();
+	    	}
 			board.setE_num(number);
 			result = es.insert(board);
 
@@ -112,21 +120,19 @@ public class EventController {
 	   model.addAttribute("e_num",e_num);
 	   return "admin/event_board/eventUpdate";
    }
-   @RequestMapping("eventDeleteForm")
-   public String updateDeleteForm(Model model,String pageNum,int e_num) {
-	   EventBoard board = es.select(e_num);
-	   model.addAttribute("pageNum",pageNum);
-	   model.addAttribute("e_num",e_num);
-	   model.addAttribute("board",board);
-	   return "admin/event_board/eventDeleteForm";
-   }
+//   @RequestMapping("eventDeleteForm")
+//   public String updateDeleteForm(Model model,String pageNum,int e_num) {
+//	   EventBoard board = es.select(e_num);
+//	   model.addAttribute("pageNum",pageNum);
+//	   model.addAttribute("e_num",e_num);
+//	   model.addAttribute("board",board);
+//	   return "admin/event_board/eventDeleteForm";
+//   }
    @RequestMapping("eventDelete")
    public String delete(Model model,String pageNum,int e_num,EventBoard board) {
 	   int result = 0;
-//	   Board board2 = bs.select(board.getNum());
-//	   if (board2.getPassword().equals(board.getPassword()))
 	   result= es.delete(e_num);
-//	   else result= -1;
+
 	   model.addAttribute("result",result);
 	   model.addAttribute("pageNum",pageNum);
 	   model.addAttribute("e_num",e_num);

@@ -113,4 +113,13 @@
    <select id = "getCount2" resultType="int">
      select count(*) from member where del='y'
    </select>
+   
+   <!-- 별점 등급 영향 -->
+	<update id="star" parameterType="map">
+		update member set
+
+		grade = grade + #{rating}
+
+		where id = #{id}
+	</update>
 </mapper>

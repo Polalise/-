@@ -33,8 +33,8 @@ $(function() {
 					<a href="myProfileForm.do">마이페이지</a>
 				</c:if>
 				<c:if test="${id == 'master' }">
-					<!-- <a href='/Project2/manager/m_mypage.do'>관리자페이지</a> -->
-					<a href="/Project2/manager/masterUpdate.do?">회원관리</a>
+					<a href='adminMain2.do'>관리자페이지</a>
+					<a href="adminMain.do">회원관리</a>
 				</c:if>
 				<a href='/Project2/login/logout.do'>로그아웃</a>
 			</div>

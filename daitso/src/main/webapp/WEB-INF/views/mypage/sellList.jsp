@@ -33,23 +33,38 @@
 					<div>판매목록</div>
 					<br> <a>판매 물품</a> <a>판매 날짜</a> <a>판매 가격</a> <a>리뷰</a>
 				</div>
-				<div class="viewList">
-					<div class="product">
-						<c:if test="${empty mySellList}">
-						아직 판매한 적이 없어요!
-					</c:if>
-						<c:if test="${not empty mySellList}">
-							<c:forEach var="product" items="${mySellList }">
-								<span class="thumbnail">
-								<img src="${path}/resources/upload/${product.thumnails}"></span>
-								<a>${product.p_name}</a>
-								<a>${product.updateday}</a>
-								<a>${product.price}</a>
-								<a>리뷰</a>
-							</c:forEach>
-						</c:if>
+				<c:if test="${empty mySellList}">
+					<div class="viewList">
+						<div class="product">아직 판매한 적이 없어요!</div>
 					</div>
-				</div>
+				</c:if>
+				<c:if test="${not empty mySellList}">
+					<c:forEach var="product" items="${mySellList }">
+						<div class="viewList">
+							<div class="product">
+								<span class="thumbnail">
+								<img src="${path}/resources/upload/${product.thumnails}">
+								</span> <a>${product.p_name}</a>
+								<c:if test="${product.updateday == null}">
+									<a>${product.p_date}</a>
+								</c:if>
+								<c:if test="${product.updateday != null}">
+									<a>${product.updateday}</a>
+								</c:if>
+								<a>${product.price}</a>
+								<c:if test="${product.sel == 'n'}">
+								<a>판매중</a>
+								</c:if>
+								<c:if test="${product.sel == 'i'}">
+								<a>거래중</a>
+								</c:if>
+								<c:if test="${product.sel == 'y'}">
+								<a>리뷰</a>
+								</c:if>
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
 			</div>
 		</div>
 	</div>

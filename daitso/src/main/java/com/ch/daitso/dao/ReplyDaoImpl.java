@@ -24,8 +24,8 @@ public class ReplyDaoImpl  implements ReplyDao{
 	}
 
 	@Override
-	public List<Reply> list(int num) {
-		return sst.selectList("replyns.list", num);
+	public List<Reply> list(String id) {
+		return sst.selectList("replyns.list", id);
 	}
 
 	@Override

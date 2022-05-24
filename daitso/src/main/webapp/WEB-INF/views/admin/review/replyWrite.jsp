@@ -7,7 +7,7 @@
 <c:if test="${result > 0 }">
 <script type="text/javascript">
    alert("작성 성공");
-   location.href="replyList2.do?pageNum=${pageNum}&num=${board.num}";
+   location.href="p_list.do?pageNum=1";
 </script>
 </c:if>
 <c:if test="${result == 0 }">

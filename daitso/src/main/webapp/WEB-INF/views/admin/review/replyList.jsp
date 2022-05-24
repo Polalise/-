@@ -3,6 +3,13 @@
 <%@ include file="header.jsp" %>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#bigReview{
+  width:50%;
+  margin-top: 200px;,
+  
+}
+</style>
 <script type="text/javascript">
     // 댓글 삭제
 	function rDelete(num, rno) {
@@ -54,7 +61,7 @@
 
 </style>
 </head><body>
-<div style=" width: 50%;">
+<div  id="bigReview" style="margin-left: 500px;">
 <c:if test="${not empty rbdList }">
 	<h3 class="text-primary">리뷰</h3>
 <table class="table table-striped">
@@ -77,7 +84,7 @@
 			<!-- 댓글 작성자와 로그인 한사람의 이름을 비교 같으면 수정/삭제 권한 제공
 				  회원게시판이 아니라서 임으로 게시글 작성자와 비교 -->
 			<%-- <c:if test="${rbd.id==member.id }"> --%> 	  
-			<c:if test="${rbd.id==board.id }"> 
+			<c:if test="${rbd.id==id }"> 
 			<%-- <c:if test="${rbd.id}"> --%>
 				<td id="btn_${rbd.rno }">
 				<input type="button" class="btn btn-warning btn-sm" value="수정"

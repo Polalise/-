@@ -1,7 +1,3 @@
-@font-face {
-  font-family: "dongle";
-  src: url(font/KOTRA\ HOPE.ttf) format("truetype");
-}
 /* 리스트 전체 div */
 .main .list {
   display: flex;
@@ -57,6 +53,10 @@
   border: solid red 1px;
   height: 180px;
 }
+.viewList .product{
+  height: 100%;
+}
+
 /* 구매한 물품 사진 div */
 .viewList .thumbnail {
   display: inline-block;
@@ -70,8 +70,8 @@
 }
 /* 물품 사진 크기 조절 */
 .thumbnail img {
-  width: 149px;
-  height: 149px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 /* 구매물품 */
@@ -114,3 +114,8 @@
   text-align: center;
   line-height: 150px;
 }
+/* a tag 위치 조절 */
+.viewList .product a{
+  position: relative;
+  bottom: 88px;
+} 

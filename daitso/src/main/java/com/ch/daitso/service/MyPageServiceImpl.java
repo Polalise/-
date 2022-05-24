@@ -37,4 +37,20 @@ public class MyPageServiceImpl implements MypageService{
 		return myd.likeCount(id);
 	}
 
+	public int changeStatus(Product product) {
+		return myd.changeStatus(product);
+	}
+
+	public int mySellCountN(String id) {
+		return myd.mySellCountN;
+	}
+
+	public int mySellCountI(String id) {
+		return myd.mySellCountI;
+	}
+
+	public int mySellCountY(String id) {
+		return myd.mySellCountY;
+	}
+
 }

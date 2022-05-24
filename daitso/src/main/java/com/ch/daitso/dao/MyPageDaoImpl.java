@@ -43,5 +43,21 @@ public class MyPageDaoImpl implements MypageDao{
 		return sst.selectOne("myPagens.mySellCount", id);
 	}
 
+	public int changeStatus(Product product) {
+		return sst.update("myPagens.changeStatus", product);
+	}
+
+	public int mySellCountN(String id) {
+		return sst.selectOne("myPagens.mySellCountN", id);
+	}
+
+	public int mySellCountI(String id) {
+		return sst.selectOne("myPagens.mySellCountI", id);
+	}
+
+	public int mySellCountY(String id) {
+		return sst.selectOne("myPagens.mySellCountY", id);
+	}
+
 
 }

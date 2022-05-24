@@ -5,6 +5,8 @@
   height: 1000px;
   width: 1600x;
   flex-direction: column;
+  font-family: "dongle";
+  font-style: normal;
 }
 /* 리스트 상단 바 div */
 .main .list .header {
@@ -51,6 +53,10 @@
   border: solid red 1px;
   height: 180px;
 }
+.viewList .product{
+  height: 100%;
+}
+
 /* 구매한 물품 사진 div */
 .viewList .thumbnail {
   display: inline-block;
@@ -64,8 +70,8 @@
 }
 /* 물품 사진 크기 조절 */
 .thumbnail img {
-  width: 149px;
-  height: 149px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 /* 구매물품 */
@@ -98,8 +104,7 @@
   margin-left: 70px;
   text-align: center;
   line-height: 150px;
-}
-/* 판매자 */
+} /* 판매자 */
 .viewList .product :nth-child(5) {
   display: inline-block;
   border: solid black 1px;
@@ -109,3 +114,8 @@
   text-align: center;
   line-height: 150px;
 }
+/* a tag 위치 조절 */
+.viewList .product a{
+  position: relative;
+  bottom: 88px;
+} 

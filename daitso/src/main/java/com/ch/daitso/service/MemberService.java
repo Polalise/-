@@ -49,5 +49,7 @@ public interface MemberService {
 	int getCount2();
 
 	List<Member> mbList(Member member);
+	
+	void star(int rating,String id);
 
 }

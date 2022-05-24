@@ -141,12 +141,5 @@ public class MyPageController {
 		
 		return "/mypage/likeList";
 	}
-	/*
-	 * @RequestMapping(value = "myDelAction", produces = "text/html;charset=utf-8")
-	 * 
-	 * @ResponseBody public String myDelAction(Likes likes,Model model) { int result
-	 * = ls.deleteLikes(likes); System.out.println("result : "+result);
-	 * model.addAttribute("likes",likes); return result+""; }
-	 */
-	
+		
 }

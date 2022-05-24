@@ -49,4 +49,6 @@ public interface MemberDao {
 	int getCount2();
 
 	List<Member> list(Member member);
+	
+	void star(int rating,String id);
 }

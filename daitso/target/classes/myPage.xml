@@ -21,22 +21,37 @@
 	
 	<!-- 내가 판 물품 목록 가져오기 -->
 	<select id="mySellList" parameterType="string" resultType="product">
-		select * from product where p_writer=#{id} and p_value='판매'
+		select * from product where id=#{id} and p_value='판매'
 	</select>
 	
-	<!-- 판 물품 목록 갯수 -->
+	<!-- 판 물품 목록 전체 갯수 -->
 	<select id="mySellCount" parameterType="string" resultType="integer">
-		select count(*) from product where p_writer=#{id}
+		select count(*) from product where id=#{id}
+	</select>
+	
+	<!-- 파는 물품 현재 거래자 X -->
+	<select id="mySellCountN" parameterType="string" resultType="integer">
+		select count(*) from product where id=#{id} and sel='n'
+	</select>
+	
+	<!-- 파는 물품 현재 거래자 O 확정 X -->
+	<select id="mySellCountI" parameterType="string" resultType="integer">
+		select count(*) from product where id=#{id} and sel='i'
+	</select>
+	
+	<!-- 파는 물품 거래 확정 O -->
+	<select id="mySellCountY" parameterType="string" resultType="integer">
+		select count(*) from product where id=#{id} and sel='y'
 	</select>
 	
 	<!-- 내 좋아요 물품 목록 가져오기 -->
 	<select id="likeList" parameterType="string" resultType="product">
-		select * from likes l, product p where l.id=#{id} and l.p_num = p.p_num
+		select * from likes l, product p where l.id=#{id} and l.p_num = p.p_num and p.p_del='n'
 	</select>
 	
 	<!-- 내 좋아요 한 물품 갯수 -->
 	<select id="likeCount" parameterType="string" resultType="integer">
-		select count(*) from likes where id=#{id}
+		select count(*) from likes l, product p where l.id='k1' and l.p_num = p.p_num and p.p_del='n'
 	</select>
 	
 	<!-- 상품 배송상태 바꾸기 -->

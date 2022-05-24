@@ -54,8 +54,19 @@ public class ProductDaoImpl implements ProductDao {
 		return sst.selectList("productns.list", product);
 	}
 
-	public int changeStatus(Product product) {
-		return sst.update("myPagens.changeStatus",product);
+	@Override
+	public Product select2(int p_num) {
+		return sst.selectOne("productns.select2", p_num);
+	}
+
+	@Override
+	public int getProductCount() {
+		return sst.selectOne("productns.getProductCount");
+	}
+
+	@Override
+	public int getProductCount2() {
+		return sst.selectOne("productns.getProductCount2");
 	}
 
 }

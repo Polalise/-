@@ -18,5 +18,12 @@ public interface MypageService {
 
 	int likeCount(String id);
 
+	int changeStatus(Product product);
+	
+	int mySellCountN(String id);
+	
+	int mySellCountI(String id);
+	
+	int mySellCountY(String id);
 
 }

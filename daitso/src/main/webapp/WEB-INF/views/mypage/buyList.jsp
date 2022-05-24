@@ -33,23 +33,25 @@
 					<div>구매목록</div>
 					<br> <a>구매 물품</a> <a>구매 날짜</a> <a>구매 가격</a> <a>판매자</a>
 				</div>
-				<div class="viewList">
-					<div class="product">
-					<c:if test="${empty myBuyList}">
-						아직 구매한 적이 없어요!
-					</c:if>
-					<c:if test="${not empty myBuyList}">
-						<c:forEach var="product" items="${myBuyList }">
-							<span class="thumbnail">
-							<img src="${path}/resources/upload/${product.thumnails}"></span>
-							<a>${product.p_name}</a>
-							<a>${product.updateday}</a>
-							<a>${product.price}</a>
-							<a>${product.p_writer}</a>					
-						</c:forEach>
-					</c:if>
+				<c:if test="${empty myBuyList}">
+					<div class="viewList">
+						<div class="product">아직 구매한 적이 없어요!</div>
 					</div>
-				</div>
+				</c:if>
+				<c:if test="${not empty myBuyList && p_del != 'y'}">
+					<c:forEach var="product" items="${myBuyList }">
+						<div class="viewList">
+							<div class="product">
+								<span class="thumbnail">
+								<img src="${path}/resources/upload/${product.thumnails}"></span>
+								<a>${product.p_name}</a>
+								<a>${product.updateday}</a>
+								<a>${product.price}</a>
+								<a>${product.p_writer}</a>
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
 			</div>
 		</div>
 	</div>

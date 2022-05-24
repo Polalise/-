@@ -210,7 +210,8 @@ select option[value=""][disabled] {
 					<button class="nowsell">바로구매</button>
 					<button onclick="location.href='buyer.do'">구매하기</button>
 					<button onclick="location.href='sendProduct.do?p_num=${product.p_num}'">배송완료</button>
-					<button onclick="location.href='confirmTrade.do'"">구매확정</button>
+					<button onclick="location.href='confirmTrade.do?p_num=${product.p_num}'">구매확정</button>
+					<button onclick="location.href='replyWriteForm2.do?p_num=${product.p_num}&pageNum=${pageNum}'">리뷰작성</button>
 				</div>
 			</div>
 		</div>

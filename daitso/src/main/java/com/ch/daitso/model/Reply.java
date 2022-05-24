@@ -9,7 +9,7 @@ private int	rno;
 private String	replytext;
 private Date	regdate;
 private String	del;
-private int	num;
+private int	p_num;
 private String id;
 private int rating;
 }

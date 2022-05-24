@@ -7,6 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.sideMenu{
+    margin-left: 300px;
+}
+#total{
+    display: flex;
+    margin-top: 200px;
+}
+#sub{
+  margin-right: 300px;
+  border: 2px solid blue;
+}
+.snb{
+  font-size: 26px
+}
 /* drop & drag */
 .drag-over {
 	background: yellow;
@@ -34,6 +48,30 @@
 	height: 200px;
 	padding: 3px;
 }
+/* 사이드 */
+ ul.mylist {
+          list-style-type: none;
+          background-color: #fff;
+          width: 200px;
+          padding: 0;
+          margin: 0;
+          border: 2px solid;
+          font-size: 20px;
+     }
+
+     li a {
+          text-decoration: none;
+          display: block;
+          color: #000;
+          padding: 8px 15px 8px 15px;
+          font-weight: bold;
+          border-bottom: 1px solid #fff;
+     }
+
+     li a:hover {
+          background-color: tomato;
+          color: #fff;
+     }
 </style>
 <script type="text/javascript">
  	$(document).on(
@@ -94,32 +132,50 @@
 </script>
 </head>
 <body>
-	<div class="container" align="center">
+<div id="total">
+   <div class="sideMenu" style="border: 2px solid red;">
+    <!-- <strong>메뉴</strong> -->
+    <div class="snb">
+        <ul class="mylist">
+            <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
+            <li class=''><a href="eventList.do">이벤트<i></i></a></li>
+            <li class=''><a href="">신고문의<i></i></a></li>
+            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>               
+        </ul>
+    </div>
+    </div>
+	<div class="container" id="sub" align="center">
 
 		<form action="noticeWrite.do" method="post"
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="num" value="${num }"> 
 			<input	type="hidden" name="pageNum" value="${pageNum }">
-			<h2 class="text-primary">이벤트 작성</h2>
+			 <input	type="hidden" name="id" value="${id }"> 
+			<h2 class="text-primary">공지사항 작성</h2>
 			<table class="table table-bordered">
-				<tr>
+				  <%-- <tr>
 					<td>아이디 <span class="glyphicon glyphicon-user"></span></td>
-					<td><input type="text" name="id" required="required"
-						autofocus="autofocus"></td>
-				</tr>
-				<tr>
+					<td><input type="text" name="id"  readonly="readonly" value="${sessionScope.id}"></td>
+				</tr>  --%>
+				<tr> 
 					<td>제목</td>
-					<td><input type="text" name="subject" required="required"></td>
+					<td><textarea rows="1" cols="100" name="subject" required="required"></textarea>
+					<!-- <input type="text" name="subject" cols="100" required="required"> --></td>
 				</tr>
-				<tr>
-					<td>내용</td>
-					<td><input type="text" name="content" required="required"></td>
-				</tr>
-				
 				<tr>
 					<td>사진 <span class="glyphicon glyphicon-picture"></span></td>
 					<td><input type="file" name="file" ></td>
 				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea rows="10" cols="100" name="content" required="required"></textarea>
+					<!-- <input type="text" name="content" required="required"> --></td>
+				</tr>
+				
+				<!-- <tr>
+					<td>사진 <span class="glyphicon glyphicon-picture"></span></td>
+					<td><input type="file" name="file" ></td>
+				</tr> -->
 				<!-- multiple="multiple" -->
 				<!-- drag & drop -->
 				<!--  <tr>
@@ -137,6 +193,7 @@
 			</table>
 		</form>
 		<div id="disp"></div>
+	</div>
 	</div>
 </body>
 </html>

@@ -115,6 +115,8 @@ public class ProductController {
 			fos5.close();
 		}
 		product.setP_num(number);
+		String id = (String)session.getAttribute("id");
+		product.setId(id);
 		System.out.println("product:" + product);
 		int result = ps.insert(product);
 		model.addAttribute("thumnails",thumnails); 
