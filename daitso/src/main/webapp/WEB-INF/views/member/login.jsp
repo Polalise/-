@@ -10,8 +10,8 @@
 <body>
 <c:if test="${result > 0}">
 	<script type="text/javascript">
-		alert("로그인 성공");
-		location.href="adminMain.do"
+//		alert("로그인 성공");
+		location.href="p_list.do"
 	</script>
 </c:if>
 

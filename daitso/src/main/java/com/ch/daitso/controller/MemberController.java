@@ -134,11 +134,10 @@ public class MemberController {
 				List<Product> list = ps.list(product);
 				PageBean pb = new PageBean(currentPage,rowPerPage,total);
 				int p_num = total - startRow + 1;
-				
 				model.addAttribute("p_num", p_num);
 				model.addAttribute("pb", pb);
 				model.addAttribute("list", list);
-				System.out.println("id="+session.getAttribute("id"));
+				
 			}
 		}
 		model.addAttribute("result", result);
@@ -350,16 +349,12 @@ public class MemberController {
 	  		PageBean pb = new PageBean(currentPage, rowPerPage, total);
 	  		String[] title = {"아이디", "이름", "닉네임","아이디+이름" };
 	  	//게시글
-	  		int productConunt = ps.getProductCount();
 	  		int noticeCount = ns.getNoticeCount();
 	  		int eventCount = es.getEventCount();
-	  		int productCount2 = ps.getProductCount2();
 	   //회원 
 	  		int memberCount = ms.getCount();
 	  		int member2Count = ms.getCount2();
-			/* System.out.println("productCount2 :"+ productCount2); */
-	  		model.addAttribute("productConunt", productConunt);
-	  		model.addAttribute("productCount2", productCount2);
+
 	  		model.addAttribute("noticeCount", noticeCount);
 	  		model.addAttribute("eventCount", eventCount);
 	  		model.addAttribute("memberCount", memberCount);

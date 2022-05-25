@@ -115,11 +115,11 @@
    </select>
    
    <!-- 별점 등급 영향 -->
-	<update id="star" parameterType="map"  >
+	<update id="star" parameterType="map">
 		update member set
-		
-		 grade = grade + #{rating}
-		
-		 where id = #{id}
+
+		grade = grade + #{rating}
+
+		where id = #{id}
 	</update>
 </mapper>

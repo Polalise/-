@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace xml의 이름 -->
 <mapper namespace="replyns">
-<select id="getMaxNum" resultType="integer">
+	<select id="getMaxNum" resultType="integer">
 		<!-- 제일큰수 가져와서 +1 하고 값이 없으면 0 -->
 		select nvl(max(rno),0) + 1 from reply
 	</select>
@@ -13,14 +13,15 @@
 		values(#{rno},#{replytext},sysdate,'n',#{rating},#{p_num},
 		#{id})
 	</insert>
-		<select id="list" parameterType="string" resultType="reply">
-		select * from reply where id=#{id} order by rno desc
+	<select id="list" parameterType="string" resultType="reply">
+		select *
+		from reply where id=#{id} order by rno desc
 	</select>
 	<update id="delete" parameterType="reply">
-	   update reply set del='y' where rno=#{rno}
+		update reply set del='y' where rno=#{rno}
 	</update>
 	<!-- 댓글수정 -->
 	<update id="update" parameterType="reply">
-	    update reply set replytext=#{replytext},regdate=sysdate where rno=#{rno}
+		update reply set replytext=#{replytext},regdate=sysdate where rno=#{rno}
 	</update>
 </mapper>

@@ -32,6 +32,7 @@ public class Product {
 	private String thumnails3; //계시글 사진
 	private String thumnails4; //계시글 사진
 	private String thumnails5; //계시글 사진
+	private Date updateday;
 	//페이징
 	private int startRow;
 	private int endRow;

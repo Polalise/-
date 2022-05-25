@@ -16,7 +16,6 @@
 <button id="b2" onClick="location.href='eventList.do'">Event</button>
 </div>
 <div id="g4" style="margin-right: 30px;">
-<!-- <button id="b4" onClick="location.href='replyWriteForm2.do?rno=0&pageNum=1&p_num=1'">신고관리</button> -->
 <button id="b4" onClick="location.href='replyWriteForm2.do?rno=0&pageNum=1&p_num=1'">신고관리</button>
 </div>
 <div id="g3">

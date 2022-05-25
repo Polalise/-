@@ -10,10 +10,8 @@
 	<!-- 신고 -->
 	<insert id="insert" parameterType="report">
 		insert into report
-		(report_num,reporter_id,criminal_id,
-		p_num,reasonChk,reasonText,progress,report_date)
-		values(#{report_num},#{reporter_id},#{criminal_id},
-		#{p_num},#{reasonChk},#{reasonText},'신고접수',sysdate)
+		(report_num,reporter_id,criminal_id,p_num,reasonChk,reasonText,progress,report_date) values
+		(#{report_num},#{reporter_id},#{criminal_id},#{p_num},#{reasonChk},#{reasonText},'신고접수',sysdate)
 	</insert>
 	<!-- 삭제 -->
 	<!-- 수정 -->

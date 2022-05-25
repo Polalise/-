@@ -12,18 +12,18 @@
 				"<input type='button' onclick='lst("+bno+")' class='btn btn-info btn-sm' value='취소'>");
 		}
 		function lst(bno) {
-			$('#rbdListDisp').load('replyList.po?bno='+bno);		
+			$('#rbdListDisp').load('replyList.do?bno='+bno);		
 		}
 		function up(bno, rno) {
 			var sendData = "replytext=" +$("#rt").val()+"&bno="+bno+"&rno="+rno;
-			$.post('rUpdate.po',sendData, function(data) {
+			$.post('rUpdate.do',sendData, function(data) {
 				alert("수정 되었습니다"); 
 				$("#rbdListDisp").html(data);
 			});	
 	}
 	function rDelete(bno, rno) {
 		var sendData = "bno="+bno+"&rno="+rno;
-		$.post("rDelete.po",sendData, function(data) {
+		$.post("rDelete.do",sendData, function(data) {
 			alert("삭제 되었습니다");
 			$("#rbdListDisp").html(data);			
 		});		

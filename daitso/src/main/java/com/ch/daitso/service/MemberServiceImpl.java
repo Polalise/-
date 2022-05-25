@@ -110,10 +110,11 @@ public class MemberServiceImpl implements MemberService {
 	public List<Member> mbList(Member member) {
 		return md.list(member);
 	}
-    //별점 등급영향
+
+	// 별점 등급영향
 	@Override
-	public void star(int rating,String id) {
-		md.star(rating,id);
-		
+	public void star(int rating, String id) {
+		md.star(rating, id);
+
 	}
 }

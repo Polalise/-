@@ -73,11 +73,12 @@
 		update product set p_del='y' where p_num=#{p_num}
 	</update>
 	<insert id="insert" parameterType="product">
-		insert into product (p_num, p_writer, p_name, p_content, p_local, price, p_date, ip, p_del,p_value,p_tag,thumnails,thumnails2,thumnails3,thumnails4,thumnails5)
+		insert into product (p_num, p_writer, p_name, p_content, p_local, price, p_date, ip, p_del,p_value,p_tag,thumnails,thumnails2,thumnails3,thumnails4,thumnails5,id,sel)
 		 values (#{p_num},#{p_writer},#{p_name},#{p_content},#{p_local},#{price},sysdate,
 		#{ip},'n',#{p_value},#{p_tag},#{thumnails,jdbcType=VARCHAR},#{thumnails2,jdbcType=VARCHAR},#{thumnails3,jdbcType=VARCHAR}
-		,#{thumnails4,jdbcType=VARCHAR},#{thumnails5,jdbcType=VARCHAR})
+		,#{thumnails4,jdbcType=VARCHAR},#{thumnails5,jdbcType=VARCHAR},#{id},'n')
 	</insert>
+	
 	<!-- 판매자 아이디 가져오기 -->
 	<select id="select2" parameterType="integer" resultType="product"> <!-- view -->
 		select * from product where p_num=#{p_num}
@@ -90,4 +91,5 @@
 	<select id = "getProductCount2" resultType="integer">
      select count(*) from product where sel = 's'
    </select>
+	
 </mapper>
