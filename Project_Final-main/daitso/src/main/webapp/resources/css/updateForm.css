@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  
+  
+  .wrap {
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .join {
+    width: 30%;
+    height: 750px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  h2 {
+    color: tomato;
+    font-size: 2em;
+  }
+  .join_sns {
+    padding: 20px;
+    display: flex;
+  }
+  
+  .join_sns li {
+    padding: 0px 15px;
+  }
+  
+  .join_sns a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 50px;
+    background: white;
+    font-size: 20px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4), -3px -3px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+.join_id {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+.join_id input {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+  }
+  
+.join_pw {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+.join_pw input {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+  }
+  .join_pw2 {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+.join_pw2 input {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+  }
+.join_name {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+.join_name input {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+  }
+.join_tel {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+.join_tel input {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+  }
+.join_em {
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+.join_em input {
+    width: 100%;
+    height: 30px;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0px 20px;
+    border: 1px solid lightgray;
+    outline: none;
+}
+.submit {
+    margin-top: 50px;
+    width: 90%;
+  }
+  .submit input {
+    width: 90%;
+    height: 50px;
+    margin-left: 20px;
+    border: 0;
+    outline: none;
+    border-radius: 40px;
+    background: linear-gradient(to left, rgb(255, 77, 46), rgb(255, 155, 47));
+    color: white;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }

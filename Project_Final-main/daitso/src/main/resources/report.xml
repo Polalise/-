@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reportns">
+
+	<select id="report_getMaxNum" resultType="integer">
+		select nvl(max(report_num), 0) + 1 from report
+	</select>
+	
+	<!-- 신고 -->
+	<insert id="insert" parameterType="report">
+		insert into report
+		(report_num,reporter_id,criminal_id,p_num,reasonChk,reasonText,progress,report_date) values
+		(#{report_num},#{reporter_id},#{criminal_id},#{p_num},#{reasonChk},#{reasonText},'신고접수',sysdate)
+	</insert>
+	<!-- 삭제 -->
+	<!-- 수정 -->
+	<!-- 진행상태 -->
+</mapper>

@@ -1,0 +1,197 @@
+/* 프로필 전체 */
+.profileBox {
+  border: solid 2px red;
+  display: flex;
+  margin-bottom: 50px;
+  height: 645px;
+  align-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* 사진 및 기타의 상위 div ( 현재는 의미 x ) */
+.main .content {
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+/* 프로필 사진 */
+.main .content .pic {
+  margin-left: 10px;
+  margin-top: 30px;
+  border: solid white 5px;
+  width: 350px;
+  height: 350px;
+}
+/* 프로필 사진 크기 조절 */
+.pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* 티어 사진 */
+.content .pic .tierPic {
+    position: relative;
+    bottom: 60px;
+    left: 120px;
+    
+}
+.content .pic .tierPic img{
+    width: 110px;
+    height: 110px;
+    background-color: white;
+    border-radius: 50%;
+    border: solid white 5px;
+}
+/* LV. */
+.Lv {
+  text-align: left;
+  display: block;
+  position: relative;
+  top: 35px;
+  height: 25px;
+  width: 35%;
+}
+
+/* % */
+.Per {
+  text-align: right;
+  display: block;
+  position: relative;
+  top: 35px;
+  height: 25px;
+  width: 35%;
+}
+
+/* 레벨 진행도 */
+.tier .level {
+  margin-bottom: 15px;
+  width: 990px;
+}
+
+/* 기타 내용 div ( 현재 정렬 외 용도 X ) */
+.main .profile {
+  float: left;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+/* 레벨 표시를 위한 background용 상위 div */
+.main .profileBox .tier {
+  display: flex;
+  width: 1150px;
+  height: 600px;
+  border: solid black 1px;
+  align-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* 실버 20 ~ 50 */
+#tier-silver {
+  background: linear-gradient(to right, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
+}
+
+/* 골드 50 ~ 100 */
+#tier-gold {
+  background: linear-gradient(15deg, #f5b100, #fff8bd);
+}
+
+/* 플래티넘 100 ~ 200 */
+#tier-platinum {
+  background: linear-gradient(105deg, #2affb8, #2fddbd);
+}
+
+/* 다이아 200 ~ 300*/
+#tier-diamond {
+  background: linear-gradient(-139deg, #b2fefa, #0ed2f7);
+}
+
+/* vip 300 ~ 400 */
+#tier-vip {
+  background: linear-gradient(to right, #feac5e, #c779d0, #4cb0b8);
+}
+
+/* 불량유저 ~ 20 */
+#tier-warning {
+  background: linear-gradient(to right, #ef473a, #fff700,#ef473a, #fff700,#ef473a, #fff700);
+}
+
+/* 이름 div */
+.main .profile .name {
+  margin-top: 15px;
+  height: 55px;
+  width: 500px;
+  border: 2px solid blue;
+  background-color: #e2e9ff;
+}
+
+/* 기타 내용 div */
+.main .profile .etc {
+  margin-top: 35px;
+  font-size: 20px;
+  float: left;
+}
+
+/* 기타 내용들의 설정 */
+.main .profile .etc * {
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+/* 최근 찜  & 이벤트 상위 div */
+.main .recent {
+  height: 350px;
+  margin-top: 0px;
+  border: solid red 1px;
+  display: flex;
+}
+
+/* 최근 찜한 div */
+.main .recent .buy {
+  display: flex;
+  margin-left: 70px;
+  width: 40%;
+  border: solid 1px blue;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* 최근 찜목록 header */
+.buy .buy_header {
+  width: 100%;
+  height: 30px;
+  border: solid violet 1px;
+}
+
+/* 최근 찜목록 사진 div */
+.buy .likePic {
+  display: inline-block;
+  height: 140px;
+  width: 140px;
+  border: solid red 1px;
+  margin-left: 15px;
+}
+/* 찜목록 사진 크기 조절 */
+.likePic img {
+  margin: 3px;
+  height: 134px;
+  width: 134px;
+}
+
+/* 이벤트 div */
+.main .recent .event {
+  margin-left: 120px;
+  width: 40%;
+  border: solid 1px violet;
+}
+/* 이벤트 사진 크기 조절 */
+.event img {
+  width: 100%;
+  height: 100%;
+}
