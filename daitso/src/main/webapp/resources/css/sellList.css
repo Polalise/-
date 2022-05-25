@@ -5,8 +5,6 @@
   height: 1000px;
   width: 1600x;
   flex-direction: column;
-  font-family: "dongle";
-  font-style: normal;
 }
 /* 리스트 상단 바 div */
 .main .list .header {
@@ -51,27 +49,34 @@
 .main .list .viewList {
   display: inline-block;
   border: solid red 1px;
-  height: 180px;
-}
-.viewList .product{
   height: 100%;
 }
+.viewList .product{
+  display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+
 
 /* 구매한 물품 사진 div */
-.viewList .thumbnail {
+.product .thumbnail {
   display: inline-block;
   text-align: center;
   line-height: 150px;
   border: solid rgb(26, 122, 69) 1px;
-  margin-top: 15px;
   margin-left: 35px;
   width: 150px;
   height: 150px;
 }
 /* 물품 사진 크기 조절 */
 .thumbnail img {
-  width: 100%;
-  height: 100%;
+  width: 149px;
+  height: 149px;
+  
   object-fit: cover;
 }
 /* 구매물품 */
@@ -79,7 +84,6 @@
   display: inline-block;
   border: solid red 1px;
   height: 150px;
-  margin-top: 15px;
   margin-left: 20px;
   width: 420px;
   text-align: center;
@@ -104,7 +108,8 @@
   margin-left: 70px;
   text-align: center;
   line-height: 150px;
-} /* 판매자 */
+}
+/* 판매자 */
 .viewList .product :nth-child(5) {
   display: inline-block;
   border: solid black 1px;
@@ -114,8 +119,4 @@
   text-align: center;
   line-height: 150px;
 }
-/* a tag 위치 조절 */
-.viewList .product a{
-  position: relative;
-  bottom: 88px;
-} 
+

@@ -42,15 +42,15 @@ public class MyPageServiceImpl implements MypageService{
 	}
 
 	public int mySellCountN(String id) {
-		return myd.mySellCountN;
+		return myd.mySellCountN(id);
 	}
 
 	public int mySellCountI(String id) {
-		return myd.mySellCountI;
+		return myd.mySellCountI(id);
 	}
 
 	public int mySellCountY(String id) {
-		return myd.mySellCountY;
+		return myd.mySellCountY(id);
 	}
 
 }
