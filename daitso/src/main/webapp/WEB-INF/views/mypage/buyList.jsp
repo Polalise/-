@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>	
+<%@ include file="header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,30 +30,39 @@
 			</div>
 			<div class="list">
 				<div class="header">
-					<div>구매목록</div>
-					<br> <a>구매 물품</a> <a>구매 날짜</a> <a>구매 가격</a> <a>판매자</a>
-				</div>
-				<c:if test="${empty myBuyList}">
-					<div class="viewList">
-						<div class="product">아직 구매한 적이 없어요!</div>
+					<div class="header_title">구매목록</div>
+					<div class="header_info">
+						<a class="title">구매 물품</a> <a class="b_date">구매 날짜</a> <a
+							class="b_price">구매 가격</a> <a class="dealer">판매자</a> <a
+							class="b_review">리뷰</a>
 					</div>
-				</c:if>
-				<c:if test="${not empty myBuyList && p_del != 'y'}">
-					<c:forEach var="product" items="${myBuyList }">
+					<c:if test="${empty myBuyList}">
 						<div class="viewList">
-							<div class="product">
-								<span class="thumbnail">
-								<img src="${path}/resources/upload/${product.thumnails}"></span>
-								<a>${product.p_name}</a>
-								<a>${product.updateday}</a>
-								<a>${product.price}</a>
-								<a>${product.p_writer}</a>
-							</div>
+							<div class="product">아직 구매한 적이 없어요!</div>
 						</div>
-					</c:forEach>
-				</c:if>
+					</c:if>
+					<c:if test="${not empty myBuyList && p_del != 'y'}">
+						<c:forEach var="product" items="${myBuyList }">
+							<div class="viewList">
+								<div class="product">
+									<span class="thumbnail">
+									<img src="${path}/resources/upload/${product.thumnails}"></span>
+									<a>${product.p_name}</a>
+									<a>${product.updateday}</a>
+									<a>${product.price}</a>
+									<a>${product.p_writer}</a>
+									<c:if test="${product.review == 'n' }">
+										<a>리뷰 쓰러가기 !</a>
+									</c:if>
+									<c:if test="${product.review == 'y' }">
+									
+									</c:if>
+								</div>
+							</div>
+						</c:forEach>
+					</c:if>
+				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

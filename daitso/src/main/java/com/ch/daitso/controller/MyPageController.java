@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ch.daitso.model.*;
-import com.ch.daitso.service.LikesService;
-import com.ch.daitso.service.MemberService;
-import com.ch.daitso.service.MypageService;
-import com.ch.daitso.service.ProductService;
+import com.ch.daitso.service.*;
 
 @Controller
 public class MyPageController {
@@ -29,6 +26,9 @@ public class MyPageController {
 	
 	@Autowired
 	private LikesService ls;
+	
+	@Autowired
+	private ReplyService rs;
 	
 	@RequestMapping("myProfileForm")
 	public String myProfileForm(Member member,Product product,Mypage mypage,Model model, HttpSession session) {
@@ -105,6 +105,7 @@ public class MyPageController {
 		model.addAttribute("myBuyList",myBuyList);
 		int productCountB = mys.myBuyCount(id);
 		model.addAttribute("myBuyCount",productCountB);
+		List<Reply> reply = rs.list(id);
 		
 		return"/mypage/buyList";
 	}

@@ -65,7 +65,7 @@ public class ReplyController {
 		/* NoticeBoard board = ns.select(num); */
 		Product product2 = ps.select2(product.getP_num()); // 판매자 아이디 정보가져와
 		member.setId(product2.getId()); // 저장
-		// 하나의 게시물에 여러 댓글
+		// 하나의 게시물에 여러 리뷰
 		List<Reply> rbdList = rs.list(member.getId()); // 판매자에 대한 리뷰라 판매자 아이디
 		// model.addAttribute("product", product);
 		model.addAttribute("rbdList", rbdList);
@@ -79,7 +79,7 @@ public class ReplyController {
 		return "redirect:replyList2.do?num=" + rb.getP_num();
 	}
 
-	// 댓글 수정
+	// 리뷰 수정
 	@RequestMapping("rUpdate2")
 	public String rUpdate(Reply rb) {
 		rs.update(rb);
