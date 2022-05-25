@@ -241,11 +241,12 @@
 			</c:if>
 		</ul>
 	</div>
-
+ <c:if test="${id == 'admin'}">
 	<div align="center">
 		<a href="eventWriteForm.do?e_num=0&pageNum=1" class="btn btn-success">게시글
 			입력</a>
 	</div>
+	</c:if>
 </div> <!-- second -->
 </div>
 

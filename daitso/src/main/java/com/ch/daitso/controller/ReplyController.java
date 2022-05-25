@@ -61,7 +61,7 @@ public class ReplyController {
         member.setId(product2.getId());  // 저장
 		//하나의 게시물에 여러 댓글
 		List<Reply> rbdList = rs.list(member.getId()); // 판매자에 대한 리뷰라 판매자 아이디
-	//	model.addAttribute("product", product);
+		model.addAttribute("p_num", p_num);
 		model.addAttribute("rbdList", rbdList);
 		  
 		   return "admin/review/replyList";

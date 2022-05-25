@@ -104,7 +104,7 @@
 			<input type="hidden" name="e_num" value="${e_num }"> 
 			<input	type="hidden" name="pageNum" value="${pageNum }">
 			<input	type="hidden" name="id" value="${id }">
-			<h2 class="text-primary">게시글 작성</h2>
+			<h2 class="text-primary">이벤트 수정</h2>
 			<table class="table table-bordered">
 				<%-- <tr>
 					<td>아이디 <span class="glyphicon glyphicon-user"></span></td>

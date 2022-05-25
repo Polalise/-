@@ -61,6 +61,24 @@ border: 2px solid yellow;
           background-color: tomato;
           color: #fff;
      }
+/* 마우스호버시 밑줄과 볼드 */
+a:link {
+  text-decoration: none;
+}
+ 
+a:visited {
+  text-decoration: none;
+}
+ 
+a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+ 
+a:active {
+  text-decoration: underline;
+   font-weight: bold;
+}     
 /* ul.mylist li:before,
 ol.mylist li:before {
     content: ">";
@@ -108,14 +126,14 @@ window.onload = function() {
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',
 	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(285, 99, 132, 0.2)',
-	                'rgba(64, 162, 235, 0.2)'
+	                'rgba(125, 99, 132, 0.2)',
+	                'rgba(184, 162, 235, 0.2)'
 	            ],
 	            borderColor: [
 	                'rgba(255,99,132,1)',
 	                'rgba(54, 162, 235, 1)',
-	                'rgba(265,99,132,1)',
-	                'rgba(64, 162, 235, 1)'
+	                'rgba(125,99,132,1)',
+	                'rgba(184, 162, 235, 1)'
 	            ],
 	            borderWidth: 4
 	        }
@@ -242,7 +260,7 @@ window.onload = function() {
 			<th class="col-md-1 text-center">이메일</th>
 			<th class="col-md-1 text-center">등급</th>
 			<th class="col-md-1 text-center">가입일</th>
-			<th class="col-md-1 text-center">탈퇴 여부</th>				
+			<th class="col-md-2 text-center">탈퇴여부</th>				
 		</tr>
 			<c:if test="${empty mbList }">
 				<tr>
@@ -267,7 +285,7 @@ window.onload = function() {
 						    <td class="col-md-2 text-center">${member.phone }</td>
 						    <td class="col-md-1 text-center">${member.email }</td>
 						    <td class="col-md-1 text-center">${member.grade }</td>
-							<td class="col-md-1 text-center">${member.regdate }</td>
+							<td class="col-md-2 text-center">${member.regdate }</td>
 							
 								<c:if test="${member.id == 'admin' }">
 									<td class="col-md-2 text-center">관리자</td>

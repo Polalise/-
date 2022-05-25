@@ -151,7 +151,7 @@
 			<input type="hidden" name="num" value="${num }"> 
 			<input	type="hidden" name="pageNum" value="${pageNum }">
 			<input	type="hidden" name="id" value="${id }">
-			<h2 class="text-primary">게시글 작성</h2>
+			<h2 class="text-primary">공지사항 수정</h2>
 			<table class="table table-bordered">
 				<%-- <tr>
 					<td>아이디 <span class="glyphicon glyphicon-user"></span></td>
@@ -186,7 +186,9 @@
 				</tr> --%>
 				<tr> 
 					<td colspan="2" align="center"><input type="submit"
-						id="submit" class="btn btn-success" value="확인"></td>
+						id="submit" class="btn btn-success" value="확인">
+						<input type="button" onclick="location.href='noticeView.do?num=${board.num }'"
+						id="cancle" class="btn btn-danger" value="취소"></td>
 				</tr>
 			</table>
 		</form>

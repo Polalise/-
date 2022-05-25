@@ -7,20 +7,19 @@
 #bigReview{
   width:50%;
   margin-top: 200px;,
-  
 }
 </style>
 <script type="text/javascript">
     // 댓글 삭제
-	function rDelete(num, rno) {
-		var sendData = "num="+num+"&rno="+rno;
+	function rDelete(p_num, rno) {
+		var sendData = "p_num="+p_num+"&rno="+rno;
 		$.post("rDelete2.do", sendData, function(data) {
 			alert("삭제 되었습니다");
 			$("#rbdListDisp").html(data);
 		});
 	}
 	//댓글 수정누르면 확인 취소 나오게
-	function rUpdate(num, rno) {
+	function rUpdate(p_num, rno) {
 	/*  input에 있는 데이터를 읽어서 textarea에 넣어서 변경할 수 있게 만들어야 한다
 		input, textarea, select에 데이터를 읽을 때는 jquery에서 val()
 		td, div, span등에서 데이터를 읽을 때는 jquery에서 text() */
@@ -28,16 +27,16 @@
 		/* 읽은 데이터를 textarea에 넣어서 수정할 수 있게 만든다 */
 		$('#td_'+rno).html('<textarea row="3" colos="40" id="rt">'+txt+'</textarea>');
 		/* 버튼 처리를  확인과 취소로 변경 */
-		$('#btn_'+rno).html("<input type='button'onclick='up("+num+","+rno+
+		$('#btn_'+rno).html("<input type='button'onclick='up("+p_num+","+rno+
 				")' class='btn btn-danger btn-sm' value='확인'> "+
-				"<input type='button' onclick='lst("+num+")' class='btn btn-info btn-sm' value='취소'>");
+				"<input type='button' onclick='lst("+p_num+")' class='btn btn-info btn-sm' value='취소'>");
 	}
 	//댓글 수정중 취소 누르면 다시 목록보이게
-	function lst(num) {
-		$('#rbdListDisp').load('replyList2.do?num='+num);
+	function lst(p_num) {
+		$('#rbdListDisp').load('replyList2.do?p_num='+p_num);
 	}
-	function up(num, rno) {
-		var sendData = "replytext="+$('#rt').val()+"&num="+num+"&rno="+rno;
+	function up(p_num, rno) {
+		var sendData = "replytext="+$('#rt').val()+"&p_num="+p_num+"&rno="+rno;
 		$.post('rUpdate2.do' , sendData, function(data){
 			alert("수정 되었습니다.")
 			$('#rbdListDisp').html(data); 
@@ -88,9 +87,9 @@
 			<%-- <c:if test="${rbd.id}"> --%>
 				<td id="btn_${rbd.rno }">
 				<input type="button" class="btn btn-warning btn-sm" value="수정"
-						onclick="rUpdate(${board.num},${rbd.rno })">
+						onclick="rUpdate(${p_num},${rbd.rno })">
 					<input type="button" class="btn btn-danger btn-sm" value="삭제"
-						onclick="rDelete(${board.num},${rbd.rno })"></td>
+						onclick="rDelete(${p_num},${rbd.rno })"></td>
 			</c:if>
 	</c:if>
 </c:forEach>
