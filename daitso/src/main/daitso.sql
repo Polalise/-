@@ -83,7 +83,7 @@ create table reply (
 	regdate date not null,
 	del char(1) default 'n' ,
 	rating number ,
-	num number not null references product(p_num),
+	p_num number not null references product(p_num),
 	id  varchar2(100) not null references member(id)
 );
 

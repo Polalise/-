@@ -16,4 +16,44 @@
 	<!-- 삭제 -->
 	<!-- 수정 -->
 	<!-- 진행상태 -->
+	 <!-- 글의 총갯수 -->
+	 <select id="getTotal" resultType="integer" parameterType="report">
+    select count(*) from report
+     <where>  
+             <!-- keyword에 값이 있으면 검색 없으면 생략-->
+       <if test="keyword!=null and keyword !=''">
+           <if test="search=='subcon'">
+              reasonChk like '%'||#{keyword}||'%' or 
+              reasonText like '%'||#{keyword}||'%'
+           </if>
+           <if test="search!='subcon'">
+          ${search} like '%'||#{keyword}||'%'
+          </if>
+       </if>
+    </where>
+ </select> 
+ <!-- 목록보여주기 -->
+	 <select id="list" parameterType="report" resultType="report">
+    select * from (select a.* , rowNum rn from (select * from report
+    <!--where는 테이블로 부터 데이터 추출 조건 where뒤에 문자이 있으면 where를 추가하고 없으면 where생략 -->
+       <!-- where 뒤에 있으면 쓰고 없으면 원래대로 써라 -->
+     <where>  
+             <!-- keyword에 값이 있으면 검색 없으면 생략-->
+       <if test="keyword!=null and keyword !=''">
+           <if test="search=='subcon'">
+              reasonChk like '%'||#{keyword}||'%' or 
+              reasonText like '%'||#{keyword}||'%'
+           </if>
+           <if test="search!='subcon'">
+          ${search} like '%'||#{keyword}||'%'
+          </if>
+       </if>
+    </where>
+    order by report_num desc) a) where rn between #{startRow} and #{endRow}
+ </select>
+ <!-- <게시글 상세보기 정보가져오기> -->
+	<select id="select" parameterType="integer" resultType="report">
+		select *
+		from report where report_num=#{report_num}
+	</select>
 </mapper>

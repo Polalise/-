@@ -29,10 +29,10 @@ $(function() {
 			<a><img alt="" src="${path }/resources/images/logo.png" style="width: 190px; margin-left: 650px;"></a>
 			<div class="nav" style="margin-right: 350px;">
 				<b>${member.name }님 </b>&nbsp;
-				<c:if test="${id != 'master' }">
+				<c:if test="${id != 'admin' }">
 					<a href="myProfileForm.do">마이페이지</a>
 				</c:if>
-				<c:if test="${id == 'master' }">
+				<c:if test="${id == 'admin' }">
 					<a href='adminMain2.do'>관리자페이지</a>
 					<a href="adminMain.do">회원관리</a>
 				</c:if>
@@ -49,11 +49,11 @@ $(function() {
 						<ul>
 							<li><a href="/Project2/main/main.do">◾메인</a></li>
 							<br>
-							<c:if test="${id != 'master' }">
+							<c:if test="${id != 'admin' }">
 								<li><a href="myProfileForm.do">◾마이페이지</a></li>
 								<br>
 							</c:if>
-							<c:if test="${id == 'master' }">
+							<c:if test="${id == 'admin' }">
 								<li><a href="/Project2/manager/masterUpdate.do">◾회원관리</a></li>
 								<br>
 							</c:if>
