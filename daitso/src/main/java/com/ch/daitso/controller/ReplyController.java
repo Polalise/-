@@ -69,7 +69,7 @@ public class ReplyController {
 		List<Reply> rbdList = rs.list(member.getId()); // 판매자에 대한 리뷰라 판매자 아이디
 		// model.addAttribute("product", product);
 		model.addAttribute("rbdList", rbdList);
-
+		model.addAttribute("p_num",p_num);
 		return "admin/review/replyList";
 	}
 

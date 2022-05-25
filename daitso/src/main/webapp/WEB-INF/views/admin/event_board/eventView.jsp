@@ -55,6 +55,9 @@ border: 2px solid blue;
           background-color: tomato;
           color: #fff;
      }
+     #privateBtn{
+     margin-left: 970px;
+     }
 </style>
 <body>
 <div id="total" style="display: flex;">
@@ -71,6 +74,13 @@ border: 2px solid blue;
     </div>
 <div class="container" align="center">
   <h2 class="text-primary">이벤트 상세</h2>
+    <c:if test="${id == 'admin'}">
+  <div id="privateBtn">
+    <a href="eventUpdateForm.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
+      <!-- 회원 게시판인 경우에는 폼없이 삭제 여부를 묻고 삭제 ,비회원인 경우에는 암호를 확인하기 위한 화면-->
+       <a href="eventDelete.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-danger">삭제</a>
+       </div>
+       </c:if>
   <table class="table">
   <tr><td style="width: 50%;"><b>${board.e_subject }</b></td><td style="text-align:right;">조회수${board.e_readcount }</td><td style="text-align:right;">이벤트기간</td><td>${board.e_start_date} ~ ${board.e_end_date}</td></tr>
 	<tr><td colspan="6"><c:set var = "testStr" value = "${board.e_fileName }"/>
@@ -97,9 +107,9 @@ border: 2px solid blue;
 	     <tr><td><img alt="" src="resources/images/2.png" width="200"></td></tr></c:if> --%>
 	<tr><td colspan="6" align="center">
       <a href="eventList.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>
-      <a href="eventUpdateForm.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
+    <%--   <a href="eventUpdateForm.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
       <!-- 회원 게시판인 경우에는 폼없이 삭제 여부를 묻고 삭제 ,비회원인 경우에는 암호를 확인하기 위한 화면-->
-       <a href="eventDelete.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-danger">삭제</a>
+       <a href="eventDelete.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-danger">삭제</a> --%>
    </td></tr>
   </table>
 </div>

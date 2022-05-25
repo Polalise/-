@@ -93,10 +93,10 @@
   <table class="table">
   <tr><td style="width: 50%;"><b>${board.subject }</b></td><td style="text-align:right;">&nbsp;조회수&nbsp;${board.readcount }&nbsp;&nbsp;&nbsp;작성일</td><td>${board.reg_date}</td></tr>
   	<c:set var = "testStr" value = "${board.fileName }"/>
-  <c:if test = "${fn:contains(testStr, 'pdf')}"><tr><td id="s1" colspan="1" style="width: 10%;">파일</td><td colspan="5">${board.fileName }</td></tr></c:if>
-  <c:if test = "${fn:contains(testStr, 'ppt')}"><tr><td id="s2" colspan="1" style="width: 10%;">파일</td><td colspan="5">${board.fileName }</td></tr></c:if>
-  <c:if test = "${fn:contains(testStr, 'hwp')}"><tr><td id="s3" colspan="1" style="width: 10%;">파일 <a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td><td colspan="5"><%-- <a href="download.do?fileName=${board.fileName }">${board.fileName }</a> --%></td></tr></c:if>
-  <c:if test = "${fn:contains(testStr, 'txt')}"><tr><td id="s4" colspan="1" style="width: 10%;">파일 <a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td><td colspan="5"><%-- <a href="download.do?fileName=${board.fileName }">${board.fileName }</a> --%></td></tr></c:if>
+  <c:if test = "${fn:contains(testStr, 'pdf')}"><tr><td id="s1" colspan="1" style="width: 10%;">첨부파일 &nbsp;&nbsp;&nbsp;<a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td><td colspan="5"><%-- ${board.fileName } --%></td></tr></c:if>
+  <c:if test = "${fn:contains(testStr, 'ppt')}"><tr><td id="s2" colspan="1" style="width: 10%;">첨부파일 &nbsp;&nbsp;&nbsp;<a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td><td colspan="5"><%-- ${board.fileName } --%></td></tr></c:if>
+  <c:if test = "${fn:contains(testStr, 'hwp')}"><tr><td id="s3" colspan="1" style="width: 10%;">첨부파일 &nbsp;&nbsp;&nbsp;<a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td><td colspan="5"><%-- <a href="download.do?fileName=${board.fileName }">${board.fileName }</a> --%></td></tr></c:if>
+  <c:if test = "${fn:contains(testStr, 'txt')}"><tr><td id="s4" colspan="1" style="width: 10%;">첨부파일 &nbsp;&nbsp;&nbsp;<a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td><td colspan="5"><%-- <a href="download.do?fileName=${board.fileName }">${board.fileName }</a> --%></td></tr></c:if>
   <tr colspan="5">
          <c:set var = "testStr" value = "${board.fileName }"/>
             <c:if test = "${fn:contains(testStr, 'png')}">

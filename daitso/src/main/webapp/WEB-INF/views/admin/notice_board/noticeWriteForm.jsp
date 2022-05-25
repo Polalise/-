@@ -188,7 +188,9 @@
 				</tr> -->
 				<tr> 
 					<td colspan="2" align="center"><input type="submit"
-						id="submit" class="btn btn-success" value="확인"></td>
+						id="submit" class="btn btn-success" value="확인">
+						<input type="button" onclick="location.href='noticeList.do'"
+						id="cancle" class="btn btn-danger" value="취소"></td>
 				</tr>
 			</table>
 		</form>

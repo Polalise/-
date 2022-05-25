@@ -5,8 +5,7 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <style type="text/css">
 .review2{
-  height : 300px;
-
+  height : 320px;
   border: 2px solid red;
   margin-top: 300px;
   margin-left: 650px
@@ -70,6 +69,7 @@
 	<input type="hidden" name="rno" value="${rno }">
 	<input type="hidden" name="id" value="${id }">
  <table class="table table-hover"> 
+ <h3>판매자와의 거래는 어떠셨나요?<br>평점을 남겨주세요.</h3>
 	<!-- 회원게시판에서 작성자는 로그인 사람의 이름이나 별명(여기서는 게시글 쓴 사람으로 정의) -->
 	<!-- <tr><th>작성자</th><td><input type="text" name="id" value="admin"></td></tr> -->
 	 <tr><th>별점</th> <td> <fieldset>
@@ -81,7 +81,7 @@
             <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
      </fieldset></td></tr>
 		<tr><td>리뷰</td><td><textarea rows="5" cols="50" name="replytext"></textarea></td>
-		<td><input type="submit" value=" 입력" id="rInsert"></td>
+		<td><input type="submit" value="확인" id="rInsert"></td>
 		</table>
 </form>
 <!-- <div id="rbdListDisp"></div>
