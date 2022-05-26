@@ -31,10 +31,11 @@ $(function() {
 				<b>${member.name }님 </b>&nbsp;
 				<c:if test="${id != 'admin' }">
 					<a href="myProfileForm.do">마이페이지</a>
+					<a href='adminMain2.do'>고객센터</a>
 				</c:if>
 				<c:if test="${id == 'admin' }">
-					<a href='adminMain2.do'>관리자페이지</a>
-					<a href="adminMain.do">회원관리</a>
+					
+					<a href="adminMain.do">관리자페이지</a>
 				</c:if>
 				<a href='/Project2/login/logout.do'>로그아웃</a>
 			</div>

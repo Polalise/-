@@ -41,4 +41,34 @@ public class ReportDaoImpl implements ReportDao{
 	public int update(Report report) {
 		return sst.update("reportns.update",report);
 	}
+
+	@Override
+	public int getTotal2(String id) {
+		return sst.selectOne("reportns.getTotal2",id);
+	}
+
+	@Override
+	public List<Report> list2(String id) {
+		return sst.selectList("reportns.list2",id);
+	}
+
+//	@Override
+//	public int getTotal2(String reporter_id) {
+//		return sst.selectOne("reportns.getTotal2",reporter_id);
+//	}
+//
+//	@Override
+//	public List<Report> list2(String reporter_id) {
+//		return sst.selectList("reportns.list2",reporter_id);
+//	}
+//
+//	@Override
+//	public int getTotal3(String criminal_id) {
+//		return sst.selectOne("reportns.getTotal3",criminal_id);
+//	}
+//
+//	@Override
+//	public List<Report> list3(String criminal_id) {
+//		return sst.selectList("reportns.list3",criminal_id);
+//	}
 }

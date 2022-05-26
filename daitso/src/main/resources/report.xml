@@ -64,4 +64,29 @@
 		
 		where report_num = #{report_num}
 	</update>
+	<!-- 신고자 목록보여주기 -->
+	 <!-- <select id="list2" parameterType="string" resultType="report">
+		select * from (select a.* , rowNum rn from (select * from report
+		order by report_num desc ) a) where reporter_id = #{reporter_id}
+	</select> 
+	피신고자 목록보여주기
+	 <select id="list3" parameterType="string" resultType="report">
+		select * from (select a.* , rowNum rn from (select * from report
+		order by report_num desc) a) where criminal_id = #{criminal_id}
+	</select> 
+	 신고자 글의 총갯수
+	<select id="getTotal2" resultType="integer">
+		select count(*) from report where reporter_id = #{reporter_id}
+	</select> 
+	피신고자 글의 총갯수
+	<select id="getTotal3" resultType="integer">
+		select count(*) from report where criminal_id = #{criminal_id}
+	</select>  -->
+	<select id="list2" parameterType="string" resultType="report">
+		select * from (select a.* , rowNum rn from (select * from report
+		order by report_num desc ) a) where reporter_id = #{id} or criminal_id = #{id}
+	</select> 
+	<select id="getTotal2" resultType="integer">
+		select count(*) from report where criminal_id = #{id} or reporter_id = #{id}
+	</select> 
 </mapper>

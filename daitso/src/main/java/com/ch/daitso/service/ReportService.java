@@ -18,5 +18,17 @@ public interface ReportService {
 	Report select(int report_num);
 
 	int update(Report report);
+    
+//	//신고한사람
+//	int getTotal2(String reporter_id);
+//	List<Report> list2(String reporter_id);
+//	
+//	//신고당한사람
+//	int getTotal3(String criminal_id);
+//	List<Report> list3(String criminal_id);
+
+	int getTotal2(String id);
+
+	List<Report> list2(String id);
 
 }

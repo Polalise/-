@@ -38,4 +38,28 @@ public class ReportServiceImpl implements ReportService{
 	public int update(Report report) {
 		return rd.update(report);
 	}
+//	@Override
+//	public int getTotal2(String reporter_id) {
+//		return rd.getTotal2(reporter_id);
+//	}
+//	@Override
+//	public List<Report> list2(String reporter_id) {
+//		return rd.list2(reporter_id);
+//	}
+//	@Override
+//	public int getTotal3(String criminal_id) {
+//		return rd.getTotal3(criminal_id);
+//	}
+//	@Override
+//	public List<Report> list3(String criminal_id) {
+//		return rd.list3(criminal_id);
+//	}
+	@Override
+	public int getTotal2(String id) {
+		return rd.getTotal2(id);
+	}
+	@Override
+	public List<Report> list2(String id) {
+		return rd.list2(id);
+	}
 }

@@ -86,14 +86,17 @@
   <h2 class="text-primary">신고내역 상세</h2>
   <c:if test="${id == 'admin'}">
   <div id="privateBtn">
-    <a href="reportUpdateForm.do?report_num=${report.report_num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
+    <a href="reportUpdateForm.do?report_num=${report.report_num }&pageNum=${pageNum }" class="btn btn-warning">접수하기</a>
   </div>
        </c:if>
   <table class="table">
   <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td>신고상태<b>${report.progress}</b><td>작성일<b> ${report.report_date}</b></td></tr>
   <tr><td style="width:20%;">신고자<b> ${report.reporter_id}</b><td colspan="2">피신고자<b> ${report.criminal_id}</b></td></tr>
   <tr><td style="width:10%;">신고내용</td><td colspan="2">${report.reasonText}</td>
-
+  <c:if test="${report.progress == '처리 완료'}">
+  <tr><td style="width:10%;">관리자코멘트</td><td colspan="2">${report.adminText}</td>
+  </tr>
+  </c:if>
 	<tr><td colspan="5" align="center">
       <a href="reportList.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>
 <%--<a href="noticeUpdateForm.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
