@@ -1,5 +1,7 @@
 package com.ch.daitso.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -60,23 +62,17 @@ public class ReportController {
 		   if(pageNum == null || pageNum.equals("")) pageNum = "1";
 		   int rowPerPage = 10;
 		   int currentPage = Integer.parseInt(pageNum);
-//		   int total = ns.getTotal();
 		   int total = rs.getTotal(report);
 		   int startRow = (currentPage - 1) * rowPerPage + 1;
 		   int endRow  = startRow + rowPerPage -1;
 		   report.setStartRow(startRow);
 		   report.setEndRow(endRow);
-//		   List<NoticeBoard> list = ns.list(startRow,endRow);
 		   List<Report> list = rs.list(report);
 		   int num = total - startRow + 1;
 		   //페이징 하기
 		   PageBean pb = new PageBean(currentPage,rowPerPage,total);
 		   //답글 번호 순서 
-		   //id 세션가져오기
-		//  session.setAttribute("id", member.getId());
-		//  String id = (String)session.getAttribute("id");
-		//  model.addAttribute("id", id);
-		//	model.addAttribute("member", member);
+
 			//검색 한글로 계속유지하게 
 			String[] title = {"작성자","신고문항","신고내용","문항+내용"};
 			model.addAttribute("title", title);
@@ -84,7 +80,7 @@ public class ReportController {
 		   model.addAttribute("pb",pb);
 		   model.addAttribute("list",list);
 		   model.addAttribute("total",total);
-		//   model.addAttribute("id",id);
+
 		   return "report/reportList";
 	   }
 	 @RequestMapping("reportView")
@@ -97,5 +93,19 @@ public class ReportController {
 			return "report/reportView";
 
 	  }
+	 @RequestMapping("noticeUpdateForm")
+	   public String EventUpdateForm(Member member,int report_num,Report report ,String pageNum,Model model) {
+		  int result = 0;
+		  //패널티 부여 먼저 
+		  member.setId(report.getCriminal_id());
+		  ms.penalty(report.getScore(),member.getId());
+		  //글 업데이트형식 (처리상태 바꾸려고)
+		  result = rs.update(report);
+	  
+		   model.addAttribute("result",result);
+		   model.addAttribute("pageNum",pageNum);
+		   model.addAttribute("report_num",report_num);
+			return "admin/notice_board/noticeUpdate";
+		}
 }
  

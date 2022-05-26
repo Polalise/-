@@ -34,4 +34,8 @@ public class ReportServiceImpl implements ReportService{
 	public Report select(int report_num) {
 		return rd.select(report_num);
 	}
+	@Override
+	public int update(Report report) {
+		return rd.update(report);
+	}
 }

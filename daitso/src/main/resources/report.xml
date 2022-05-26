@@ -10,8 +10,8 @@
 	<!-- 신고 -->
 	<insert id="insert" parameterType="report">
 		insert into report
-		(report_num,reporter_id,criminal_id,p_num,reasonChk,reasonText,progress,report_date) values
-		(#{report_num},#{reporter_id},#{criminal_id},#{p_num},#{reasonChk},#{reasonText},'신고접수',sysdate)
+		(report_num,reporter_id,criminal_id,p_num,reasonChk,reasonText,progress,report_date,score,adminText) values
+		(#{report_num},#{reporter_id},#{criminal_id},#{p_num},#{reasonChk},#{reasonText},'신고접수',sysdate,0,'')
 	</insert>
 	<!-- 삭제 -->
 	<!-- 수정 -->
@@ -56,4 +56,12 @@
 		select *
 		from report where report_num=#{report_num}
 	</select>
+	 <!-- 신고 벌점 -->
+	<update id="update" parameterType="report">
+		update report set
+        
+        progress = '처리 완료',adminText = #{adminText}
+		
+		where report_num = #{report_num}
+	</update>
 </mapper>

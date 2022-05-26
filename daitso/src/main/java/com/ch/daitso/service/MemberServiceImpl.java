@@ -117,4 +117,10 @@ public class MemberServiceImpl implements MemberService {
 		md.star(rating, id);
 
 	}
+
+	@Override
+	public void penalty(int score, String id) {
+		md.penalty(score, id);
+		
+	}
 }

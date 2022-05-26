@@ -84,12 +84,14 @@
   
 <div class="container" align="center" id="sub" >
   <h2 class="text-primary">신고내역 상세</h2>
-   <form method="post" action="reportUpdate.do">
+  
   <table class="table">
-  <tr><td style="width: 50%;"><b>[${report.reasonChk}]</b></td><td style="text-align:right;">작성일</td><td>${board.reg_date}</td></tr>
-  <tr><td>신고자</td><td>${report.reporter_id}</td><td>피신고자</td><td>${report.reporter_id}</td></tr>
-  <tr><td colspan="5">${report.reasonText}</td>
-  <tr><td><input type="text" name="rating"></td></tr>
+  <form method="post" action="reportUpdate.do">
+  <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td>신고상태<b>${report.progress}</b><td>작성일<b> ${report.report_date}</b></td></tr>
+  <tr><td style="width:20%;">신고자<b> ${report.reporter_id}</b><td colspan="2">피신고자<b> ${report.reporter_id}</b></td></tr>
+  <tr><td style="width:10%;">신고내용</td><td colspan="2">${report.reasonText}</td>
+  <tr><td colspan="5">벌점<input type="text" name="score"></td></tr>
+  <tr><td colspan="5">관리자 코멘트<input type="text" name="adminText"></td></tr>
   <tr><td><input type="submit" value="확인"></td></tr>
   	</form>
 	<tr><td colspan="5" align="center">

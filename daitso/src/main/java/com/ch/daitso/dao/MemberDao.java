@@ -51,4 +51,6 @@ public interface MemberDao {
 	List<Member> list(Member member);
 	
 	void star(int rating,String id);
+
+	void penalty(int score, String id);
 }

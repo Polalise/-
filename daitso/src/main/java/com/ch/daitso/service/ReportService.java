@@ -17,4 +17,6 @@ public interface ReportService {
     //상세보기 
 	Report select(int report_num);
 
+	int update(Report report);
+
 }

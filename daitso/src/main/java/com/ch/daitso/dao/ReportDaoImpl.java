@@ -36,4 +36,9 @@ public class ReportDaoImpl implements ReportDao{
 	public Report select(int report_num) {
 		return sst.selectOne("reportns.select",report_num);
 	}
+
+	@Override
+	public int update(Report report) {
+		return sst.update("reportns.update",report);
+	}
 }

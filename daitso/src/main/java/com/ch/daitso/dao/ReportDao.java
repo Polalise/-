@@ -16,4 +16,6 @@ public interface ReportDao {
 
 	Report select(int report_num);
 
+	int update(Report report);
+
 }

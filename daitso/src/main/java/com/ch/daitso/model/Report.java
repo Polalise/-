@@ -22,6 +22,7 @@ public class Report {
 	private String progress;
 //	신고 날짜
 	private Date report_date;
+	private int score;
 	// paging용
 	private int startRow;
 	private int endRow;
