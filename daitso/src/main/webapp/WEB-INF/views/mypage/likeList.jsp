@@ -18,7 +18,7 @@ function delAction(p_num,id) {
 </head>
 <body>
 	<div class="my_layout">
-		<div class="top">global menu</div>
+		<div class="top"><a href="p_list.do?">메인페이지</a></div>
 		<div class="main">
 			<div class="leftMenu">
 				left menu

@@ -11,7 +11,9 @@
 </head>
 <body>
 	<div class="my_layout">
-		<div class="top">global menu</div>
+		<div class="top">
+			<a href="p_list.do?">메인페이지</a>
+		</div>
 		<div class="main">
 			<div class="leftMenu">
 				left menu
@@ -45,17 +47,14 @@
 						<c:forEach var="product" items="${myBuyList }">
 							<div class="viewList">
 								<div class="product">
-									<span class="thumbnail">
-									<img src="${path}/resources/upload/${product.thumnails}"></span>
-									<a>${product.p_name}</a>
-									<a>${product.updateday}</a>
-									<a>${product.price}</a>
-									<a>${product.p_writer}</a>
+									<span class="thumbnail"> <img
+										src="${path}/resources/upload/${product.thumnails}"></span> <a>${product.p_name}</a>
+									<a>${product.updateday}</a> <a>${product.price}</a> <a>${product.p_writer}</a>
 									<c:if test="${product.review == 'n' }">
 										<a>리뷰 쓰러가기 !</a>
 									</c:if>
 									<c:if test="${product.review == 'y' }">
-									
+										<a href="">리뷰 보러가기</a>
 									</c:if>
 								</div>
 							</div>
@@ -64,5 +63,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ch.daitso.model.Member;
+import com.ch.daitso.model.Reply;
 
 @Repository
 public class MemberDaoImpl implements MemberDao {

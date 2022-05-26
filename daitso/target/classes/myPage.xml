@@ -51,12 +51,24 @@
 	
 	<!-- 내 좋아요 한 물품 갯수 -->
 	<select id="likeCount" parameterType="string" resultType="integer">
-		select count(*) from likes l, product p where l.id='k1' and l.p_num = p.p_num and p.p_del='n'
+		select count(*) from likes l, product p where l.id=#{id} and l.p_num = p.p_num and p.p_del='n'
 	</select>
 	
 	<!-- 상품 배송상태 바꾸기 -->
 	<update id="changeStatus" parameterType="product">
 		update product set sel=#{sel} where p_num=#{p_num}
 	</update>
+	
+	<select id="MyReviewListAll" parameterType="string" resultType="reply">
+		select * from reply where id=#{id} or seller=#{id}
+	</select>
+	
+	<select id="MyReviewListBuy" parameterType="string" resultType="reply">
+		select * from reply where id=#{id}
+	</select>
+	
+	<select id="MyReviewListSell" parameterType="string" resultType="reply">
+		select * from reply where seller=#{id}
+	</select>
 	
 </mapper>

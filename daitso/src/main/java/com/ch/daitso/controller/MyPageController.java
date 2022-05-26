@@ -139,8 +139,30 @@ public class MyPageController {
 		System.out.println("찜한 게시글 info : " + likeList);
 		model.addAttribute("likeList",likeList);
 		model.addAttribute("likesCount", likesCount);
-		
+
 		return "/mypage/likeList";
 	}
+
+	@RequestMapping("reviewList")
+	public String reviewList(Model model, HttpSession session) {
+		// 본인 아이디 정보 받아오기
+		String id = (String) session.getAttribute("id");
+		Member member2 = ms.selectId(id);
+		model.addAttribute("member", member2);
 		
+		// 본인과 관련된 모든 리뷰 리스트
+		List<Reply> MyReviewListAll = mys.MyReviewListAll(id);
+		model.addAttribute("MyReviewListAll",MyReviewListAll);
+		
+		// 내가 구매한 물품의 리뷰 리스트
+		List<Reply> MyReviewListBuy = mys.MyReviewListBuy(id);
+		model.addAttribute("MyReviewListBuy",MyReviewListBuy);
+		
+		// 내가 판매한 물품의 리뷰 리스트
+		List<Reply> MyReviewListSell = mys.MyReviewListSell(id);
+		model.addAttribute("MyReviewListSell",MyReviewListSell);
+		
+		return "/mypage/reviewList";
+	}
+
 }

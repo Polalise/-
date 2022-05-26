@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="my_layout">
-		<div class="top">global menu</div>
+		<div class="top"><a href="p_list.do?">메인페이지</a></div>
 		<div class="main">
 			<div class="leftMenu">
 				left menu
@@ -40,29 +40,39 @@
 				</c:if>
 				<c:if test="${not empty mySellList}">
 					<c:forEach var="product" items="${mySellList }">
+					<c:forEach var="" items="">
 						<div class="viewList">
 							<div class="product">
 								<span class="thumbnail">
 								<img src="${path}/resources/upload/${product.thumnails}">
-								</span> <a>${product.p_name}</a>
+								</span>
+								<a class="mp_name">${product.p_name}</a>
 								<c:if test="${product.updateday == null}">
-									<a>${product.p_date}</a>
+									<a class="mp_date">${product.p_date}</a>
 								</c:if>
+								
 								<c:if test="${product.updateday != null}">
-									<a>${product.updateday}</a>
+									<a class="mp_date">${product.updateday}</a>
 								</c:if>
-								<a>${product.price}</a>
+								
+								<a class="mp_price">${product.price}</a>
+								
 								<c:if test="${product.sel == 'n'}">
-								<a>판매중</a>
+								<a class="mp_review">판매중</a>
 								</c:if>
 								<c:if test="${product.sel == 'i'}">
-								<a>거래중</a>
+								<a class="mp_review">거래중</a>
 								</c:if>
-								<c:if test="${product.sel == 'y'}">
-								<a>리뷰</a>
+								<c:if test="${product.sel == 'y' && product.review == 'n'}">
+								<a class="mp_review">아직 리뷰가 없어요</a>
 								</c:if>
+								<c:if test="${product.sel == 'y' && product.review == 'y'}">
+								<a class="mp_review" href="reviewList.do">리뷰 보러가기</a>
+								</c:if>
+								
 							</div>
 						</div>
+						</c:forEach>
 					</c:forEach>
 				</c:if>
 			</div>

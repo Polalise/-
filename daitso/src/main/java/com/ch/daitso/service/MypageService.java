@@ -26,4 +26,10 @@ public interface MypageService {
 	
 	int mySellCountY(String id);
 
+	List<Reply> MyReviewListAll(String id);
+
+	List<Reply> MyReviewListBuy(String id);
+
+	List<Reply> MyReviewListSell(String id);
+
 }

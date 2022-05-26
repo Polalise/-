@@ -53,4 +53,16 @@ public class MyPageServiceImpl implements MypageService{
 		return myd.mySellCountY(id);
 	}
 
+	public List<Reply> MyReviewListAll(String id) {
+		return myd.MyReviewListAll(id);
+	}
+
+	public List<Reply> MyReviewListBuy(String id) {
+		return myd.MyReviewListBuy(id);
+	}
+
+	public List<Reply> MyReviewListSell(String id) {
+		return myd.MyReviewListSell(id);
+	}
+
 }

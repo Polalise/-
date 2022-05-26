@@ -12,4 +12,5 @@ private String	del;
 private int	p_num;
 private String id;
 private int rating;
+private String seller;
 }

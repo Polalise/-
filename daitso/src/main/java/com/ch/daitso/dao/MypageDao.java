@@ -25,5 +25,11 @@ public interface MypageDao {
 	int mySellCountI(String id);
 
 	int mySellCountY(String id);
+	
+	List<Reply> MyReviewListAll(String id);
+
+	List<Reply> MyReviewListBuy(String id);
+
+	List<Reply> MyReviewListSell(String id);
 
 }
