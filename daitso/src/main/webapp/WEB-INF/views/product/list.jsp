@@ -36,7 +36,7 @@ $(function() {
 					<a href='adminMain2.do'>관리자페이지</a>
 					<a href="adminMain.do">회원관리</a>
 				</c:if>
-				<a href='/Project2/login/logout.do'>로그아웃</a>
+				<a href='logout.do'>로그아웃</a>
 			</div>
 		</div>
 		<div class="intro_bg">
@@ -115,9 +115,9 @@ $(function() {
 						<c:if test="${product.p_del == 'y'}">
 							<div class="listpage" style="display: none"></div>
 						</c:if>
-						<c:if test="${product.sel =='y' }">
-							<td colspan="6">거래 완료된 글입니다
-						</c:if>
+						<%-- <c:if test="${product.sel =='y' }">
+						
+						</c:if> --%>
 						<c:if test="${product.p_del != 'y'}">
 							<div class="listbox"
 								onclick="location.href='p_view.do?p_num=${product.p_num}&pageNum=${pb.currentPage}'" style="cursor: pointer;">
