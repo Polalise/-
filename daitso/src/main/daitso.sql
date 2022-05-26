@@ -22,6 +22,7 @@ create table member (
 	del char(1) default 'n',
 	photoName varchar2(500)
 );
+select * from member;
 select * from product;
 CREATE TABLE product(
 	p_num NUMBER primary key,

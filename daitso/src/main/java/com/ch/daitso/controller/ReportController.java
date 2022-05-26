@@ -93,19 +93,28 @@ public class ReportController {
 			return "report/reportView";
 
 	  }
-	 @RequestMapping("noticeUpdateForm")
+	  @RequestMapping("reportUpdateForm")
+	   public String reportUpdateForm(int report_num,String pageNum,Model model) {
+		  Report report = rs.select(report_num);
+		   model.addAttribute("report_num",report_num);
+		   model.addAttribute("pageNum",pageNum);
+		   model.addAttribute("report",report);
+		   return "report/reportUpdateForm";
+		}
+	 @RequestMapping("reportUpdate")
 	   public String EventUpdateForm(Member member,int report_num,Report report ,String pageNum,Model model) {
 		  int result = 0;
 		  //패널티 부여 먼저 
 		  member.setId(report.getCriminal_id());
 		  ms.penalty(report.getScore(),member.getId());
+//		  ms.penalty(report.getScore(),report.getCriminal_id());
 		  //글 업데이트형식 (처리상태 바꾸려고)
 		  result = rs.update(report);
 	  
 		   model.addAttribute("result",result);
 		   model.addAttribute("pageNum",pageNum);
 		   model.addAttribute("report_num",report_num);
-			return "admin/notice_board/noticeUpdate";
+			return "report/reportUpdate";
 		}
 }
  

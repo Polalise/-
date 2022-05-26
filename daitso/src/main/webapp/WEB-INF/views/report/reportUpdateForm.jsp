@@ -83,19 +83,21 @@
     </div>
   
 <div class="container" align="center" id="sub" >
-  <h2 class="text-primary">신고내역 상세</h2>
-  <c:if test="${id == 'admin'}">
-  <div id="privateBtn">
-    <a href="reportUpdateForm.do?report_num=${report.report_num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
-  </div>
-       </c:if>
+  <h2 class="text-primary">신고내역 처리</h2>
+  
   <table class="table">
+  <form method="post" action="reportUpdate.do">
+  <input type="hidden" name="report_num" value="${report_num}">
+  <input type="hidden" name="criminal_id" value="${report.criminal_id}">
   <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td>신고상태<b>${report.progress}</b><td>작성일<b> ${report.report_date}</b></td></tr>
   <tr><td style="width:20%;">신고자<b> ${report.reporter_id}</b><td colspan="2">피신고자<b> ${report.criminal_id}</b></td></tr>
   <tr><td style="width:10%;">신고내용</td><td colspan="2">${report.reasonText}</td>
-
+  <tr><td colspan="5">벌점<input type="text" name="score"></td></tr>
+  <tr><td colspan="5">관리자 코멘트<input type="text" name="adminText"></td></tr>
+  <tr><td><input type="submit" value="확인"></td></tr>
+  	</form>
 	<tr><td colspan="5" align="center">
-      <a href="reportList.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>
+      <a href="noticeList.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>
 <%--<a href="noticeUpdateForm.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
       <!-- 회원 게시판인 경우에는 폼없이 삭제 여부를 묻고 삭제 ,비회원인 경우에는 암호를 확인하기 위한 화면-->
        <a href="noticeDelete.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-danger">삭제</a>--%></td></tr>

@@ -56,7 +56,7 @@
 		select *
 		from report where report_num=#{report_num}
 	</select>
-	 <!-- 신고 벌점 -->
+
 	<update id="update" parameterType="report">
 		update report set
         

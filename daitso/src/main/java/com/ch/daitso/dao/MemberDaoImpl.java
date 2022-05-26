@@ -136,7 +136,7 @@ public class MemberDaoImpl implements MemberDao {
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("score", score);
 		map.put("id", id);
-		sst.update("memberns.star", map);
+		sst.update("memberns.penalty", map);
 
 	}
 }
