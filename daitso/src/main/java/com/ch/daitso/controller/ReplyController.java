@@ -72,13 +72,11 @@ public class ReplyController {
 		model.addAttribute("p_num",p_num);
 		return "admin/review/replyList";
 	}
-
 	@RequestMapping("rDelete2")
 	public String rDelete(Reply rb) {
 		rs.delete(rb);
 		return "redirect:replyList2.do?num=" + rb.getP_num();
 	}
-
 	// 댓글 수정
 	@RequestMapping("rUpdate2")
 	public String rUpdate(Reply rb) {

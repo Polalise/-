@@ -101,7 +101,8 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 .header1 {
 	display: flex;
 	width: 1280px;
-	margin: auto;
+	/* margin: auto; */
+	margin-left: 500px;
 	height: 150px;
 }
 .nav {
@@ -373,6 +374,7 @@ body {
 	cursor: pointer;
 }
 .chats{
+	width: 110px;
 	margin-left: 50px;
     display: flex;
     -webkit-box-align: center;
@@ -391,6 +393,7 @@ body {
     right: -15px;
 }
 .shop{
+	width: 110px;
 	margin-left: 20px;
     display: flex;
     -webkit-box-align: center;
@@ -406,15 +409,25 @@ body {
     right: -15px;
 }
 .products{
+	width: 150px;
     display: flex;
     -webkit-box-align: center;
     position: relative;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-evenly;
     margin-left: 20px;
     align-items: center;
 }
+.links{
+	width: 150px;
+	margin-left:20px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+}
 .searchs{
+	width: 100px;
 	width: 800px;
 	height: 80px;
 	background: #fffffff;

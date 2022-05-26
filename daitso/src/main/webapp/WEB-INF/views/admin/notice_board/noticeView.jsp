@@ -6,9 +6,10 @@
 <html>
 <head>
 <style type="text/css">
+@import url("resources/css/main.css");
 #total{
  display: flex;
- margin-top: 200px;
+ margin-top: 100px;
 }
 .container{
   border: 2px solid blue;
@@ -47,7 +48,7 @@
           color: #fff;
      }
      #privateBtn{
-     margin-left: 950px;
+     margin-left: 900px;
      }
      #s1{
      width: 10%
@@ -66,6 +67,74 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="intro_bg">
+			<a><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
+				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 200;"></a>
+
+			<div class="header1">
+				<div class="search_area">
+					<input type="checkbox" id="icon" style="display: none;"> <label
+						for="icon"> <span></span> <span></span> <span></span>
+					</label>
+					<div id="header">
+						<ul>
+							<li><a href="/Project2/main/main.do">◾메인</a></li>
+							<br>
+							<c:if test="${id != 'admin' }">
+								<li><a href="myProfileForm.do">◾마이페이지</a></li>
+								<br>
+							</c:if>
+							<c:if test="${id == 'admin' }">
+								<li><a href="/Project2/manager/masterUpdate.do">◾회원관리</a></li>
+								<br>
+							</c:if>
+							<li><a href="/Project2/notice/Notice.no">◾공지사항</a></li>
+							<br>
+							<li><a href="/Project2/board/View_BoardForm.wo">◾취미</a></li>
+							<br>
+							<li><a href="/Project2/sell_board/sell_notice.so">◾거래게시판</a></li>
+						</ul>
+					</div>
+
+					<form action="list.do?pageNum=1">
+						<div class="searchs">
+							<select name="search" style="height: 63px;">
+								<!-- select바 한글화 -->
+								<c:forTokens var="sh" items="subcon,p_writer,p_name,p_content"
+									delims="," varStatus="i">
+									<c:if test="${sh == product.search }">
+										<option value="${sh }" selected="selected">${title[i.index] }</option>
+									</c:if>
+									<c:if test="${sh != product.search }">
+										<option value="${sh }">${title[i.index] }</option>
+									</c:if>
+								</c:forTokens>
+							</select><input class="searchr" type="text" name="keyword"
+								value="${product.keyword }" placeholder="검색어 입력"> <input
+								class="input" type="submit" value="검색">
+						</div>
+					</form>
+				</div>
+				<button class="chats">
+					<img src="${path }/resources/images/main2.png" width="23"
+						height="24" alt="번개톡버튼 이미지">다있톡
+				</button>
+				<a class="shop" href="myProfileForm.do"><img
+					src="${path }/resources/images/main1.png" width="23" height="24"
+					alt="내상점버튼 이미지">내상점</a> <a class="products"><img
+					src="${path }/resources/images/main3.png" width="23" height="26"
+					alt="판매하기버튼 이미지"
+					onclick="location.href='p_insertForm.do?p_num=0&pageNum=1'">글등록</a>
+				<c:if test="${id != 'admin' }">
+					<a class="links" href='adminMain2.do'>고객센터</a>
+				</c:if>
+				<c:if test="${id == 'admin' }">
+					<a class="links" href="adminMain.do">관리자페이지</a>
+				</c:if>
+				<a class="links" href='logout.do'>로그아웃</a>
+			</div>
+		</div>
+
 <div id="total">
    <div class="sideMenu" style="border: 2px solid red;">
     <!-- <strong>메뉴</strong> -->

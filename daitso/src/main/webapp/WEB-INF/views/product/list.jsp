@@ -9,7 +9,8 @@
 <style type="text/css">
 @import url("resources/css/main.css");
 </style>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="script/slide.js"></script>
 <style type="text/css">
 select option[value=""][disabled] {
@@ -17,16 +18,16 @@ select option[value=""][disabled] {
 }
 </style>
 <script type="text/javascript">
-$(function() {
-	
-});
+	$(function() {
+
+	});
 </script>
 </head>
 <body>
 <body>
 	<div class="wrap">
-		<div class="topheader">
-			<a><img alt="" src="${path }/resources/images/logo.png" style="width: 190px; margin-left: 650px;"></a>
+		<%-- <div class="topheader">
+			<a><img id="Im2g" alt="" src="${path }/resources/images/logo.png"></a>
 			<div class="nav" style="margin-right: 350px;">
 				<b>${member.name }님 </b>&nbsp;
 				<c:if test="${id != 'admin' }">
@@ -39,12 +40,15 @@ $(function() {
 				</c:if>
 				<a href='/Project2/login/logout.do'>로그아웃</a>
 			</div>
-		</div>
+		</div> --%>
 		<div class="intro_bg">
+			<a><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
+				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 200;"></a>
+
 			<div class="header1">
 				<div class="search_area">
-					<input type="checkbox" id="icon" style="display: none;">  <label for="icon">
-						<span></span> <span></span> <span></span>
+					<input type="checkbox" id="icon" style="display: none;"> <label
+						for="icon"> <span></span> <span></span> <span></span>
 					</label>
 					<div id="header">
 						<ul>
@@ -65,6 +69,7 @@ $(function() {
 							<li><a href="/Project2/sell_board/sell_notice.so">◾거래게시판</a></li>
 						</ul>
 					</div>
+
 					<form action="list.do?pageNum=1">
 						<div class="searchs">
 							<select name="search" style="height: 63px;">
@@ -85,16 +90,22 @@ $(function() {
 					</form>
 				</div>
 				<button class="chats">
-					<img
-					src="${path }/resources/images/main2.png"
-						width="23" height="24" alt="번개톡버튼 이미지">다있톡
+					<img src="${path }/resources/images/main2.png" width="23"
+						height="24" alt="번개톡버튼 이미지">다있톡
 				</button>
-				<a class="shop" href="/shop//products"><img
-				src="${path }/resources/images/main1.png"
-					width="23" height="24" alt="내상점버튼 이미지">내상점</a> <a
-					class="products"><img
-					src="${path }/resources/images/main3.png"
-					width="23" height="26" alt="판매하기버튼 이미지" onclick="location.href='p_insertForm.do?p_num=0&pageNum=1'">글등록하기</a>
+				<a class="shop" href="myProfileForm.do"><img
+					src="${path }/resources/images/main1.png" width="23" height="24"
+					alt="내상점버튼 이미지">내상점</a> <a class="products"><img
+					src="${path }/resources/images/main3.png" width="23" height="26"
+					alt="판매하기버튼 이미지"
+					onclick="location.href='p_insertForm.do?p_num=0&pageNum=1'">글등록</a>
+				<c:if test="${id != 'admin' }">
+					<a class="links" href='adminMain2.do'>고객센터</a>
+				</c:if>
+				<c:if test="${id == 'admin' }">
+					<a class="links" href="adminMain.do">관리자페이지</a>
+				</c:if>
+				<a class="links" href='/Project2/login/logout.do'>로그아웃</a>
 			</div>
 		</div>
 		<div class="container" align="center">
@@ -117,11 +128,12 @@ $(function() {
 							<div class="listpage" style="display: none"></div>
 						</c:if>
 						<c:if test="${product.sel =='y' }">
-							<td colspan="6">거래 완료된 글입니다
+							<td colspan="6">
 						</c:if>
 						<c:if test="${product.p_del != 'y'}">
 							<div class="listbox"
-								onclick="location.href='p_view.do?p_num=${product.p_num}&pageNum=${pb.currentPage}'" style="cursor: pointer;">
+								onclick="location.href='p_view.do?p_num=${product.p_num}&pageNum=${pb.currentPage}'"
+								style="cursor: pointer;">
 								<div class="listpoto">
 									<img alt="${product.thumnails }"
 										src="${path}/resources/upload/${product.thumnails}"

@@ -132,12 +132,12 @@ public class ReportController {
 //			   int total2 = rs.getTotal3(report.getCriminal_id());
 			   String id = (String)session.getAttribute("id");
 			 //  report.setReporter_id("id");
-			   
+		
 			   //신고당한사람
 				/*
 				 * Product product = ps.select(p_num); String id2 = product.getId();
 				 */
-			   System.out.println("id="+id);
+			  // System.out.println("id="+id);
 			   int total = rs.getTotal2(id);
 			   List<Report> list2 = rs.list2(id);
 		 
@@ -151,8 +151,8 @@ public class ReportController {
 //			   //신고당한사람 총넘버
 //			   int num2 = total2 - startRow + 1;
 			   
-               System.out.println("size="+list2.size());
-               System.out.println("list2="+list2);
+            //   System.out.println("size="+list2.size());
+            //  System.out.println("list2="+list2);
 			   //페이징 하기
 			   PageBean pb = new PageBean(currentPage,rowPerPage,total);
 			   //답글 번호 순서 

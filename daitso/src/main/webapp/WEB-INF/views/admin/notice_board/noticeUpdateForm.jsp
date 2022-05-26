@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+@import url("resources/css/main.css");
 .sideMenu{
     margin-left: 300px;
 }
