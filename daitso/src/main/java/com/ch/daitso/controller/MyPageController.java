@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ch.daitso.model.*;
 import com.ch.daitso.service.*;
+import com.ch.daitso.service.LikesService;
+import com.ch.daitso.service.MemberService;
+import com.ch.daitso.service.MypageService;
+import com.ch.daitso.service.ProductService;
 
 @Controller
 public class MyPageController {
@@ -165,4 +169,8 @@ public class MyPageController {
 		return "/mypage/reviewList";
 	}
 
+		
+		return "/mypage/likeList";
+	}
+		
 }

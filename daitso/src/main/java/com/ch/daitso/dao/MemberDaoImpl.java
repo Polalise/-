@@ -131,4 +131,13 @@ public class MemberDaoImpl implements MemberDao {
 		sst.update("memberns.star", map);
 
 	}
+
+	@Override
+	public void penalty(int score, String id) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("score", score);
+		map.put("id", id);
+		sst.update("memberns.penalty", map);
+
+	}
 }

@@ -119,4 +119,10 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 	
+
+	@Override
+	public void penalty(int score, String id) {
+		md.penalty(score, id);
+		
+	}
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="chatns">
+	
+	<!-- 채팅방 만들어 질 때 마다 채팅방 번호 부여 -->
+	<select id="getNum" resultType="integer">
+		select nvl(max(room_num), 0) + 1 from chat
+	</select>
+	
+	<!-- 채팅방이 존재하는지 판매자 별명과 구매자 별명으로 구분 -->
+	<select id="countByChatNick" parameterType="map" resultType="chat">
+    	select * from chat where buyer_nick=#{buyer_nick} and seller_nick=#{seller_nick}
+   	</select>
+   	
+   	<!-- 채팅방 번호로 특정 채팅방 지정 -->
+   	<select id="findByChatNum" parameterType="chat" resultType="chat">
+   		select * from chat where room_num=#{room_num}
+   	</select>
+	
+	<select id="readChatHistory" resultType="chat" parameterType="chat">
+		select * from chat where room_num=#{room_num}
+	</select>
+</mapper>

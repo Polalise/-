@@ -53,5 +53,6 @@ public interface MemberService {
 	
 	void star(int rating,String id);
 
+	void penalty(int score, String id);
 
 }
