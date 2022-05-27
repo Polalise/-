@@ -7,7 +7,17 @@
 <link rel="stylesheet" href="${path}/resources/css/myPage.css">
 <link rel="stylesheet" href="${path}/resources/css/buyList.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>구매목록</title>
+<script type="text/javascript">
+	$(function() {
+		$('#reviewPop').click(
+				function() {
+					var pop = window.open(
+							"reviewPop.do?p_num=${product.p_num}", "content",
+							"width=620 height=700");
+				});
+	});
+</script>
 </head>
 <body>
 	<div class="my_layout">
@@ -54,7 +64,7 @@
 										<a>리뷰 쓰러가기 !</a>
 									</c:if>
 									<c:if test="${product.review == 'y' }">
-										<a href="">리뷰 보러가기</a>
+										<a id="reviewPop">리뷰 보러가기</a>
 									</c:if>
 								</div>
 							</div>
