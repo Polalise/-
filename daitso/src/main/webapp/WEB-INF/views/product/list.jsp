@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,16 +19,12 @@ select option[value=""][disabled] {
 }
 </style>
 <script type="text/javascript">
-	$(function() {
-
-	});
 </script>
 </head>
 <body>
 <body>
 	<div class="wrap">
-		<%-- <div class="topheader">
-			<a><img id="Im2g" alt="" src="${path }/resources/images/logo.png"></a>
+		 <%-- <div class="topheader">
 			<div class="nav" style="margin-right: 350px;">
 				<b>${member.name }님 </b>&nbsp;
 				<c:if test="${id != 'admin' }">
@@ -35,15 +32,14 @@ select option[value=""][disabled] {
 					<a href='adminMain2.do'>고객센터</a>
 				</c:if>
 				<c:if test="${id == 'admin' }">
-					
 					<a href="adminMain.do">관리자페이지</a>
 				</c:if>
 				<a href='/Project2/login/logout.do'>로그아웃</a>
 			</div>
-		</div> --%>
-		<div class="intro_bg">
-			<a><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
-				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 200;"></a>
+		</div>  --%>
+		<div class="intro_bg" id="intro2">
+			<a href="p_list.do"><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
+				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 310;"></a>
 
 			<div class="header1">
 				<div class="search_area">
@@ -52,21 +48,21 @@ select option[value=""][disabled] {
 					</label>
 					<div id="header">
 						<ul>
-							<li><a href="/Project2/main/main.do">◾메인</a></li>
+							<li><a href="p_list.do">◾메인</a></li>
 							<br>
 							<c:if test="${id != 'admin' }">
 								<li><a href="myProfileForm.do">◾마이페이지</a></li>
 								<br>
 							</c:if>
 							<c:if test="${id == 'admin' }">
-								<li><a href="/Project2/manager/masterUpdate.do">◾회원관리</a></li>
+								<li><a href="adminMemberList.do">◾회원관리</a></li>
 								<br>
 							</c:if>
-							<li><a href="/Project2/notice/Notice.no">◾공지사항</a></li>
+							<li><a href="noticeList.do">◾공지사항</a></li>
 							<br>
-							<li><a href="/Project2/board/View_BoardForm.wo">◾취미</a></li>
+							<li><a href="eventList.do">◾이벤트</a></li>
 							<br>
-							<li><a href="/Project2/sell_board/sell_notice.so">◾거래게시판</a></li>
+							
 						</ul>
 					</div>
 
@@ -90,13 +86,13 @@ select option[value=""][disabled] {
 					</form>
 				</div>
 				<button class="chats">
-					<img src="${path }/resources/images/main2.png" width="23"
-						height="24" alt="번개톡버튼 이미지">다있톡
+					<img src="${path }/resources/images/main2.png" width="15"
+						height="16" alt="번개톡버튼 이미지">다있톡
 				</button>
 				<a class="shop" href="myProfileForm.do"><img
-					src="${path }/resources/images/main1.png" width="23" height="24"
+					src="${path }/resources/images/main1.png" width="15" height="16"
 					alt="내상점버튼 이미지">내상점</a> <a class="products"><img
-					src="${path }/resources/images/main3.png" width="23" height="26"
+					src="${path }/resources/images/main3.png" width="15" height="16"
 					alt="판매하기버튼 이미지"
 					onclick="location.href='p_insertForm.do?p_num=0&pageNum=1'">글등록</a>
 				<c:if test="${id != 'admin' }">
@@ -105,7 +101,7 @@ select option[value=""][disabled] {
 				<c:if test="${id == 'admin' }">
 					<a class="links" href="adminMain.do">관리자페이지</a>
 				</c:if>
-				<a class="links" href='/Project2/login/logout.do'>로그아웃</a>
+				<a class="links" href='logout.do'>로그아웃</a>
 			</div>
 		</div>
 		<div class="container" align="center">

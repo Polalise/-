@@ -134,8 +134,8 @@
 </head>
 <body>
 <div class="intro_bg">
-			<a><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
-				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 200;"></a>
+			<a href="p_list.do"><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
+				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 310;"></a>
 
 			<div class="header1">
 				<div class="search_area">
@@ -144,21 +144,21 @@
 					</label>
 					<div id="header">
 						<ul>
-							<li><a href="/Project2/main/main.do">◾메인</a></li>
+							<li><a href="p_list.do">◾메인</a></li>
 							<br>
 							<c:if test="${id != 'admin' }">
 								<li><a href="myProfileForm.do">◾마이페이지</a></li>
 								<br>
 							</c:if>
 							<c:if test="${id == 'admin' }">
-								<li><a href="/Project2/manager/masterUpdate.do">◾회원관리</a></li>
+								<li><a href="adminMemberList.do">◾회원관리</a></li>
 								<br>
 							</c:if>
-							<li><a href="/Project2/notice/Notice.no">◾공지사항</a></li>
+							<li><a href="noticeList.do">◾공지사항</a></li>
 							<br>
-							<li><a href="/Project2/board/View_BoardForm.wo">◾취미</a></li>
+							<li><a href="eventList.do">◾이벤트</a></li>
 							<br>
-							<li><a href="/Project2/sell_board/sell_notice.so">◾거래게시판</a></li>
+							
 						</ul>
 					</div>
 
@@ -177,18 +177,18 @@
 								</c:forTokens>
 							</select><input class="searchr" type="text" name="keyword"
 								value="${product.keyword }" placeholder="검색어 입력"> <input
-								class="input" type="submit" value="검색">
+								class="input" type="submit" value="검색" style="margin-right: 65;">
 						</div>
 					</form>
 				</div>
 				<button class="chats">
-					<img src="${path }/resources/images/main2.png" width="23"
-						height="24" alt="번개톡버튼 이미지">다있톡
+					<img src="${path }/resources/images/main2.png" width="15"
+						height="16" alt="번개톡버튼 이미지">다있톡
 				</button>
 				<a class="shop" href="myProfileForm.do"><img
-					src="${path }/resources/images/main1.png" width="23" height="24"
+					src="${path }/resources/images/main1.png" width="15" height="16"
 					alt="내상점버튼 이미지">내상점</a> <a class="products"><img
-					src="${path }/resources/images/main3.png" width="23" height="26"
+					src="${path }/resources/images/main3.png" width="15" height="16"
 					alt="판매하기버튼 이미지"
 					onclick="location.href='p_insertForm.do?p_num=0&pageNum=1'">글등록</a>
 				<c:if test="${id != 'admin' }">
@@ -207,8 +207,10 @@
         <ul class="mylist">
             <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
             <li class=''><a href="eventList.do">이벤트<i></i></a></li>
-            <li class=''><a href="">신고문의<i></i></a></li>
-            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>               
+            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            <c:if test="${id == 'admin'}">
+            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>
+            </c:if>               
         </ul>
     </div>
     </div>

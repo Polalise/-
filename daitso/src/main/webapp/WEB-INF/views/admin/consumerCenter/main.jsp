@@ -19,7 +19,7 @@
 <button id="b4" onClick="location.href='reportList.do'">신고관리</button>
 </div>
 <div id="g3">
-  <button id="b3" onClick="location.href='adminMemberList.do?'">회원관리</button>
+  <button id="b3" onClick="location.href='adminMemberList.do'">회원관리</button>
  <!-- <button id="b3" onClick="location.href='chart.do?'">차트</button> -->
 
 </div>
