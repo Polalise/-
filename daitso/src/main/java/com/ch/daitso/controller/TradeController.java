@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ch.daitso.model.Likes;
+import com.ch.daitso.model.Member;
 import com.ch.daitso.model.Product;
 import com.ch.daitso.service.LikesService;
 import com.ch.daitso.service.MemberService;
@@ -47,6 +49,13 @@ public class TradeController {
 	public String confirmTrade(int p_num, HttpSession session,Model model) {
 		Product product = ps.select(p_num);
 		product.setSel("y");
+		
+		String id = (String)session.getAttribute("id");
+		Member member = ms.selectId(id);
+		Likes likes2 = ls.searchList(id, p_num);
+		model.addAttribute("member" , member);
+		
+		product.setBuyer(id);
 		int result = mys.changeStatus(product);
 		model.addAttribute("result",result);
 		return "/product/temporaryPage";

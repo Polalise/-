@@ -1,22 +1,21 @@
 /* 리스트 전체 div */
 .main .list {
   display: flex;
-  border: solid red 1px;
   height: 1000px;
   width: 1600x;
   flex-direction: column;
 }
+
 /* 리스트 상단 바 div */
 .main .list .header {
   display: inline-block;
-  border: solid blue 1px;
   text-align: left;
   height: 110px;
   width: 100%;
   margin-bottom: 30px;
 }
-/* 구매목록 바 */
-.main .list .header :first-child {
+/* 판매목록 긴 div */
+.main .list .header .header_title {
   display: inline-block;
   text-align: center;
   line-height: 50px;
@@ -26,29 +25,52 @@
   margin-bottom: 15px;
   margin-right: 0;
   margin-left: 0;
-  border: solid violet 1px;
 }
-/* 구매물품 */
-.main .list .header :nth-child(3) {
+/* 판매목록 info bar */
+.header .header_info{
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  text-align: center;
+}
+.header .header_info *{
+  margin-left: 35px;
+}
+
+/* 판매물품 */
+.header_info .title{
   border: solid red 1px;
   display: inline-block;
   width: 600px;
-  margin-left: 35px;
-  margin-right: 0px;
 }
-/* 구매 날짜, 구매 가격, 판매자 */
-.main .list .header * {
-  display: inline-block;
+/* 판매일 */
+.header_info .s_date{
   border: solid red 1px;
-  text-align: center;
+  display: inline-block;
+  margin-left: 70px;
   width: 220px;
-  margin-right: 7px;
-  margin-left: 65px;
 }
-/* 구매한 물품들 list div */
+/* 물품가격 */
+.header_info .s_price{
+  border: solid red 1px;
+  display: inline-block;
+  margin-left: 70px;
+  width: 220px;
+}
+/* 리뷰 */
+.header_info .s_review{
+  border: solid red 1px;
+  display: inline-block;
+  margin-left: 70px;
+  width: 220px;
+}
+/* 판매한 물품들 list div */
 .main .list .viewList {
   display: inline-block;
-  border: solid red 1px;
   height: 100%;
 }
 .viewList .product{
@@ -59,10 +81,7 @@
     flex-wrap: nowrap;
     flex-direction: row;
 }
-
-
-
-/* 구매한 물품 사진 div */
+/* 판매한 물품 사진 div */
 .product .thumbnail {
   display: inline-block;
   text-align: center;
@@ -71,6 +90,7 @@
   margin-left: 35px;
   width: 150px;
   height: 150px;
+  margin-bottom: 0px;
 }
 /* 물품 사진 크기 조절 */
 .thumbnail img {
@@ -79,18 +99,18 @@
   
   object-fit: cover;
 }
-/* 구매물품 */
-.viewList .product :nth-child(2) {
+/* 판매물품 */
+.viewList .product .mp_name {
   display: inline-block;
   border: solid red 1px;
   height: 150px;
-  margin-left: 20px;
+  margin-left: 30px;
   width: 420px;
   text-align: center;
   line-height: 150px;
 }
-/* 구매 일시 */
-.viewList .product :nth-child(3) {
+/* 판매 일시 */
+.viewList .product .mp_date {
   display: inline-block;
   border: solid black 1px;
   height: 150px;
@@ -99,8 +119,8 @@
   text-align: center;
   line-height: 150px;
 }
-/* 구매 가격 */
-.viewList .product :nth-child(4) {
+/* 판매 가격 */
+.viewList .product .mp_price {
   display: inline-block;
   border: solid red 1px;
   height: 150px;
@@ -108,9 +128,8 @@
   margin-left: 70px;
   text-align: center;
   line-height: 150px;
-}
-/* 판매자 */
-.viewList .product :nth-child(5) {
+} /* 리뷰 */
+.viewList .product .mp_review {
   display: inline-block;
   border: solid black 1px;
   height: 150px;
@@ -119,4 +138,3 @@
   text-align: center;
   line-height: 150px;
 }
-

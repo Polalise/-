@@ -170,7 +170,5 @@ public class MyPageController {
 	}
 
 		
-		return "/mypage/likeList";
-	}
 		
 }

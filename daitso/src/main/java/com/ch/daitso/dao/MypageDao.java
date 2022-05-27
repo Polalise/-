@@ -30,6 +30,6 @@ public interface MypageDao {
 
 	List<Reply> MyReviewListBuy(String id);
 
-	List<Reply> MyReviewListSell(String id);c
+	List<Reply> MyReviewListSell(String id);
 
 }

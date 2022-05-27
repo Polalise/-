@@ -30,8 +30,13 @@
 			</div>
 			<div class="list">
 				<div class="header">
-					<div>판매목록</div>
-					<br> <a>판매 물품</a> <a>판매 날짜</a> <a>판매 가격</a> <a>리뷰</a>
+					<div class="header_title">판매목록</div>
+					<div class="header_info">
+					<a class="title">판매 물품</a>
+					<a class="s_date">판매 날짜</a>
+					<a class="s_price">판매 가격</a>
+					<a class="s_review">리뷰</a>
+					</div>
 				</div>
 				<c:if test="${empty mySellList}">
 					<div class="viewList">
@@ -40,7 +45,7 @@
 				</c:if>
 				<c:if test="${not empty mySellList}">
 					<c:forEach var="product" items="${mySellList }">
-					<c:forEach var="" items="">
+					<%-- <c:forEach var="" items=""> --%>
 						<div class="viewList">
 							<div class="product">
 								<span class="thumbnail">
@@ -57,7 +62,7 @@
 								
 								<a class="mp_price">${product.price}</a>
 								
-								<c:if test="${product.sel == 'n'}">
+								<%-- <c:if test="${product.sel == 'n'}">
 								<a class="mp_review">판매중</a>
 								</c:if>
 								<c:if test="${product.sel == 'i'}">
@@ -68,12 +73,12 @@
 								</c:if>
 								<c:if test="${product.sel == 'y' && product.review == 'y'}">
 								<a class="mp_review" href="reviewList.do">리뷰 보러가기</a>
-								</c:if>
+								</c:if> --%>
 								
 							</div>
 						</div>
 						</c:forEach>
-					</c:forEach>
+					<%-- </c:forEach> --%>
 				</c:if>
 			</div>
 		</div>

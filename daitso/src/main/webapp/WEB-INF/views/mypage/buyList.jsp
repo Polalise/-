@@ -60,12 +60,12 @@
 									<span class="thumbnail"> <img
 										src="${path}/resources/upload/${product.thumnails}"></span> <a>${product.p_name}</a>
 									<a>${product.updateday}</a> <a>${product.price}</a> <a>${product.p_writer}</a>
-									<c:if test="${product.review == 'n' }">
+									<%-- <c:if test="${product.review == 'n' }">
 										<a>리뷰 쓰러가기 !</a>
 									</c:if>
 									<c:if test="${product.review == 'y' }">
 										<a id="reviewPop">리뷰 보러가기</a>
-									</c:if>
+									</c:if> --%>
 								</div>
 							</div>
 						</c:forEach>
