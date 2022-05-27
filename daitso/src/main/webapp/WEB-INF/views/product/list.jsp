@@ -38,8 +38,8 @@ select option[value=""][disabled] {
 			</div>
 		</div>  --%>
 		<div class="intro_bg" id="intro2">
-			<a href="p_list.do"><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
-				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 310;"></a>
+			<img alt="" id="Im2g" src="${path }/resources/images/logo.png" onclick="location.href='p_list.do?p_num=${product.p_num}&pageNum=${pageNum }'"
+				style="width: 190px; margin-left: 0px; position: relative; top: 35px; left: 310;">
 
 			<div class="header1">
 				<div class="search_area">

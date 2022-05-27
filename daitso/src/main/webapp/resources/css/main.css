@@ -101,9 +101,8 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 .header1 {
 	display: flex;
 	width: 1280px;
-	/* margin: auto; */
 	margin-left: 500px;
-	height: 110px;
+	margin-top: -55px
 }
 .nav {
 	list-style: none;
