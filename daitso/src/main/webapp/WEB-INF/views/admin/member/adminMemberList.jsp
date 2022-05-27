@@ -287,7 +287,7 @@ window.onload = function() {
         <ul class="mylist">
             <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
             <li class=''><a href="eventList.do">이벤트<i></i></a></li>
-            <li class=''><a href="">신고문의<i></i></a></li>
+            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
             <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>               
         </ul>
     </div>

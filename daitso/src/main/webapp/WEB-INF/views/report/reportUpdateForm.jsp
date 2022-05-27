@@ -143,7 +143,12 @@
             <!-- <li class=''><a href="" title="현재선택">자주찾는 질문<i></i></a></li> -->
             <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
             <li class=''><a href="eventList.do">이벤트<i></i></a></li>
-            <li class=''><a href="">신고문의<i></i></a></li>
+              <c:if test="${id != 'admin'}">
+            <li class=''><a href="reportmyList.do">신고문의<i></i></a></li>
+            </c:if>
+            <c:if test="${id == 'admin'}">
+            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            </c:if>
             <c:if test="${id == 'admin'}">
             <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>
             </c:if>        

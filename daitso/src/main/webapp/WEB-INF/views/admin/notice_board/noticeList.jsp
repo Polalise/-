@@ -43,7 +43,9 @@ a:active {
           width: 200px;
           padding: 0;
           margin: 0;
-          border: 2px solid;
+          /* border: 2px solid; */
+          
+          border-top: 1px solid;
           font-size: 20px;
      }
 
@@ -133,21 +135,26 @@ a:active {
 			</div>
 		</div>
 
-<div id="total">
-   <div class="sideMenu" style="border: 2px solid red;">
+<div id="total" style="border-radius: 5px;">
+   <div class="sideMenu" style="border-left: 1px solid;border-bottom: 1px solid;">
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
         <ul class="mylist">
             <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
             <li class=''><a href="eventList.do">이벤트<i></i></a></li>
+            <c:if test="${id != 'admin'}">
+            <li class=''><a href="reportmyList.do">신고문의<i></i></a></li>
+            </c:if>
+            <c:if test="${id == 'admin'}">
             <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            </c:if>
             <c:if test="${id == 'admin'}">
             <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>    
             </c:if>           
         </ul>
     </div>
     </div>
-	<div class="container" id="sub" align="center" style="border: 2px solid blue;">
+	<div class="container" id="sub" align="center" style="border: 1px solid;">
 		<h2 class="text-primary">공지사항</h2>
 		    
 	   

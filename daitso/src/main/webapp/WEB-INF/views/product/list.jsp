@@ -106,7 +106,9 @@ select option[value=""][disabled] {
 		</div>
 		<div class="container" align="center">
 			<div class="tagbox">
-				<form action="p_list.do?pageNum=1">
+				
+			</div>
+			<form action="p_list.do?pageNum=1">
 					<select class="search2" name="search2"
 						onchange="this.form.submit()">
 						<option value="" disabled selected>선택하세요</option>
@@ -115,7 +117,6 @@ select option[value=""][disabled] {
 						<option value="전체보기">전체보기</option>
 					</select> <input type="hidden" name="keyword2" value="${product.search2 }">
 				</form>
-			</div>
 			<div class="list">
 				<c:if test="${not empty list }">
 					<c:forEach var="product" items="${list }">

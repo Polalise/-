@@ -212,7 +212,12 @@
         <ul class="mylist">
             <li class='a1'><a href="noticeList.do">공지사항<i></i></a></li>
             <li class='a2'><a href="eventList.do">이벤트<i></i></a></li>
-            <li class='a3'><a href="reportList.do">신고문의<i></i></a></li>
+            <c:if test="${id != 'admin'}">
+            <li class=''><a href="reportmyList.do">신고문의<i></i></a></li>
+            </c:if>
+            <c:if test="${id == 'admin'}">
+            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            </c:if>
             <c:if test="${id == 'admin'}">
             <li class='a4'><a href="adminMemberList.do">회원관리<i></i></a></li>
             </c:if>               

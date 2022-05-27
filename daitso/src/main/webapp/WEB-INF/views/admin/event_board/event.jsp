@@ -30,7 +30,7 @@
           padding: 0;
           margin: 0;
           border: 2px solid;
-          font-size: 20px;
+          font-size: 26px;
      }
 
      li.a1{
@@ -162,13 +162,18 @@
 			</div>
 		</div>
 <div id="total" style="display: flex;">
-  <div class="sideMenu" style="border: 2px solid red;">
+  <div class="sideMenu" style="border: 2px solid red; font-size: 26px;">
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
         <ul class="mylist">
             <li class='a1'><a href="noticeList.do">공지사항<i></i></a></li>
             <li class='a2'><a href="eventList.do">이벤트<i></i></a></li>
+            <c:if test="${id != 'admin'}">
+            <li class='a3'><a href="reportmyList.do">신고문의<i></i></a></li>
+            </c:if>
+            <c:if test="${id == 'admin'}">
             <li class='a3'><a href="reportList.do">신고문의<i></i></a></li>
+            </c:if>
             <c:if test="${id == 'admin'}">
             <li class='a4'><a href="adminMemberList.do">회원관리<i></i></a></li>
             </c:if>               
@@ -181,7 +186,7 @@
 	</div> -->
 	<h5 style="font-size: xx-large; ">이벤트 게시판</h5>
 	<form action=" eventList.do?pageNum=1"
-		style="margin-left: 1150px; margin-bottom: 20px;">
+		style="margin-left: 1210px; margin-bottom: 20px;">
 		<select name="sea">
 			<c:forTokens var="sh" items="id,e_subject,e_content,subcon"
 				delims="," varStatus="i">
@@ -205,11 +210,11 @@
 
 	<div class="event_list">
 
-		<ul>
+		<ul style="margin-left: 153px;">
 			<c:if test="${not empty list }">
 				<c:forEach var="event" items="${list }">
 
-					<li><a
+					<li><a 
 						href="eventView.do?e_num=${event.e_num }&pageNum=${pb.currentPage}&id=${event.id}">
 							<div class="img">
 								<c:set var="testStr" value="${event.e_fileName }" />
@@ -273,7 +278,7 @@
 			<li class="last"><a href=""><span class="hide">마지막페이지</span></a></li>
 		</ul>
 	</div> -->
-	<div align="center" style="margin-right: 150px;">
+	<div align="center" style="margin-left: 60;">
 		<ul class="pagination">
 			<!-- 제일처음으로 가기 -->
 			<c:if test="${pb.startPage > pb.pagePerBlock}">
@@ -313,7 +318,7 @@
 		</ul>
 	</div>
  <c:if test="${id == 'admin'}">
-	<div align="center" style="margin-right: 150px;">
+	<div align="center" style="margin-left: 60;;">
 		<a href="eventWriteForm.do?e_num=0&pageNum=1" class="btn btn-success">게시글
 			입력</a>
 	</div>
