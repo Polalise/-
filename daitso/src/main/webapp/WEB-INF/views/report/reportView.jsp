@@ -9,16 +9,17 @@
 @import url("resources/css/main.css");
 #total{
  display: flex;
- margin-top: 80px;
+
 }
 .container{
   border: 2px solid blue;
 }
 #sub{
-  margin-right: 300px;
+  width: 90%;
+  padding: 20px;
 }
 .sideMenu{
-    margin-left: 300px;
+
 }
 .snb{
   font-size: 26px
@@ -29,8 +30,7 @@
           background-color: #fff;
           width: 200px;
           padding: 0;
-          margin: 0;
-          border: 2px solid;
+
           font-size: 20px;
      }
 
@@ -48,7 +48,8 @@
           color: #fff;
      }
      #privateBtn{
-     margin-left: 950px;
+      margin-left: 1590px;
+    margin-bottom: 20px;
      }
      #s1{
      width: 10%
@@ -69,7 +70,7 @@
 <body>
 <div class="intro_bg">
 			<a href="p_list.do"><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
-				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 310;"></a>
+				style="width: 190px; margin-left: 0px; position: relative; top: 35px; left: 310;"></a>
 
 			<div class="header1">
 				<div class="search_area">
@@ -135,36 +136,36 @@
 			</div>
 		</div>
 <div id="total">
-   <div class="sideMenu" style="border: 2px solid red;">
+   <div class="sideMenu" style="border-left: 1px solid; border-top: 1px solid white;  background-color: #FBE0C4; height: 900px;">
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
-        <ul class="mylist">
-            <!-- <li class=''><a href="">고객센터 메인<i></i></a></li> -->
-            <!-- <li class=''><a href="" title="현재선택">자주찾는 질문<i></i></a></li> -->
-            <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
-            <li class=''><a href="eventList.do">이벤트<i></i></a></li>
-              <c:if test="${id != 'admin'}">
-            <li class=''><a href="reportmyList.do">신고문의<i></i></a></li>
+        <ul class="mylist" style=" background-color: #FBE0C4;  ">
+            <li class='' ><a href="noticeList.do" style="color: white; font-weight: 200px; text-align: center;">공지사항<i></i></a></li>
+            <li class='' ><a href="eventList.do" style="color: white; font-weight: 200px; text-align: center;">이벤트<i></i></a></li>
+            <c:if test="${id != 'admin'}">
+            <li class='' ><a href="reportmyList.do" style="color: white; font-weight: 200px; text-align: center;">신고문의<i></i></a></li>
             </c:if>
             <c:if test="${id == 'admin'}">
-            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            <li class='' ><a href="reportList.do" style="color: white; font-weight: 200px; text-align: center;">신고문의<i></i></a></li>
             </c:if>
             <c:if test="${id == 'admin'}">
-            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>        
-             </c:if>
+            <li class='' ><a href="adminMemberList.do" style="color: white; font-weight: 200px; text-align: center;"><b>회원관리</b><i></i></a></li>    
+            </c:if>           
         </ul>
     </div>
-    </div>
+    </div> 
   
-<div class="container" align="center" id="sub" >
-  <h2 class="text-primary">신고내역 상세</h2>
+<div class=""  id="sub" >
+  <h3 class="title"style="font-size: xx-large; position: relative; bottom: 30px; margin-top: 50px;">
+				<b>신고내역</b>
+			</h3>
   <c:if test="${id == 'admin' and report.progress == '신고접수'}">
   <div id="privateBtn">
     <a href="reportUpdateForm.do?report_num=${report.report_num }&pageNum=${pageNum }" class="btn btn-warning">접수하기</a>
   </div>
        </c:if>
   <table class="table">
-  <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td>상태<b> ${report.progress}</b><td>작성일<b> ${report.report_date}</b></td></tr>
+  <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td style="text-align:right;">상태<b> ${report.progress}</b>&nbsp;&nbsp;작성일<b> ${report.report_date}</b></td></tr>
   <tr><td style="width:20%;">신고자<b> ${report.reporter_id}</b><td colspan="2">피신고자<b> ${report.criminal_id}</b></td></tr>
   <tr><td style="width:10%;">신고내용</td><td colspan="2">${report.reasonText}</td>
   <c:if test="${report.progress == '처리 완료'}">

@@ -10,20 +10,21 @@
 @import url("resources/css/main.css");
 .container{
   margin-top: 100px;
-  border: 2px solid red;
+  
 }
 .sideMenu{
   /*   margin-left: 300px; */
-  position: relative;
+/*   position: relative;
     left: 270px;
-    top: 100px;
+    top: 100px; */
 }
 #total{
     display: flex;
    /*  margin-top: 200px; */
 }
 #sub{
-  margin-right: 300px;
+  /*  width: 90%; */
+   padding: 20px;
 }
 .snb{
   font-size: 26px
@@ -35,7 +36,6 @@
           width: 200px;
           padding: 0;
           margin: 0;
-          border: 2px solid;
           font-size: 20px;
      }
 
@@ -141,7 +141,7 @@
 <body>
 <div class="intro_bg">
 			<a href="p_list.do"><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
-				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 310;"></a>
+				style="width: 190px; margin-left: 0px; position: relative; top: 35px; left: 310;"></a>
 
 			<div class="header1">
 				<div class="search_area">
@@ -207,33 +207,33 @@
 			</div>
 		</div>
 		<div id="total" style="display: flex;">
-  <div class="sideMenu" style="border: 2px solid red;">
+  <div class="sideMenu" style="border-left: 1px solid; border-top: 1px solid white;  background-color: #FBE0C4; height: 900px;">
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
-        <ul class="mylist">
-            <li class='a1'><a href="noticeList.do">공지사항<i></i></a></li>
-            <li class='a2'><a href="eventList.do">이벤트<i></i></a></li>
+        <ul class="mylist" style=" background-color: #FBE0C4;  ">
+            <li class='' ><a href="noticeList.do" style="color: white; font-weight: 200px; text-align: center;">공지사항<i></i></a></li>
+            <li class='' ><a href="eventList.do" style="color: white; font-weight: 200px; text-align: center;">이벤트<i></i></a></li>
             <c:if test="${id != 'admin'}">
-            <li class=''><a href="reportmyList.do">신고문의<i></i></a></li>
+            <li class='' ><a href="reportmyList.do" style="color: white; font-weight: 200px; text-align: center;">신고문의<i></i></a></li>
             </c:if>
             <c:if test="${id == 'admin'}">
-            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            <li class='' ><a href="reportList.do" style="color: white; font-weight: 200px; text-align: center;">신고문의<i></i></a></li>
             </c:if>
             <c:if test="${id == 'admin'}">
-            <li class='a4'><a href="adminMemberList.do">회원관리<i></i></a></li>
-            </c:if>               
+            <li class='' ><a href="adminMemberList.do" style="color: white; font-weight: 200px; text-align: center;"><b>회원관리</b><i></i></a></li>    
+            </c:if>           
         </ul>
     </div>
     </div>
-	<div class="container" align="center" style="border: 2px solid red">
+	<div class=""  style="">
 
 		<form action="eventWrite.do" method="post"
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="e_num" value="${e_num }"> 
 			<input	type="hidden" name="pageNum" value="${pageNum }">
 			<input	type="hidden" name="id" value="${id }">
-			<h2 class="text-primary">이벤트 작성</h2>
-			<table class="table table-bordered">
+			<h5 style="font-size: xx-large; ">이벤트 작성</h5>
+			<table class="table table-bordered" style="margin-left: 250px;  margin-top: 150px;">
 			<!--<tr>
 					<td>아이디 <span class="glyphicon glyphicon-user"></span></td>
 					<td><input type="text" name="id" required="required"

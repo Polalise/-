@@ -9,16 +9,17 @@
 @import url("resources/css/main.css");
 #total{
  display: flex;
- margin-top: 100px;
+
 }
 .container{
-  border: 2px solid blue;
+
 }
 #sub{
-  margin-right: 300px;
+  width:90%;
+  padding: 20px;
 }
 .sideMenu{
-    margin-left: 300px;
+ /*  height:px; */
 }
 .snb{
   font-size: 26px
@@ -30,7 +31,6 @@
           width: 200px;
           padding: 0;
           margin: 0;
-          border: 2px solid;
           font-size: 20px;
      }
 
@@ -48,7 +48,8 @@
           color: #fff;
      }
      #privateBtn{
-     margin-left: 900px;
+    margin-left: 1540px;
+    margin-bottom: 20px;
      }
      #s1{
      width: 10%
@@ -69,7 +70,7 @@
 <body>
 <div class="intro_bg">
 			<a href="p_list.do"><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
-				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 310;"></a>
+				style="width: 190px; margin-left: 0px; position: relative; top: 35px; left: 310;"></a>
 
 			<div class="header1">
 				<div class="search_area">
@@ -136,29 +137,29 @@
 		</div>
 
 <div id="total">
-   <div class="sideMenu" style="border: 2px solid red;">
+    <div class="sideMenu" style="border-left: 1px solid; border-top: 1px solid white;  background-color: #FBE0C4;">
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
-        <ul class="mylist">
-            <!-- <li class=''><a href="">고객센터 메인<i></i></a></li> -->
-            <!-- <li class=''><a href="" title="현재선택">자주찾는 질문<i></i></a></li> -->
-            <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
-            <li class=''><a href="eventList.do">이벤트<i></i></a></li>
+        <ul class="mylist" style=" background-color: #FBE0C4;  ">
+            <li class='' ><a href="noticeList.do" style="color: white; font-weight: 200px; text-align: center;">공지사항<i></i></a></li>
+            <li class='' ><a href="eventList.do" style="color: white; font-weight: 200px; text-align: center;">이벤트<i></i></a></li>
             <c:if test="${id != 'admin'}">
-            <li class=''><a href="reportmyList.do">신고문의<i></i></a></li>
+            <li class='' ><a href="reportmyList.do" style="color: white; font-weight: 200px; text-align: center;">신고문의<i></i></a></li>
             </c:if>
             <c:if test="${id == 'admin'}">
-            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            <li class='' ><a href="reportList.do" style="color: white; font-weight: 200px; text-align: center;">신고문의<i></i></a></li>
             </c:if>
             <c:if test="${id == 'admin'}">
-            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>
-            </c:if>        
-             
+            <li class='' ><a href="adminMemberList.do" style="color: white; font-weight: 200px; text-align: center;"><b>회원관리</b><i></i></a></li>    
+            </c:if>           
         </ul>
     </div>
-    </div>
-<div class="container" align="center" id="sub" >
-  <h2 class="text-primary">공지사항 상세</h2>
+    </div> 
+<div class=""  id="sub" >
+<h3 class="title"style="font-size: xx-large; position: relative; bottom: 30px; margin-top: 50px;">
+				<b>공지사항</b>
+			</h3>
+  <!-- <h2 class="text-primary">공지사항 상세</h2> -->
    <c:if test="${id == 'admin'}">
   <div id="privateBtn">
     <a href="noticeUpdateForm.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
@@ -167,7 +168,7 @@
        </div>
        </c:if>
   <table class="table">
-  <tr><td style="width: 50%;"><b>${board.subject }</b></td><td style="text-align:right;">&nbsp;조회수&nbsp;${board.readcount }&nbsp;&nbsp;&nbsp;작성일</td><td>${board.reg_date}</td></tr>
+  <tr><td style="width: 50%;"><b>${board.subject }</b></td><td style="text-align:right; width: 40%;">&nbsp;조회수&nbsp;${board.readcount }&nbsp;&nbsp;&nbsp;작성일</td><td>${board.reg_date}</td></tr>
   	<c:set var = "testStr" value = "${board.fileName }"/>
   <c:if test = "${fn:contains(testStr, 'pdf')}"><tr><td id="s1" colspan="1" style="width: 10%;">첨부파일 &nbsp;&nbsp;&nbsp;<a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td><td colspan="5"><%-- ${board.fileName } --%></td></tr></c:if>
   <c:if test = "${fn:contains(testStr, 'ppt')}"><tr><td id="s2" colspan="1" style="width: 10%;">첨부파일 &nbsp;&nbsp;&nbsp;<a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td><td colspan="5"><%-- ${board.fileName } --%></td></tr></c:if>
@@ -176,27 +177,20 @@
   <tr colspan="5">
          <c:set var = "testStr" value = "${board.fileName }"/>
             <c:if test = "${fn:contains(testStr, 'png')}">
-	     <td colspan="5"><img alt="" src="resources/upload/${board.fileName }" width="500"></c:if>
+	     <td colspan="5"><img alt="" src="resources/upload/${board.fileName }" width="900" style="margin-left: 350;"></c:if>
             <c:if test = "${fn:contains(testStr, 'jpg')}">
-	     <td colspan="5"><img alt="" src="resources/upload/${board.fileName }" width="500"></c:if>
+	     <td colspan="5"><img alt="" src="resources/upload/${board.fileName }" width="900" style="margin-left: 350;"></c:if>
             <c:if test = "${fn:contains(testStr, 'jpeg')}">
-	    <td colspan="5"><img alt="" src="resources/upload/${board.fileName }" width="500"></c:if>
+	    <td colspan="5"><img alt="" src="resources/upload/${board.fileName }" width="900" style="margin-left: 350;"></c:if>
     </td></tr> <tr><td colspan="5">${board.content }</td>
   
 	
-	<%-- 	<c:set var = "testStr" value = "${board.fileName }"/>
-  <c:if test = "${fn:contains(testStr, 'pdf')}"><tr><td>파일</td><td>${board.fileName }</td></tr></c:if>
-  <c:if test = "${fn:contains(testStr, 'ppt')}"><tr><td>파일</td><td>${board.fileName }</td></tr></c:if>
-  <c:if test = "${fn:contains(testStr, 'hwp')}"><tr><td>파일</td><td> <a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td></tr></c:if>
-  <c:if test = "${fn:contains(testStr, 'txt')}"><tr><td>파일</td><td> <a href="download.do?fileName=${board.fileName }">${board.fileName }</a></td></tr></c:if> 
- --%>
+	
 
 		
 	<tr><td colspan="5" align="center">
-      <a href="noticeList.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>
-<%--       <a href="noticeUpdateForm.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>
-      <!-- 회원 게시판인 경우에는 폼없이 삭제 여부를 묻고 삭제 ,비회원인 경우에는 암호를 확인하기 위한 화면-->
-       <a href="noticeDelete.do?num=${board.num }&pageNum=${pageNum }"  class="btn btn-danger">삭제</a> --%></td></tr>
+      <a href="noticeList.do?pageNum=${pageNum }" class="btn btn-info">목록</a>
+</td></tr>
    
   </table>
 </div>
