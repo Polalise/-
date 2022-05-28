@@ -34,7 +34,7 @@ public class MyPageController {
 	@Autowired
 	private ReplyService rs;
 	
-	@RequestMapping("myProfileForm")
+	@RequestMapping("myProfile")
 	public String myProfileForm(Member member,Product product,Mypage mypage,Model model, HttpSession session) {
 		// 본인 아이디 정보 받아오기
 		String id = (String)session.getAttribute("id");
