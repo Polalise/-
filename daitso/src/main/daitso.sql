@@ -50,11 +50,28 @@ CREATE TABLE product(
 
 create table chat(
 	room_num NUMBER primary key,
-	seller_nick varchar2(500),
-	buyer_nick varchar2(500),
-	text varchar2(1000),
+	p_num NUMBER references product(p_num),
+	user1_nick varchar2(500),
+	user2_nick varchar2(500),
 	chat_time DATE
 );
+
+create sequence seq_chat_room_num;
+
+select * from chat;
+
+create table chathistory(
+	history_num NUMBER primary key,
+	room_num NUMBER references chat(room_num),
+	sender varchar2(100),
+	text varchar2(10000),
+	send_time DATE
+);
+
+create sequence seq_chathistory_history_num;
+
+select * from chathistory;
+
 create table notice_board(
 	num number primary key, -- key
 	subject varchar2(1000) not null, -- 제목

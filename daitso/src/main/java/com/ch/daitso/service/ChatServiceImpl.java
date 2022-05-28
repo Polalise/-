@@ -15,27 +15,49 @@ public class ChatServiceImpl implements ChatService {
 	private ChatDao cd;
 
 	@Override
-	public int getNum() {
-		return cd.getNum();
+	public Chat findChatRoom(String user1_nick, String user2_nick, int p_num) {
+		return cd.findChatRoom(user1_nick, user2_nick, p_num);
 	}
 
 	@Override
-	public int countByChatNick(String buyer_nick, String seller_nick) {
-		return cd.countByChatNick(buyer_nick, seller_nick);
+	public void createChatRoom(Chat chat) {
+		cd.createChatRoom(chat);
 	}
 
 	@Override
-	public Chat findByChatNum(int room_num) {
-		return cd.findByChatNum(room_num);
+	public int findChatRoomNum(String user1_nick, String user2_nick, int p_num) {
+		return cd.findChatRoomNum(user1_nick, user2_nick, p_num);
 	}
 
 	@Override
-	public List<Chat> readChatHistory(Chat chatRoomTemp) {
-		return cd.readChatHistory(chatRoomTemp);
+	public List<Chat> findChatRoomLog(String user2_nick) {
+		return cd.findChatRoomLog(user2_nick);
 	}
 
 	@Override
-	public Chat addChatRoom(Chat chat) {
-		return cd.addChatRoom(chat);
+	public List<Chat> findChatRoom2(String user1_nick, int p_num) {
+		return cd.findChatRoom2(user1_nick, p_num);
 	}
+
+	@Override
+	public List<Chat> findChatRoomLog2(String user1_nick, int p_num) {
+		return cd.findChatRoomLog2(user1_nick, p_num);
+	}
+
+	@Override
+	public List<Chat> findChatRoomNum2(Chat chat) {
+		return cd.findChatRoomNum2(chat);
+	}
+
+	@Override
+	public Chat findChatInfo(int room_num) {
+		return cd.findChatInfo(room_num);
+	}
+
+	@Override
+	public List<Chat> findChatRoomNum3(Chat chat) {
+		return cd.findChatRoomNum3(chat);
+	}
+
+	
 }

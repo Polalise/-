@@ -131,6 +131,8 @@ public class MemberController {
 				int total = ps.getTotal(product);
 				int startRow = (currentPage - 1) * rowPerPage + 1;
 				int endRow = startRow + rowPerPage - 1;
+				product.setStartRow(startRow); 
+				product.setEndRow(endRow);
 				List<Product> list = ps.list(product);
 				PageBean pb = new PageBean(currentPage,rowPerPage,total);
 				int p_num = total - startRow + 1;

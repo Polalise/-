@@ -107,7 +107,7 @@ public class ProductController {
 			fos5.close();
 		}
 		product.setP_num(number);
-		System.out.println("product:" + product);
+//		System.out.println("product:" + product);
 		int result = ps.insert(product);
 		model.addAttribute("thumnails",thumnails); 
 		model.addAttribute("thumnails2",thumnails2); 

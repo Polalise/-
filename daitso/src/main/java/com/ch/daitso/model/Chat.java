@@ -7,9 +7,9 @@ import oracle.sql.DATE;
 public class Chat {
 
 	private int room_num;
-	private String seller_nick;
-	private String buyer_nick;
-	private String text;
+	private int p_num;
+	private String user1_nick;
+	private String user2_nick;
 	private DATE chat_time;
 	
 	// 채팅을 저장할 파일
