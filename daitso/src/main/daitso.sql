@@ -54,6 +54,7 @@ CREATE TABLE product(
 create table chat(
 	room_num NUMBER primary key,
 	p_num NUMBER references product(p_num),
+	p_name varchar2(100),
 	user1_nick varchar2(500),
 	user1_photo varchar2(500),
 	user2_nick varchar2(500),

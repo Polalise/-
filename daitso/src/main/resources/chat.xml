@@ -19,7 +19,7 @@
 	
 	<!-- 초기 채팅방 만들기 -->
 	<insert id="createChatRoom" parameterType="chat">
-		insert into chat values(seq_chat_room_num.NEXTVAL, #{p_num}, #{user1_nick}, #{user1_photo}, #{user2_nick}, #{user2_photo}, sysdate)
+		insert into chat values(seq_chat_room_num.NEXTVAL, #{p_num}, #{p_name}, #{user1_nick}, #{user1_photo}, #{user2_nick}, #{user2_photo}, sysdate)
 	</insert>
 	
 	<!-- 접속자 정보로 채팅방 번호 가져오기(게시글 작성자와 다른 경우), 이거는 무조건 1건만 존재함 -->

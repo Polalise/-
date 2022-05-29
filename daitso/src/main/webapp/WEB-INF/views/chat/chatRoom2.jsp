@@ -413,7 +413,7 @@
                         <div class="about">
                             <div class="name">${chatlog.user1_nick }</div>
                             <div class="status">${chatlog.room_num }</div>
-                            <div class="status">${chatlog.p_num }</div>                                     
+                            <div class="status">${chatlog.p_name }</div>                                     
                         </div>
                     </li>
                     </c:forEach>
@@ -425,7 +425,7 @@
                         <div class="about">
                             <div class="name">${chatlog2.user2_nick }</div>
                             <div class="status">${chatlog2.room_num }</div>   
-                            <div class="status">${chatlog2.p_num }</div>                                
+                            <div class="status">${chatlog2.p_name }</div>                                
                         </div>
                     </li>
                     </c:forEach>

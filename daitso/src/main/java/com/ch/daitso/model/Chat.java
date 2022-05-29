@@ -8,6 +8,7 @@ public class Chat {
 
 	private int room_num;
 	private int p_num;
+	private String p_name;
 	private String user1_nick;
 	private String user1_photo;
 	private String user2_nick;

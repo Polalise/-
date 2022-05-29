@@ -49,6 +49,7 @@ public class ChatController {
 
 		chat.setUser2_nick(member2.getNickName());
 		chat.setUser1_nick(product2.getP_writer());
+		chat.setP_name(product2.getP_name());
 		
 		// 받아온 p_num을 chatRoom에 set하기
 		chat.setP_num(product.getP_num());
@@ -74,10 +75,6 @@ public class ChatController {
 			List<Chat> chatlog = cs.findChatRoomLog(chat.getUser2_nick());
 			model.addAttribute("chatlog", chatlog);
 			
-			// 내가 대화한 상대방 별명 가져오기
-//			Member member4 = ms.selectNick(chat.getUser1_nick());
-//			model.addAttribute("memberphoto", member4);
-			
 			result = -1;
 		} else if (chat.getUser1_nick().equals(chat.getUser2_nick())) {
 			// 결국 내 회원 별명을 게시글 별명으로 지정 하고
@@ -98,12 +95,8 @@ public class ChatController {
 					// 해당하는 룸넘에 대한거 가져오기	
 					List<ChatHistory> log2 = chs.getChatHistory2(chat2.get(0).getRoom_num());
 					model.addAttribute("log2", log2);
-					
-					// 게시글 작성자의 별명으로 회원 정보를 가져와서 사진만 추출하기
-//					Member member3 = ms.selectNick(chat2.get(0).getUser2_nick());
-//					model.addAttribute("memberphoto2", member3);
 							
-					// 가져오고 나서는 result를 바꿔야 할 듯?
+					// 가져오고 나서는 result를 바꿈
 					result = -2;
 				} else if (chat.getRoom_num() != 0){
 					// 게시글 작성자가 게시글에 들어왔을때 채팅방 리스트 뽑기
@@ -118,12 +111,8 @@ public class ChatController {
 					// 해당하는 룸넘에 대한거 가져오기
 					List<ChatHistory> log2 = chs.getChatHistory2(chat2.get(0).getRoom_num());
 					model.addAttribute("log2", log2);
-					
-					// 게시글 작성자의 별명으로 회원 정보를 가져와서 사진만 추출하기
-//					Member member3 = ms.selectNick(chat2.get(0).getUser2_nick());
-//					model.addAttribute("memberphoto2", member3);
 				
-					// 가져오고 나서는 result를 바꿔야 할 듯?
+					// 가져오고 나서는 result를 바꿈
 					result = -2;
 				}
 		
@@ -155,6 +144,7 @@ public class ChatController {
 		Product product2 = ps.select(product.getP_num());
 		chat.setUser2_nick(member2.getNickName());
 		chat.setUser1_nick(product2.getP_writer());
+		chat.setP_name(product2.getP_name());
 		
 		// 받아온 p_num을 chatRoom에 set하기
 		chat.setP_num(product.getP_num());
