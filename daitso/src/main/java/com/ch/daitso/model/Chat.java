@@ -9,7 +9,9 @@ public class Chat {
 	private int room_num;
 	private int p_num;
 	private String user1_nick;
+	private String user1_photo;
 	private String user2_nick;
+	private String user2_photo;
 	private DATE chat_time;
 	
 	// 채팅을 저장할 파일

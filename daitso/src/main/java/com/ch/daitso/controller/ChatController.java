@@ -54,6 +54,11 @@ public class ChatController {
 		chat.setP_num(product.getP_num());
 		chat.setRoom_num(chat.getRoom_num());
 		
+		// 사진 정보 넣기
+		chat.setUser2_photo(member2.getPhotoName());
+		Member member3 = ms.selectNick(product2.getP_writer());
+		chat.setUser1_photo(member3.getPhotoName());
+		
 		// 2명의 별명+게시글 번호로 방이 있는지 조회
 		if ((cs.findChatRoom(chat.getUser1_nick(), chat.getUser2_nick(), chat.getP_num()) == null) && !(chat.getUser1_nick().equals(chat.getUser2_nick()))) {
 			result = 1;
@@ -68,6 +73,10 @@ public class ChatController {
 			// 접속한 사람의 별명으로 채팅방 리스트 뽑기
 			List<Chat> chatlog = cs.findChatRoomLog(chat.getUser2_nick());
 			model.addAttribute("chatlog", chatlog);
+			
+			// 내가 대화한 상대방 별명 가져오기
+//			Member member4 = ms.selectNick(chat.getUser1_nick());
+//			model.addAttribute("memberphoto", member4);
 			
 			result = -1;
 		} else if (chat.getUser1_nick().equals(chat.getUser2_nick())) {
@@ -86,11 +95,14 @@ public class ChatController {
 					List<Chat> chat2 = cs.findChatRoomNum2(chat);
 					model.addAttribute("chat2", chat2);
 						
-					// 해당하는 룸넘에 대한거 가져오기
+					// 해당하는 룸넘에 대한거 가져오기	
 					List<ChatHistory> log2 = chs.getChatHistory2(chat2.get(0).getRoom_num());
-					
 					model.addAttribute("log2", log2);
 					
+					// 게시글 작성자의 별명으로 회원 정보를 가져와서 사진만 추출하기
+//					Member member3 = ms.selectNick(chat2.get(0).getUser2_nick());
+//					model.addAttribute("memberphoto2", member3);
+							
 					// 가져오고 나서는 result를 바꿔야 할 듯?
 					result = -2;
 				} else if (chat.getRoom_num() != 0){
@@ -107,6 +119,10 @@ public class ChatController {
 					List<ChatHistory> log2 = chs.getChatHistory2(chat2.get(0).getRoom_num());
 					model.addAttribute("log2", log2);
 					
+					// 게시글 작성자의 별명으로 회원 정보를 가져와서 사진만 추출하기
+//					Member member3 = ms.selectNick(chat2.get(0).getUser2_nick());
+//					model.addAttribute("memberphoto2", member3);
+				
 					// 가져오고 나서는 result를 바꿔야 할 듯?
 					result = -2;
 				}
@@ -114,7 +130,6 @@ public class ChatController {
 			//	user1로 정보 불러오기(채팅 기록이 없는 경우)
 			} else if (cs.findChatRoom2(chat.getUser1_nick(), chat.getP_num()).isEmpty()) {
 				result = 2;
-				System.out.println("여기야!");
 			}
 			
 		} 	
@@ -143,6 +158,11 @@ public class ChatController {
 		
 		// 받아온 p_num을 chatRoom에 set하기
 		chat.setP_num(product.getP_num());
+		
+		// 사진 정보 넣기
+		chat.setUser2_photo(member2.getPhotoName());
+		Member member3 = ms.selectNick(product2.getP_writer());
+		chat.setUser1_photo(member3.getPhotoName());
 		
 		// 채팅방 만들기(만들어지면 -1)
 		cs.createChatRoom(chat);

@@ -367,7 +367,7 @@
 				}
 			} else if (d.type == "message") {
 				if (d.sessionId == $("#sessionId").val()) {
-					$('#chatMessage').append( "<ul><li class='message other-message' id='mymessage'>" + d.msg + "<br>" + "</li></ul>");
+					$('#chatMessage').append( "<div class='message-data text-right'><ul><div><img alt='' src='${path}/resources/upload/${member.photoName}'></div><li class='message other-message' id='mymessage'>" + d.msg + "<br>" + "</li></ul></div>");
 				} else {
 					$('#chatMessage').append( "<ul><li class='message my-message' id='othermessage'>" + d.msg + "<br>" + "</li></ul>");
 				}
@@ -407,25 +407,25 @@
                 </div>
                 <ul class="list-unstyled chat-list mt-2 mb-0">
                 <c:if test="${member.nickName != product.p_writer }">
-                	<c:forEach var="chat" items="${chatlog}">	
-                    <li class="clearfix" onclick="location.href='chatClick.do?room_num=${chat.room_num}'">
-                    	<img alt="" src="${path}/resources/upload/${member.photoName}">
+                	<c:forEach var="chatlog" items="${chatlog}">	
+                    <li class="clearfix" onclick="location.href='chatClick.do?room_num=${chatlog.room_num}'">
+                    	<img alt="" src="${path}/resources/upload/${chatlog.user1_photo}">
                         <div class="about">
-                            <div class="name">${chat.user1_nick }</div>
-                            <div class="status">${chat.room_num }</div>
-                            <div class="status">${chat.p_num }</div>                                     
+                            <div class="name">${chatlog.user1_nick }</div>
+                            <div class="status">${chatlog.room_num }</div>
+                            <div class="status">${chatlog.p_num }</div>                                     
                         </div>
                     </li>
                     </c:forEach>
                 </c:if>
                 <c:if test="${member.nickName == product.p_writer }">
-                	<c:forEach var="chat2" items="${chatlog2}">	
-                    <li class="clearfix" onclick="location.href='chatClick.do?room_num=${chat2.room_num}'">
-                    	<img alt="" src="${path}/resources/upload/${member.photoName}">
+                	<c:forEach var="chatlog2" items="${chatlog2}">	
+                    <li class="clearfix" onclick="location.href='chatClick.do?room_num=${chatlog2.room_num}'">
+                    	<img alt="" src="${path}/resources/upload/${chatlog2.user2_photo}">
                         <div class="about">
-                            <div class="name">${chat2.user2_nick }</div>
-                            <div class="status">${chat2.room_num }</div>   
-                            <div class="status">${chat.p_num }</div>                                
+                            <div class="name">${chatlog2.user2_nick }</div>
+                            <div class="status">${chatlog2.room_num }</div>   
+                            <div class="status">${chatlog2.p_num }</div>                                
                         </div>
                     </li>
                     </c:forEach>
@@ -468,19 +468,11 @@
                 <c:if test="${result == -1}">
 	                <div class="chat-history" id="chatMessage">
 	                	<input type="hidden" id="sessionId" value="">
-	                    <ul class="m-b-0">
-	                        <li class="clearfix" onclick="">
-	                            <div class="message-data text-right">
-	                                <span class="message-data-time" onload="showClock()" id="time"></span>
-	                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
-	                            </div>
-	                            <div class="message other-message float-right" id="mymessage"></div>
-	                        </li>
-	                    </ul>
 	                    <c:forEach var="chathistory" items="${log }">
 	                    	<c:if test="${chathistory.sender == member.nickName}">
 	                    	<div class="message-data text-right">
 	                    		<ul>
+	                    			<div><img alt="" src="${path}/resources/upload/${member.photoName}"></div>	
 	                    			<li class="message other-message" id="mymessage" value="${chathistory.text}">${chathistory.text}</li>
 	                    		</ul>
 	                    	</div>
@@ -508,20 +500,14 @@
                 <c:if test="${result == -2}">
 	                <div class="chat-history" id="chatMessage">
 	                	<input type="hidden" id="sessionId" value="">
-	                    <ul class="m-b-0">
-	                        <li class="clearfix" onclick="">
-	                            <div class="message-data text-right">
-	                                <span class="message-data-time">10:10 AM, Today</span>
-	                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
-	                            </div>
-	                            <div class="message other-message float-right" id="mymessage"></div>
-	                        </li>
-	                    </ul>
 	                    <c:forEach var="chathistory" items="${log2 }">
 	                    	<c:if test="${chathistory.sender == member.nickName}">
+	                    	<div class="message-data text-right">
 	                    		<ul>
+	                    			<div><img alt="" src="${path}/resources/upload/${member.photoName}"></div>
 	                    			<li class="message other-message" id="mymessage" value="${chathistory.text}">${chathistory.text}</li>
 	                    		</ul>
+	                    	</div>
 	                    	</c:if>
 	                    	<c:if test="${chathistory.sender != member.nickName}">
 	                    		<ul>
@@ -543,7 +529,7 @@
                 </c:if>
                 
                 <c:if test="${result == 2 }">
-                	<h2>문의 사항이 아직 없습니다.</h2>
+                	<h2 style="text-aline:center;">문의 채팅이 아직 없습니다.</h2>
                 </c:if>
                 
                 
