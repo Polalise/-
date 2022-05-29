@@ -353,7 +353,7 @@
 	}
 
 	function onClose() {
-		//		nickname = ${member.nickName};
+//		nickname = ${member.nickName};
 		appendMessage(nickname + "님이 퇴장 하였습니다.");
 	}
 
@@ -540,6 +540,10 @@
                     </div>
                     <div><a href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a> </div>           
                 	</div>
+                </c:if>
+                
+                <c:if test="${result == 2 }">
+                	<h2>문의 사항이 아직 없습니다.</h2>
                 </c:if>
                 
                 

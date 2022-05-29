@@ -74,10 +74,9 @@ public class ChatController {
 			// 결국 내 회원 별명을 게시글 별명으로 지정 하고
 			chat.setUser1_nick(chat.getUser2_nick());
 
-			// user1로 정보 불러오기
-			if(cs.findChatRoom2(chat.getUser1_nick(), chat.getP_num()) != null) { 
+			// user1로 정보 불러오기(채팅 기록이 있는 경우)
+			if(!(cs.findChatRoom2(chat.getUser1_nick(), chat.getP_num()).isEmpty())) { 
 				if(chat.getRoom_num() == 0) {
-					result = 0;
 					// 게시글 작성자가 게시글에 들어왔을때 채팅방 리스트 뽑기
 					List<Chat> chatlog2 = cs.findChatRoomLog2(chat.getUser1_nick(), chat.getP_num());
 					model.addAttribute("chatlog2", chatlog2);
@@ -86,16 +85,15 @@ public class ChatController {
 					// 방번호를 찾고
 					List<Chat> chat2 = cs.findChatRoomNum2(chat);
 					model.addAttribute("chat2", chat2);
-					
-
+						
 					// 해당하는 룸넘에 대한거 가져오기
 					List<ChatHistory> log2 = chs.getChatHistory2(chat2.get(0).getRoom_num());
+					
 					model.addAttribute("log2", log2);
 					
 					// 가져오고 나서는 result를 바꿔야 할 듯?
 					result = -2;
 				} else if (chat.getRoom_num() != 0){
-					result = 0;
 					// 게시글 작성자가 게시글에 들어왔을때 채팅방 리스트 뽑기
 					List<Chat> chatlog2 = cs.findChatRoomLog2(chat.getUser1_nick(), chat.getP_num());
 					model.addAttribute("chatlog2", chatlog2);
@@ -104,8 +102,6 @@ public class ChatController {
 					// 방번호를 찾고
 					List<Chat> chat2 = cs.findChatRoomNum3(chat);
 					model.addAttribute("chat2", chat2);
-					
-					System.out.println("chat2 : " + chat2);
 
 					// 해당하는 룸넘에 대한거 가져오기
 					List<ChatHistory> log2 = chs.getChatHistory2(chat2.get(0).getRoom_num());
@@ -115,21 +111,20 @@ public class ChatController {
 					result = -2;
 				}
 		
-			} else if (cs.findChatRoom2(chat.getUser1_nick(), chat.getP_num()) == null) {
+			//	user1로 정보 불러오기(채팅 기록이 없는 경우)
+			} else if (cs.findChatRoom2(chat.getUser1_nick(), chat.getP_num()).isEmpty()) {
 				result = 2;
+				System.out.println("여기야!");
 			}
 			
-		} 
-		
+		} 	
 		// 결과값을 넘겨서 result에 맞게 화면 보여주기 위함
 		model.addAttribute("result", result);
 		model.addAttribute("product", product2);
-//		model.addAttribute("chat", chat);
 		
 			
 		// 가장 최근 text불러오기
-		
-		
+				
 		return "/chat/chatRoom2";
 	}
 	
