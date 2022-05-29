@@ -168,7 +168,16 @@ public class MyPageController {
 		
 		return "/mypage/reviewList";
 	}
-
-		
-		
+	
+	@RequestMapping("reviewPop")
+	public String reviewPop(int p_num,Model model) {
+		// p_num 으로 해당 게시물 리뷰 불러옴
+		Reply reply = rs.selectReview(p_num);
+		Product product = ps.select(p_num);
+		System.out.println("reply : " + reply);
+		// 불러온 정보 전부 넘김
+		model.addAttribute("product",product);
+		model.addAttribute("reply",reply);
+		return "admin/review/reviewPop";
+	}
 }

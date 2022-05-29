@@ -16,4 +16,6 @@ public interface ReplyDao {
 
 	void update(Reply rb);
 
+	Reply selectReview(int p_num);
+
 }

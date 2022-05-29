@@ -8,6 +8,17 @@
 <link rel="stylesheet" href="${path}/resources/css/sellList.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function() {
+		$('#reviewPop').click(
+				function() {
+					alert(p_num);
+					var pop = window.open(
+							"reviewPop.do?p_num=${product.p_num}", "content",
+							"width=620 height=700");
+				});
+	});
+</script>
 </head>
 <body>
 	<div class="list">
@@ -41,18 +52,18 @@
 
 						<a class="mp_price">${product.price}</a>
 
-						<%-- <c:if test="${product.sel == 'n'}">
-								<a class="mp_review">판매중</a>
-								</c:if>
-								<c:if test="${product.sel == 'i'}">
-								<a class="mp_review">거래중</a>
-								</c:if>
-								<c:if test="${product.sel == 'y' && product.review == 'n'}">
-								<a class="mp_review">아직 리뷰가 없어요</a>
-								</c:if>
-								<c:if test="${product.sel == 'y' && product.review == 'y'}">
-								<a class="mp_review" href="reviewList.do">리뷰 보러가기</a>
-								</c:if> --%>
+						<c:if test="${product.sel == 'n'}">
+							<a class="mp_review">판매중</a>
+						</c:if>
+						<c:if test="${product.sel == 'i'}">
+							<a class="mp_review">거래중</a>
+						</c:if>
+						<c:if test="${product.sel == 'y' && product.review == 'n'}">
+							<a class="mp_review">아직 리뷰가 없어요</a>
+						</c:if>
+						<c:if test="${product.sel == 'y' && product.review == 'y'}">
+							<a class="mp_review" id="reviewPop">리뷰보기</a>
+						</c:if>
 
 					</div>
 				</div>

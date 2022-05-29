@@ -39,6 +39,11 @@ public class ReplyDaoImpl  implements ReplyDao{
 		sst.update("replyns.update",rb);
 		
 	}
+
+	@Override
+	public Reply selectReview(int p_num) {
+		return sst.selectOne("myPagens.selectReview",p_num);
+	}
     
     
 }

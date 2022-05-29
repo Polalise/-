@@ -32,4 +32,6 @@ public interface MypageService {
 
 	List<Reply> MyReviewListSell(String id);
 
+	void reviewInsertSuccess(int p_num);
+
 }

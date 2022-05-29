@@ -45,6 +45,7 @@ public class Mypage {
 	private String thumnails3; //계시글 사진
 	private String thumnails4; //계시글 사진
 	private String thumnails5; //계시글 사진
+	private String review;
 	// 판매,구매 select바
 	private String search2;
 	private String keyword2;

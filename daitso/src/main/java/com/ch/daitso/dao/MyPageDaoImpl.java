@@ -72,4 +72,8 @@ public class MyPageDaoImpl implements MypageDao{
 		return sst.selectList("myPagens.MyReviewListSell", id);
 	}
 
+	public void reviewInsertSuccess(int p_num) {
+		sst.update("myPagens.reviewInsertSuccess",p_num);
+	}
+
 }

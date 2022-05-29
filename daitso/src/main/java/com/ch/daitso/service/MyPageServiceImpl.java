@@ -65,4 +65,8 @@ public class MyPageServiceImpl implements MypageService{
 		return myd.MyReviewListSell(id);
 	}
 
+	public void reviewInsertSuccess(int p_num) {
+		myd.reviewInsertSuccess(p_num);
+	}
+
 }

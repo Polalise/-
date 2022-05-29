@@ -16,4 +16,6 @@ public interface ReplyService {
 
 	void update(Reply rb);
 
+	Reply selectReview(int p_num);
+
 }
