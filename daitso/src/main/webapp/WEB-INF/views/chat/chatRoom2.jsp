@@ -305,7 +305,7 @@
 		// 172.30.1.37:8080/ch11: 채팅 서버의 ip값	// chat-ws.do : servlet-context에 등록된 이름
 		// 다른 프로젝트를 통해 불러 오는 방법을 사용 해도 된다
 		// websocket = new WebSocket("ws://61.75.24.60:8080/daitso/chat-ws.do");
-		websocket = new WebSocket("ws://61.75.24.60:8080/daitso/chat-ws.do");
+		websocket = new WebSocket("ws://172.30.1.43:8080/daitso/chat-ws.do");
 		// 뒤에 ()안해도 알아서 함수 불러옴
 		websocket.onopen = Open;
 		websocket.onmessage = onMessage;

@@ -149,7 +149,7 @@ border: 2px solid blue;
     </div>
     </div> 
 <div class="" id="sub">
-  <h2 class="text-primary">이벤트 상세</h2>
+  
     <c:if test="${id == 'admin'}">
   <div id="privateBtn">
     <a href="eventUpdateForm.do?e_num=${board.e_num }&pageNum=${pageNum }"  class="btn btn-warning">수정</a>

@@ -146,7 +146,6 @@ public class ProductController {
 		product.setP_num(number);
 		String id = (String)session.getAttribute("id");
 		product.setId(id);
-		System.out.println("product:" + product);
 		int result = ps.insert(product);
 		model.addAttribute("thumnails",thumnails); 
 		model.addAttribute("thumnails2",thumnails2); 
@@ -224,6 +223,7 @@ public class ProductController {
 			fos5.close(); 
 		}
 		result = ps.update(product);
+		System.out.println("결과 :" + result);
 		model.addAttribute("thumnails",thumnails); 
 		model.addAttribute("thumnails2",thumnails2); 
 		model.addAttribute("thumnails3",thumnails3); 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../ready.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-	location.href="http://172.30.1.43:8080/daitso/loginForm.do";
-</script>
+<div>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
 </body>
 </html>

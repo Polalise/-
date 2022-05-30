@@ -5,21 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<style type="text/css">
-@import url("resources/css/notice.css");
-</style>
-<style type="text/css">
-@import url("resources/css/style2.css");
-</style>
-<style type="text/css">
-@import url("resources/css/main.css");
-</style>
+<style type="text/css">@import url("resources/css/notice.css");</style>
+<style type="text/css">@import url("resources/css/style2.css");</style>
+<style type="text/css">@import url("resources/css/main.css");</style>
 <link rel="stylesheet" href="resources/summernote/summernote-lite.css">
 <script src="resources/summernote/summernote-lite.js"></script>
 
 <title>Insert title here</title>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
    function sample6_execDaumPostcode() { 
         new daum.Postcode({
@@ -66,9 +59,6 @@
 		// input type file 파일명 변경 설정
 
 	});
-	function () {
-		
-	}
 </script>
 </head>
 <body>

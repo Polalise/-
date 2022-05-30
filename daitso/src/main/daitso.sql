@@ -49,7 +49,8 @@ CREATE TABLE product(
 	thumnails3 varchar2(500),
 	thumnails4 varchar2(500),
 	thumnails5 varchar2(500),
-	id VARCHAR2(500) REFERENCES member ON DELETE CASCADE
+	id VARCHAR2(500) REFERENCES member ON DELETE CASCADE,
+	review char(1) default 'n'
 );
 insert into PRODUCT values(11,'sa2d','das',1234,sysdate,'dsadsa','dsa','dsa',0,'n',sysdate,'n',0,'dsads1','dsa','dsa','dsa','dsa','dsa','dsa','dsa','a2');
 create table chat(
@@ -137,6 +138,8 @@ create table report(
 	score number,   --벌점
 	adminText VARCHAR2(1000)  -- 관리자의 코멘트
 );
+
+select * from report;
 
 CREATE TABLE likes(
     id VARCHAR2(100) REFERENCES member ON DELETE CASCADE,
