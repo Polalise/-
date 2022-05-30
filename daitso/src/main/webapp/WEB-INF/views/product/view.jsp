@@ -53,7 +53,7 @@ select option[value=""][disabled] {
 	<div class="intro_bg" id="intro2">
 		<img alt="" id="Im2g" src="${path }/resources/images/logo.png"
 			onclick="location.href='main.do?p_num=${product.p_num}&pageNum=${pageNum }'"
-			style="width: 190px; margin-left: 0px; position: relative; top: 40px; left: 200;">
+			style="width: 190px; position: relative; top: 40px;">
 		<div class="header1">
 			<div class="search_area">
 				<input type="checkbox" id="icon" style="display: none;"> <label
@@ -79,7 +79,7 @@ select option[value=""][disabled] {
 				</div>
 				<form action="p_list.do?pageNum=1">
 					<div class="searchs">
-						<select name="search" style="height: 63px;">
+						<select name="search" style=" height: 48px;">
 							<!-- select바 한글화 -->
 							<c:forTokens var="sh" items="subcon,p_writer,p_name,p_content"
 								delims="," varStatus="i">
@@ -92,7 +92,7 @@ select option[value=""][disabled] {
 							</c:forTokens>
 						</select><input class="searchr" type="text" name="keyword"
 							value="${product.keyword }" placeholder="검색어 입력"> <input
-							class="input" type="submit" value="검색">
+							class="searchinput" type="submit" value="검색">
 					</div>
 				</form>
 			</div>
@@ -110,8 +110,12 @@ select option[value=""][disabled] {
 			<c:if test="${id == 'admin' }">
 				<a class="shop" href="adminMain.do">관리자페이지</a>
 			</c:if>
+			<c:if test="${member.id == null }">
 				<a class="log" href='logout.do'>로그인</a>
-
+			</c:if>
+			<c:if test="${member.id != null }">
+				<a class="log" href='logout.do'>로그아웃</a>
+			</c:if>
 		</div>
 	</div>
 		<div class="product">
@@ -185,10 +189,8 @@ select option[value=""][disabled] {
 						<img src="${path }/resources/images/view4.png">신고하기</button>
 				</div>
 				<div class="pcontent">
-					<textarea  readonly="readonly" 
-						onclick="this.select()" onfocus="this.select()"
-					 	style="width: 552px; height: 255px;
-					  	margin-top: 10px; ">${product.p_content }
+					<textarea  readonly="readonly" 	onclick="this.select()" onfocus="this.select()"
+					 	style="width: 552px; height: 255px; margin-top: 10px;">${product.p_content }
 					</textarea></div>
 				<div class="productbutton"> 
 					<button class="btnlike"  id="addL">

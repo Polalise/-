@@ -126,20 +126,24 @@ public class MemberController {
 				session.setAttribute("id", member.getId());
 				// 로그인 했을때 리스트 보여주려고 리스트 가져옴 
 				if (pageNum == null || pageNum.equals("")) pageNum = "1";
-				int rowPerPage = 10;
-				int currentPage = Integer.parseInt(pageNum);
-				int total = ps.getTotal(product);
-				int startRow = (currentPage - 1) * rowPerPage + 1;
-				int endRow = startRow + rowPerPage - 1;
-				product.setStartRow(startRow); 
-				product.setEndRow(endRow);
-				List<Product> list = ps.list(product);
-				PageBean pb = new PageBean(currentPage,rowPerPage,total);
-				int p_num = total - startRow + 1;
-				model.addAttribute("p_num", p_num);
-				model.addAttribute("pb", pb);
-				model.addAttribute("list", list);
-				
+			      int rowPerPage = 10;
+			      int currentPage = Integer.parseInt(pageNum);
+			      int total = ps.getTotal(product);
+			      int startRow = (currentPage - 1) * rowPerPage + 1;
+			      int endRow = startRow + rowPerPage - 1;
+			      product.setStartRow(startRow); 
+			      product.setEndRow(endRow);
+			      List<Product> list = ps.list(product);
+			      PageBean pb = new PageBean(currentPage, rowPerPage, total);
+			      int p_num = total - startRow + 1;
+			      //매개변수로 넘어온데이터를 같은 url로 변경없이 전달할 때는 model.addAttribute 생략 가능 
+			      String[] title = {"작성자","제목","내용","제목+내용"};
+//			      String[] title2 = {"판매","구매"};
+			      model.addAttribute("title", title);
+//			       model.addAttribute("title2", title2);
+			      model.addAttribute("p_num", p_num);
+			      model.addAttribute("pb", pb);
+			      model.addAttribute("list", list);
 			}
 		}
 		model.addAttribute("result", result);
