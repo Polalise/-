@@ -26,12 +26,12 @@ select option[value=""][disabled] {
 		frm1.p_tag.value = kind;
 		frm1.submit();
 	}
-	function submit(kind) {
+	function sub1() {
+		var kind = frm2.search2[frm2.search2.selectedIndex].value;
 		if (!frm2.keyword2.value)
 			frm2.keyword2.value = kind;
 		if (frm2.keyword2.value)
 			frm2.keyword2.value = kind;
-		frm2.p_value.value = kind;
 		frm2.submit();
 	}
 </script>
@@ -122,10 +122,10 @@ select option[value=""][disabled] {
 				<input type="hidden" name="keyword3" value="${product.search3 }">
 			</form>
 			<form action="p_list.do?pageNum=1" name="frm2">
-				<select class="search2" name="search2" onchange="this.form.submit()">
+				<select class="search2" name="search2" onchange="sub1()">
 					<option value="" disabled selected>선택하세요</option>
-					<option onclick="submit('판매')" value="판매">판매</option>
-					<option onclick="submit('구매')" value="구매">구매</option>
+					<option value="판매">판매</option>
+					<option value="구매">구매</option>
 					<option value="전체보기">전체보기</option>
 				</select><input type="hidden" name="keyword2" value="${product.search2 }">
 			</form>

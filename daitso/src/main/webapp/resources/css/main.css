@@ -98,7 +98,7 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 .intro_bg {
     background-color: #FBE0C4;
     height: 150px;
-    padding: 0 150px;
+    padding: 0 350px;
 }
 
 .header1 {
@@ -301,6 +301,7 @@ body {
     outline: 0;
     border: 0;
     background: #FBE0C4;
+    margin-left: -100px;
 }
 .chats::after{
 	content: "";

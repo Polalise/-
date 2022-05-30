@@ -144,9 +144,6 @@ public class ProductController {
 			fos5.close();
 		}
 		product.setP_num(number);
-		String id = (String)session.getAttribute("id");
-		product.setId(id);
-		System.out.println("product:" + product);
 		int result = ps.insert(product);
 		model.addAttribute("thumnails",thumnails); 
 		model.addAttribute("thumnails2",thumnails2); 
@@ -169,6 +166,10 @@ public class ProductController {
 		String id = (String)session.getAttribute("id");
 		Member member = ms.selectId(id);
 		Likes likes2 = ls.searchList(id, p_num);
+		String str = product.getP_content();
+		String newstr = str.replaceAll("<p>", "\n");
+		String newstr2 = newstr.replaceAll("</p>", "\n");
+		product.setP_content(newstr2);
 		model.addAttribute("member" , member);
 		if(likes2 == null)
 			model.addAttribute("likes", "");
@@ -249,4 +250,3 @@ public class ProductController {
 	}
 	
 }
-	//photo zone

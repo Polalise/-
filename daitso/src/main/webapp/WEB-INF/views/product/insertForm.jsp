@@ -63,10 +63,38 @@
 			lang : "ko-KR", // 한글 설정
 			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
 		});
-		// input type file 파일명 변경 설정
-
 	});
-	function () {
+	function sub() {
+		if(!frm.file.value){
+			alert("사진을 한장 이상 넣어 주세요");
+			return false;
+		}
+		if(!frm.p_name.value){
+			alert("제목을 입력해 주세요");
+			frm.p_name.focus();
+			return false;
+		}
+		if(!frm.price.value){
+			alert("가격을 입력해 주세요");
+			frm.price.focus();
+			return false;
+		}
+		if(!frm.p_name.value){
+			alert("제목을 입력해 주세요");
+			frm.p_name.focus();
+			return false;
+		}
+		if(!frm.p_local.value){
+			alert("지역을 입력해 주세요");
+			frm.p_local.focus();
+			return false;
+		}
+		if(!frm.p_content.value){
+			alert("내용을 입력해 주세요");
+			frm.p_content.focus();
+			return false;
+		}
+		frm.submit();
 		
 	}
 </script>
@@ -100,8 +128,8 @@
 					</ul>
 				</div>
 				<form action="p_list.do?pageNum=1">
-					<div class="searchs" style="margin-top:0px;">
-						<select name="search" style="height: 48px;">
+					<div class="searchs" style="margin-top:0px; ">
+						<select name="search" style="height: 48px; color: #000;">
 							<!-- select바 한글화 -->
 							<c:forTokens var="sh" items="subcon,p_writer,p_name,p_content"
 								delims="," varStatus="i">
@@ -119,7 +147,7 @@
 				</form>
 			</div>
 			<div class="icon-button">
-				<button class="chats">
+				<button class="chats" style="margin-left: 0px;">
 					<img src="${path }/resources/images/main2.png" width="15"
 						height="16" alt="번개톡버튼 이미지">다있톡
 				</button>
@@ -147,7 +175,7 @@
 			<div class="board_write_wrap">
 				<div class="board_write">
 					<form action="p_insert.do" method="post" id="frm"
-						enctype="multipart/form-data">
+						enctype="multipart/form-data" name="frm">
 						<!-- onsubmit="return chk()" -->
 						<input type="hidden" name="p_num" value="${p_num }"> <input
 							type="hidden" name="pageNum" value="${pageNum }">
@@ -198,14 +226,15 @@
 									</label> <label for="file-input5"> 
 									<img alt=""	src="${path }/resources/images/poto.png"
 										style="width: 30px; cursor: pointer;">
-									</label> <input id="file-input1" type="file" name="file"
-										required="required" style="display: none;"> <input
-										id="file-input2" type="file" name="file2"
-										style="display: none;"> <input id="file-input3"
-										type="file" name="file3" style="display: none;"> <input
+									</label>
+									 <input id="file-input1" type="file" name="file"
+										required="required" style="display: none;"> 
+									<input	id="file-input2" type="file" name="file2"
+										style="display: none;">
+									 <input id="file-input3" type="file" name="file3" style="display: none;"> <input
 										id="file-input4" type="file" name="file4"
-										style="display: none;"> <input id="file-input5"
-										type="file" name="file5" style="display: none;">
+										style="display: none;">
+									 <input id="file-input5" type="file" name="file5" style="display: none;">
 								</dd>
 							</dl>
 						</div>
@@ -252,11 +281,11 @@
 						</div> 
 						<div class="bt_wrap">
 							<div class="back">
-								<div class="button_base b05_3d_roll" onclick="document.getElementById('frm').submit();">
+							<div class="button_base b05_3d_roll" onclick="sub()"> 
 									<div>등록</div>
 									<div>등록</div>
-								</div>
-								<div class="button_base b05_3d_roll"
+							</div>
+							<div class="button_base b05_3d_roll"
 									 onclick="location.href='p_list.do?pageNum=${pageNum }'">
 									<div>취소</div>
 									<div>취소</div>
