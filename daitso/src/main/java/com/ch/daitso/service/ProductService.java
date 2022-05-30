@@ -16,5 +16,6 @@ public interface ProductService {
 	Product select2(int p_num);
 	int getProductCount();
 	int getProductCount2();
+	int getProductCount3();
 
 }

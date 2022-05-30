@@ -48,5 +48,9 @@ public class ProductServieImpl implements ProductService {
 	public int getProductCount2() {
 		return pd.getProductCount2();
 	}
+	@Override
+	public int getProductCount3() {
+		return pd.getProductCount3();
+	}
 } 
 

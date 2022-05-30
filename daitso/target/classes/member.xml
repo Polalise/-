@@ -130,4 +130,8 @@
 
 		where id = #{id}
 	</update>
+	
+	<select id = "getCount3" resultType="int">
+     SELECT count(*) FROM member where TO_char(regdate,'YYYYMMDD') = TO_char(SYSDATE,'YYYYMMDD')
+   </select>
 </mapper>

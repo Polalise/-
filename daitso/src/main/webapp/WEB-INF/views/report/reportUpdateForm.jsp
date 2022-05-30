@@ -6,19 +6,20 @@
 <html>
 <head>
 <style type="text/css">
-@import url("resources/css/main.css");
+@import url("resources/css/main2.css");
 #total{
  display: flex;
- margin-top: 80px;
+
 }
 .container{
   border: 2px solid blue;
 }
 #sub{
-  margin-right: 300px;
+ width:90%;
+ padding: 20px;
 }
 .sideMenu{
-    margin-left: 300px;
+
 }
 .snb{
   font-size: 26px
@@ -30,7 +31,6 @@
           width: 200px;
           padding: 0;
           margin: 0;
-          border: 2px solid;
           font-size: 20px;
      }
 
@@ -69,7 +69,7 @@
 <body>
 <div class="intro_bg">
 			<a href="p_list.do"><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
-				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 310;"></a>
+				style="width: 190px; margin-left: 0px; position: relative; top: 35px; left: 310;"></a>
 
 			<div class="header1">
 				<div class="search_area">
@@ -135,41 +135,40 @@
 			</div>
 		</div>
 <div id="total">
-   <div class="sideMenu" style="border: 2px solid red;">
+  <div class="sideMenu" style="border-left: 1px solid; border-top: 1px solid white;  background-color: #FBE0C4; height: 900px;">
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
-        <ul class="mylist">
-            <!-- <li class=''><a href="">고객센터 메인<i></i></a></li> -->
-            <!-- <li class=''><a href="" title="현재선택">자주찾는 질문<i></i></a></li> -->
-            <li class=''><a href="noticeList.do">공지사항<i></i></a></li>
-            <li class=''><a href="eventList.do">이벤트<i></i></a></li>
-              <c:if test="${id != 'admin'}">
-            <li class=''><a href="reportmyList.do">신고문의<i></i></a></li>
+        <ul class="mylist" style=" background-color: #FBE0C4;  ">
+            <li class='' ><a href="noticeList.do" style="color: white; font-weight: 200px; text-align: center;">공지사항<i></i></a></li>
+            <li class='' ><a href="eventList.do" style="color: white; font-weight: 200px; text-align: center;">이벤트<i></i></a></li>
+            <c:if test="${id != 'admin'}">
+            <li class='' ><a href="reportmyList.do" style="color: white; font-weight: 200px; text-align: center;">신고문의<i></i></a></li>
             </c:if>
             <c:if test="${id == 'admin'}">
-            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            <li class='' ><a href="reportList.do" style="color: white; font-weight: 200px; text-align: center;">신고문의<i></i></a></li>
             </c:if>
             <c:if test="${id == 'admin'}">
-            <li class=''><a href="adminMemberList.do">회원관리<i></i></a></li>
-            </c:if>        
-             
+            <li class='' ><a href="adminMemberList.do" style="color: white; font-weight: 200px; text-align: center;"><b>회원관리</b><i></i></a></li>    
+            </c:if>           
         </ul>
     </div>
     </div>
   
-<div class="container" align="center" id="sub" >
-  <h2 class="text-primary">신고내역 처리</h2>
+<div class="" id="sub" >
+    <h3 class="title"style="font-size: xx-large; position: relative; bottom: 30px; margin-top: 50px;">
+				<b>신고처리</b>
+			</h3>
   
   <table class="table">
   <form method="post" action="reportUpdate.do">
   <input type="hidden" name="report_num" value="${report_num}">
   <input type="hidden" name="criminal_id" value="${report.criminal_id}">
-  <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td>신고상태<b>${report.progress}</b><td>작성일<b> ${report.report_date}</b></td></tr>
+  <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td style="text-align:right;">상태<b> ${report.progress}</b>&nbsp;&nbsp;작성일<b> ${report.report_date}</b></td></tr>
   <tr><td style="width:20%;">신고자<b> ${report.reporter_id}</b><td colspan="2">피신고자<b> ${report.criminal_id}</b></td></tr>
   <tr><td style="width:10%;">신고내용</td><td colspan="2">${report.reasonText}</td>
-  <tr><td colspan="5">벌점<input type="text" name="score"></td></tr>
-  <tr><td colspan="5">관리자 코멘트<input type="text" name="adminText"></td></tr>
-  <tr><td><input type="submit" value="확인"></td></tr>
+  <tr><td colspan="5">벌점&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="score"></td></tr>
+  <tr><td colspan="1">코멘트</td><td><textarea rows="10" cols="100" name="adminText" required="required"></textarea></td></tr>
+  <tr><td colspan="5" ><input type="submit" value="확인" style="margin-left: 800px;"></td></tr>
   	</form>
 	<tr><td colspan="5" align="center">
       <a href="reportList.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>

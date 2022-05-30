@@ -87,5 +87,8 @@
 	<select id = "getProductCount2" resultType="integer">
      select count(*) from product where sel = 'y'
    </select>
-	
+	 <!-- 판매 게시글수 -->
+	<select id = "getProductCount3" resultType="integer">
+     select count(*) from product where sel = 'n'
+   </select>
 </mapper>
