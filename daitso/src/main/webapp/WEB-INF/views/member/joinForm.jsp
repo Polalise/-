@@ -6,9 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-@import url("resources/css/join.css");
-</style>
+<style type="text/css">@import url("resources/css/join.css");</style>
 <script type="text/javascript">
 	// ajax로 아이디 실시간 중복 확인
 	$(function() {
@@ -123,24 +121,12 @@
 					<div class="phone">
 						<div class="phonetext">휴대폰번호</div>
 						<div>
-							<input type="text" name="phone" required="required"
-								placeholder="010-xxxx-xxxx">
+							<input type="text" name="phone" required="required" placeholder="010-xxxx-xxxx">
 						</div>
 					</div>
 					<div class="email">
 						<div class="emailtext">이메일</div>
-						<div>
-							<input name="mail" type="text" class="box1" id="mail" value="">@<input
-								name="mail2" type="text" class="box2" id="mail2" value="">
-							<select name="email_select" class="box3" id="email_select">
-								<option value="" selected>선택하세요</option>
-								<option value="naver.com">naver.com</option>
-								<option value="hotmail.com">hotmail.com</option>
-								<option value="hanmail.com">hanmail.com</option>
-								<option value="yahoo.co.kr">yahoo.co.kr</option>
-								<option value="">직접입력</option>
-							</select>
-						</div>
+						<div><input type="email" name="email" required="required"></div>
 					</div>
 				</div>
 				<div align="center">
