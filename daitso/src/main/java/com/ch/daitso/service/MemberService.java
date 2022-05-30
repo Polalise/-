@@ -54,4 +54,6 @@ public interface MemberService {
 
 	void penalty(int score, String id);
 
+	int getCount3();
+
 }

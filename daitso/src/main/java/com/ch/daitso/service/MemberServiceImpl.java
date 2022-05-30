@@ -123,4 +123,9 @@ public class MemberServiceImpl implements MemberService {
 		md.penalty(score, id);
 		
 	}
+
+	@Override
+	public int getCount3() {
+		return md.getCount3(); 
+	}
 }

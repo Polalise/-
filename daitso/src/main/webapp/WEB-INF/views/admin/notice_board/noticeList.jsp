@@ -52,7 +52,7 @@ ul.mylist {
 	padding: 0;
 	margin: 0;
 	/* border: 2px solid; */
-	border-top: 1px solid;
+	/* border-top: 1px solid; */
 	font-size: 20px;
 }
 
@@ -145,7 +145,7 @@ li a:hover {
 
 	<div id="total" style=""border-radius: 5px;"">
 		<div class="sideMenu"
-			style="border-left: 1px solid; border-bottom: 1px solid white; border-right: 1px solid; background-color: #FBE0C4;">
+			style="border-left: 1px solid; border-top: 1px solid white; border-right: 1px solid; background-color: #FBE0C4; ">
 			<!-- <strong>메뉴</strong> -->
 			<div class="snb">
 				<ul class="mylist" style="background-color: #FBE0C4;">

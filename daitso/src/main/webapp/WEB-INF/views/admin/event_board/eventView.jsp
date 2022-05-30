@@ -169,7 +169,7 @@ border: 2px solid blue;
 	   <%--   <c:if test = "${fn:contains(testStr, 'null')}">
 	     <tr><td colspan="5"><img alt="" src="resources/images/2.png" width="200"></td></tr></c:if> --%>
 	     </tr>
-	     <td colspan="7">${board.e_content }</td>
+	     <td colspan="7"><pre style=" white-space: pre-wrap;">${board.e_content }</pre></td>
 
    <%-- <tr><td>사진</td><td><img alt="" src="resources/upload/${board.e_fileName }" width="200"></td></tr> --%>
   <%--  <c:set var = "testStr" value = "${board.e_fileName }"/>

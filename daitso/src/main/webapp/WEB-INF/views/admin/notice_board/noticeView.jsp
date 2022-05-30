@@ -137,7 +137,7 @@
 		</div>
 
 <div id="total">
-    <div class="sideMenu" style="border-left: 1px solid; border-top: 1px solid white;  background-color: #FBE0C4;">
+    <div class="sideMenu" style="border-left: 1px solid; border-top: 1px solid white;  background-color: #FBE0C4; ">
     <!-- <strong>메뉴</strong> -->
     <div class="snb">
         <ul class="mylist" style=" background-color: #FBE0C4;  ">
@@ -182,7 +182,7 @@
 	     <td colspan="5"><img alt="" src="resources/upload/${board.fileName }" width="900" style="margin-left: 350;"></c:if>
             <c:if test = "${fn:contains(testStr, 'jpeg')}">
 	    <td colspan="5"><img alt="" src="resources/upload/${board.fileName }" width="900" style="margin-left: 350;"></c:if>
-    </td></tr> <tr><td colspan="5">${board.content }</td>
+    </td></tr> <td colspan="5"><pre style=" white-space: pre-wrap;">${board.content }</pre></td> </tr>
   
 	
 	

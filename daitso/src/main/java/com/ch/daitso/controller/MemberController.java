@@ -353,16 +353,21 @@ public class MemberController {
 	  		int noticeCount = ns.getNoticeCount();
 	  		int eventCount = es.getEventCount();
 	  		int productCount2 = ps.getProductCount2();
+	  		int productCount3 = ps.getProductCount3();
 	   //회원 
 	  		int memberCount = ms.getCount();
 	  		int member2Count = ms.getCount2();
-
+	  		int member3Count = ms.getCount3();
+            
+	  	
+	  		model.addAttribute("productCount3", productCount3);
 	  		model.addAttribute("productConunt", productConunt);
 	  		model.addAttribute("productCount2", productCount2);
 	  		model.addAttribute("noticeCount", noticeCount);
 	  		model.addAttribute("eventCount", eventCount);
 	  		model.addAttribute("memberCount", memberCount);
 	  		model.addAttribute("member2Count", member2Count);
+	  		model.addAttribute("member3Count", member3Count);
 	  		model.addAttribute("title", title);
 	  		model.addAttribute("pb", pb);	// paginbean pb
 	  		model.addAttribute("mbList", mbList);
@@ -371,10 +376,10 @@ public class MemberController {
 	  	}
 	      @RequestMapping("adminDelete")
 	  	public String adminDelete(String id, String pageNum, Model model) {
+	    	  Member member = ms.select(id);
 	  		int result = ms.adminDelete(id);
-	  		Member member = ms.select(id);
 	  
-
+//            System.out.println("result="+result);
 	  		model.addAttribute("result", result);
 	  		model.addAttribute("pageNum", pageNum);
 	  		return "admin/member/adminDelete";

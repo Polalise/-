@@ -243,7 +243,7 @@
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea rows="10" cols="100" name="content" required="required"></textarea>
+					<td><textarea rows="10" cols="100" name="content" required="required" style="white-space: pre-wrap;"></textarea>
 					<!-- <input type="text" name="content" required="required"> --></td>
 				</tr>
 				

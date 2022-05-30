@@ -53,4 +53,6 @@ public interface MemberDao {
 	void star(int rating,String id);
 
 	void penalty(int score, String id);
+
+	int getCount3();
 }

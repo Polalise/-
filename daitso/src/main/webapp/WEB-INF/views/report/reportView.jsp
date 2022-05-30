@@ -167,9 +167,9 @@
   <table class="table">
   <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td style="text-align:right;">상태<b> ${report.progress}</b>&nbsp;&nbsp;작성일<b> ${report.report_date}</b></td></tr>
   <tr><td style="width:20%;">신고자<b> ${report.reporter_id}</b><td colspan="2">피신고자<b> ${report.criminal_id}</b></td></tr>
-  <tr><td style="width:10%;">신고내용</td><td colspan="2">${report.reasonText}</td>
+  <tr><td style="width:10%;">신고내용</td><td colspan="2"><pre style=" white-space: pre-wrap;">${report.reasonText}</pre></td>
   <c:if test="${report.progress == '처리 완료'}">
-  <tr><td style="width:10%;">관리자코멘트</td><td colspan="2">${report.adminText}</td>
+  <tr><td style="width:10%;">관리자코멘트</td><td colspan="2"><pre style=" white-space: pre-wrap;">${report.adminText}</pre></td>
   </tr>
   </c:if>
 	<tr><td colspan="5" align="center">

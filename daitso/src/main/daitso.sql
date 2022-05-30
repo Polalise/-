@@ -48,7 +48,7 @@ CREATE TABLE product(
 	thumnails5 varchar2(500),
 	id VARCHAR2(500) REFERENCES member ON DELETE CASCADE
 );
-
+insert into PRODUCT values(11,'sa2d','das',1234,sysdate,'dsadsa','dsa','dsa',0,'n',sysdate,'n',0,'dsads1','dsa','dsa','dsa','dsa','dsa','dsa','dsa','a2');
 create table chat(
 	room_num NUMBER primary key,
 	seller_nick varchar2(500),

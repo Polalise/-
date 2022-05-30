@@ -69,4 +69,9 @@ public class ProductDaoImpl implements ProductDao {
 		return sst.selectOne("productns.getProductCount2");
 	}
 
+	@Override
+	public int getProductCount3() {
+		return sst.selectOne("productns.getProductCount3");
+	}
+
 }

@@ -93,10 +93,11 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int adminUpdate(Member member) {
-		System.out.println("member" + member.getAddress());
-		System.out.println("member" + member.getName());
-		System.out.println("member" + member.getPassword());
-		System.out.println("member" + member.getNickName());
+		/*
+		 * System.out.println("member" + member.getAddress());
+		 * System.out.println("member" + member.getName()); System.out.println("member"
+		 * + member.getPassword()); System.out.println("member" + member.getNickName());
+		 */
 
 		return sst.update("memberns.adminUpdate", member);
 	}
@@ -138,5 +139,10 @@ public class MemberDaoImpl implements MemberDao {
 		map.put("id", id);
 		sst.update("memberns.penalty", map);
 
+	}
+
+	@Override
+	public int getCount3() {
+		return sst.selectOne("memberns.getCount3");
 	}
 }

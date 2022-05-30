@@ -11,6 +11,8 @@
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.js"></script>
 <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script> -->
 <style type="text/css">
 @import url("resources/css/main.css");
 #chart{
@@ -118,24 +120,26 @@ window.onload = function() {
 	var myChart = new Chart(ctx, {
 	    type: 'bar',
 	    data: {
-	        labels: ["판매글","공지사항글", "이벤트글","판매완료"],
+	        labels: ["판매/구매","공지사항글", "이벤트글","판매완료","판매중"],
 	        datasets: [{
-	        	label: '게시글 수',
+	        	label: "게시글 총합",
 	
-	            data: ['${productConunt}','${noticeCount}', '${eventCount}','${productCount2}'], //컨트롤러에서 모델로 받아온다.
+	            data: ['${productConunt}','${noticeCount}', '${eventCount}','${productCount2}','${productCount3}'], //컨트롤러에서 모델로 받아온다.
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',
 	                'rgba(54, 162, 235, 0.2)',
 	                'rgba(125, 99, 132, 0.2)',
-	                'rgba(184, 162, 235, 0.2)'
+	                'rgba(184, 162, 235, 0.2)',
+	                'rgba(255, 153, 000, 0.2)'
 	            ],
 	            borderColor: [
 	                'rgba(255,99,132,1)',
 	                'rgba(54, 162, 235, 1)',
 	                'rgba(125,99,132,1)',
-	                'rgba(184, 162, 235, 1)'
+	                'rgba(184, 162, 235, 1)',
+	                'rgba(255, 153, 000, 1)'
 	            ],
-	            borderWidth: 4
+	            borderWidth: 2
 	        }
 	        ]
 	    },
@@ -153,22 +157,22 @@ window.onload = function() {
 	
 	var ctx1 = document.getElementById("logChart2").getContext('2d');
 	var myChart1 = new Chart(ctx1, {
-	    type: 'line',
+	    type: 'pie',
 	    data: {
-	        labels: ["총회원수", "탈퇴한 회원수"],
+	        labels: ["총회원수", "탈퇴한 회원수","신규회원"],
 	        datasets: [{
 	        	label: '회원 수',
 	
-	            data: ['${memberCount}', '${member2Count}'], //컨트롤러에서 모델로 받아온다.
+	            data: ['${memberCount}', '${member2Count}','${member3Count}',], //컨트롤러에서 모델로 받아온다.
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(54, 162, 235, 0.2)'
-	
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(255, 153, 000, 0.2)'
 	            ],
 	            borderColor: [
 	                'rgba(255,99,132,1)',
-	                'rgba(54, 162, 235, 1)'
-	
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(255, 153, 000, 1)'
 	            ],
 	            borderWidth: 2
 	        }
@@ -188,19 +192,19 @@ window.onload = function() {
 
 }
 
-	function del() {
+	function del(id,pageNum) {
 		var cf = confirm("회원을 탈퇴시키겠습니까?");
 		if(cf) {
-			location.href="adminDelete.do?id=${member.id }&pageNum=${pageNum }";
+			location.href="adminDelete.do?id="+id+"&pageNum="+pageNum;
 		} else {
 			alert("탈퇴가 취소 되었습니다");
 			return;
 		}
 	}
-	function rol() {
+	function rol(id,pageNum) {
 		var cf = confirm("회원을 복구시키겠습니까?");
 		if(cf) {
-			location.href="adminRollback.do?id=${member.id }&pageNum=${pageNum }";
+			location.href="adminRollback.do?id="+id+"&pageNum="+pageNum;
 		} else {
 			alert("복구가 취소 되었습니다");
 			return;
@@ -373,14 +377,14 @@ window.onload = function() {
 									<td class="text-center">
 										<%-- <a href="adminDelete.do?id=${member.id }&pageNum=${pageNum }">
 											회원탈퇴</a> --%>
-										<a onclick="del()" class="btn_sm_full">회원탈퇴</a>	
+										<a onclick="del('${member.id}','${pb.currentPage}')" class="btn_sm_full">회원탈퇴</a>	
 									</td>
 								</c:if>
 							</c:if>
 							<c:if test="${member.del == 'y' }">
 								<td class="text-center">
 								<%-- 	<a href="adminRollback.do?id=${member.id }&pageNum=${pageNum }">복구</a> --%>
-									<a onclick="rol()" class="btn_sm_full">복구</a>		
+									<a onclick="rol('${member.id}','${pb.currentPage}')" class="btn_sm_full">복구</a>		
 								</td>
 							</c:if>
 						
