@@ -13,6 +13,7 @@
 		<typeAlias alias="likes" type="com.ch.daitso.model.Likes"/>
 		<typeAlias alias="report" type="com.ch.daitso.model.Report"/>
 		<typeAlias alias="myPage" type="com.ch.daitso.model.Mypage"/>
+		<typeAlias alias="chathistory" type="com.ch.daitso.model.ChatHistory"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="member.xml" />
@@ -25,6 +26,7 @@
 		<mapper resource="likes.xml" />
 		<mapper resource="report.xml" />
 		<mapper resource="myPage.xml"/>
+		<mapper resource="chathistory.xml"/>
 	</mappers>
 </configuration>
 

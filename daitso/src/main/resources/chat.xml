@@ -3,14 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="chatns">
 	
-	<!-- 채팅방 만들어 질 때 마다 채팅방 번호 부여 -->
-	<select id="getNum" resultType="integer">
-		select nvl(max(room_num), 0) + 1 from chat
-	</select>
-	
 	<!-- 채팅방이 존재하는지 판매자 별명과 구매자 별명으로 구분 -->
-	<select id="countByChatNick" parameterType="map" resultType="chat">
-    	select * from chat where buyer_nick=#{buyer_nick} and seller_nick=#{seller_nick}
+	<select id="findChatRoom" parameterType="map" resultType="chat">
+    	select * from chat where user1_nick=#{user1_nick} and user2_nick=#{user2_nick} and p_num=#{p_num}
+   	</select>
+   	
+   	<select id="findChatRoom2" parameterType="map" resultType="chat">
+   		select * from chat where user1_nick=#{user1_nick} and p_num=#{p_num}
    	</select>
    	
    	<!-- 채팅방 번호로 특정 채팅방 지정 -->
@@ -18,7 +17,37 @@
    		select * from chat where room_num=#{room_num}
    	</select>
 	
-	<select id="readChatHistory" resultType="chat" parameterType="chat">
-		select * from chat where room_num=#{room_num}
+	<!-- 초기 채팅방 만들기 -->
+	<insert id="createChatRoom" parameterType="chat">
+		insert into chat values(seq_chat_room_num.NEXTVAL, #{p_num}, #{p_name}, #{user1_nick}, #{user1_photo}, #{user2_nick}, #{user2_photo}, sysdate)
+	</insert>
+	
+	<!-- 접속자 정보로 채팅방 번호 가져오기(게시글 작성자와 다른 경우), 이거는 무조건 1건만 존재함 -->
+	<select id="findChatRoomNum" parameterType="map" resultType="integer">
+		select room_num from chat where user1_nick=#{user1_nick} and user2_nick=#{user2_nick} and p_num=#{p_num}
+	</select>
+	
+	<!-- 접속자 정보로 채팅방 번호 가져오기(게시글 작성자와 같은 경우), 여러건 가능 -->
+	<select id="findChatRoomNum2" parameterType="chat" resultType="chat">
+		select * from chat where user1_nick=#{user1_nick} and p_num=#{p_num}
+	</select>
+	
+	<select id="findChatRoomNum3" parameterType="chat" resultType="chat">
+		select * from chat where user1_nick=#{user1_nick} and p_num=#{p_num} and room_num=#{room_num}	
+	</select>
+	
+	<!-- 접속자 정보로 채팅 했던 내역 나오게 하기 -->
+	<select id="findChatRoomLog" parameterType="String" resultType="chat">
+		select * from chat where user2_nick=#{user2_nick}
+	</select>
+	
+	<!-- 게시글 작성자가 접속 했을 때 게시글과 관련된 채팅 -->
+	<select id="findChatRoomLog2" parameterType="map" resultType="chat">
+		select * from chat where user1_nick=#{user1_nick} and p_num=#{p_num}
+	</select>
+	
+	<!-- room_num으로 채팅방 정보 가져오기 -->
+	<select id="findChatInfo" parameterType="chat" resultType="chat" >
+		select * from chat where room_num=#{room_num}	
 	</select>
 </mapper>

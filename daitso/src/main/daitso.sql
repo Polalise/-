@@ -5,6 +5,7 @@ drop table replyBoard CASCADE CONSTRAINTS;
 drop table reply CASCADE CONSTRAINTS;
 drop table product CASCADE CONSTRAINTS;
 drop table chat;
+drop table chatHistory CASCADE CONSTRAINTS;
 drop table report;
 drop table likes;
 drop table report CASCADE CONSTRAINTS;
@@ -53,11 +54,33 @@ CREATE TABLE product(
 
 create table chat(
 	room_num NUMBER primary key,
-	seller_nick varchar2(500),
-	buyer_nick varchar2(500),
-	text varchar2(1000),
+	p_num NUMBER references product(p_num),
+	p_name varchar2(100),
+	user1_nick varchar2(500),
+	user1_photo varchar2(500),
+	user2_nick varchar2(500),
+	user2_photo varchar2(500),
 	chat_time DATE
 );
+
+create sequence seq_chat_room_num;
+drop sequence seq_chat_room_num;
+
+select * from chat;
+
+create table chathistory(
+	history_num NUMBER primary key,
+	room_num NUMBER references chat(room_num),
+	sender varchar2(100),
+	text varchar2(1000),
+	send_time DATE
+);
+
+create sequence seq_chathistory_history_num;
+drop sequence seq_chathistory_history_num;
+
+select * from chathistory;
+
 create table notice_board(
 	num number primary key, -- key
 	subject varchar2(1000) not null, -- 제목
