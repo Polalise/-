@@ -96,7 +96,7 @@ select option[value=""][disabled] {
 					</div>
 				</form>
 			</div>
-			<button class="chats" onclick="location.href='http://172.30.1.43:8080/daitso/chatRoom.do?p_num=${product.p_num }'">
+			<button class="chats" onclick="location.href='http://61.75.24.60:8080/daitso/chatRoom.do?p_num=${product.p_num }'">
 				<img src="${path }/resources/images/main2.png" width="15"
 					height="16" alt="번개톡버튼 이미지">다있톡
 			</button>
@@ -207,7 +207,7 @@ select option[value=""][disabled] {
 							<span>${likesCount}</span>
 						</c:if>
 					</button>
-					<button class="coll" onclick="location.href='http://172.30.1.43:8080/daitso/chatRoom.do?p_num=${product.p_num }'">연락하기</button>
+					<button class="coll" onclick="location.href='http://61.75.24.60:8080/daitso/chatRoom.do?p_num=${product.p_num }'">연락하기</button>
 					<button class="nowsell">바로구매</button>
 					<button onclick="location.href='buyer.do'">구매하기</button>
 					<button onclick="location.href='sendProduct.do?p_num=${product.p_num}'">배송완료</button>
