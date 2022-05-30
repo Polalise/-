@@ -9,6 +9,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-       <div class="top"><a href="p_list.do?">메인페이지</a></div>
+        <div class="top">
+                <div class="top_bg1">
+                <span class="logoImg">
+                <img src="${path }/resources/images/logo.png">
+                </span>
+            </div>
+            </div>
 </body>
 </html>

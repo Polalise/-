@@ -13,14 +13,14 @@
 		alert("p_num : " + p_num);
 		var pop = window.open(
 			"reviewPop.do?p_num="+p_num, "content",
-			"width=620 height=700");
+			"width=510 height=560");
 	};
 	
 	function replywrite(p_num) {
 		alert("p_num : " + p_num);
 		var pop = window.open(
 				"replyWriteForm2.do?p_num="+p_num, "content",
-				"width=620 height=700");
+				"width=420 height=610");
 	};
 </script>
 </head>
