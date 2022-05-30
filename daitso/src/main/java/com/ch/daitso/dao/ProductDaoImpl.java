@@ -28,7 +28,6 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public int insert(Product product) {
-		System.out.println("p_num :" + product.getP_num());
 		return sst.insert("productns.insert", product);
 	}
 
@@ -51,7 +50,6 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public List<Product> list(Product product) {
-		System.out.println("product" + product);
 		return sst.selectList("productns.list", product);
 	}
 

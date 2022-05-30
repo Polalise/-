@@ -136,7 +136,6 @@ public class ProductController {
 			fos5.close();
 		}
 		product.setP_num(number);
-		System.out.println("product:" + product);
 		int result = ps.insert(product);
 		model.addAttribute("thumnails",thumnails); 
 		model.addAttribute("thumnails2",thumnails2); 
@@ -159,6 +158,10 @@ public class ProductController {
 		String id = (String)session.getAttribute("id");
 		Member member = ms.selectId(id);
 		Likes likes2 = ls.searchList(id, p_num);
+		String str = product.getP_content();
+		String newstr = str.replaceAll("<p>", "\n");
+		String newstr2 = newstr.replaceAll("</p>", "\n");
+		product.setP_content(newstr2);
 		model.addAttribute("member" , member);
 		if(likes2 == null)
 			model.addAttribute("likes", "");
@@ -223,19 +226,6 @@ public class ProductController {
 		model.addAttribute("pageNum", pageNum);
 		return "/product/update";
 	}
-
-	/*
-	 * @RequestMapping("buyering") public String completeding(Member member,Model
-	 * model) { int result = 0; Product product2 = ps.completeding(product2);
-	 * model.addAttribute("result",result); return "buyering"; }
-	 * 
-	 * @RequestMapping("buyer") public String completed(Member member,int
-	 * p_num,Model model) { String trader = "k1"; Product product =
-	 * ps.select(p_num); product.setBuyer(trader); int result =
-	 * ps.completed(p_num,trader);
-	 * 
-	 * return "/product/buyer"; } 
-	 */
 	@RequestMapping("p_delete")
 	public String delete(int p_num,String pageNum, Model model) {
 		int result = 0;
@@ -251,4 +241,3 @@ public class ProductController {
 	}
 	
 }
-	//photo zone

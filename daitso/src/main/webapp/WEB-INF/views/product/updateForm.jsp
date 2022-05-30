@@ -16,33 +16,32 @@
 </style>
 <link rel="stylesheet" href="resources/summernote/summernote-lite.css">
 <script src="resources/summernote/summernote-lite.js"></script>
-<script src="resources/summernote/lang/summernote-ko-KR.js"></script>
 <title>Insert title here</title>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
-	function sample6_execDaumPostcode() {
-		new daum.Postcode({
-			oncomplete : function(data) {
-				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+   function sample6_execDaumPostcode() { 
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-				var addr = ''; // 주소 변수
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
 
-				//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-				if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-					addr = data.roadAddress;
-				} else { // 사용자가 지번 주소를 선택했을 경우(J)
-					addr = data.jibunAddress;
-				}
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }    
 
-				// 우편번호와 주소 정보를 해당 필드에 넣는다.
-				document.getElementById("sample6_address").value = addr;
-			}
-		}).open();
-	}
-	function preview(file) {
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("sample6_address").value = addr;
+            }
+        }).open();
+    }
+	function preview(file) { 
 		var reader = new FileReader();
 		reader.onload = (function(f) {
 			return function(e) {
@@ -63,9 +62,40 @@
 			lang : "ko-KR", // 한글 설정
 			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
 		});
-		// input type file 파일명 변경 설정
-
 	});
+	function sub() {
+		if(!frm.file.value){
+			alert("사진을 한장 이상 넣어 주세요");
+			return false;
+		}
+		if(!frm.p_name.value){
+			alert("제목을 입력해 주세요");
+			frm.p_name.focus();
+			return false;
+		}
+		if(!frm.price.value){
+			alert("가격을 입력해 주세요");
+			frm.price.focus();
+			return false;
+		}
+		if(!frm.p_name.value){
+			alert("제목을 입력해 주세요");
+			frm.p_name.focus();
+			return false;
+		}
+		if(!frm.p_local.value){
+			alert("지역을 입력해 주세요");
+			frm.p_local.focus();
+			return false;
+		}
+		if(!frm.p_content.value){
+			alert("내용을 입력해 주세요");
+			frm.p_content.focus();
+			return false;
+		}
+		frm.submit();
+		
+	}
 </script>
 </head>
 <body>
@@ -116,7 +146,7 @@
 				</form>
 			</div>
 			<div class="icon-button">
-				<button class="chats">
+				<button class="chats" style="margin-left: 0px;">
 					<img src="${path }/resources/images/main2.png" width="15"
 						height="16" alt="번개톡버튼 이미지">다있톡
 				</button>
@@ -139,15 +169,14 @@
 	</div>
 	<div class="board_wrap">
 		<div class="board_title">
-			<strong>판매글쓰기</strong>
-			<p>물건을 정성것 판매하자</p>
+			<strong>수정</strong>
 			<div class="board_write_wrap">
 				<div class="board_write">
 					<form action="p_update.do" method="post" id="frm"
 						enctype="multipart/form-data">
 						<!-- onsubmit="return chk()" -->
-						<input type="hidden" name="p_num" value="${p_num }"> <input
-							type="hidden" name="pageNum" value="${pageNum }">
+						<input type="hidden" name="p_num" value="${p_num }"> 
+						<input type="hidden" name="pageNum" value="${pageNum }">
 						<div class="title" style="margin-top: 15px">
 							<dl>
 								<dt>제목</dt>
@@ -249,11 +278,10 @@
 						</div>
 						<div class="bt_wrap">
 							<div class="back">
-								<div class="button_base b05_3d_roll"
-									onclick="document.getElementById('frm').submit();">
+								<div class="button_base b05_3d_roll" onclick="sub()"> 
 									<div>등록</div>
 									<div>등록</div>
-								</div>
+							</div>
 								<div class="button_base b05_3d_roll"
 									onclick="location.href='p_list.do?pageNum=${pageNum }'">
 									<div>취소</div>

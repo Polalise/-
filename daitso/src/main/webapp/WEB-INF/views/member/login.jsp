@@ -11,7 +11,7 @@
 <c:if test="${result > 0}">
 	<script type="text/javascript">
 //		alert("로그인 성공");
-		location.href="m_main.do"
+		location.href="p_list.do?p_num=${product.p_num}&pageNum=${pageNum }"
 	</script>
 </c:if>
 
