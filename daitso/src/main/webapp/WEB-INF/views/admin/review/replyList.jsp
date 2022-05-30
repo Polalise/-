@@ -3,17 +3,23 @@
 <%@ include file="header.jsp" %>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#bigReview{
+  width:50%;
+  margin-top: 200px;,
+}
+</style>
 <script type="text/javascript">
     // 댓글 삭제
-	function rDelete(num, rno) {
-		var sendData = "num="+num+"&rno="+rno;
+	function rDelete(p_num, rno) {
+		var sendData = "p_num="+p_num+"&rno="+rno;
 		$.post("rDelete2.do", sendData, function(data) {
 			alert("삭제 되었습니다");
 			$("#rbdListDisp").html(data);
 		});
 	}
 	//댓글 수정누르면 확인 취소 나오게
-	function rUpdate(num, rno) {
+	function rUpdate(p_num, rno) {
 	/*  input에 있는 데이터를 읽어서 textarea에 넣어서 변경할 수 있게 만들어야 한다
 		input, textarea, select에 데이터를 읽을 때는 jquery에서 val()
 		td, div, span등에서 데이터를 읽을 때는 jquery에서 text() */
@@ -21,16 +27,16 @@
 		/* 읽은 데이터를 textarea에 넣어서 수정할 수 있게 만든다 */
 		$('#td_'+rno).html('<textarea row="3" colos="40" id="rt">'+txt+'</textarea>');
 		/* 버튼 처리를  확인과 취소로 변경 */
-		$('#btn_'+rno).html("<input type='button'onclick='up("+num+","+rno+
+		$('#btn_'+rno).html("<input type='button'onclick='up("+p_num+","+rno+
 				")' class='btn btn-danger btn-sm' value='확인'> "+
-				"<input type='button' onclick='lst("+num+")' class='btn btn-info btn-sm' value='취소'>");
+				"<input type='button' onclick='lst("+p_num+")' class='btn btn-info btn-sm' value='취소'>");
 	}
 	//댓글 수정중 취소 누르면 다시 목록보이게
-	function lst(num) {
-		$('#rbdListDisp').load('replyList2.do?num='+num);
+	function lst(p_num) {
+		$('#rbdListDisp').load('replyList2.do?p_num='+p_num);
 	}
-	function up(num, rno) {
-		var sendData = "replytext="+$('#rt').val()+"&num="+num+"&rno="+rno;
+	function up(p_num, rno) {
+		var sendData = "replytext="+$('#rt').val()+"&p_num="+p_num+"&rno="+rno;
 		$.post('rUpdate2.do' , sendData, function(data){
 			alert("수정 되었습니다.")
 			$('#rbdListDisp').html(data); 
@@ -54,7 +60,7 @@
 
 </style>
 </head><body>
-<div style=" width: 50%;">
+<div  id="bigReview" style="margin-left: 500px;">
 <c:if test="${not empty rbdList }">
 	<h3 class="text-primary">리뷰</h3>
 <table class="table table-striped">
@@ -77,13 +83,13 @@
 			<!-- 댓글 작성자와 로그인 한사람의 이름을 비교 같으면 수정/삭제 권한 제공
 				  회원게시판이 아니라서 임으로 게시글 작성자와 비교 -->
 			<%-- <c:if test="${rbd.id==member.id }"> --%> 	  
-			<c:if test="${rbd.id==board.id }"> 
+			<c:if test="${rbd.id==id }"> 
 			<%-- <c:if test="${rbd.id}"> --%>
 				<td id="btn_${rbd.rno }">
 				<input type="button" class="btn btn-warning btn-sm" value="수정"
-						onclick="rUpdate(${board.num},${rbd.rno })">
+						onclick="rUpdate(${p_num},${rbd.rno })">
 					<input type="button" class="btn btn-danger btn-sm" value="삭제"
-						onclick="rDelete(${board.num},${rbd.rno })"></td>
+						onclick="rDelete(${p_num},${rbd.rno })"></td>
 			</c:if>
 	</c:if>
 </c:forEach>

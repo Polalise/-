@@ -6,19 +6,24 @@
 <html>
 <head>
 <style type="text/css">
-.row{
+.table2{
     margin-top: 250px;
-    margin-left: 600px;
-    border: 2px solid;
-}  
+   
+    border: 2px solid black;
+}
+.table{
+    border: 2px solid blue;
+}
+#member_box{
+ margin-left: 600px;
+ margin-top:  200px;
 }
 </style>
 
 </head>
 <body>
-<div class="row">
 	<!-- 회원정보 테이블 -->
-	<div class="col-md-5" id="member_box">
+	<div class="col-md-5" id="member_box" align="center">
 		<h2 class="title">회원정보</h2>
 		<table class="table">
 			<tr>
@@ -55,7 +60,7 @@
 			</tr>
 				<tr>
 				<th class="col-md-2 text-center">등록일</th>
-				<td class="col-md-5">${member.reg_date }</td>
+				<td class="col-md-5">${member.regdate }</td>
 			</tr>	
 		</table>
 		<div align="center">
@@ -64,6 +69,6 @@
 		</div>
 	</div>  
 	
-</div>
+
 </body>
 </html>    

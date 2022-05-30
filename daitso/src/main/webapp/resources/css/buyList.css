@@ -1,0 +1,155 @@
+/* 리스트 전체 div */
+.main .list {
+  display: flex;
+  height: 1000px;
+  width: 1600x;
+  flex-direction: column;
+}
+
+/* 리스트 상단 바 div */
+.main .list .header {
+  display: inline-block;
+  text-align: left;
+  height: 110px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+/* 구매목록 긴 div */
+.main .list .header .header_title {
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin-right: 0;
+  margin-left: 0;
+}
+/* 구매목록 info bar */
+.header .header_info{
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  text-align: center;
+}
+.header .header_info *{
+  margin-left: 35px;
+}
+
+/* 구매물품 */
+.header_info .title{
+  border: solid red 1px;
+  display: inline-block;
+  width: 600px;
+}
+/* 구매일 */
+.header_info .b_date{
+  border: solid red 1px;
+  display: inline-block;
+  width: 180px;
+}
+/* 물품가격 */
+.header_info .b_price{
+  border: solid red 1px;
+  display: inline-block;
+  width: 180px;
+}
+/* 판매자 */
+.header_info .dealer{
+  border: solid red 1px;
+  display: inline-block;
+  width: 180px;
+}
+/* 리뷰 */
+.header_info .b_review{
+  border: solid red 1px;
+  display: inline-block;
+  width: 220px;
+}
+
+/* 구매한 물품들 list div */
+.main .list .viewList {
+  display: inline-block;
+  height: 100%;
+}
+.viewList .product{
+  display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+/* 구매한 물품 사진 div */
+.product .thumbnail {
+  display: inline-block;
+  text-align: center;
+  line-height: 150px;
+  border: solid rgb(26, 122, 69) 1px;
+  margin-left: 35px;
+  width: 150px;
+  height: 150px;
+}
+/* 물품 사진 크기 조절 */
+.thumbnail img {
+  width: 149px;
+  height: 149px;
+  
+  object-fit: cover;
+}
+/* 구매물품 */
+.viewList .product :nth-child(2) {
+  display: inline-block;
+  border: solid red 1px;
+  height: 150px;
+  margin-left: 25px;
+  width: 422px;
+  text-align: center;
+  line-height: 150px;
+}
+/* 구매 일시 */
+.viewList .product :nth-child(3) {
+  display: inline-block;
+  border: solid black 1px;
+  height: 150px;
+  width: 180px;
+  margin-left: 35px;
+  text-align: center;
+  line-height: 150px;
+}
+/* 구매 가격 */
+.viewList .product :nth-child(4) {
+  display: inline-block;
+  border: solid red 1px;
+  height: 150px;
+  width: 180px;
+  margin-left: 35px;
+  text-align: center;
+  line-height: 150px;
+}
+/* 판매자 */
+.viewList .product :nth-child(5) {
+  display: inline-block;
+  border: solid black 1px;
+  height: 150px;
+  width: 180px;
+  margin-left: 35px;
+  text-align: center;
+  line-height: 150px;
+}
+/* 리뷰 */
+.viewList .product :nth-child(6) {
+  display: inline-block;
+  border: solid black 1px;
+  height: 150px;
+  width: 220px;
+  margin-left: 35px;
+  text-align: center;
+  line-height: 150px;
+}

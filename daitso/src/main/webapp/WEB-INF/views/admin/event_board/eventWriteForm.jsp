@@ -7,6 +7,51 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+@import url("resources/css/main.css");
+.container{
+  margin-top: 100px;
+  border: 2px solid red;
+}
+.sideMenu{
+  /*   margin-left: 300px; */
+  position: relative;
+    left: 270px;
+    top: 100px;
+}
+#total{
+    display: flex;
+   /*  margin-top: 200px; */
+}
+#sub{
+  margin-right: 300px;
+}
+.snb{
+  font-size: 26px
+}
+/* 사이드 */
+ ul.mylist {
+          list-style-type: none;
+          background-color: #fff;
+          width: 200px;
+          padding: 0;
+          margin: 0;
+          border: 2px solid;
+          font-size: 20px;
+     }
+
+     li a {
+          text-decoration: none;
+          display: block;
+          color: #000;
+          padding: 8px 15px 8px 15px;
+          font-weight: bold;
+          border-bottom: 1px solid #fff;
+     }
+
+     li a:hover {
+          background-color: tomato;
+          color: #fff;
+     }
 /* drop & drag */
 .drag-over {
 	background: yellow;
@@ -94,39 +139,135 @@
 </script>
 </head>
 <body>
-	<div class="container" align="center">
+<div class="intro_bg">
+			<a href="p_list.do"><img alt="" id="Im2g" src="${path }/resources/images/logo.png"
+				style="width: 190px; margin-left: 0px; position: relative; top: 90px; left: 310;"></a>
+
+			<div class="header1">
+				<div class="search_area">
+					<input type="checkbox" id="icon" style="display: none;"> <label
+						for="icon"> <span></span> <span></span> <span></span>
+					</label>
+					<div id="header">
+						<ul>
+							<li><a href="p_list.do">◾메인</a></li>
+							<br>
+							<c:if test="${id != 'admin' }">
+								<li><a href="myProfileForm.do">◾마이페이지</a></li>
+								<br>
+							</c:if>
+							<c:if test="${id == 'admin' }">
+								<li><a href="adminMemberList.do">◾회원관리</a></li>
+								<br>
+							</c:if>
+							<li><a href="noticeList.do">◾공지사항</a></li>
+							<br>
+							<li><a href="eventList.do">◾이벤트</a></li>
+							<br>
+							
+						</ul>
+					</div>
+
+					<form action="list.do?pageNum=1">
+						<div class="searchs">
+							<select name="search" style="height: 63px;">
+								<!-- select바 한글화 -->
+								<c:forTokens var="sh" items="subcon,p_writer,p_name,p_content"
+									delims="," varStatus="i">
+									<c:if test="${sh == product.search }">
+										<option value="${sh }" selected="selected">${title[i.index] }</option>
+									</c:if>
+									<c:if test="${sh != product.search }">
+										<option value="${sh }">${title[i.index] }</option>
+									</c:if>
+								</c:forTokens>
+							</select><input class="searchr" type="text" name="keyword"
+								value="${product.keyword }" placeholder="검색어 입력"> <input
+								class="input" type="submit" value="검색" style="margin-right: 65;">
+						</div>
+					</form>
+				</div>
+				<button class="chats">
+					<img src="${path }/resources/images/main2.png" width="15"
+						height="16" alt="번개톡버튼 이미지">다있톡
+				</button>
+				<a class="shop" href="myProfileForm.do"><img
+					src="${path }/resources/images/main1.png" width="15" height="16"
+					alt="내상점버튼 이미지">내상점</a> <a class="products"><img
+					src="${path }/resources/images/main3.png" width="15" height="16"
+					alt="판매하기버튼 이미지"
+					onclick="location.href='p_insertForm.do?p_num=0&pageNum=1'">글등록</a>
+				<c:if test="${id != 'admin' }">
+					<a class="links" href='adminMain2.do'>고객센터</a>
+				</c:if>
+				<c:if test="${id == 'admin' }">
+					<a class="links" href="adminMain.do">관리자페이지</a>
+				</c:if>
+				<a class="links" href='logout.do'>로그아웃</a>
+			</div>
+		</div>
+		<div id="total" style="display: flex;">
+  <div class="sideMenu" style="border: 2px solid red;">
+    <!-- <strong>메뉴</strong> -->
+    <div class="snb">
+        <ul class="mylist">
+            <li class='a1'><a href="noticeList.do">공지사항<i></i></a></li>
+            <li class='a2'><a href="eventList.do">이벤트<i></i></a></li>
+            <c:if test="${id != 'admin'}">
+            <li class=''><a href="reportmyList.do">신고문의<i></i></a></li>
+            </c:if>
+            <c:if test="${id == 'admin'}">
+            <li class=''><a href="reportList.do">신고문의<i></i></a></li>
+            </c:if>
+            <c:if test="${id == 'admin'}">
+            <li class='a4'><a href="adminMemberList.do">회원관리<i></i></a></li>
+            </c:if>               
+        </ul>
+    </div>
+    </div>
+	<div class="container" align="center" style="border: 2px solid red">
 
 		<form action="eventWrite.do" method="post"
 			enctype="multipart/form-data" name="frm">
 			<input type="hidden" name="e_num" value="${e_num }"> 
 			<input	type="hidden" name="pageNum" value="${pageNum }">
+			<input	type="hidden" name="id" value="${id }">
 			<h2 class="text-primary">이벤트 작성</h2>
 			<table class="table table-bordered">
-				<tr>
+			<!--<tr>
 					<td>아이디 <span class="glyphicon glyphicon-user"></span></td>
 					<td><input type="text" name="id" required="required"
 						autofocus="autofocus"></td>
-				</tr>
+				</tr> -->
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="e_subject" required="required"></td>
+					<td><textarea rows="1" cols="100" name="e_subject" required="required"></textarea>
+					<!-- <input type="text" name="e_subject" required="required"> --></td>
 				</tr>
 				<tr>
-					<td>내용</td>
-					<td><input type="text" name="e_content" required="required"></td>
-				</tr>
-				<tr>
-					<td>시작일</td>
-					<td><input type="date" name="e_start_date" required="required"></td>
-				</tr>
-				<tr>
-					<td>종료일</td>
-					<td><input type="date" name="e_end_date" required="required"></td>
+					<td>시작일
+					<td><input type="date" name="e_start_date" required="required">&nbsp;&nbsp;
+					 종료일
+					<input type="date" name="e_end_date" required="required"></td>
 				</tr>
 				<tr>
 					<td>사진 <span class="glyphicon glyphicon-picture"></span></td>
 					<td><input type="file" name="file" ></td>
 				</tr>
+				<!-- <tr>
+					<td>종료일</td>
+					<td><input type="date" name="e_end_date" required="required"></td>
+				</tr> -->
+				<tr>
+					<td>내용</td>
+					<td><textarea rows="10" cols="100" name="e_content" required="required"></textarea>
+					<!-- <input type="text" name="e_content" required="required"> --></td>
+				</tr>
+				
+				<!-- <tr>
+					<td>사진 <span class="glyphicon glyphicon-picture"></span></td>
+					<td><input type="file" name="file" ></td>
+				</tr> -->
 				<!-- multiple="multiple" -->
 				<!-- drag & drop -->
 				<!--  <tr>
@@ -139,11 +280,14 @@
 				</tr> -->
 				<tr> 
 					<td colspan="2" align="center"><input type="submit"
-						id="submit" class="btn btn-success" value="확인"></td>
+						id="submit" class="btn btn-success" value="확인">
+						<input type="button" onclick="location.href='eventList.do'"
+						id="cancle" class="btn btn-danger" value="취소"></td>
 				</tr>
 			</table>
 		</form>
 		<div id="disp"></div>
+	</div>
 	</div>
 </body>
 </html>

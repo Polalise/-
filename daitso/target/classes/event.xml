@@ -43,7 +43,7 @@
           </if>
        </if>
     </where>
-    order by e_num ) a) where rn between #{startRow} and #{endRow}
+    order by e_num desc ) a) where rn between #{startRow} and #{endRow}
  </select>	
 	<select id="getMaxNum" resultType="integer">
 		<!-- 제일큰수 가져와서 +1 하고 값이 없으면 0 -->
@@ -53,7 +53,8 @@
 	<insert id="insert" parameterType="event">
 		insert into event_board
 		values(#{e_num},#{e_subject},#{e_content},0,#{e_start_date},#{e_end_date},
-		#{e_fileName},'n',#{id})
+		<if test="e_fileName != null">#{e_fileName}</if>
+		<if test="e_fileName == null">'null'</if>,'n',#{id})
 	</insert>
 	<!-- 조회수증가 -->
 	<update id="updateReadCount" parameterType="integer">
@@ -66,7 +67,7 @@
 		from event_board where e_num=#{e_num}
 	</select>
 	<!-- 게시글 수정 -->
-	<update id="update" parameterType="notice">
+	<update id="update" parameterType="event">
 		update event_board set e_subject=#{e_subject},e_content=#{e_content}
 		<!-- 파일이 수정됐으면 변경하고 안됐으면 변경하지 마라 where앞에는 컴마(,)가 없음 -->
 		<if test="e_fileName != null"> , e_fileName=#{e_fileName} </if>

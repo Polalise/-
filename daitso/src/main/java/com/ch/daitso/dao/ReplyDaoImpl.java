@@ -24,8 +24,8 @@ public class ReplyDaoImpl  implements ReplyDao{
 	}
 
 	@Override
-	public List<Reply> list(int num) {
-		return sst.selectList("replyns.list", num);
+	public List<Reply> list(String id) {
+		return sst.selectList("replyns.list", id);
 	}
 
 	@Override
@@ -38,6 +38,11 @@ public class ReplyDaoImpl  implements ReplyDao{
 	public void update(Reply rb) {
 		sst.update("replyns.update",rb);
 		
+	}
+
+	@Override
+	public Reply selectReview(int p_num) {
+		return sst.selectOne("myPagens.selectReview",p_num);
 	}
     
     

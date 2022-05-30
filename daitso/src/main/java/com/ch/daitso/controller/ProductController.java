@@ -56,7 +56,7 @@ public class ProductController {
 	      return "/product/main"; 
 	}
 	@RequestMapping("p_list")
-	public String list(Product product,String pageNum,Model model ) {
+	public String list(Product product,String pageNum,Model model,HttpSession session ) {
 		if (pageNum == null || pageNum.equals("")) pageNum = "1";
 	      int rowPerPage = 10;
 	      int currentPage = Integer.parseInt(pageNum);
@@ -76,6 +76,14 @@ public class ProductController {
 	      model.addAttribute("p_num", p_num);
 	      model.addAttribute("pb", pb);
 	      model.addAttribute("list", list);
+//	      첫 리스트 진입시 전체보기 설정
+	      String search2 = "전체보기";
+	      model.addAttribute("search2",search2);
+	      
+	      String id = (String)session.getAttribute("id");
+			Member member2 = ms.selectId(id);
+			model.addAttribute("member", member2);
+	      
 	      return "/product/list"; 
 	}
 	@RequestMapping("p_insertForm")
@@ -136,6 +144,8 @@ public class ProductController {
 			fos5.close();
 		}
 		product.setP_num(number);
+		String id = (String)session.getAttribute("id");
+		product.setId(id);
 		System.out.println("product:" + product);
 		int result = ps.insert(product);
 		model.addAttribute("thumnails",thumnails); 
@@ -223,19 +233,7 @@ public class ProductController {
 		model.addAttribute("pageNum", pageNum);
 		return "/product/update";
 	}
-
-	/*
-	 * @RequestMapping("buyering") public String completeding(Member member,Model
-	 * model) { int result = 0; Product product2 = ps.completeding(product2);
-	 * model.addAttribute("result",result); return "buyering"; }
-	 * 
-	 * @RequestMapping("buyer") public String completed(Member member,int
-	 * p_num,Model model) { String trader = "k1"; Product product =
-	 * ps.select(p_num); product.setBuyer(trader); int result =
-	 * ps.completed(p_num,trader);
-	 * 
-	 * return "/product/buyer"; } 
-	 */
+	
 	@RequestMapping("p_delete")
 	public String delete(int p_num,String pageNum, Model model) {
 		int result = 0;

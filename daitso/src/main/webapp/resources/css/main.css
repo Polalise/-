@@ -27,7 +27,7 @@ input[id="icon"]+label {
 	display: block;
 	width: 50px;
 	height: 30px;
-	margin-left: -100px;
+	margin-left: -250px;
 	transition: all 0.35s;
 	cursor: pointer; /* 커서를 올려놓을 때 모양이 바뀐다. */
 	z-index: 2;
@@ -306,12 +306,13 @@ body {
 	content: "";
     width: 1px;
     height: 50px;
-    border-right: 1px solid rgb(204, 204, 204);
+    /* border-right: 1px solid rgb(204, 204, 204); */
     position: absolute;
     right: -15px;
 }
 .shop{
-	margin-left: 20px;
+	width: 120px;
+	margin-left: 10px;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -321,15 +322,16 @@ body {
 	content: "";
     width: 1px;
     height: 50px;
-    border-right: 1px solid rgb(204, 204, 204);
+    /* border-right: 1px solid rgb(204, 204, 204); */
     position: absolute;
     right: -15px;
 }
 .products{
+	width: 120px;
     display: flex;
     -webkit-box-align: center;
     position: relative;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-evenly;
     margin-left: 20px;
     align-items: center;

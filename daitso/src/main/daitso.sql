@@ -7,6 +7,7 @@ drop table product CASCADE CONSTRAINTS;
 drop table chat;
 drop table report;
 drop table likes;
+drop table report CASCADE CONSTRAINTS;
 
 create table member (
 	id varchar2(500) primary key,
@@ -21,6 +22,9 @@ create table member (
 	del char(1) default 'n',
 	photoName varchar2(500)
 );
+
+select * from member;
+
 select * from product;
 CREATE TABLE product(
 	p_num NUMBER primary key,
@@ -83,7 +87,7 @@ create table reply (
 	regdate date not null,
 	del char(1) default 'n' ,
 	rating number ,
-	num number not null references product(p_num),
+	p_num number not null references product(p_num),
 	id  varchar2(100) not null references member(id)
 );
 
@@ -97,6 +101,7 @@ create table replyBoard (
 	del char(1) 
 );
 select * from replyBoard;
+
 create table report(
 	report_num number primary key,
 	reporter_id VARCHAR2(100) REFERENCES member ON DELETE CASCADE,
@@ -105,7 +110,9 @@ create table report(
 	reasonChk VARCHAR2(1000) not null,
 	reasonText VARCHAR2(2000),
 	progress VARCHAR2(20) not null,
-	report_date date
+	report_date date,
+	score number,   --벌점
+	adminText VARCHAR2(1000)  -- 관리자의 코멘트
 );
 
 CREATE TABLE likes(

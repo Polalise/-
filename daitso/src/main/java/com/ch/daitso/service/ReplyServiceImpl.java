@@ -24,8 +24,8 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public List<Reply> list(int num) {
-		return rd.list(num);
+	public List<Reply> list(String id) {
+		return rd.list(id);
 	}
 
 	@Override
@@ -36,6 +36,11 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public void update(Reply rb) {
 		rd.update(rb);
+	}
+
+	@Override
+	public Reply selectReview(int p_num) {
+		return rd.selectReview(p_num);
 	}
 
 }

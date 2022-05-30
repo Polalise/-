@@ -1,0 +1,27 @@
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+ "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- 이전 과정 내용이면 예시를 위해 남김 -->
+
+	<definition name="mypagebase" template="/WEB-INF/views/mypage/myPageForm.jsp">
+		<!-- 레이아웃 적용 -->
+		<put-attribute name="myPage_header" value="/WEB-INF/views/mypage/myPage_header.jsp" />
+		<put-attribute name="myPage_menu"   value="/WEB-INF/views/mypage/myPage_menu.jsp" />
+		<put-attribute name="myPage_body" 	 value="" />
+		<put-attribute name="myPage_footer" value="/WEB-INF/views/mypage/myPage_footer.jsp" />
+	</definition>
+	
+	<!-- <definition name="nolayout" template="/WEB-INF/views/nolayout.jsp">
+		레이아웃 적용 안함
+		<put-attribute name="header1" value="" />
+		<put-attribute name="menu"   value="" />
+		<put-attribute name="footer" value="" />
+	</definition> -->
+	
+	<!-- (1) mypage폴더안에 {1}에 jsp이름 사용 -->
+	<definition name="/mypage/*" extends="mypagebase">
+		<put-attribute name="myPage_body"	value="/WEB-INF/views/mypage/{1}.jsp" />
+	</definition>
+</tiles-definitions>

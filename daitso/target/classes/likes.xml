@@ -3,19 +3,22 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="likesns">
 	
+	<!-- 찜 생성 -->	
 	<insert id="addLikes" parameterType="likes">
 		insert into likes values(#{id},#{p_num})
 	</insert>
 
+	<!-- 찜 여부 확인 -->
 	<select id="searchList" parameterType="map" resultType="likes">
 		select * from likes where id=#{id} and p_num=#{p_num}
 	</select>
 	
+	<!-- 찜 삭제 -->
 	<delete id="deleteLikes" parameterType="likes">
 		delete likes where id=#{id} and p_num=#{p_num}
 	</delete>
 	
-	<!-- 게시글 좋아요 갯수 -->
+	<!-- 게시글 찜 갯수 -->
    <select id="P_likeCount" parameterType="string" resultType="integer">
       select count(*) from likes where p_num=#{p_num}
    </select>

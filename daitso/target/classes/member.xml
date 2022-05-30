@@ -113,4 +113,21 @@
    <select id = "getCount2" resultType="int">
      select count(*) from member where del='y'
    </select>
+   
+   <!-- 별점 등급 영향 -->
+	<update id="star" parameterType="map">
+		update member set
+
+		grade = grade + #{rating}
+
+		where id = #{id}
+	</update>
+	 <!-- 신고 벌점 -->
+	<update id="penalty" parameterType="map">
+		update member set
+
+		grade = grade - #{score}
+
+		where id = #{id}
+	</update>
 </mapper>
