@@ -56,15 +56,6 @@ public class ChatDaoImpl implements ChatDao {
 			return sst.selectList("chatns.findChatRoomNum2", chat);
 		}
 
-	@Override
-	public List<Chat> readChatHistory(Chat chatRoomTemp) {
-		return sst.selectList("chatns.readChatHistory", chatRoomTemp);
-	} 
-
-	@Override
-	public int addChatRoom(Chat chat) { 
-		return sst.insert("chatns.addChatRoom", chat);
-	}
 		// 접속한 사람의 별명으로 채팅방 정보 가져오기
 		@Override
 		public List<Chat> findChatRoomLog(String user2_nick) {
