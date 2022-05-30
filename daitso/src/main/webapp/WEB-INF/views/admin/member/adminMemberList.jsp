@@ -14,7 +14,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script> -->
 <style type="text/css">
-@import url("resources/css/main.css");
+@import url("resources/css/main2.css");
 #chart{
    /* margin-left: 300px; */
 

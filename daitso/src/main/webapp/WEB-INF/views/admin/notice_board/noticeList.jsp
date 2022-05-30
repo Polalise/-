@@ -5,7 +5,7 @@
 <html>
 <head>
 <style type="text/css">
-@import url("resources/css/main.css");
+@import url("resources/css/main2.css");
 
 a:link {
 	text-decoration: none;
@@ -191,9 +191,9 @@ li a:hover {
 			<div class="table-responsive">
 				<table class="table" style="">
 					<tr>
-						<th style="width: 10%;">번호</th>
+						<th style="width: 5%;">번호</th>
 						<th>제목</th>
-						<th style="width: 10%;">조회수</th>
+						<th  style="width: 5%;">조회수</th>
 						<th style="width: 10%;">작성일</th>
 					</tr>
 					<c:if test="${empty list }">
@@ -218,7 +218,7 @@ li a:hover {
 										<!-- 조회수 늘리면 hot.gif 보여줘 --> <%-- 	<c:if test="${notice.readcount > 50 }">
 									<img alt="" src="resources/images/hot.gif">
 								</c:if></td> --%> <%-- <td>${notice.id}</td> --%>
-									<td>${notice.readcount }</td>
+									<td style="text-align: center;">${notice.readcount }</td>
 									<td>${notice.reg_date }</td>
 								</c:if>
 							</tr>

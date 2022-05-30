@@ -5,7 +5,7 @@
 <html>
 <head>
 <style type="text/css">
-@import url("resources/css/main.css");
+@import url("resources/css/main2.css");
 
 a:link {
 	text-decoration: none;
@@ -182,14 +182,14 @@ li a:hover {
 			</form>
 
 			<div class="table-responsive" style="margin-top: 50px;">
-				<table class="table">
+				<table class="table" style="">
 					<tr>
-						<th style="width: 10%;">번호</th>
-						<th style="width: 10%;">신고자</th>
-						<th style="width: 10%;">피신고자</th>
+						<th style="width: 4%;">번호</th>
+						<th style="width: 5%;">신고자</th>
+						<th style="width: 5%;">피신고자</th>
 						<!-- <th>작성자</th> -->
-						<th style="width: 20%;">내용</th>
-						<th style="width: 10%;">작성일</th>
+						<th style="width: 20%; overflow:hidden;	white-space: nowrap; text-overflow: ellipsis;">내용</th>
+						<th style="width: 5%;">작성일</th>
 						<th style="width: 10%;">상태</th>
 					</tr>
 					<c:if test="${empty list }">

@@ -7,7 +7,7 @@
 <html>
 <head>
 <style type="text/css">
-@import url("resources/css/main.css");
+@import url("resources/css/main2.css");
 .sideMenu{
     /* margin-left: 300px; */
        /*  margin-top: 100px; */

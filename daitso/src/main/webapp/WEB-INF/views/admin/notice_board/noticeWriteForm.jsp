@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-@import url("resources/css/main.css");
+@import url("resources/css/main2.css");
 .sideMenu{
 
 }
