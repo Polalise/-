@@ -51,6 +51,7 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public List<Product> list(Product product) {
+		System.out.println("product" + product);
 		return sst.selectList("productns.list", product);
 	}
 

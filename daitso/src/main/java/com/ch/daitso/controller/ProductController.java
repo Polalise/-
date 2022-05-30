@@ -32,7 +32,29 @@ public class ProductController {
 	
 	@Autowired
 	private LikesService ls;
-	
+	@RequestMapping("main")
+	public String main(Product product,String pageNum,Model model ) {
+		if (pageNum == null || pageNum.equals("")) pageNum = "1";
+	      int rowPerPage = 10;
+	      int currentPage = Integer.parseInt(pageNum);
+	      int total = ps.getTotal(product);
+	      int startRow = (currentPage - 1) * rowPerPage + 1;
+	      int endRow = startRow + rowPerPage - 1;
+	      product.setStartRow(startRow); 
+	      product.setEndRow(endRow);
+	      List<Product> list = ps.list(product);
+	      PageBean pb = new PageBean(currentPage, rowPerPage, total);
+	      int p_num = total - startRow + 1;
+	      //매개변수로 넘어온데이터를 같은 url로 변경없이 전달할 때는 model.addAttribute 생략 가능 
+	      String[] title = {"작성자","제목","내용","제목+내용"};
+//	      String[] title2 = {"판매","구매"};
+	      model.addAttribute("title", title);
+//	       model.addAttribute("title2", title2);
+	      model.addAttribute("p_num", p_num);
+	      model.addAttribute("pb", pb);
+	      model.addAttribute("list", list);
+	      return "/product/main"; 
+	}
 	@RequestMapping("p_list")
 	public String list(Product product,String pageNum,Model model ) {
 		if (pageNum == null || pageNum.equals("")) pageNum = "1";
@@ -58,6 +80,8 @@ public class ProductController {
 	}
 	@RequestMapping("p_insertForm")
 	public String insertForm(int p_num, String pageNum,Model model,HttpSession session, Member member) {
+		String[] title = {"작성자","제목","내용","제목+내용"};
+		 model.addAttribute("title", title);
 		// 이 부분을 추가해야 회원 세션 정보가 넘어옴
 		String id = (String)session.getAttribute("id");
 		Member member2 = ms.selectId(id);
@@ -125,6 +149,8 @@ public class ProductController {
 	}
 	@RequestMapping("p_view")
 	public String view(int p_num, String pageNum, Model model, HttpSession session){
+		String[] title = {"작성자","제목","내용","제목+내용"};
+		 model.addAttribute("title", title);
 		ps.updateReadCount(p_num);
 		Product product = ps.select(p_num);
 		model.addAttribute("product", product); 
@@ -144,6 +170,8 @@ public class ProductController {
 	} 
 	@RequestMapping("p_updateForm")
 	public String updateForm(int p_num, String pageNum, Model model) {
+		 String[] title = {"작성자","제목","내용","제목+내용"};
+		 model.addAttribute("title", title);
 		Product product = ps.select(p_num);
 		model.addAttribute("product", product);
 		model.addAttribute("pageNum", pageNum);
@@ -217,5 +245,10 @@ public class ProductController {
 		model.addAttribute("pageNum", pageNum);
 		return "/product/delete"; 
 	}
+	@RequestMapping("topheader")
+	public String topheader() {
+		return "product/topheader";
+	}
+	
 }
 	//photo zone

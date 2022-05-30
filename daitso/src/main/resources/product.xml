@@ -6,7 +6,7 @@
 	<select id="getTotal" parameterType="product" resultType="integer">
 		select count(*) from product
 			<where>
-				<if test="keyword != null and keyword !=''">
+			<if test="keyword != null and keyword !=''">
 					<if test="search =='subcon'">
 						p_name like '%'||#{keyword}||'%' or
 						p_content like '%'||#{keyword}||'%'
@@ -14,17 +14,15 @@
 					<if test="search !='subcon'">
 						${search} like '%'||#{keyword}||'%'					
 					</if>
-				</if>
-				<if test="keyword2 != null and keyword2 !=''">
-					<if test="search2 =='판매'">
-						p_value like '%'||'판매'||'%'
+			</if>
+			<if test="keyword2 != null and keyword2 !=''">
+					<if test="search2 !='전체보기'">
+						p_value like '%'||#{keyword2}||'%' 
 					</if>
-					<if test="search2 =='구매'">
-						p_value like '%'||'구매'||'%'
-					</if>
-					<if test="search2 =='전체보기'">						
-					</if>
-				</if>
+			</if>
+			<if test="keyword3 != null and keyword3 !=''">
+					p_tag like '%'||#{keyword3}||'%'	
+			</if>				
 			</where>
 	</select>
 	<select id="list" parameterType="product" resultType="product">
@@ -40,17 +38,15 @@
 					<if test="search !='subcon'">
 						${search} like '%'||#{keyword}||'%'					
 					</if>
-				</if>
-				<if test="keyword2 != null and keyword2 !=''">
-					<if test="search2 =='판매'">
-						p_value like '%'||'판매'||'%'
+			</if>
+			<if test="keyword2 != null and keyword2 !=''">
+					<if test="search2 !='전체보기'">
+						p_value like '%'||#{keyword2}||'%' 
 					</if>
-					<if test="search2 =='구매'">
-						p_value like '%'||'구매'||'%'
-					</if>
-					<if test="search2 =='전체보기'">		
-					</if>
-				</if>
+			</if>
+			<if test="keyword3 != null and keyword3 !=''">
+					p_tag like '%'||#{keyword3}||'%'	
+			</if>				
 		</where>
 			order by p_num desc) a) where rn between #{startRow} and #{endRow}
 	</select>

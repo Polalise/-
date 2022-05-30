@@ -17,24 +17,7 @@ select option[value=""][disabled] {
 	display: none;
 }
 </style>
-<script type="text/javascript">
-	function submit1(kind) {
-		if (!frm1.keyword3.value)
-			frm1.keyword3.value = kind;
-		if (frm1.keyword3.value)
-			frm1.keyword3.value = kind;
-		frm1.p_tag.value = kind;
-		frm1.submit();
-	}
-	function submit(kind) {
-		if (!frm2.keyword2.value)
-			frm2.keyword2.value = kind;
-		if (frm2.keyword2.value)
-			frm2.keyword2.value = kind;
-		frm2.p_value.value = kind;
-		frm2.submit();
-	}
-</script>
+
 </head>
 <body>
 <body>
@@ -107,28 +90,21 @@ select option[value=""][disabled] {
 			</c:if>
 		</div>
 	</div>
+	<input type="hidden" name="p_num" value="${p_num }">
+	<input type="hidden" name="pageNum" value="${pageNum }">
+	<input type="hidden" name="p_writer" value="${product.p_writer }">
 	<div class="container" align="center">
-		<div class="tagbox">
-			<form action="p_list.do?pageNum=1" name="frm1">
-				<div class="search3">
-					<button class="btn-tag" onclick="submit1('의류')" name="search3" value="의류">의류</button>
-					<button class="btn-tag" onclick="submit1('전자기기')" name="search3" value="전자기기">전자기기</button>
-					<button class="btn-tag" onclick="submit1('생활가전')" name="search3" value="생활가전">생활가전</button>
-					<button class="btn-tag" onclick="submit1('차량/오토바이')" name="search3" value="차량/오토바이">차량/오토바이</button>
-					<button class="btn-tag" onclick="submit1('음반/악기')" name="search3" value="음반/악기">음반/악기</button>
-					<button class="btn-tag" onclick="submit1('도서/티켓/문구')" name="search3" value="도서/티켓/문구">도서/티켓/문구</button>
-					<button class="btn-tag" onclick="submit1('패션/악세사리')" name="search3" value="패션/악세사리">패션/악세사리</button>
-				</div>
-				<input type="hidden" name="keyword3" value="${product.search3 }">
-			</form>
-			<form action="p_list.do?pageNum=1" name="frm2">
-				<select class="search2" name="search2" onchange="this.form.submit()">
-					<option value="" disabled selected>선택하세요</option>
-					<option onclick="submit('판매')" value="판매">판매</option>
-					<option onclick="submit('구매')" value="구매">구매</option>
-					<option value="전체보기">전체보기</option>
-				</select><input type="hidden" name="keyword2" value="${product.search2 }">
-			</form>
+		<div class="main_slide">
+			<ul class="main_slide_list">
+				<li><img alt="" src="${path }/resources/images/noimg.png"
+					class="eventpoto"></li>
+				<li><img alt="" src="${path }/resources/images/noimg.png"
+					class="eventpoto"></li>
+				<li><img alt="" src="${path }/resources/images/noimg.png"
+					class="eventpoto"></li>
+				<li><img alt="" src="${path }/resources/images/noimg.png"
+					class="eventpoto"></li>
+			</ul>
 		</div>
 		<div class="list">
 			<c:if test="${not empty list }">
@@ -166,12 +142,14 @@ select option[value=""][disabled] {
 			</c:if>
 		</div>
 	</div>
+	</div>
+
 	<div align="center">
 		<ul class="pagination">
 			<!-- 시작페이지가 pagePerBlock 보다 크면 앞에 보여줄 것이 있다 -->
 			<c:if test="${pb.startPage > pb.pagePerBlock }">
 				<li><a
-					href="p_list.do?pageNum=1?search=${product.search }$keyword=${product.keyword}">
+					href="list.do?pageNum=1?search=${product.search }$keyword=${product.keyword}">
 						<span class="glyphicon glyphicon-backward"></span>
 				</a></li>
 				<li><a href="p_list.do?pageNum=${pb.startPage - 1 }"> <span

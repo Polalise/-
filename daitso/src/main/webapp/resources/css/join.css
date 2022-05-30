@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 90vh;
+}
+
+.content {
+	width: 400px;
+}
+
+.id, .password, .password2, .name, .nickName, .address, .phone, .email {
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.box1 {
+	width: 200;
+}
+
+.box2 {
+	width: 100px;
+}
+
+.box3 {
+	width: 90px;
+	height: 40px;
+}
+
+.idtext, .passwordtext, .password2text, .nametext, .nickNametext,
+	.addresstext, .phonetext, .emailtext {
+	text-align: left;
+	font-weight: bolder;
+	margin-top: 20px;
+}
+
+.err {
+	text-align: left;
+}
+
+input {
+	width: 400px;
+	height: 40px;
+}
+
+form {
+	width: 500px;
+	height: 750px;
+	border: 1px solid;
+	background: #fdf8f8;
+	border-radius: 9px;
+	box-shadow: -1px 1px 12px 0px;
+	padding: 10px 10px;
+	margin-top: 30px;
+	margin-left: -40px;
+}
+
+.mention {
+	color: 444444;
+}
