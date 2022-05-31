@@ -45,6 +45,7 @@ public class MyPageDaoImpl implements MypageDao{
 	}
 
 	public int changeStatus(Product product) {
+		System.out.println(product.getBuyer());
 		return sst.update("myPagens.changeStatus", product);
 	}
 
@@ -76,4 +77,7 @@ public class MyPageDaoImpl implements MypageDao{
 		sst.update("myPagens.reviewInsertSuccess",p_num);
 	}
 
+	public void setBuyer(Product product) {
+		sst.update("myPagens.setBuyer",product);
+	}
 }

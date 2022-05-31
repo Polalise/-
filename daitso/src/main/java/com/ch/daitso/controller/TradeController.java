@@ -54,9 +54,10 @@ public class TradeController {
 		Member member = ms.selectId(id);
 		Likes likes2 = ls.searchList(id, p_num);
 		model.addAttribute("member" , member);
-		
 		product.setBuyer(id);
+		mys.setBuyer(product);
 		int result = mys.changeStatus(product);
+		System.out.println(product.getBuyer());
 		model.addAttribute("result",result);
 		return "/product/temporaryPage";
 	}

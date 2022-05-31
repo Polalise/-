@@ -34,4 +34,5 @@ public interface MypageService {
 
 	void reviewInsertSuccess(int p_num);
 
+	void setBuyer(Product product);
 }

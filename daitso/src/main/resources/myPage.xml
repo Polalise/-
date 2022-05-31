@@ -59,6 +59,10 @@
 		update product set sel=#{sel} where p_num=#{p_num}
 	</update>
 	
+	<update id="setBuyer" parameterType="product">
+		update product set buyer=#{buyer} where p_num=#{p_num}
+	</update>
+	
 	<!-- 게시판 번호로 리뷰 불러오기 -->
 	<select id="selectReview" parameterType="integer" resultType="reply">
 		select * from reply where p_num=#{p_num}

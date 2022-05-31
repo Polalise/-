@@ -69,4 +69,8 @@ public class MyPageServiceImpl implements MypageService{
 		myd.reviewInsertSuccess(p_num);
 	}
 
+	public void setBuyer(Product product) {
+		myd.setBuyer(product);
+	}
+
 }

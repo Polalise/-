@@ -34,4 +34,6 @@ public interface MypageDao {
 
 	void reviewInsertSuccess(int p_num);
 
+	void setBuyer(Product product);
+
 }
