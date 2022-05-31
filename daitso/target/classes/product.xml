@@ -63,7 +63,7 @@
 	<update id="update" parameterType="product">
 		update product set p_name=#{p_name},p_writer=#{p_writer},price=#{price},
 			p_local=#{p_local},p_content=#{p_content},thumnails=#{thumnails,jdbcType=VARCHAR},thumnails2=#{thumnails2,jdbcType=VARCHAR},thumnails3=#{thumnails3,jdbcType=VARCHAR}
-			,thumnails4=#{thumnails4jdbcType=VARCHAR},thumnails5=#{thumnails5,jdbcType=VARCHAR},p_tag=#{p_tag} where p_num=#{p_num}
+			,thumnails4=#{thumnails4,jdbcType=VARCHAR},thumnails5=#{thumnails5,jdbcType=VARCHAR},p_tag=#{p_tag} where p_num=#{p_num}
 	</update>
 	<update id="delete" parameterType="product">
 		update product set p_del='y' where p_num=#{p_num}

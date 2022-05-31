@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	location.href="http://172.30.1.43:8080/daitso/loginForm.do";
+	location.href="loginForm.do";
 </script>
 </body>
 </html>

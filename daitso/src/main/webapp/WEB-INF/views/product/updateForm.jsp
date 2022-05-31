@@ -175,14 +175,14 @@
 					<form action="p_update.do" method="post" id="frm"
 						enctype="multipart/form-data">
 						<!-- onsubmit="return chk()" -->
-						<input type="hidden" name="p_num" value="${p_num }"> 
+						<input type="hidden" name="p_num" value="${product.p_num }"> 
 						<input type="hidden" name="pageNum" value="${pageNum }">
 						<div class="title" style="margin-top: 15px">
 							<dl>
 								<dt>제목</dt>
 								<dd>
 									<input type="text" name="p_name" required="required"
-										autofocus="autofocus" placeholder="글 제목을 입력하세요">
+										 value="${product.p_name }" autofocus="autofocus" placeholder="글 제목을 입력하세요">
 								</dd>
 							</dl>
 						</div>
@@ -191,7 +191,7 @@
 								<dt>작성자</dt>
 								<dd>
 									<input type="text" name="p_writer" required="required"
-										value="${member.nickName }" style="width: 10%;">
+										value="${product.p_writer }" style="width: 10%;">
 
 								</dd>
 							</dl>
@@ -201,7 +201,7 @@
 								<dt>판매금액</dt>
 								<dd>
 									<input type="number" name="price" required="required"
-										placeholder="판매금액을 재시해주세요" style="height: 40px; width: 225;">
+										placeholder="${product.price } " style="height: 40px; width: 225;">
 								</dd>
 							</dl>
 						</div>
@@ -242,7 +242,7 @@
 									<input type="button" onclick="sample6_execDaumPostcode()"
 										value="주소 찾기" class="btn_local"><br> <input
 										type="text" id="sample6_address" placeholder="주소"
-										name="p_local"><br>
+										name="p_local" value="${product.p_local }"><br>
 								</dd>
 							</dl>
 						</div>
@@ -274,7 +274,7 @@
 							</dl>
 						</div>
 						<div class="cont">
-							<textarea id="summernote" name="p_content" class="clear"></textarea>
+							<textarea id="summernote" name="p_content" class="clear">${product.p_content }</textarea>
 						</div>
 						<div class="bt_wrap">
 							<div class="back">

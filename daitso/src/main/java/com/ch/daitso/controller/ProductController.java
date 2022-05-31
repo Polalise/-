@@ -184,6 +184,7 @@ public class ProductController {
 		 String[] title = {"작성자","제목","내용","제목+내용"};
 		 model.addAttribute("title", title);
 		Product product = ps.select(p_num);
+		
 		model.addAttribute("product", product);
 		model.addAttribute("pageNum", pageNum);
 		return "/product/updateForm";
@@ -197,7 +198,12 @@ public class ProductController {
 		String thumnails2 = product.getFile2().getOriginalFilename();
 		String thumnails3 = product.getFile3().getOriginalFilename();
 		String thumnails4 = product.getFile4().getOriginalFilename();
-		String thumnails5 = product.getFile5().getOriginalFilename();
+		String thumnails5 = product.getFile5().getOriginalFilename(); 
+		product.setThumnails(thumnails);
+		product.setThumnails2(thumnails2);
+		product.setThumnails3(thumnails3);
+		product.setThumnails4(thumnails4);
+		product.setThumnails5(thumnails5);
 		String real = session.getServletContext().getRealPath("/resources/upload");	
 		if (thumnails != null && !thumnails.equals("")) {
 			FileOutputStream fos = new FileOutputStream(new File(real+"/"+ thumnails));
@@ -220,12 +226,12 @@ public class ProductController {
 			fos4.close();
 		}
 		if (thumnails5 != null && !thumnails5.equals("")) {
-			FileOutputStream fos5 = new FileOutputStream(new File(real+"/"+ thumnails));
+			FileOutputStream fos5 = new FileOutputStream(new File(real+"/"+ thumnails5));
 			fos5.write(product.getFile().getBytes());
 			fos5.close(); 
 		}
 		result = ps.update(product);
-		System.out.println("결과 :" + result);
+		System.out.println("product :" + product);
 		model.addAttribute("thumnails",thumnails); 
 		model.addAttribute("thumnails2",thumnails2); 
 		model.addAttribute("thumnails3",thumnails3); 
