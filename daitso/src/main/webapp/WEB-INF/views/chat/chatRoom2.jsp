@@ -273,6 +273,10 @@
 		#chat-history{
 			overflow: scroll;
 		}
+		
+		a.btn.btn-info{
+			float: right;
+		}
 </style>
 <script type="text/javascript">
 	var websocket; // function 밖으로 빼면 전역변수, function안에 있으면 지역변수로 활용
@@ -304,8 +308,8 @@
 	function connect() {
 		// 172.30.1.37:8080/ch11: 채팅 서버의 ip값	// chat-ws.do : servlet-context에 등록된 이름
 		// 다른 프로젝트를 통해 불러 오는 방법을 사용 해도 된다
-		// websocket = new WebSocket("ws://61.75.24.60:8080/daitso/chat-ws.do");
-		websocket = new WebSocket("ws://172.30.1.43:8080/daitso/chat-ws.do");
+		 websocket = new WebSocket("ws://61.75.24.60:8080/daitso/chat-ws.do");
+		// websocket = new WebSocket("ws://172.30.1.43:8080/daitso/chat-ws.do");
 		// 뒤에 ()안해도 알아서 함수 불러옴
 		websocket.onopen = Open;
 		websocket.onmessage = onMessage;
@@ -492,7 +496,8 @@
                         	<input type="button" id="sendBtn" value="메세지 보내기" class="btn btn-success">
                         </div>                                    
                     </div>
-                    <div><a href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a> </div>           
+                    <div>
+                    	<a href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a> </div>           
                 	</div>
                 </c:if>
                 
@@ -530,9 +535,7 @@
                 
                 <c:if test="${result == 2 }">
                 	<h2 style="text-aline:center;">문의 채팅이 아직 없습니다.</h2>
-                </c:if>
-                
-                
+                </c:if>  
             </div>
         </div>
     </div>

@@ -88,7 +88,7 @@ select option[value=""][disabled] {
 				<img src="${path }/resources/images/main2.png" width="15"
 					height="16" alt="번개톡버튼 이미지">다있톡
 			</button>
-			<a class="shop" href="myProfileForm.do">
+			<a class="shop" href="myProfile.do">
 			<img	src="${path }/resources/images/main1.png" width="15" height="16"
 				alt="내상점버튼 이미지">내상점</a> 
 			<a class="products"><img src="${path }/resources/images/main3.png" width="15" height="16"

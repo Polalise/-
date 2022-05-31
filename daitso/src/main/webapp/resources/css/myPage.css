@@ -12,21 +12,39 @@ body {
 }
 
 .top {
-    border: solid black 1px;
-    height: 80px;
+    border: none;
+    height: 110px;
     margin: 0;
+    display: flex;
+    background-color: #a2d2ff;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+.top .top_bg1{
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    background-color: #fbe0c4;
+    border-radius: 50px 0 0 50px;
+}
+.logoImg img{
+    height: 80%;
+    width: fit-content;
+    margin-left: 45px;
 }
 
 .main .leftMenu {
     float: left;
     display: inline;
-    border: solid black 1px;
+    border: none;
+    background-color: #a2d2ff;
     width: 300px;
     height: 1000px;
 }
 
 .ulc {
-    border: 1px solid pink;
+    border: none;
     padding-left: 10px;
 }
 
@@ -35,14 +53,20 @@ body {
 }
 
 .ulc * {
+    height: 40px;
+    border-radius: 50px 0 0 50px;
     list-style: none;
-    border: 1px solid violet;
+    border: none;
     margin-bottom: 20px;
     font-size: large;
+    background-color: #ffebea;
+    padding: 0 20% 0 20%;
+    text-align: center;
+    line-height: 37px;
 }
 
 .fired {
-    border: solid red 1px;
+    border: none;
     margin-top: 570px;
     position: static;
     height: 35px;

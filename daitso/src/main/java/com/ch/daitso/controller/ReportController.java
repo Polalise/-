@@ -42,6 +42,7 @@ public class ReportController {
 		System.out.println("badId : " + badId );
 		report.setCriminal_id(badId);
 		model.addAttribute("report", report);
+		model.addAttribute("product",product);
 		return "/report/reportForm";
 	}
 //	신고전송	

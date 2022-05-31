@@ -1,6 +1,6 @@
 /* 프로필 전체 */
 .profileBox {
-  border: solid 2px red;
+  border: none;
   display: flex;
   margin-bottom: 50px;
   height: 645px;
