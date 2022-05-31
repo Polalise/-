@@ -120,7 +120,7 @@
             <a class="btn btn-danger" id="report">신고</a>
             <div>
             	
-	         	<a href="http://61.75.24.60:8080/daitso/chatRoom.do?p_num=${product.p_num }" class="btn btn-warning" id="chat">판매자와 채팅하기</a>
+	         	<a href="http://172.30.1.43:8080/daitso/chatRoom.do?p_num=${product.p_num }" class="btn btn-warning" id="chat">판매자와 채팅하기</a>
          	
             </div>
 		</tr>
