@@ -104,11 +104,11 @@ li a:hover {
 					</ul>
 				</div>
 
-				<form action="list.do?pageNum=1">
+				<form action="noticelist.do?pageNum=1">
 					<div class="searchs">
 						<select name="search" style="height: 63px;">
 							<!-- select바 한글화 -->
-							<c:forTokens var="sh" items="subcon,p_writer,p_name,p_content"
+							<c:forTokens var="sh" items="p_writer,p_content,subcon"
 								delims="," varStatus="i">
 								<c:if test="${sh == product.search }">
 									<option value="${sh }" selected="selected">${title[i.index] }</option>

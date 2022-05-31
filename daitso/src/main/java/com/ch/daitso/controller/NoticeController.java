@@ -66,7 +66,7 @@ public class NoticeController {
 		//  model.addAttribute("id", id);
 			model.addAttribute("member", member);
 			//검색 한글로 계속유지하게 
-			String[] title = {"작성자","제목","내용","제목+내용"};
+			String[] title = {"제목","내용","제목+내용"};
 			model.addAttribute("title", title);
 		   model.addAttribute("num",num);
 		   model.addAttribute("pb",pb);

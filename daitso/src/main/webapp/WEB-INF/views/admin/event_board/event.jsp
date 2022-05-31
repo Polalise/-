@@ -123,7 +123,7 @@
 						</ul>
 					</div>
 
-					<form action="list.do?pageNum=1">
+					<form action="eventlist.do?pageNum=1">
 						<div class="searchs">
 							<select name="search" style="height: 50px;">
 								<!-- select바 한글화 -->
@@ -187,14 +187,14 @@
 	<h5 style="font-size: xx-large; ">이벤트 게시판</h5>
 	<form action=" eventList.do?pageNum=1"
 		style="margin-left: 1210px; margin-bottom: 20px;">
-		<select name="sea">
-			<c:forTokens var="sh" items="id,e_subject,e_content,subcon"
+		<select name="search">
+			<c:forTokens var="sh" items="e_subject,e_content,subcon"
 				delims="," varStatus="i">
 				<c:if test="${sh==board.search }">
-					<option value="${sh }" selected="selected">${title[i.index]}</option>
+					<option value="${sh}" selected="selected">${title[i.index]}</option>
 				</c:if>
 				<c:if test="${sh!=board.search }">
-					<option value="${sh }">${title[i.index]}</option>
+					<option value="${sh}">${title[i.index]}</option>
 				</c:if>
 			</c:forTokens>
 		</select> <input type="text" name="keyword" value="${board.keyword }">
