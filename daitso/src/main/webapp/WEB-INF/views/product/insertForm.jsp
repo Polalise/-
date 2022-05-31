@@ -172,6 +172,8 @@
 						<!-- onsubmit="return chk()" -->
 						<input type="hidden" name="p_num" value="${p_num }"> <input
 							type="hidden" name="pageNum" value="${pageNum }">
+							<input
+                     type="hidden" name="id" value="${member.id}">
 						<div class="title" style="margin-top: 15px">
 							<dl>
 								<dt>제목</dt>
