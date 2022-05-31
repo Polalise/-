@@ -34,7 +34,7 @@
 				</table>
 			</form>
 		</div>
-		<div>
+		<div class="list">
 			<a href="joinForm.do" class="btn">회원가입</a> <a href="findIdForm.do"
 				class="btn">아이디찾기</a> <a href="findPasswordForm.do" class="btn">비밀번호찾기</a>
 		</div>

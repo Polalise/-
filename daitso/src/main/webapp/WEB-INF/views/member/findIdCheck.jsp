@@ -53,6 +53,7 @@
 	<!-- 이름과 이메일이 일치한 회원이 있을 때 나타남 -->
 	<c:if test="${result == 1}">
 	<h2 class="metion">${member.name}님, 전송 받은 인증 번호를 입력하시오</h2>
+	<div class="wap">
 		<form name="frm" method="post" onsubmit="return Chk()">
 		<input type="hidden" name ="num" value="${msg }">
 		<input type="hidden" name ="name" value="${member.name }">
@@ -67,6 +68,7 @@
 				</tr>
 			</table>
 		</form>
+	</div>
 	</c:if>
 	
 	<!-- 이름과 이메일이 일치하지 않으면 나타남 -->

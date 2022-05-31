@@ -7,19 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	.container{
-  		display: flex; 
-  		flex-direction: column;
-  		justify-content: center;
-  		align-items: center;
-  		min-height: 90vh;	
-	}
-	
-	form{
-		width: 460px;
-	}
-	
-	.mention { color: 444444;}
+@import url("resources/css/login.css");
 </style>
 <script type="text/javascript">
 
@@ -57,6 +45,7 @@
 <body>
 	<div class="container" align="center">
 		<h2 class="metion">새로운 비밀번호 설정</h2>
+		<div class="wap">
 		<form method="post" name="frm" onsubmit="return chk()" action="findPasswordUpdate.do">
 		<input type="hidden" name ="id" value="${member.id }">
 			<table>
@@ -75,7 +64,8 @@
 				</tr>
 			</table>
 		</form>
-		<div>
+		</div>
+		<div class="list">
 			<a href="login.do" class="btn">로그인</a> 
 			<a href="findIdForm.do" class="btn">아이디찾기</a> 
 			<a href="findPasswordForm.do" class="btn">비밀번호찾기</a>

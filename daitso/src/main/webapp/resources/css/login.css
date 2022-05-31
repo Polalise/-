@@ -41,6 +41,9 @@ td {
 	align-items: center;
 	font-size: 25px;
 }
+.list{
+	margin-top: 20px;
+}
 
 div>a {
 	text-align: center;
