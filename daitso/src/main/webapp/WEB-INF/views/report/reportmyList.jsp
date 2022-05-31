@@ -165,7 +165,7 @@ a:active {
 			</h3>
 		    
 	   
-		<div class="table-responsive" style="margin-top: 150px;">  
+		<div class="table-responsive" style="margin-top: 150px; table-layout: fixed;">  
 		<table class="table">
 			<tr>
 			    <th style="width:10%;">번호</th>
@@ -193,7 +193,7 @@ a:active {
 						</c:if> --%>
 						        <td>${report.reporter_id}</td>
 						        <td>${report.criminal_id}</td>
-							<td title="${report.reasonChk}" class="sub2"><a
+							<td title="${report.reasonChk}" class="sub2" style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a
 								href="reportView.do?report_num=${report.report_num }&pageNum=${pb.currentPage}"
 								<%-- href="noticeView.do?num=${notice.num }&pageNum=${pb.currentPage}&id=${notice.id}" --%>
 								class="sub2">[${report.reasonChk}] ${report.reasonText}</a> 

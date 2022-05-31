@@ -166,7 +166,7 @@
   <tr><td style="width:10%;">신고항목 <b>[${report.reasonChk}]</b></td><td style="text-align:right;">상태<b> ${report.progress}</b>&nbsp;&nbsp;작성일<b> ${report.report_date}</b></td></tr>
   <tr><td style="width:20%;">신고자<b> ${report.reporter_id}</b><td colspan="2">피신고자<b> ${report.criminal_id}</b></td></tr>
   <tr><td style="width:10%;">신고내용</td><td colspan="2">${report.reasonText}</td>
-  <tr><td colspan="5">벌점&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="score"></td></tr>
+  <tr><td colspan="5">벌점&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="score" style="margin-left: 265px;"></td></tr>
   <tr><td colspan="1">코멘트</td><td><textarea rows="10" cols="100" name="adminText" required="required"></textarea></td></tr>
   <tr><td colspan="5" ><input type="submit" value="확인" style="margin-left: 800px;"></td></tr>
   	</form>

@@ -182,13 +182,13 @@ li a:hover {
 			</form>
 
 			<div class="table-responsive" style="margin-top: 50px;">
-				<table class="table" style="">
+				<table class="table" style="table-layout: fixed">
 					<tr>
 						<th style="width: 4%;">번호</th>
 						<th style="width: 5%;">신고자</th>
 						<th style="width: 5%;">피신고자</th>
 						<!-- <th>작성자</th> -->
-						<th style="width: 20%; overflow:hidden;	white-space: nowrap; text-overflow: ellipsis;">내용</th>
+						<th style="width: 20%;  text-overflow:ellipsis; overflow:hidden; white-space:nowrap;">내용</th>
 						<th style="width: 5%;">작성일</th>
 						<th style="width: 10%;">상태</th>
 					</tr>
@@ -208,7 +208,7 @@ li a:hover {
 						</c:if> --%>
 								<td>${report.reporter_id}</td>
 								<td>${report.criminal_id}</td>
-								<td title="${report.reasonChk}" class="sub2"><a
+								<td title="${report.reasonChk}" class="sub2" style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a
 									href="reportView.do?report_num=${report.report_num }&pageNum=${pb.currentPage}"
 									<%-- href="noticeView.do?num=${notice.num }&pageNum=${pb.currentPage}&id=${notice.id}" --%>
 								class="sub2">[${report.reasonChk}]

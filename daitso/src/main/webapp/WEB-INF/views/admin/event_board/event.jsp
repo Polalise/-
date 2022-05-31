@@ -30,7 +30,8 @@
           width: 200px;
           padding: 0;
           margin: 0;
-          font-size: 26px;
+          font-size: 20px;
+          text-align: center;
      }
 
      li.a1{
@@ -184,7 +185,7 @@
 	<!-- <div>
 		<h5 style="font-size: xx-large; ">이벤트 게시판</h5>
 	</div> -->
-	<h5 style="font-size: xx-large; ">이벤트 게시판</h5>
+	<h5 style="font-size: xx-large; margin-left: 50px; margin-top: 50;">이벤트 게시판</h5>
 	<form action=" eventList.do?pageNum=1"
 		style="margin-left: 1210px; margin-bottom: 20px;">
 		<select name="search">

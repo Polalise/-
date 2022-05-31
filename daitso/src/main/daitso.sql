@@ -112,7 +112,8 @@ create table reply (
 	del char(1) default 'n' ,
 	rating number ,
 	p_num number not null references product(p_num),
-	id  varchar2(100) not null references member(id)
+	id  varchar2(100) not null references member(id),
+	seller varchar2(100) not null references member(id)
 );
 
 create table replyBoard (
