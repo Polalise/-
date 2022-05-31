@@ -11,8 +11,8 @@
 <c:if test="${result == -1 }">
 	<script type="text/javascript">
 		alert("채팅 시작합니다.");
-		 location.href="http://61.75.24.60:8080/daitso/chatRoom.do?p_num=${product.p_num }";
-		// location.href="http://172.30.1.43:8080/daitso/chatRoom.do?p_num=${product.p_num }";
+		// location.href="http://61.75.24.60:8080/daitso/chatRoom.do?p_num=${product.p_num }";
+		 location.href="http://172.30.1.43:8080/daitso/chatRoom.do?p_num=${product.p_num }";
 	</script>
 </c:if>
 <c:if test="${result == 1 }">
