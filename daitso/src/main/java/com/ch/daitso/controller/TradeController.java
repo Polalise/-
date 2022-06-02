@@ -58,7 +58,8 @@ public class TradeController {
 		product.setBuyer(id);
 		int result = mys.changeStatus(product);
 		model.addAttribute("result",result);
-		return "/product/temporaryPage";
+		model.addAttribute("product", product);
+		return "/product/temporaryPage2";
 	}
 
 }

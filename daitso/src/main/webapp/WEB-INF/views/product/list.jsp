@@ -143,7 +143,7 @@ select option[value=""][disabled] {
                      style="cursor: pointer;">
                      <figure class="snip1200">
                         <img alt="${product.thumnails }"
-                           src="${path}/resources/upload/del.jpg."
+                           src="${path}/resources/upload/del.jpg"
                            style="width: 100%; height: 100%;">
                         <figcaption>
                            <p>${product.p_writer }<br> ${product.price }원<br>
@@ -158,7 +158,7 @@ select option[value=""][disabled] {
                      </figure>
                   </div>
                   </c:if>
-					<c:if test="${product.p_del != 'y'}">
+					<c:if test="${product.sel != 'y'}">
 						<div class="listbox"
 							onclick="location.href='p_view.do?p_num=${product.p_num}&pageNum=${pb.currentPage}'"
 							style="cursor: pointer;">
