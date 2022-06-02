@@ -24,8 +24,10 @@ create table member (
 	photoName varchar2(500)
 );
 
-select * from member;
+select e_fileName from (select * from event_board order by e_num DESC) WHERE ROWNUM <= 5;
 
+select * from member;
+select * from event_board;
 select * from product;
 CREATE TABLE product(
 	p_num NUMBER primary key,

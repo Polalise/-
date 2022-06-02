@@ -11,14 +11,14 @@
 <body>
 	<div class="first">
 		<form method="post" action="reportAction.do">
-			<div class="report_header">신고하기</div>
+			<div class="report_header" style="padding-top: 20px;">신고하기</div>
 			<input type="hidden" name="p_num" value="${report.p_num }">
 			<input type="hidden" name="reporter_id" value="${report.reporter_id }">
 			<div class="product_info">
-				<span class="thumbnail"><img src="images/kim.jpg"></span>
+				<span class="thumbnail"><img src="${path}/resources/upload/${product.thumnails}"></span>
 				<div class="criminal_info">
 					<div>
-						<a>작성자</a>
+						<a>신고자</a>
 						<a><input type="text" name="criminal_id" value="${report.criminal_id }" readonly="readonly"></a>
 					</div>
 					<div>

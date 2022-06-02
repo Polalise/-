@@ -24,4 +24,6 @@ public interface EventService {
 
 	int getEventCount();
 
+	List<EventBoard> list2();
+
 }

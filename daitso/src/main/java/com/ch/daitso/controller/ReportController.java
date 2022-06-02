@@ -39,7 +39,7 @@ public class ReportController {
 		report.setP_num(p_num);
 		report.setReporter_id(id);
 		String badId = product.getId();
-		System.out.println("badId : " + badId );
+//		System.out.println("badId : " + badId );
 		report.setCriminal_id(badId);
 		model.addAttribute("report", report);
 		model.addAttribute("product",product);

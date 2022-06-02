@@ -216,33 +216,26 @@ select option[value=""][disabled] {
 				</div>
 			</div>
 		</div>
-		<div class="reply">
+			<div class="reply">
 			<div id="rbdListDisp"></div>
 			<h2 class="text-primary">댓글 작성</h2>
 			<form action="" name="frm1" id="frm1" method="post">
 				<input type="hidden" name="bno" value="${product.p_num }">
 				<table class="table table-hover">
 					<tr>
-						<th>작성자</th>
+						<th style="background: #1b5ac2;">작성자</th>
 						<td><input type="text" name="replier"
 							value="${product.p_writer }">
 						<td>댓글</td>
-						<td><textarea rows="3" cols="30" name="replytext"></textarea></td>
-						<td><input type="button" value="댓글 입력" id="rInsert">
+						<td><textarea rows="3" cols="50" name="replytext"></textarea></td>
+						<td><input class="rInsert" type="button" value="댓글 입력" id="rInsert" 
+						style=""></td>
+					</tr>
+					<tr>
+						<td colspan="10" align="center"><a href="p_list.do?pageNum=${pageNum }" class="rInsert2">게시글 목록</a>						
+					</tr>
 				</table>
 			</form>
-			<tr>
-				<td colspan="10" align="center"><a
-					href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글
-						목록</a> <a
-					href="p_updateForm.do?p_num=${product.p_num }&pageNum${pageNum}"
-					class="btn btn-warning">수정</a> <!-- 회원게시팡인 경우 폼없이 삭제 여부를 묻고 삭제, 비회원인 경우에는 암호를 획인하기 위한 화면 -->
-					<a href="p_delete.do?p_num=${product.p_num }&pageNum${pageNum}"
-					class="btn btn-danger">삭제</a> <a
-					href="p_insertForm.do?p_num=${product.p_num }&pageNum${pageNum}"
-					class="btn btn-success">답글</a></td>
-			</tr>
 		</div>
-	</div>
 </body>
 </html>

@@ -63,4 +63,9 @@ public class EventDaoImpl implements EventDao {
 	public int getEventCount() {
 		return sst.selectOne("eventns.getEventCount");
 	}
+
+	@Override
+	public List<EventBoard> list2() {
+		return sst.selectList("eventns.list2");
+	}
 }

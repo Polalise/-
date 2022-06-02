@@ -175,7 +175,6 @@
 			</tr>	
 		</table>
 		<div align="center">
-			<a href="adminUpdateForm.do?id=${member.id }&pageNum=${pageNum }" class="btn_sm_full">회원정보수정</a>
 			<a href="adminMemberList.do?pageNum=${pageNum }" class="btn_sm_stroke">이전</a>
 		</div>
 	</div>  

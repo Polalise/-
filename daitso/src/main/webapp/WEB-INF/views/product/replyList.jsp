@@ -33,24 +33,28 @@
 <c:if test="${not empty rbdList }">
 	<h3 class="text-primary">댓글</h3>
 <table class="table table-striped">
-	<tr><th width="15%">작성자</th>
-	<th>내용</th>	<th width="15%">수정일</th><th width="20%"></th></tr>
+	<tr "><th width="15%" style="background: #1b5ac2;">작성자</th>
+	<th style=" background: #1b5ac2;">내용</th>
+	<th width="15%" style="background: #1b5ac2;">수정일</th>
+	<th width="20%" style="background: #1b5ac2;"></th></tr>  
 <c:forEach var="rbd" items="${rbdList }">
-	<c:if test="${rbd.del == 'y' }">
+	<c:if test="${rbd.del == 'y' }"> 
 		<tr><td colspan="4">삭제된 댓글입니다</td></tr>
-	</c:if>
+	</c:if> 
 	<c:if test="${rbd.del!='y' }">
-		<tr><td>${rbd.replier }</td>
+		<tr style="border-bottom: 1px solid;"><td>${rbd.replier }</td>
 			<td id="td_${rbd.rno }">${rbd.replytext }</td>
 			<td>${rbd.updatedate}</td>
 			<c:if test="${rbd.replier == product.p_writer }">
 				<td id="btn_${rbd.rno }">
-					<input type="button" class="btn btn-success btn-sm" value="채팅"
-						onclick="">
+				<input type="button" class="btn btn-success btn-sm" value="채팅" onclick="" 
+					style="background: rgb(204, 204, 204); border: 0px;">
 					<input type="button" class="btn btn-warning btn-sm" value="수정"
-						onclick="rUpdate(${rbd.bno},${rbd.rno })">
+						onclick="rUpdate(${rbd.bno},${rbd.rno })"
+						style="border: 0px;">
 					<input type="button" class="btn btn-danger btn-sm" value="삭제"
-						onclick="rDelete(${rbd.bno},${rbd.rno })"></td>
+						onclick="rDelete(${rbd.bno},${rbd.rno })"
+						 style="border: 0px;"></td>
 			</c:if>
 	</c:if>
 </c:forEach>

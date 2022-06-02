@@ -27,7 +27,7 @@ input[id="icon"]+label {
 	display: block;
 	width: 50px;
 	height: 30px;
-	margin-left: -250px;
+	margin-left: -80px;
 	transition: all 0.35s;
 	cursor: pointer; /* 커서를 올려놓을 때 모양이 바뀐다. */
 	z-index: 2;
@@ -251,7 +251,7 @@ body {
     height: 60px;
     border-radius: 5px;
     margin-top: 10px;
-
+	border-radius: 5px;
 }
 .btn-tag{
     border: none;
@@ -259,6 +259,7 @@ body {
     color: #ffffff;
     padding: 5px;
     margin-top: 10px;
+    border-radius: 5px;
 }
 .btn-tag:hover{
 	transition : 0.5s;
@@ -306,44 +307,50 @@ body {
 .chats::after{
 	content: "";
     width: 1px;
-    height: 50px;
-    /* border-right: 1px solid rgb(204, 204, 204); */
+    height: 20px;
+    border-right: 1px solid rgb(204, 204, 204);
     position: absolute;
     right: -15px;
 }
 .shop{
-	width: 120px;
-	margin-left: 10px;
+    /* width: 120px; */
+    color: #000;
+    margin-left: 20px;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     position: relative;
+    text-decoration: none;
 }
 .shop::after{
 	content: "";
     width: 1px;
-    height: 50px;
-    /* border-right: 1px solid rgb(204, 204, 204); */
+    height: 20px;
+     border-right: 1px solid rgb(204, 204, 204); 
     position: absolute;
     right: -15px;
+ 
 }
 .products{
-	width: 120px;
+    /* width: 120px; */
     display: flex;
     -webkit-box-align: center;
     position: relative;
+    color: #000; 
     /* flex-wrap: wrap; */
     justify-content: space-evenly;
     margin-left: 20px;
     align-items: center;
+    cursor: pointer;
+    text-decoration: none;
 }
 .products::after{
 	content: "";
     width: 1px;
-    height: 50px;
+    height: 20px;
     border-right: 1px solid rgb(204, 204, 204);
     position: absolute;
-    right: -15px;
+    right: -15px;   
 }
 .log{
 	display: flex;
@@ -351,8 +358,10 @@ body {
     position: relative;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    color: #000;
     margin-left: 20px;
     align-items: center;	
+    text-decoration-line: none;
 }
 .searchs{
     margin-left: 200px;
@@ -377,6 +386,7 @@ body {
     background: #1b5ac2;
     outline: none;
     color: #ffffff;	
+    border-radius: 5px;
 }
 .container{
 	padding: 30px;
@@ -498,14 +508,6 @@ ul, li {
     font-size: 16px;
     float: left
 }
-.productreg::after{
-	content: "";
-    width: 1px;
-    height: 12px;
-    border-right: 1px solid rgb(238, 238, 238); 
-    margin-left: 10px;
-    margin-right: 10px;
-}
 .reput{
     font-size: 16px;
     display: flex;
@@ -525,6 +527,8 @@ ul, li {
     align-items: center;
     float: left;
     margin-right: 10px;
+    color:#000;
+    border:0px;
 }
 .pcontent{
 	font-size: 2rem;
@@ -550,7 +554,12 @@ ul, li {
     margin-left: 80px;
     margin-right: 5px;
     float: left;
+    border: 0px;
 
+}
+.btnlike:hover{
+	transition : 0.5s;
+  	transform: scale(1.1);
 }
 .coll{
     width: 25%;
@@ -559,6 +568,10 @@ ul, li {
     border: 1px solid rgb(243, 150, 20);
     color: rgb(255, 255, 255);
 }
+.coll:hover{
+	transition : 0.5s;
+  	transform: scale(1.1)
+}
 .nowsell{
     width: 25%;
     height: 70px;
@@ -566,6 +579,10 @@ ul, li {
     border: 1px solid rgb(223, 0, 0);
     color: rgb(255, 255, 255);
    }
+.nowsell:hover{
+	transition : 0.5s;
+  	transform: scale(1.1)
+}
 .reply{
 	width: 70%;
     margin-left: 200px;
@@ -681,4 +698,34 @@ figure.snip1200.hover p {
   opacity: 1;
   -webkit-transition-delay: 0.35s;
   transition-delay: 0.35s;
+}
+.rInsert{
+	width: 90; 
+	height: 70;  
+	color: #fff;
+	font-size: 2rem;  
+	font-weight: 500;
+    display: flex;
+    -webkit-box-align: center;
+    background: #1b5ac2;
+    border: linen;
+    align-items: center;
+}
+.rInsert2{
+    width: 110;
+    height: 70;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex;
+    -webkit-box-align: center;
+    background: #1b5ac2;
+    border: linen;
+    align-items: center;
+}
+.rInsert2:hover{
+	transition : 0.5s;
+  	transform: scale(1.1);
+  	color: #fff;
+  	text-decoration-line: none;
 }

@@ -24,4 +24,6 @@ public interface EventDao {
 
 	int getEventCount();
 
+	List<EventBoard> list2();
+
 }

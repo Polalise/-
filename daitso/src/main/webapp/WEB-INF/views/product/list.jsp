@@ -52,7 +52,7 @@ select option[value=""][disabled] {
 						<li><a href="p_list.do">◾메인</a></li>
 						<br>
 						<c:if test="${id != 'admin' }">
-							<li><a href="myProfile.do">◾마이페이지</a></li>
+							<li><a href="myProfileForm.do">◾마이페이지</a></li>
 							<br>
 						</c:if>
 						<c:if test="${id == 'admin' }">
@@ -137,9 +137,9 @@ select option[value=""][disabled] {
 					<c:if test="${product.p_del == 'y'}">
 						<div class="listpage" style="display: none"></div>
 					</c:if>
-					<%-- <c:if test="${product.sel =='y' }">
+					<c:if test="${product.sel =='y' }">
 						<td colspan="6">거래 완료된 글입니다
-					</c:if> --%>
+					</c:if>
 					<c:if test="${product.p_del != 'y'}">
 						<div class="listbox"
 							onclick="location.href='p_view.do?p_num=${product.p_num}&pageNum=${pb.currentPage}'"
