@@ -64,7 +64,7 @@ select option[value=""][disabled] {
 						<li><a href="p_list.do">◾메인</a></li>
 						<br>
 						<c:if test="${id != 'admin' }">
-							<li><a href="myProfileForm.do">◾마이페이지</a></li>
+							<li><a href="myProfile.do">◾마이페이지</a></li>
 							<br>
 						</c:if>
 						<c:if test="${id == 'admin' }">
@@ -100,7 +100,7 @@ select option[value=""][disabled] {
 				<img src="${path }/resources/images/main2.png" width="15"
 					height="16" alt="번개톡버튼 이미지">다있톡
 			</button>
-			<a class="shop" href="myProfileForm.do">
+			<a class="shop" href="myProfile.do">
 			<img src="${path }/resources/images/main1.png" width="15" height="16" alt="내상점버튼 이미지">내상점</a> 
 			<a class="products"><img src="${path }/resources/images/main3.png" width="15" height="16"
 				alt="판매하기버튼 이미지" onclick="location.href='p_insertForm.do?p_num=0&pageNum=1'">글등록</a>
