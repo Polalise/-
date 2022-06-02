@@ -1,39 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../ready.jsp" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="${path }/resources/css/updateForm.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-	/* drop & drap */
-	.drag-over{
-		background: yellow;
-	}
-	.thumb{
-		width: 200px;
-		padding: 5px;
-		float: left;
-	}
-	.thumb > img {
-		width: 100%;
-	}
-	.thumb > .close {
-		position: absolute;
-		background: red;
-		cursor: pointer;
-	}
-	#drop {
-		border: 1px solid black;
-		width: 300px;
-		height: 200px;
-		padding: 3px;
-	}
-	.err { 
-		color: orange;
-	}
-</style>
 <script type="text/javascript">
 //미리보기에 사진 올려 두면 파일 첨부 한 것과 같은 효과를 위한 함수(여러개 일 때는 작동을 안함)
 	$(document).on("drop", function(e) {
@@ -107,48 +80,71 @@
 	}
 </script>
 </head>
-<body>
-<div class="container" align="center">
-		<h2 class="metion">회원 가입</h2>
-		<form action="m_update.do"  method="post" enctype="multipart/form-data" name="frm" onsubmit="return chk()">
-		<input type="hidden" name="id" value="${member.id }">
-			<div>
-			<div>아이디 : ${member.id}</div>
-			
-			</div>
-			<div>
-				<div>비밀번호<input type="password" name="password" required="required"></div>
-			</div>
-			<div>
-				<div>비밀번호확인<input type="password" name="password2" required="required"></div>
-			</div>
-			<div>
-				<div>이름<input type="text" name="name" required="required" value="${member.name}"></div>
-			</div>
-			<div>
-				<div>별명<input type="text" name="nickName" required="required" value="${member.nickName}">
-						<input type="button" class="btn btn-sm" value="중복체크" onclick="nickChk()" ></div>
-						<div id="nickChk1" class="err"></div>
-			</div>
-			<div>
-				<div>주소<input type="text" name="address" required="required" value="${member.address}"></div>
-			</div>
-			<div>
-				<div>휴대폰번호<input type="text" name="phone" required="required" value="${member.phone}"></div>
-			</div>
-			<div>
-				<div>이메일<input type="email" name="email" required="required" value="${member.email}"></div>
-			</div>
-			<div>
-				<div>사진<input type="file" name="file"><img alt="" src="resources/upload/${member.photoName}" width="200"></div>
-			</div>
-			<div>
-				<div>프로필 미리보기<div id="drop"><div id="thumnails">그림을 올려놓으세요</div></div></div>
-			</div>
-			<div align="center">
-				<input type="submit" class="btn btn-success" value="내정보 수정">
-			</div>
-		</form>
-	</div>
+<body>	
+	<div class="update_main">
+	<form action="m_update.do"  method="post" enctype="multipart/form-data" name="frm" onsubmit="return chk()">
+        <div class="container">
+            <div class="content">
+                <h2 class="metion">내 정보 수정</h2>
+                    <div class="profile_box">
+                    <div class="wap">
+                        <div class="update_id">
+                            <div class="idtext" style="margin-top: 10px;">아이디</div>
+                            <div class="sec">
+                                <input type="text" id="id" name="id" value="${member.id }" readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="update_password">
+                            <div class="passwordtext" style="margin-top: 10px;">비밀번호</div>
+                            <div class="sec">
+                                <input type="password" name="password" id="password" required="required">
+                            </div>
+                        </div>
+                        <div class="update_password2">
+                            <div class="password2text" style="margin-top: 10px;">비밀번호확인</div>
+                            <div class="sec">
+                                <input type="password" name="password2" id="password2" required="required">
+                            </div>
+                        </div>
+                        <div id="passwordChk1" class="err"></div>
+                        <div class="update_nickName">
+                            <div class="password2text" style="margin-top: 10px;">별명</div>
+                            <div class="sec">
+                                <input type="text" id="nickName" name="nickName" required="required"
+                                    placeholder="2글자 이상" value="${member.nickName}">
+                            </div>
+                        </div>
+                        <div id="nickChk1" class="err"></div>
+                        <div class="update_address">
+                            <div class="addresstext" style="margin-top: 10px;">주소</div>
+                            <div class="sec">
+                                <input type="text" name="address" required="required" value="${member.address}">
+                            </div>
+                        </div>
+                        <div class="update_phone">
+                            <div class="phonetext" style="margin-top: 10px;">휴대폰번호</div>
+                            <div class="sec">
+                                <input type="text" name="phone" required="required" placeholder="010-xxxx-xxxx"
+                                    value="${member.phone}">
+                            </div>
+                        </div>
+                        <div class="update_email">
+                            <div class="emailtext" style="margin-top: 10px;">이메일</div>
+                            <div class="sec">
+                                <input type="email" name="email" required="required" value="${member.email}"></div>
+                        </div>
+                    </div>
+                    <div class="update_photoName">
+                        <div class="photoBox"><img src="${path }/resources/upload/${member.photoName}">
+                        <input type="file" name="file" value="${member.photoName }"></div>
+                    </div>
+                    </div>
+                    <div class="footer">
+                        <input type="submit" class="successBtn" value="수정하기">
+                    </div>
+            </div>
+        </div>
+	</form>
+    </div>
 </body>
 </html>

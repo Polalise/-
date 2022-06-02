@@ -21,7 +21,6 @@ public class LikesController {
 	@ResponseBody
 	public String addAction(Likes likes, Model model) {
 		int result = ls.addLikes(likes);
-		System.out.println("result : "+result);
 		model.addAttribute("likes",likes);
 		return result+"";
 	}
@@ -30,7 +29,6 @@ public class LikesController {
 	@ResponseBody
 	public String delAction(Likes likes, Model model) {
 		int result = ls.deleteLikes(likes);
-		System.out.println("result : "+result);
 		model.addAttribute("likes",likes);
 		return result+"";
 	}

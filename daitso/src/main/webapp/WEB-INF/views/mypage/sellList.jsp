@@ -12,10 +12,9 @@
 	$(function() {
 		$('#reviewPop').click(
 				function() {
-					alert(p_num);
 					var pop = window.open(
 							"reviewPop.do?p_num=${product.p_num}", "content",
-							"width=620 height=700");
+							"width=510 height=560");
 				});
 	});
 </script>

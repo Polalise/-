@@ -56,4 +56,6 @@ public interface MemberDao {
 	void penalty(int score, String id);
 
 	int getCount3();
+
+	int fired(String id);
 }

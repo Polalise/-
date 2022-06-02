@@ -49,14 +49,14 @@ public class TradeController {
 	public String confirmTrade(int p_num, HttpSession session,Model model) {
 		Product product = ps.select(p_num);
 		product.setSel("y");
-		
 		String id = (String)session.getAttribute("id");
 		Member member = ms.selectId(id);
 		Likes likes2 = ls.searchList(id, p_num);
 		model.addAttribute("member" , member);
-		
 		product.setBuyer(id);
+		mys.setBuyer(product);
 		int result = mys.changeStatus(product);
+		System.out.println(product.getBuyer());
 		model.addAttribute("result",result);
 		model.addAttribute("product", product);
 		return "/product/temporaryPage2";

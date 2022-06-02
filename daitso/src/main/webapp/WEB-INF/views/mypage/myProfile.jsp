@@ -8,11 +8,6 @@
 <link rel="stylesheet" href="${path}/resources/css/myProfile.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	$(function() {
-
-	});
-</script>
 </head>
 <body>
 	<div class="profileBox">
@@ -27,17 +22,18 @@
 				</div>
 			</div>
 			<div class="profile">
-				<div class="name">${member.nickName}님 의 가입일은 ${member.regdate}
-					입니다</div>
+				<div class="name">${member.nickName}님</div>
 				<div class="etc">
-					<a>판매한 횟수 : ${productCountS}</a> <br /> <a>구매한 횟수 :
-						${productCountB}</a> <br /> <a>찜한 횟수 : ${likesCount} </a> <br /> <a>본명
-						: ${member.name }</a>
+					<a>판매한 횟수 : <c:if test="${productCountS ==  null}">아직 판매 이력이 없어요!!</c:if>  <c:if test="${productCountS != null}">${productCountS} 회</c:if></a>
+					<br/>
+					<a>구매한 횟수 : <c:if test="${productCountB == null}">아직 구매 이력이 없어요!!</c:if>    <c:if test="${productCountB != null}">${productCountB} 회</c:if> </a>
+					<br/>
+					<a>찜한 횟수 : <c:if test="${likesCount == null || likesCount == 0}">아직 찜한 상품이 없어요!!</c:if> <c:if test="${likesCount != null && likesCount != 0}">${likesCount} 회</c:if> </a>
+					<br/>
+					<a>이메일 : ${member.email }</a>
 				</div>
 			</div>
 			<!-- 레벨 진행도 -->
-			<!-- 각 왼쪽 Lv , 오른쪽 % 표시 -->
-			<span class="Lv">lv</span> <span class="Per">%</span>
 			<!-- 레벨 bar -->
 			<meter class="level" value="${member.grade}" min="${minGrade}"
 				max="${maxGrade}"></meter>
@@ -59,7 +55,7 @@
 			</c:if>
 		</div>
 		<div class="event">
-			<img src="images/event.PNG" />
+			<img src="${path}/resources/images/event.PNG" />
 		</div>
 	</div>
 </body>

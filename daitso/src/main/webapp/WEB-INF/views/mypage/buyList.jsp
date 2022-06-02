@@ -10,14 +10,12 @@
 <title>구매목록</title>
 <script type="text/javascript">
 	function reviewPop(p_num) {
-		alert("p_num : " + p_num);
 		var pop = window.open(
 			"reviewPop.do?p_num="+p_num, "content",
 			"width=510 height=560");
 	};
 	
 	function replywrite(p_num) {
-		alert("p_num : " + p_num);
 		var pop = window.open(
 				"replyWriteForm2.do?p_num="+p_num, "content",
 				"width=420 height=610");
@@ -41,15 +39,20 @@
 			<c:forEach var="product" items="${myBuyList }">
 				<div class="viewList">
 					<div class="product">
-						<span class="thumbnail"> <img
-							src="${path}/resources/upload/${product.thumnails}"></span> <a>${product.p_name}</a>
-						<a>${product.updateday}</a> <a>${product.price}</a> <a>${product.p_writer}</a>
+						<span class="thumbnail">
+						<img src="${path}/resources/upload/${product.thumnails}"></span>
+						<a class="mp_name">${product.p_name}</a>
+						<a class="mp_date">${product.updateday}</a>
+						<a class="mp_price">${product.price}</a>
+						<a class="mp_writer">${product.p_writer}</a>
+						
 						<c:if test="${product.review == 'n' }">
-							<a onclick="replywrite(${product.p_num})">리뷰 쓰러가기 !</a>
+							<a onclick="replywrite(${product.p_num})" class="mp_review">리뷰 쓰러가기 !</a>
 						</c:if>
 						<c:if test="${product.review == 'y' }">
-							<a onclick="reviewPop(${product.p_num})">리뷰 보러가기</a>
+							<a onclick="reviewPop(${product.p_num})" class="mp_review">리뷰 보러가기</a>
 						</c:if>
+						
 					</div>
 				</div>
 			</c:forEach>
