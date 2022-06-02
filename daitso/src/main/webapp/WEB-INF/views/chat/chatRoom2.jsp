@@ -277,6 +277,15 @@
 		a.btn.btn-info{
 			float: right;
 		}
+		
+		.send_bottom_Btn{
+			display: flex;
+    		width: 370px;
+    		flex-wrap: nowrap;
+    		justify-content: space-between;
+		}
+		
+		
 </style>
 <script type="text/javascript">
 	var websocket; // function 밖으로 빼면 전역변수, function안에 있으면 지역변수로 활용
@@ -395,6 +404,12 @@
          
         time.innerText = msg;
     }
+	function confirmTrade(p_num) {
+		location.href="confirmTrade.do?p_num="+p_num;
+		var pop = window.open(
+				"replyWriteForm2.do?p_num="+p_num, "content",
+				"width=420 height=610");
+	}
 </script>
 </head>
 <body>
@@ -491,14 +506,18 @@
 	                
 	                <div class="chat-message clearfix">
                     <div class="input-group mb-0">
-                        <div>
-                        	<input type="text" id="message" class="form-control" placeholder="Enter text here...">
+                        <div class="send_bottom_Btn">
+                        	<input type="text" id="message" class="form-control" placeholder="Enter text here..." style="width: 250px;">
                         	<input type="button" id="sendBtn" value="메세지 보내기" class="btn btn-success">
                         </div>                                    
                     </div>
-                    <div>
-                    	<a href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a> </div>           
-                	</div>
+	                    <div>
+	                    	<a href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>           
+	                		<c:if test="${product.sel == 'i' }">
+	                			<button onclick="confirmTrade(${product.p_num})" class="btn btn-warning">구매확정</button>
+	                		</c:if>
+	                	</div>
+                	</div> 
                 </c:if>
                 
                 <!-- 판매자와 채팅 방이 있는 경우 -->
@@ -524,12 +543,17 @@
 	                
 	                <div class="chat-message clearfix">
                     <div class="input-group mb-0">
-                        <div>
-                        	<input type="text" id="message" class="form-control" placeholder="Enter text here...">
+                        <div class="send_bottom_Btn">
+                        	<input type="text" id="message" class="form-control" placeholder="Enter text here..." style="width: 250px;">
                         	<input type="button" id="sendBtn" value="메세지 보내기" class="btn btn-success">
                         </div>                                    
                     </div>
-                    <div><a href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a> </div>           
+	                    <div>
+	                    	<a href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>
+	                    	<c:if test="${product.sel != 'i' && product.sel == 'n'}">         
+	                			<button onclick="location.href='sendProduct.do?p_num=${product.p_num}'" class="btn btn-warning">배송완료</button>
+	                		</c:if>  
+	                	</div>
                 	</div>
                 </c:if>
                 

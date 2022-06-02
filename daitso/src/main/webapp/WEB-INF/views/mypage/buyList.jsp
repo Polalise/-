@@ -19,6 +19,7 @@
 		var pop = window.open(
 				"replyWriteForm2.do?p_num="+p_num, "content",
 				"width=420 height=610");
+				location.reload();
 	};
 </script>
 </head>
