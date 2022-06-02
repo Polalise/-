@@ -74,14 +74,15 @@
 
 /* 구매한 물품들 list div */
 .main .list .viewList {
-  display: inline-block;
-  height: 100%;
+	display: inline-block;
+	height: 200px;
 }
-.viewList .product{
-  display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    align-content: center;
+
+.viewList .product {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	align-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
 }

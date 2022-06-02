@@ -34,7 +34,7 @@ function delAction(p_num,id) {
 						</span>
 					</div>
 					<div class="info">
-						<a>${product.p_name }</a>
+						<a href="p_view.do?p_num=${product.p_num}">${product.p_name }</a>
 						<a>${product.price }</a>
 						<a>${product.p_date }</a>
 					</div>
