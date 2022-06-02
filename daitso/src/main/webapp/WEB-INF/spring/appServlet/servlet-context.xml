@@ -38,7 +38,7 @@
 			<mapping path="/member/m_delete.do"/> -->
 			<mapping path="/p_insertForm.do"/>
 			<mapping path="/chatRoom.do"/>
-			<mapping path="/p_view.do"/>
+			<!-- <mapping path="/p_view.do"/> -->
 			
 			
 			<beans:ref bean="lc"/>

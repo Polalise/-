@@ -138,8 +138,26 @@ select option[value=""][disabled] {
 						<div class="listpage" style="display: none"></div>
 					</c:if>
 					<c:if test="${product.sel =='y' }">
-						<td colspan="6">거래 완료된 글입니다
-					</c:if>
+                  <div class="listbox"
+                     onclick="location.href='p_view.do?p_num=${product.p_num}&pageNum=${pb.currentPage}'"
+                     style="cursor: pointer;">
+                     <figure class="snip1200">
+                        <img alt="${product.thumnails }"
+                           src="${path}/resources/upload/del.jpg."
+                           style="width: 100%; height: 100%;">
+                        <figcaption>
+                           <p>${product.p_writer }<br> ${product.price }원<br>
+                              ${product.p_local }
+                           </p>
+                           <div class="heading">
+                              <h2>
+                                 <span>${product.p_name }</span>
+                              </h2>
+                           </div>
+                        </figcaption> 
+                     </figure>
+                  </div>
+                  </c:if>
 					<c:if test="${product.p_del != 'y'}">
 						<div class="listbox"
 							onclick="location.href='p_view.do?p_num=${product.p_num}&pageNum=${pb.currentPage}'"

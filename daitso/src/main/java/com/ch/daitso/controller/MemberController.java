@@ -46,6 +46,7 @@ public class MemberController {
 	// 임시로 만든 메인 화면
 	@RequestMapping("main1")
 	public String main() {
+		System.out.println(1);
 		return "main";
 	}
 	
