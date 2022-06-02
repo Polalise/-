@@ -43,27 +43,27 @@
 
 /* 판매물품 */
 .header_info .title{
-  border: solid red 1px;
+  background-color: #FBE0C4;
   display: inline-block;
   width: 600px;
 }
 /* 판매일 */
 .header_info .s_date{
-  border: solid red 1px;
+  background-color: #FBE0C4;
   display: inline-block;
   margin-left: 70px;
   width: 220px;
 }
 /* 물품가격 */
 .header_info .s_price{
-  border: solid red 1px;
+  background-color: #FBE0C4;
   display: inline-block;
   margin-left: 70px;
   width: 220px;
 }
 /* 리뷰 */
 .header_info .s_review{
-  border: solid red 1px;
+  background-color: #FBE0C4;
   display: inline-block;
   margin-left: 70px;
   width: 220px;
@@ -83,7 +83,7 @@
 }
 /* 판매한 물품 사진 div */
 .product .thumbnail {
-  display: inline-block;
+  display: flex;
   text-align: center;
   line-height: 150px;
   border: solid rgb(26, 122, 69) 1px;
@@ -102,7 +102,7 @@
 /* 판매물품 */
 .viewList .product .mp_name {
   display: inline-block;
-  border: solid red 1px;
+  background-color : #F2EBE9;
   height: 150px;
   margin-left: 30px;
   width: 420px;
@@ -112,7 +112,7 @@
 /* 판매 일시 */
 .viewList .product .mp_date {
   display: inline-block;
-  border: solid black 1px;
+  background-color : #F2EBE9;
   height: 150px;
   width: 220px;
   margin-left: 70px;
@@ -122,7 +122,7 @@
 /* 판매 가격 */
 .viewList .product .mp_price {
   display: inline-block;
-  border: solid red 1px;
+  background-color : #F2EBE9;
   height: 150px;
   width: 220px;
   margin-left: 70px;
@@ -131,7 +131,7 @@
 } /* 리뷰 */
 .viewList .product .mp_review {
   display: inline-block;
-  border: solid black 1px;
+  background-color : #F2EBE9;
   height: 150px;
   width: 220px;
   margin-left: 70px;

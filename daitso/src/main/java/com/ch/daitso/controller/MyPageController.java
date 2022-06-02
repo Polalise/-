@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.ch.daitso.model.*;
 import com.ch.daitso.service.*;
@@ -33,6 +34,9 @@ public class MyPageController {
 	
 	@Autowired
 	private ReplyService rs;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@RequestMapping("myProfile")
 	public String myProfileForm(Member member,Product product,Mypage mypage,Model model, HttpSession session) {
@@ -83,9 +87,9 @@ public class MyPageController {
 			maxGrade = tier;
 			tierBC = "vip";
 		}
+		model.addAttribute("tierBC", tierBC);
 		model.addAttribute("minGrade",minGrade);
 		model.addAttribute("maxGrade", maxGrade);
-		model.addAttribute("tierBC", tierBC);
 		// 구매&판매 정보 넘김
 		model.addAttribute("myBuyList",myBuyList);
 		model.addAttribute("mySellList",mySellList);
@@ -105,6 +109,22 @@ public class MyPageController {
 		Member member2 = ms.selectId(id);
 		model.addAttribute("member",member2);
 		
+		int tier = member2.getGrade();
+		String tierBC = "";
+		if (tier <= 20) {
+			tierBC = "warning";
+		} else if (tier > 20 && tier < 50) {
+			tierBC = "silver";
+		} else if (tier >= 50 && tier < 100) {
+			tierBC = "gold";
+		} else if (tier >= 100 && tier < 200) {
+			tierBC = "platinum";
+		} else if (tier >= 200 && tier < 300) {
+			tierBC = "diamond";
+		} else if (tier >= 300) {
+			tierBC = "vip";
+		}
+		model.addAttribute("tierBC", tierBC);
 		List<Mypage> myBuyList = mys.myBuyList(id);
 		model.addAttribute("myBuyList",myBuyList);
 		int productCountB = mys.myBuyCount(id);
@@ -121,6 +141,23 @@ public class MyPageController {
 		Member member2 = ms.selectId(id);
 		model.addAttribute("member", member2);
 		
+		int tier = member2.getGrade();
+		String tierBC = "";
+		if (tier <= 20) {
+			tierBC = "warning";
+		} else if (tier > 20 && tier < 50) {
+			tierBC = "silver";
+		} else if (tier >= 50 && tier < 100) {
+			tierBC = "gold";
+		} else if (tier >= 100 && tier < 200) {
+			tierBC = "platinum";
+		} else if (tier >= 200 && tier < 300) {
+			tierBC = "diamond";
+		} else if (tier >= 300) {
+			tierBC = "vip";
+		}
+		model.addAttribute("tierBC", tierBC);
+		
 		List<Mypage> mySellList = mys.mySellList(id);
 		model.addAttribute("mySellList",mySellList);
 		int productCountS = mys.mySellCount(id);
@@ -136,11 +173,26 @@ public class MyPageController {
 		Member member2 = ms.selectId(id);
 		model.addAttribute("member", member2);
 		
+		int tier = member2.getGrade();
+		String tierBC = "";
+		if (tier <= 20) {
+			tierBC = "warning";
+		} else if (tier > 20 && tier < 50) {
+			tierBC = "silver";
+		} else if (tier >= 50 && tier < 100) {
+			tierBC = "gold";
+		} else if (tier >= 100 && tier < 200) {
+			tierBC = "platinum";
+		} else if (tier >= 200 && tier < 300) {
+			tierBC = "diamond";
+		} else if (tier >= 300) {
+			tierBC = "vip";
+		}
+		model.addAttribute("tierBC", tierBC);
+		
 		//내 좋아요 물품 및 카운트 정보 넘기기
 		List<Mypage> likeList = mys.likeList(id);
 		int likesCount = mys.likeCount(id);
-		System.out.println("찜한 횟수 : " + likesCount);
-		System.out.println("찜한 게시글 info : " + likeList);
 		model.addAttribute("likeList",likeList);
 		model.addAttribute("likesCount", likesCount);
 
@@ -174,10 +226,41 @@ public class MyPageController {
 		// p_num 으로 해당 게시물 리뷰 불러옴
 		Reply reply = rs.selectReview(p_num);
 		Product product = ps.select(p_num);
-		System.out.println("reply : " + reply);
 		// 불러온 정보 전부 넘김
 		model.addAttribute("product",product);
 		model.addAttribute("reply",reply);
 		return "admin/review/reviewPop";
 	}
+	
+	@RequestMapping("firedmemberForm")
+	public String firedmember(Model model, HttpSession session) {
+		String id = (String) session.getAttribute("id");
+		Member member = ms.select(id);
+		model.addAttribute("member",member);
+		return "/mypage/firedmemberForm";
+	}
+	
+	@RequestMapping("firedPasswordChk")
+	public String firedPasswordChk(String id,Model model,String password) {
+		Member member = ms.select(id);
+//		String encPassword = passwordEncoder.encode(password);
+		int result = 0;
+		if(passwordEncoder.matches(password, member.getPassword())) {
+			result = 1;
+		} else {
+			result = -1;
+		}
+		
+		model.addAttribute("member",member);
+		model.addAttribute("result",result);
+		return "/mypage/firedPasswordChk";
+	}
+	
+	@RequestMapping("firedmember")
+	public String firedmember(String id,Model model) {
+	int result = ms.fired(id);
+	model.addAttribute("result",result);
+	return "/mypage/firedmember";
+	}
+	
 }

@@ -57,4 +57,6 @@ public interface MemberService {
 
 	int getCount3();
 
+	int fired(String id);
+
 }

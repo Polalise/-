@@ -176,6 +176,24 @@ public class MemberController {
 		String id = (String)session.getAttribute("id");
 		Member member = ms.selectId(id);
 		model.addAttribute("member", member);
+		
+		int tier = member.getGrade();
+		String tierBC = "";
+		if (tier <= 20) {
+			tierBC = "warning";
+		} else if (tier > 20 && tier < 50) {
+			tierBC = "silver";
+		} else if (tier >= 50 && tier < 100) {
+			tierBC = "gold";
+		} else if (tier >= 100 && tier < 200) {
+			tierBC = "platinum";
+		} else if (tier >= 200 && tier < 300) {
+			tierBC = "diamond";
+		} else if (tier >= 300) {
+			tierBC = "vip";
+		}
+		model.addAttribute("tierBC", tierBC);
+		
 		return "/member/updateForm";
 	}
 	

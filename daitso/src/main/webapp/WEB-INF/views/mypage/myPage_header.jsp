@@ -4,17 +4,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="${path}/resources/css/myPage.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
         <div class="top">
-                <div class="top_bg1">
-                <span class="logoImg">
-                <img src="${path }/resources/images/logo.png">
-                </span>
+            <span class="logoImg">
+                <img src="${path }/resources/images/logo.png" onclick="location.href='main.do'">
+            </span>
+            <div class="top_bg1">
+                <div class="tier_bg">현재 ${tierBC} 등급 입니다</div>
             </div>
-            </div>
+        </div>
 </body>
 </html>

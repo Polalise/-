@@ -20,9 +20,9 @@ function delAction(p_num,id) {
 <input type="hidden" value="${product.p_num}">
 <input type="hidden" value="${id }">
 	<div class="list">
-		<a class="header">물품리스트</a>
+		<a class="header"></a>
 		<c:if test="${empty likeList }">
-					찜한 상품이 없어요!
+					<a style="margin-left: 60px;">찜한 상품이 없어요!</a>
 				</c:if>
 		<c:if test="${not empty likeList }">
 			<c:forEach var="product" items="${likeList }">

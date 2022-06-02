@@ -146,4 +146,9 @@ public class MemberDaoImpl implements MemberDao {
 	public int getCount3() {
 		return sst.selectOne("memberns.getCount3");
 	}
+
+	@Override
+	public int fired(String id) {
+		return sst.update("memberns.fired", id);
+	}
 }

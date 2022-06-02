@@ -130,4 +130,9 @@ public class MemberServiceImpl implements MemberService {
 	public int getCount3() {
 		return md.getCount3(); 
 	}
+
+	@Override
+	public int fired(String id) {
+		return md.fired(id);
+	}
 }

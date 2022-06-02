@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="${path}/resources/css/myPage.css">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

@@ -24,4 +24,8 @@
 	<definition name="/mypage/*" extends="mypagebase">
 		<put-attribute name="myPage_body"	value="/WEB-INF/views/mypage/{1}.jsp" />
 	</definition>
+	
+	<definition name="/member/updateForm" extends="mypagebase">
+		<put-attribute name="myPage_body" value="/WEB-INF/views/member/updateForm.jsp" />
+	</definition>
 </tiles-definitions>
