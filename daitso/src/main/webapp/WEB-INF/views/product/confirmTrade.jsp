@@ -10,15 +10,16 @@
 <body>
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
-			alert("리뷰가 작성되었습니다");
-			window.close();
-		</script>
+		alert("구매 확정처리 되었습니다");
+		window.open("replyWriteForm2.do?p_num=${product.p_num}", "content","width=420 height=610");
+		history.back();
+	</script>
 	</c:if>
-	<c:if test="${result == 0 }">
+	<c:if test="${result <= 0 }">
 		<script type="text/javascript">
-			alert("리뷰 작성중 오류가 발생하였습니다");
-			window.close();
-		</script>
+		alert("실패");
+		history.back();
+	</script>
 	</c:if>
 </body>
 </html>

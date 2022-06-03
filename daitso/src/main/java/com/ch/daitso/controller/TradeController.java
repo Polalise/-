@@ -41,7 +41,7 @@ public class TradeController {
 		product.setSel("i");
 		int result = mys.changeStatus(product);
 		model.addAttribute("result",result);
-		return "/product/temporaryPage";
+		return "/product/sendProduct";
 	}
 
 	// 구매자 구매 확정
@@ -56,10 +56,9 @@ public class TradeController {
 		product.setBuyer(id);
 		mys.setBuyer(product);
 		int result = mys.changeStatus(product);
-		System.out.println(product.getBuyer());
+		model.addAttribute("product",product);
 		model.addAttribute("result",result);
-		model.addAttribute("product", product);
-		return "/product/temporaryPage2";
+		return "/product/confirmTrade";
 	}
 
 }

@@ -10,15 +10,15 @@
 <body>
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
-			alert("리뷰가 작성되었습니다");
-			window.close();
-		</script>
+		alert("발송완료 처리 되었습니다");
+		history.back();
+	</script>
 	</c:if>
-	<c:if test="${result == 0 }">
+	<c:if test="${result <= 0 }">
 		<script type="text/javascript">
-			alert("리뷰 작성중 오류가 발생하였습니다");
-			window.close();
-		</script>
+		alert("오류가 발생하였습니다");
+		history.back();
+	</script>
 	</c:if>
 </body>
 </html>

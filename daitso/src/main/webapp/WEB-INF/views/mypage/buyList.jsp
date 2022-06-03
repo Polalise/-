@@ -19,6 +19,7 @@
 		var pop = window.open(
 				"replyWriteForm2.do?p_num="+p_num, "content",
 				"width=420 height=610");
+				location.reload();
 	};
 </script>
 </head>
@@ -41,7 +42,7 @@
 					<div class="product">
 						<span class="thumbnail">
 						<img src="${path}/resources/upload/${product.thumnails}"></span>
-						<a class="mp_name">${product.p_name}</a>
+						<a class="mp_name" href="p_view.do?p_num=${product.p_num}">${product.p_name}</a>
 						<a class="mp_date">${product.updateday}</a>
 						<a class="mp_price">${product.price}</a>
 						<a class="mp_writer">${product.p_writer}</a>

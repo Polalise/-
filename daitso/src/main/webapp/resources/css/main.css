@@ -148,7 +148,7 @@ ul, li {
 	padding: 0;
 }
 .main_slide {
-	width: 120%;
+	width: 121.5%;
     height: 120%;
     overflow: hidden;
     margin-left: 150px;
@@ -172,16 +172,17 @@ ul, li {
 	background-size: cover;
 }
 @keyframes main_slide {
-      0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+       0% {margin-left:0;} /* 0 ~ 10  : 정지 */
       10% {margin-left:0;} /* 10 ~ 25 : 변이 */
       25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
-      35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
-      50% {margin-left:-200%;}
-      60% {margin-left:-200%;}
-      75% {margin-left:-300%;}
-      85% {margin-left:-300%;}
+      35% {margin-left:-200%;} /* 35 ~ 50 : 변이 */
+      50% {margin-left:-300%;}
+      60% {margin-left:-400%;}
+      75% {margin-left:-500%;}
+      85% {margin-left:-600%;}
       100% {margin-left:0;}
 }
+
 .eventpoto{
 	width: 100%;
 	height: 100%;
@@ -702,30 +703,29 @@ figure.snip1200.hover p {
 .rInsert{
 	width: 90; 
 	height: 70;  
-	color: #fff;
 	font-size: 2rem;  
 	font-weight: 500;
     display: flex;
     -webkit-box-align: center;
-    background: #1b5ac2;
+    background: #FBE0C4;
     border: linen;
     align-items: center;
+ 
 }
 .rInsert2{
-    width: 110;
+    width: 110; 
     height: 70;
-    color: #fff;
     font-size: 2rem;
     font-weight: 500;
     display: flex;
     -webkit-box-align: center;
-    background: #1b5ac2;
+    background: #FBE0C4;
     border: linen;
     align-items: center;
+    color:#000;
 }
 .rInsert2:hover{
 	transition : 0.5s;
   	transform: scale(1.1);
-  	color: #fff;
   	text-decoration-line: none;
 }

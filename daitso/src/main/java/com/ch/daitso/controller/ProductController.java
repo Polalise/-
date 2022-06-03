@@ -57,7 +57,7 @@ public class ProductController {
 		PageBean pb = new PageBean(currentPage, rowPerPage, total);
 		int p_num = total - startRow + 1;
 		// 매개변수로 넘어온데이터를 같은 url로 변경없이 전달할 때는 model.addAttribute 생략 가능
-		String[] title = { "작성자", "제목", "내용", "제목+내용" };
+		String[] title = {"제목/내용" , "작성자", "제목", "내용" };
 //	      String[] title2 = {"판매","구매"};
 		model.addAttribute("title", title);
 //	       model.addAttribute("title2", title2);
@@ -66,13 +66,47 @@ public class ProductController {
 		model.addAttribute("list", list);
 		model.addAttribute("list2", list2);
 		
-//		if (member != null) {
-//		String id = (String) session.getAttribute("id");
-//		member = ms.selectId(id);
-//		model.addAttribute("member", member);
-//		}
+		String id = (String) session.getAttribute("id");
+		member = ms.selectId(id);
+		model.addAttribute("member", member);
+		
 		return "/product/main";
 	}
+	
+	@RequestMapping("main2")
+	public String main2(Product product, String pageNum, Model model, HttpSession session, Member member) {
+		if (pageNum == null || pageNum.equals(""))
+			pageNum = "1";
+		
+		int rowPerPage = 10;
+		int currentPage = Integer.parseInt(pageNum);
+		int total = ps.getTotal(product);
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow = startRow + rowPerPage - 1;
+		product.setStartRow(startRow);
+		product.setEndRow(endRow);
+		List<Product> list = ps.list(product);
+
+		List<EventBoard> list2 = es.list2();
+
+		PageBean pb = new PageBean(currentPage, rowPerPage, total);
+		int p_num = total - startRow + 1;
+		// 매개변수로 넘어온데이터를 같은 url로 변경없이 전달할 때는 model.addAttribute 생략 가능
+		String[] title = {"제목/내용" , "작성자", "제목", "내용" };
+//	      String[] title2 = {"판매","구매"};
+		model.addAttribute("title", title);
+//	       model.addAttribute("title2", title2);
+		model.addAttribute("p_num", p_num);
+		model.addAttribute("pb", pb);
+		model.addAttribute("list", list);
+		model.addAttribute("list2", list2);
+		
+
+
+
+		return "/product/main2";
+	}
+
 
 	@RequestMapping("p_list")
 	public String list(Product product, String pageNum, Model model, HttpSession session, Member member) {
@@ -90,7 +124,7 @@ public class ProductController {
 		PageBean pb = new PageBean(currentPage, rowPerPage, total);
 		int p_num = total - startRow + 1;
 		// 매개변수로 넘어온데이터를 같은 url로 변경없이 전달할 때는 model.addAttribute 생략 가능
-		String[] title = { "작성자", "제목", "내용", "제목+내용" };
+		String[] title = {"제목/내용" , "작성자", "제목", "내용" };
 //	      String[] title2 = {"판매","구매"};
 		model.addAttribute("title", title);
 //	       model.addAttribute("title2", title2);
@@ -110,7 +144,7 @@ public class ProductController {
 
 	@RequestMapping("p_insertForm")
 	public String insertForm(int p_num, String pageNum, Model model, HttpSession session, Member member) {
-		String[] title = { "작성자", "제목", "내용", "제목+내용" };
+		String[] title = {"제목/내용" , "작성자", "제목", "내용" };
 		model.addAttribute("title", title);
 		// 이 부분을 추가해야 회원 세션 정보가 넘어옴
 		String id = (String) session.getAttribute("id");
@@ -180,7 +214,7 @@ public class ProductController {
 
 	@RequestMapping("p_view")
 	public String view(int p_num, String pageNum, Model model, HttpSession session) {
-		String[] title = { "작성자", "제목", "내용", "제목+내용" };
+		String[] title = {"제목/내용" , "작성자", "제목", "내용" };
 		model.addAttribute("title", title);
 		ps.updateReadCount(p_num);
 		Product product = ps.select(p_num);
@@ -207,7 +241,7 @@ public class ProductController {
 
 	@RequestMapping("p_updateForm")
 	public String updateForm(int p_num, String pageNum, Model model) {
-		String[] title = { "작성자", "제목", "내용", "제목+내용" };
+		String[] title = {"제목/내용" , "작성자", "제목", "내용" };
 		model.addAttribute("title", title);
 		Product product = ps.select(p_num);
 		model.addAttribute("product", product);

@@ -404,6 +404,21 @@
          
         time.innerText = msg;
     }
+	
+	function confirmTrade(p_num) {
+	      location.href="confirmTrade.do?p_num="+p_num;
+	      var url = "replyWriteForm2.do?p_num="+p_num;
+	      var option = "width = 420, height = 610, top = 100, left = 200, location = no"
+	      window.open(url, option);
+	      
+	   }
+	
+	/* function popup(){
+        var url = "popup.html";
+        var name = "popup test";
+        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+       
+    } */
 </script>
 </head>
 <body>
@@ -425,7 +440,6 @@
                     	<img alt="" src="${path}/resources/upload/${chatlog.user1_photo}">
                         <div class="about">
                             <div class="name">${chatlog.user1_nick }</div>
-                            <div class="status">${chatlog.room_num }</div>
                             <div class="status">${chatlog.p_name }</div>                                     
                         </div>
                     </li>
@@ -436,8 +450,7 @@
                     <li class="clearfix" onclick="location.href='chatClick.do?room_num=${chatlog2.room_num}'">
                     	<img alt="" src="${path}/resources/upload/${chatlog2.user2_photo}">
                         <div class="about">
-                            <div class="name">${chatlog2.user2_nick }</div>
-                            <div class="status">${chatlog2.room_num }</div>   
+                            <div class="name">${chatlog2.user2_nick }</div>  
                             <div class="status">${chatlog2.p_name }</div>                                
                         </div>
                     </li>
@@ -508,7 +521,7 @@
 	                    <div>
 	                    	<a href="p_list.do?pageNum=${pageNum }" class="btn btn-info">게시글 목록</a>           
 	                		<c:if test="${product.sel == 'i' }">
-	                			<button onclick="location.href='confirmTrade.do?p_num=${product.p_num}'" class="btn btn-warning">구매확정</button>
+	                			<button onclick="confirmTrade(${product.p_num})" class="btn btn-warning">구매확정</button>
 	                		</c:if>
 	                	</div>
                 	</div> 

@@ -2,13 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@include file="header.jsp"%>
 <!DOCTYPE html>
-<style type="text/css">
-@import url("resources/css/main.css");
-</style>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">@import url("resources/css/main.css");</style>
 <style type="text/css">
 select option[value=""][disabled] {
 	display: none;
@@ -96,7 +94,7 @@ select option[value=""][disabled] {
 					</div>
 				</form>
 			</div>
-			<button class="chats" onclick="location.href='http://61.75.24.60:8080/daitso/chatRoom.do?p_num=${product.p_num }'">
+			<button class="chats">
 				<img src="${path }/resources/images/main2.png" width="15"
 					height="16" alt="번개톡버튼 이미지">다있톡
 			</button>
@@ -108,7 +106,7 @@ select option[value=""][disabled] {
 				<a class="shop" href='adminMain2.do'>고객센터</a>
 			</c:if>
 			<c:if test="${id == 'admin' }">
-				<a class="shop" href="adminMain.do">관리자페이지</a>
+				<a class="shop" href="adminMain.do">관리자</a>
 			</c:if>
 			<c:if test="${member.id == null }">
 				<a class="log" href='logout.do'>로그인</a>
@@ -122,37 +120,11 @@ select option[value=""][disabled] {
 			<div class="productlist">		
 				<div class="slide">					
 					<ul class="slide_list">
-						<li><a href="#"> <img
-								alt="${path}/resources/images/noimg.png"
-								src="${path}/resources/upload/${product.thumnails}"></a></li>
-						<li><c:if test="${not empty  product.thumnails2} ">
-								<a href="#"><img alt="" 
-									src="${path}/resources/upload/${product.thumnails2}"></a>
-							</c:if> <c:if test="${empty product.thumnails2}">
-								<a href="#"><img alt=""
-									src="${path}/resources/images/noimg.png" style="width: 100%"></a>
-							</c:if></li>
-						<li><c:if test="${not empty  product.thumnails3} ">
-								<a href="#"><img alt=""
-									src="${path}/resources/upload/${product.thumnails3}"></a>
-							</c:if> <c:if test="${empty product.thumnails3}">
-								<a href="#"><img alt=""
-									src="${path}/resources/images/noimg.png" style="width: 100%"></a>
-							</c:if></li>
-						<li><c:if test="${not empty  product.thumnails4} ">
-								<a href="#"><img alt=""
-									src="${path}/resources/upload/${product.thumnails4}"></a>
-							</c:if> <c:if test="${empty product.thumnails4}">
-								<a href="#"><img alt=""
-									src="${path}/resources/images/noimg.png" style="width: 100%"></a>
-							</c:if></li>
-						<li><c:if test="${not empty  product.thumnails5} ">
-								<a href="#"><img alt=""
-									src="${path}/resources/upload/${product.thumnails5}"></a>
-							</c:if> <c:if test="${empty product.thumnails5}">
-								<a href="#"><img alt=""
-									src="${path}/resources/images/noimg.png" style="width: 100%"></a>
-							</c:if></li>
+						<li><a href="#"> <img alt="${path}/resources/images/noimg.png" src="${path}/resources/upload/${product.thumnails}"></a></li>
+						<li><a href="#"> <img alt="${path}/resources/images/noimg.png" src="${path}/resources/upload/${product.thumnails2}"></a></li>
+						<li><a href="#"> <img alt="${path}/resources/images/noimg.png" src="${path}/resources/upload/${product.thumnails3}"></a></li>
+						<li><a href="#"> <img alt="${path}/resources/images/noimg.png" src="${path}/resources/upload/${product.thumnails4}"></a></li>
+						<li><a href="#"> <img alt="${path}/resources/images/noimg.png" src="${path}/resources/upload/${product.thumnails5}"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -223,9 +195,9 @@ select option[value=""][disabled] {
 				<input type="hidden" name="bno" value="${product.p_num }">
 				<table class="table table-hover">
 					<tr>
-						<th style="background: #1b5ac2;">작성자</th>
+						<th style="background: #FBE0C4; color: #000">작성자</th>
 						<td><input type="text" name="replier"
-							value="${product.p_writer }">
+							value="${member.nickName}">
 						<td>댓글</td>
 						<td><textarea rows="3" cols="50" name="replytext"></textarea></td>
 						<td><input class="rInsert" type="button" value="댓글 입력" id="rInsert" 

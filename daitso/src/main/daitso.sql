@@ -4,10 +4,10 @@ drop table event_board CASCADE CONSTRAINTS;
 drop table replyBoard CASCADE CONSTRAINTS;
 drop table reply CASCADE CONSTRAINTS;
 drop table product CASCADE CONSTRAINTS;
-drop table chat;
+drop table chat CASCADE CONSTRAINTS;
 drop table chatHistory CASCADE CONSTRAINTS;
-drop table report;
-drop table likes;
+drop table report CASCADE CONSTRAINTS;
+drop table likes CASCADE CONSTRAINTS;
 drop table report CASCADE CONSTRAINTS;
 
 create table member (
@@ -23,6 +23,12 @@ create table member (
 	del char(1) default 'n',
 	photoName varchar2(500)
 );
+
+update member set grade = 200 where id ='admin';
+update member set grade = 80 where id ='bonobono';
+update member set grade = 150 where id ='kiroro';
+
+select * from member where id ='admin';
 
 select e_fileName from (select * from event_board order by e_num DESC) WHERE ROWNUM <= 5;
 
@@ -65,6 +71,8 @@ create table chat(
 	user2_photo varchar2(500),
 	chat_time DATE
 );
+
+update chat set user1_photo = 'kiroro.jpg' where room_num =3;
 
 create sequence seq_chat_room_num;
 drop sequence seq_chat_room_num;

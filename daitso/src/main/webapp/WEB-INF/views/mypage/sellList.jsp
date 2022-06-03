@@ -9,14 +9,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	$(function() {
-		$('#reviewPop').click(
-				function() {
-					var pop = window.open(
-							"reviewPop.do?p_num=${product.p_num}", "content",
-							"width=510 height=560");
-				});
-	});
+function reviewPop(p_num) {
+				var pop = window.open(
+				"reviewPop.do?p_num="+p_num, "content",
+				"width=510 height=560");
+};
 </script>
 </head>
 <body>
@@ -40,7 +37,7 @@
 					<div class="product">
 						<span class="thumbnail"> <img
 							src="${path}/resources/upload/${product.thumnails}">
-						</span> <a class="mp_name">${product.p_name}</a>
+						</span> <a class="mp_name" href="p_view.do?p_num=${product.p_num}">${product.p_name}</a>
 						<c:if test="${product.updateday == null}">
 							<a class="mp_date">${product.p_date}</a>
 						</c:if>
@@ -61,13 +58,12 @@
 							<a class="mp_review">아직 리뷰가 없어요</a>
 						</c:if>
 						<c:if test="${product.sel == 'y' && product.review == 'y'}">
-							<a class="mp_review" id="reviewPop">리뷰보기</a>
+	 						<a onclick="reviewPop(${product.p_num})" class="mp_review">리뷰보기</a>
 						</c:if>
 
 					</div>
 				</div>
 			</c:forEach>
-			<%-- </c:forEach> --%>
 		</c:if>
 	</div>
 </body>

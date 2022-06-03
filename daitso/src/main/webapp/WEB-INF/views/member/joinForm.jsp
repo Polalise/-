@@ -131,7 +131,7 @@
 				</div>
 				<div align="center">
 					<input type="submit" class="btn btn-success"
-						style="background: #FBE0C4;" value="가입하기">
+						style="background: #FBE0C4; color: #000" value="가입하기">
 				</div>
 			</form>
 		</div>

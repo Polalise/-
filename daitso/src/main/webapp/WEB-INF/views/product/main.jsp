@@ -35,7 +35,7 @@ select option[value=""][disabled] {
 						<li><a href="p_list.do">◾메인</a></li>
 						<br>
 						<c:if test="${id != 'admin' }">
-							<li><a href="myProfileForm.do">◾마이페이지</a></li>
+							<li><a href="myProfile.do">◾마이페이지</a></li>
 							<br>
 						</c:if>
 						<c:if test="${id == 'admin' }">
@@ -71,7 +71,7 @@ select option[value=""][disabled] {
 				<img src="${path }/resources/images/main2.png" width="15"
 					height="16" alt="번개톡버튼 이미지">다있톡
 			</button>
-			<a class="shop" href="myProfileForm.do">
+			<a class="shop" href="myProfile.do">
 			<img	src="${path }/resources/images/main1.png" width="15" height="16"
 				alt="내상점버튼 이미지">내상점</a> 
 			<a class="products"><img src="${path }/resources/images/main3.png" width="15" height="16"
@@ -80,7 +80,7 @@ select option[value=""][disabled] {
 				<a class="shop" href='adminMain2.do'>고객센터</a>
 			</c:if>
 			<c:if test="${id == 'admin' }">
-				<a class="shop" href="adminMain.do">관리자페이지</a>
+				<a class="shop" href="adminMain.do">관리자</a>
 			</c:if>
 			<c:if test="${member.id == null }">
 				<a class="log" href='logout.do'>로그인</a>
@@ -170,7 +170,7 @@ select option[value=""][disabled] {
 			<!-- 시작페이지가 pagePerBlock 보다 크면 앞에 보여줄 것이 있다 -->
 			<c:if test="${pb.startPage > pb.pagePerBlock }">
 				<li><a
-					href="list.do?pageNum=1?search=${product.search }$keyword=${product.keyword}">
+					href="list.do?pageNum=1&search=${product.search }&keyword=${product.keyword}">
 						<span class="glyphicon glyphicon-backward"></span>
 				</a></li>
 				<li><a href="p_list.do?pageNum=${pb.startPage - 1 }"> <span
@@ -179,21 +179,21 @@ select option[value=""][disabled] {
 			<c:forEach var="i" begin="${pb.startPage}" end="${pb.endPage }">
 				<c:if test="${pb.currentPage == i }">
 					<li class="active"><a
-						href="p_list.do?pageNum=${i }?search=${product.search }$keyword=${product.keyword}">${i }</a></li>
+						href="p_list.do?pageNum=${i }&search=${product.search }&keyword=${product.keyword}">${i }</a></li>
 				</c:if>
 				<c:if test="${pb.currentPage != i }">
 					<li><a
-						href="p_list.do?pageNum=${i }?search=${product.search }$keyword=${product.keyword}">${i }</a></li>
+						href="p_list.do?pageNum=${i }&search=${product.search }&keyword=${product.keyword}">${i }</a></li>
 				</c:if>
 			</c:forEach>
 			<!-- 보여줄 것이 남아 있으면 endPage보다 totalpage가 크다 -->
 			<c:if test="${pb.endPage < pb.totalPage }">
 				<li><a
-					href="p_list.do?pageNum=${pb.endPage + 1 }?search=${product.search }$keyword=${product.keyword}">
+					href="p_list.do?pageNum=${pb.endPage + 1 }&search=${product.search }&keyword=${product.keyword}">
 						<span class="glyphicon glyphicon-triangle-right"></span>
 				</a></li>
 				<li><a
-					href="p_list.do?pageNum=${pb.totalPage}?search=${product.search }$keyword=${product.keyword}">
+					href="p_list.do?pageNum=${pb.totalPage}&search=${product.search }&keyword=${product.keyword}">
 						<span class="glyphicon glyphicon-forward"></span>
 				</a></li>
 			</c:if>

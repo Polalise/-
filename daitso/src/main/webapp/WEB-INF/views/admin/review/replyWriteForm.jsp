@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	function closeConfrim() {
 		if (window.confirm("정말 리뷰작성을 취소하시겠습니까?")) {
-			window.close();
+			history.back();
 		} else {};
 	};
 </script>
