@@ -58,4 +58,9 @@ public int delete(int e_num) {
 public int getEventCount() {
 	return ed.getEventCount();
 }
+
+@Override
+public List<EventBoard> list2() {
+	return ed.list2();
+}
 }

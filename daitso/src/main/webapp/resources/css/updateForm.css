@@ -1,0 +1,178 @@
+.update_main {
+	display: flex;
+	width: max-content;
+	padding-left: 200px;
+	padding-top: 60px;
+}
+
+.container {
+	width: 1100px;
+	height: max-content;
+	background-color: #FAF5E4;
+}
+
+.profile_box {
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.metion {
+	margin-left: 55px;
+	margin-top: 40px;
+	color: #FF6363;
+}
+
+.wap {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.wap input {
+	border: none;
+	background-color: rgb(255, 255, 255);
+	width: 200px;
+	height: 25px;
+}
+
+.wap .update_id {
+	width: 300px;
+	height: 85px;
+	background-color: #ffce48;
+	color: #125B50;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.wap .update_password {
+	width: 300px;
+	height: 85px;
+	background-color: #ffce48;
+	color: #125B50;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.wap .update_password2 {
+	width: 300px;
+	height: 85px;
+	background-color: #ffce48;
+	color: #125B50;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.wap .update_nickName {
+	width: 300px;
+	height: 85px;
+	background-color: #ffce48;
+	color: #125B50;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.wap .update_address {
+	width: 300px;
+	height: 85px;
+	background-color: #ffce48;
+	color: #125B50;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.wap .update_phone {
+	width: 300px;
+	height: 85px;
+	background-color: #ffce48;
+	color: #125B50;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.update_email {
+	width: 300px;
+	height: 85px;
+	background-color: #ffce48;
+	color: #125B50;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-content: center;
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.sec {
+	margin-bottom: 15px;
+}
+
+.photoBox {
+	width: 300px;
+	height: 300px;
+	margin-top: 15px;
+	margin-left: 55px;
+	margin-right: 75px;
+}
+
+.photoBox img {
+	border: dotted 4px;
+	width: 97%;
+	height: 97%;
+}
+
+.photoBox input {
+	border: none;
+}
+
+.update_photoName input {
+	margin-top: 7px;
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	height: 100px;
+}
+
+.successBtn {
+	width: 120px;
+	height: 35px;
+	margin: 0 auto;
+}

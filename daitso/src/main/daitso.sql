@@ -5,8 +5,10 @@ drop table replyBoard CASCADE CONSTRAINTS;
 drop table reply CASCADE CONSTRAINTS;
 drop table product CASCADE CONSTRAINTS;
 drop table chat CASCADE CONSTRAINTS;
+drop table chatHistory CASCADE CONSTRAINTS;
 drop table report CASCADE CONSTRAINTS;
 drop table likes CASCADE CONSTRAINTS;
+drop table report CASCADE CONSTRAINTS;
 
 create table member (
 	id varchar2(500) primary key,
@@ -21,50 +23,75 @@ create table member (
 	del char(1) default 'n',
 	photoName varchar2(500)
 );
-delete from member where id='admin';
-insert into member values('admin','1','관리자','매니저',sysdate,'서울','010-2884-1234','dsa@nav.com',0,'n','asd');
-select * from member;
-select * from product;
-select * from notice_board;
-select * from reply;
 
+update member set grade = 200 where id ='admin';
+update member set grade = 80 where id ='bonobono';
+update member set grade = 150 where id ='kiroro';
+
+select * from member where id ='admin';
+
+select e_fileName from (select * from event_board order by e_num DESC) WHERE ROWNUM <= 5;
+
+select * from member;
+select * from event_board;
+select * from product;
 CREATE TABLE product(
 	p_num NUMBER primary key,
-	p_writer varchar2(100) NOT NULL, -- 작성자
-	p_name varchar2(100), --제목
+	p_writer varchar2(500) NOT NULL, -- 작성자
+	p_name varchar2(500), --제목
 	price NUMBER NOT NULL, -- 판매가격
 	p_date DATE, -- 등록 날짜
 	p_content varchar2(4000) NOT NULL, -- 본문
-	p_local VARCHAR2(20) , -- 지역
-	p_value varchar2(10) , --판매 구매 나누기	
+	p_local VARCHAR2(500) , -- 지역
+	p_value varchar2(500) , --판매 구매 나누기	
 	readcount number default 0, -- 읽은 횟수
 	p_del char(1) default 'n', -- 삭제 여부 
 	updateday DATE,-- 게시글수정일
-	sel	char(1) default 'n', --거례여부
+	sel	char(1), --거례여부
 	likescount NUMBER, -- 좋아요갯수
-	p_tag	varchar2(100), --해쉬 테그
-	buyer varchar2(100), -- 구매자	
-	ip varchar2(20), -- 작성자 ip
-	thumnails varchar2(100) NOT NULL, -- 계시글 사진
-	thumnails2 varchar2(100),
-	thumnails3 varchar2(100),
-	thumnails4 varchar2(100),
-	thumnails5 varchar2(100),
-	id VARCHAR2(500) REFERENCES member ON DELETE CASCADE
+	p_tag	varchar2(500), --해쉬 테그
+	buyer varchar2(500), -- 구매자	
+	ip varchar2(500), -- 작성자 ip
+	thumnails varchar2(500) NOT NULL, -- 계시글 사진
+	thumnails2 varchar2(500),
+	thumnails3 varchar2(500),
+	thumnails4 varchar2(500),
+	thumnails5 varchar2(500),
+	id VARCHAR2(500) REFERENCES member ON DELETE CASCADE,
+	review char(1) default 'n'
 );
-insert into PRODUCT values(1,'asd','sa5d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'s',0,'dsa','dsa','ads','das','das2','das3','das4','das5','admin');
-insert into PRODUCT values(2,'a2sd','sa2d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'y',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a1');
-insert into PRODUCT values(3,'a3d','sa52d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'s',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a2');
-insert into PRODUCT values(4,'as5d','s3ad',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'y',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a2');
-insert into PRODUCT values(5,'as4d','sa2d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'s',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a1');
-insert into PRODUCT values(6,'a6sd','sa1d',12,sysdate,'dasa','dsa','sdad',0,'n',sysdate,'y',0,'dsa','dsa','ads','das','das2','das3','das4','das5','a1');
+insert into PRODUCT values(11,'sa2d','das',1234,sysdate,'dsadsa','dsa','dsa',0,'n',sysdate,'n',0,'dsads1','dsa','dsa','dsa','dsa','dsa','dsa','dsa','a2');
 create table chat(
 	room_num NUMBER primary key,
-	seller_nick varchar2(500),
-	buyer_nick varchar2(500),
-	text varchar2(1000),
+	p_num NUMBER references product(p_num),
+	p_name varchar2(100),
+	user1_nick varchar2(500),
+	user1_photo varchar2(500),
+	user2_nick varchar2(500),
+	user2_photo varchar2(500),
 	chat_time DATE
 );
+
+update chat set user1_photo = 'kiroro.jpg' where room_num =3;
+
+create sequence seq_chat_room_num;
+drop sequence seq_chat_room_num;
+
+select * from chat;
+
+create table chathistory(
+	history_num NUMBER primary key,
+	room_num NUMBER references chat(room_num),
+	sender varchar2(100),
+	text varchar2(1000),
+	send_time DATE
+);
+
+create sequence seq_chathistory_history_num;
+drop sequence seq_chathistory_history_num;
+
+select * from chathistory;
+
 create table notice_board(
 	num number primary key, -- key
 	subject varchar2(1000) not null, -- 제목
@@ -72,7 +99,7 @@ create table notice_board(
 	readcount number default 0, -- 읽은 횟수
 	reg_date date not null, -- 작성일
 	update_date date not null,  --업데이트 날짜
-	fileName varchar(1000), --- 파일이름
+	fileName varchar(1000) , --- 파일이름
 	del char(1) default'n',
 	id varchar2(20) references member(id)
 );
@@ -84,7 +111,7 @@ create table event_board(
 	e_readcount number default 0, -- 읽은 횟수
 	e_start_date date not null, -- 작성일
 	e_end_date date not null,  --업데이트 날짜
-	e_fileName varchar(1000), --- 파일이름
+	e_fileName varchar(1000) , --- 파일이름
 	e_del char(1) default'n',
 	id varchar2(20) references member(id)
 );
@@ -95,7 +122,8 @@ create table reply (
 	del char(1) default 'n' ,
 	rating number ,
 	p_num number not null references product(p_num),
-	id  varchar2(100) not null references member(id)
+	id  varchar2(100) not null references member(id),
+	seller varchar2(100) not null references member(id)
 );
 
 create table replyBoard (
@@ -107,6 +135,8 @@ create table replyBoard (
 	updatedate date not null,
 	del char(1) 
 );
+select * from replyBoard;
+
 create table report(
 	report_num number primary key,
 	reporter_id VARCHAR2(100) REFERENCES member ON DELETE CASCADE,
@@ -115,8 +145,13 @@ create table report(
 	reasonChk VARCHAR2(1000) not null,
 	reasonText VARCHAR2(2000),
 	progress VARCHAR2(20) not null,
-	report_date date
+	report_date date,
+	score number,   --벌점
+	adminText VARCHAR2(1000)  -- 관리자의 코멘트
 );
+
+select * from report;
+
 CREATE TABLE likes(
     id VARCHAR2(100) REFERENCES member ON DELETE CASCADE,
     p_num NUMBER REFERENCES product ON DELETE CASCADE,

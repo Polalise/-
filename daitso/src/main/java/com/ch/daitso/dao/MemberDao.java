@@ -3,6 +3,7 @@ package com.ch.daitso.dao;
 import java.util.List;
 
 import com.ch.daitso.model.Member;
+import com.ch.daitso.model.Reply;
 
 public interface MemberDao {
 
@@ -49,6 +50,12 @@ public interface MemberDao {
 	int getCount2();
 
 	List<Member> list(Member member);
-
+	
 	void star(int rating,String id);
+
+	void penalty(int score, String id);
+
+	int getCount3();
+
+	int fired(String id);
 }

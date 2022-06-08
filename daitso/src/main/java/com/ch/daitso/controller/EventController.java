@@ -39,7 +39,7 @@ public class EventController {
 	   PageBean pb = new PageBean(currentPage,rowPerPage,total);
 	   //답글 번호 순서 
 	 
-	   String[] title = {"작성자","제목","내용","제목+내용"};
+	   String[] title = {"제목","내용","제목+내용"};
 		model.addAttribute("title", title);
 	   model.addAttribute("num",num);
 	   model.addAttribute("pb",pb);

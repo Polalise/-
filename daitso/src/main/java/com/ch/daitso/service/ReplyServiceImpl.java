@@ -38,4 +38,9 @@ public class ReplyServiceImpl implements ReplyService {
 		rd.update(rb);
 	}
 
+	@Override
+	public Reply selectReview(int p_num) {
+		return rd.selectReview(p_num);
+	}
+
 }

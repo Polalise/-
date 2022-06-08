@@ -21,6 +21,8 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<!-- Tiles 설정용 우선순위 2로 변경 -->
+		<!-- <beans:property name="order" value="2"></beans:property> -->
 	</beans:bean>
 	
 	<context:component-scan base-package="com.ch.daitso" />
@@ -36,10 +38,9 @@
 			<mapping path="/member/m_delete.do"/> -->
 			<mapping path="/p_insertForm.do"/>
 			<mapping path="/chatRoom.do"/>
-			 <mapping path="/noticeList.do"/>
-			<mapping path="/noticeWriteForm.do"/>
-			<mapping path="/noticeWrite.do"/>
-			<mapping path="/main.do"/>
+			<!-- <mapping path="/p_view.do"/> -->
+			
+			
 			<beans:ref bean="lc"/>
 		</interceptor>
 	</interceptors>
@@ -50,5 +51,21 @@
 		<!-- path="/chat-ws.do"(jsp로 부르면), csh가 응답해(class) -->
 		<websocket:mapping handler="csh" path="/chat-ws.do"/>
 	</websocket:handlers>
+	
+	<!-- Tiles 3 Configurer -->
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/tiles/tiles.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	<beans:bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<beans:property name="order" value="1" />
+	</beans:bean>
 	
 </beans:beans>

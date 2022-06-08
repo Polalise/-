@@ -1,0 +1,731 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+	list-style: none;
+	text-decoration: none;
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+}
+.button{
+	background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+}
+input[id="icon"] {
+	display: none;
+}
+
+body {
+	height: 500px;
+}
+
+input[id="icon"]+label {
+	position: fixed;
+	margin-top: 40px;
+	display: block;
+	width: 50px;
+	height: 30px;
+	margin-left: -80px;
+	transition: all 0.35s;
+	cursor: pointer; /* 커서를 올려놓을 때 모양이 바뀐다. */
+	z-index: 2;
+}
+
+input[id="icon"]+label>span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 3px;
+	border: 1px solid black;
+	border-radius: 30px ;
+	background: rgb(249, 247, 232);
+	transition: all 0.35s; /* 진행되는 과정들을 천천히 보여줄 수 있다. 0.35초 동안 진행됨 */
+	z-index: 2;
+}
+
+input[id="icon"]+label>span:nth-child(1) {
+	top: 0px;
+}
+
+input[id="icon"]+label>span:nth-child(2) {
+	top: 50%;
+	transform: translateY(-50%);
+	/* 엘리먼트를 변형할 때 쓴다. 비틀거나 구부리거나 돌릴 때 . 여러가지로 모양을 바꿀 때 */
+}
+
+input[id="icon"]+label>span:nth-child(3) {
+	bottom: 0px;
+}
+
+input[id="icon"]:checked+label>span:nth-child(1) {
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+
+input[id="icon"]:checked+label>span:nth-child(2) {
+	opacity: 0;
+}
+
+input[id="icon"]:checked+label>span:nth-child(3) {
+	bottom: 50%;
+	transform: translateY(50%) rotate(-45deg);
+}
+
+#icon+label+#header {
+	position: fixed; /* 스크롤을 내리더라도 같은 위치에서 붙어다닌다. */
+	width: 300px;
+	height: 100%;
+	background: rgba(51, 51, 51, 0.219);
+	top: 0px;
+	padding: 60px 25px 25px 25px;
+	box-sizing: border-box;
+	left: -300px;
+	z-index: 1;
+	transition: all 0.35s;
+}
+
+#icon:checked+label+#header {
+	left: 0px;
+}
+
+#icon:checked+label+#header>ul>li>a {
+	color: white;
+}
+
+
+.intro_bg {
+    background-color: #FBE0C4;
+    height: 150px;
+    padding: 0 350px;
+}
+
+.header1 {
+    display: flex;
+    width: 105%;
+    margin: auto;
+    margin-top: -50px;
+}
+.nav {
+	list-style: none;
+	display: flex;
+	justify-content: flex-end;
+	line-height: 86px;
+	width: calc(1280px - 300px);
+	color: #fff;
+	margin-right: 400px;
+}
+
+.nav>a {
+	margin-left: 10px;
+	color: #fff;
+	font-weight: bold;
+	position: relative;
+	padding: 0px 10px;
+	letter-spacing: 0.5px;
+}
+
+.nav a::after {
+	content: "";
+	position: absolute;
+	transform: translateX(-15%);
+	width: 0;
+	left: 10px;
+	bottom: 20px;
+	height: 0;
+	transition: all .3s ease;
+}
+
+.nav a:hover:after {
+	width: 100%;
+}
+
+
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.main_slide {
+	width: 121.5%;
+    height: 120%;
+    overflow: hidden;
+    margin-left: 150px;
+    border: 2px solid;
+    margin: auto;
+    text-align: center;
+    margin-left: -100px;
+}
+
+.main_slide ul {
+	width: calc(100% * 4);
+    display: flex;
+    animation: slide 40s infinite;
+    height: 100%;
+} /* slide를 8초동안 진행하며 무한반복 함 */
+.main_slide li {
+	flex: 1;
+	width: calc(100%/ 4);
+	height: 700px;
+	width: 2000px;
+	background-size: cover;
+}
+@keyframes main_slide {
+       0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+      10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+      25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
+      35% {margin-left:-200%;} /* 35 ~ 50 : 변이 */
+      50% {margin-left:-300%;}
+      60% {margin-left:-400%;}
+      75% {margin-left:-500%;}
+      85% {margin-left:-600%;}
+      100% {margin-left:0;}
+}
+
+.eventpoto{
+	width: 100%;
+	height: 100%;
+}
+.slide {
+	width: 80%;
+	height: 300%;
+	overflow: hidden;
+	margin-left: 150px;
+	margin: auto;
+	text-align: center;
+}
+body {
+	background: #fff;
+	height: 400px;
+	width: 100%;
+}
+
+.border_list {
+	box-sizing: border-box;
+	/* border: 2px solid red; */
+	width: 70%;
+	height: 500px;
+	margin: auto;
+	margin-top: 150px;
+	box-shadow: 10px 10px 10px rgba(1, 1, 1, 3);	
+}
+
+.topheader{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    background-color: #FBE0C4;
+    border-bottom: 1px solid;
+}
+.listpage{
+	margin-right: 100px;
+	display: flex;
+	text-align: center;
+	width: 1300px;
+	margin-top:50px;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-right: 100px; 
+}
+.listbox{
+    flex: inherit;
+    float: left; 
+    width: 220px;
+    height: 320px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.listpoto{
+	height: 72%;
+}
+.listlist{
+	margin-top: 10px;
+	float: left;
+	font-size: 1.8rem;
+}
+.tagbox{
+    width: 100%;
+    background: #FBE0C4;
+    height: 60px;
+    border-radius: 5px;
+    margin-top: 10px;
+	border-radius: 5px;
+}
+.btn-tag{
+    border: none;
+    background: #1b5ac2;
+    color: #ffffff;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.btn-tag:hover{
+	transition : 0.5s;
+  	transform: scale(1.1);
+}
+
+.search2{
+	float: right;
+    border: none;
+    margin-top: -35px;
+    background: #FBE0C4;
+}
+.search2 >option{
+	background: #fff;
+}
+.search>form>input {
+	border: none;
+	width: 250px;
+	height: 40px;
+	color: #000040;
+	padding-left: -10px;
+}
+ 
+.search>form>span {
+	width: 300px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+.icon-button{
+    display: flex;
+    margin-left: 600px;
+    align-content: center;
+}
+.chats{
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    outline: 0;
+    border: 0;
+    background: #FBE0C4;
+    margin-left: -100px;
+}
+.chats::after{
+	content: "";
+    width: 1px;
+    height: 20px;
+    border-right: 1px solid rgb(204, 204, 204);
+    position: absolute;
+    right: -15px;
+}
+.shop{
+    /* width: 120px; */
+    color: #000;
+    margin-left: 20px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+}
+.shop::after{
+	content: "";
+    width: 1px;
+    height: 20px;
+     border-right: 1px solid rgb(204, 204, 204); 
+    position: absolute;
+    right: -15px;
+ 
+}
+.products{
+    /* width: 120px; */
+    display: flex;
+    -webkit-box-align: center;
+    position: relative;
+    color: #000; 
+    /* flex-wrap: wrap; */
+    justify-content: space-evenly;
+    margin-left: 20px;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.products::after{
+	content: "";
+    width: 1px;
+    height: 20px;
+    border-right: 1px solid rgb(204, 204, 204);
+    position: absolute;
+    right: -15px;   
+}
+.log{
+	display: flex;
+    -webkit-box-align: center;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: #000;
+    margin-left: 20px;
+    align-items: center;	
+    text-decoration-line: none;
+}
+.searchs{
+    margin-left: 200px;
+    width: 800px;
+    height: 80px;
+    margin-top: 20px;
+	
+}
+.searchr{
+	font-size: 16px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    width: 58.7%;
+    height: 60%;
+	
+}
+.searchinput{
+    width: 10%;
+    height: 60%;
+    border: 0px;
+    background: #1b5ac2;
+    outline: none;
+    color: #ffffff;	
+    border-radius: 5px;
+}
+.container{
+	padding: 30px;
+}
+.list{
+	padding: 10px;
+    width: 100%;
+    margin-left: -35px;
+    border-radius: 8px;
+}
+
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.product{
+	justify-content: center;
+    display: flex;
+    width: 70%;
+    height: 600px;
+    border: 2px solid;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+.product_list{
+    width: 55%;
+    margin-right: -540px;
+    margin-left: 10px;
+    margin-top: 30px;
+
+}
+.productlist{
+	height: 1700px;
+    width: 40%;
+    margin-top: 40px;
+    margin-left: -490px;
+}
+
+.slide {  
+	width: 100%;
+    height: 100%;
+    overflow: hidden;
+	text-align: center;
+}
+
+.slide ul {
+	width: calc(100% * 5);
+	height:500px;
+	display: flex;
+	animation: slide 30s infinite;
+} /* slide를 8초동안 진행하며 무한반복 함 */
+.slide li {
+	flex: 1;
+    width: calc(100%/ 5);
+    background-size: cover;
+}
+.slide li a img{
+	 width: 400px;
+}
+@keyframes slide {
+      0% {margin-left:0;} /* 0 ~ 10  : 정지 */
+      10% {margin-left:0;} /* 10 ~ 25 : 변이 */
+      25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
+      35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
+      50% {margin-left:-200%;}
+      60% {margin-left:-200%;}
+      75% {margin-left:-300%;}
+      85% {margin-left:-300%;}
+      100% {margin-left:0;}
+}
+.productname{
+	font-size: 3rem;
+}
+.productprice{
+	font-size: 4rem;
+}
+.productview{
+	margin-top: 10px;
+    margin-left: 10px;
+}
+.productlike{
+	display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(204, 204, 204);
+    font-size: 16px;
+    float: left
+}
+.productlike::after{
+    content: "";
+    width: 1px;
+    height: 12px;
+    border-right: 1px solid rgb(238, 238, 238);
+    margin-left: 10px;
+    margin-right: 10px;}
+
+.productcount{
+	display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(204, 204, 204);
+    font-size: 16px;
+    float: left
+}
+.productcount::after{
+    content: "";
+    width: 1px;
+    height: 12px;
+    border-right: 1px solid rgb(238, 238, 238);
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+.productreg{
+	display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(204, 204, 204);
+    font-size: 16px;
+    float: left
+}
+.reput{
+    font-size: 16px;
+    display: flex;
+    -webkit-box-align: center;
+    background: #FBE0C4;
+    border: linen;
+    align-items: center;
+}
+.viewupdate{
+	float: right;
+}
+.update{
+	color: rgb(204, 204, 204);
+    font-size: 16px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    float: left;
+    margin-right: 10px;
+    color:#000;
+    border:0px;
+}
+.pcontent{
+	font-size: 2rem;
+    margin-top: 20px;
+    width: 100%;
+    height: 400px;
+}
+.productbutton{
+	 margin-top: -90px;
+}
+.btnlike{
+    width: 25%;
+    height: 70px;
+    font-weight: 600;
+    background: rgb(204, 204, 204);
+    color: rgb(255, 255, 255);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    line-height: 1;
+    margin-left: 80px;
+    margin-right: 5px;
+    float: left;
+    border: 0px;
+
+}
+.btnlike:hover{
+	transition : 0.5s;
+  	transform: scale(1.1);
+}
+.coll{
+    width: 25%;
+    height: 70px;
+	background: rgb(255, 164, 37);
+    border: 1px solid rgb(243, 150, 20);
+    color: rgb(255, 255, 255);
+}
+.coll:hover{
+	transition : 0.5s;
+  	transform: scale(1.1)
+}
+.nowsell{
+    width: 25%;
+    height: 70px;
+    background: rgb(247, 0, 0);
+    border: 1px solid rgb(223, 0, 0);
+    color: rgb(255, 255, 255);
+   }
+.nowsell:hover{
+	transition : 0.5s;
+  	transform: scale(1.1)
+}
+.reply{
+	width: 70%;
+    margin-left: 200px;
+	
+}
+figure.snip1200 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 220px;
+  max-width: 310px;
+  max-height: 310px;
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  border-radius: 10px;
+}
+figure.snip1200 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.45s ease-in-out;
+  transition: all 0.45s ease-in-out;
+}
+figure.snip1200 img {
+  max-width: 100%;
+  position: relative;
+  opacity: 0.9;
+}
+figure.snip1200 figcaption {
+  position: absolute;
+  top: 45%;
+  left: 7%;
+  right: 7%;
+  bottom: 45%;
+  border: 1px solid white;
+  border-width: 1px 1px 0;
+}
+figure.snip1200 .heading {
+  overflow: hidden;
+  -webkit-transform: translateY(50%);
+  transform: translateY(50%);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+figure.snip1200 h2 {
+  display: table;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  width: auto;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+figure.snip1200 h2 span {
+  font-weight: 800;
+   font-size: 2rem;
+}
+figure.snip1200 h2:before,
+figure.snip1200 h2:after {
+  position: absolute;
+  display: block;
+  width: 1000%;
+  height: 1px;
+  content: '';
+  background: white;
+  top: 50%;
+}
+figure.snip1200 h2:before {
+  left: -1000%;
+}
+figure.snip1200 h2:after {
+  right: -1000%;
+}
+figure.snip1200 p {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  width: 100%;
+  padding: 0 20px; 
+  margin: 0;
+  opacity: 0;
+  line-height: 1.6em;
+  font-size: 0.9em;
+}
+figure.snip1200 a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+figure.snip1200:hover img,
+figure.snip1200.hover img {
+  opacity: 0.25;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+figure.snip1200:hover figcaption,
+figure.snip1200.hover figcaption {
+  top: 7%;
+  bottom: 7%;
+}
+figure.snip1200:hover p,
+figure.snip1200.hover p {
+  opacity: 1;
+  -webkit-transition-delay: 0.35s;
+  transition-delay: 0.35s;
+}
+.rInsert{
+	width: 90; 
+	height: 70;  
+	font-size: 2rem;  
+	font-weight: 500;
+    display: flex;
+    -webkit-box-align: center;
+    background: #FBE0C4;
+    border: linen;
+    align-items: center;
+ 
+}
+.rInsert2{
+    width: 110; 
+    height: 70;
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex;
+    -webkit-box-align: center;
+    background: #FBE0C4;
+    border: linen;
+    align-items: center;
+    color:#000;
+}
+.rInsert2:hover{
+	transition : 0.5s;
+  	transform: scale(1.1);
+  	text-decoration-line: none;
+}

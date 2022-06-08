@@ -7,9 +7,10 @@ import lombok.Data;
 public class Reply {
 private int	rno;
 private String	replytext;
-private Date regdate;
+private Date	regdate;
 private String	del;
 private int	p_num;
 private String id;
 private int rating;
+private String seller;
 }

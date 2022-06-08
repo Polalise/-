@@ -19,7 +19,7 @@
 	
 	<!-- 개인 정보 수정 -->
 	<update id="update" parameterType="member">
-		update member set password=#{password}, name=#{name}, nickName=#{nickName}, address=#{address}, email=#{email}
+		update member set password=#{password}, nickName=#{nickName}, address=#{address}, email=#{email}
 		<if test="photoName != null">
 			, photoName=#{photoName}
 		</if>
@@ -115,11 +115,29 @@
    </select>
    
    <!-- 별점 등급 영향 -->
-	<update id="star" parameterType="map"  >
+	<update id="star" parameterType="map">
 		update member set
-		
-		 grade = grade + #{rating}
-		
-		 where id = #{id}
+
+		grade = grade + #{rating}
+
+		where id = #{id}
 	</update>
+	 <!-- 신고 벌점 -->
+	<update id="penalty" parameterType="map">
+		update member set
+
+		grade = grade - #{score}
+
+		where id = #{id}
+	</update>
+	
+	<select id = "getCount3" resultType="int">
+     SELECT count(*) FROM member where TO_char(regdate,'YYYYMMDD') = TO_char(SYSDATE,'YYYYMMDD')
+   </select>
+   
+   <!--탈퇴처리-->
+   <update id="fired" parameterType="string">
+    update member set del='y' where id=#{id}
+   </update>
+   
 </mapper>

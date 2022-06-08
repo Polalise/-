@@ -17,8 +17,7 @@ public interface ProductDao {
 	Product select2(int p_num);
 	int getProductCount();
 	int getProductCount2();
-
+	int getProductCount3();
 	
-
 }
  

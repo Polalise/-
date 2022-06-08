@@ -6,14 +6,23 @@ import com.ch.daitso.model.Chat;
 
 public interface ChatService {
 
-	int getNum();
+	Chat findChatRoom(String user1_nick, String user2_nick, int p_num);
 
-	int countByChatNick(String buyer_nick, String seller_nick);
+	void createChatRoom(Chat chat);
 
-	Chat findByChatNum(int room_num);
+	int findChatRoomNum(String user1_nick, String user2_nick, int p_num);
 
-	List<Chat> readChatHistory(Chat chatRoomTemp);
+	List<Chat> findChatRoomLog(String user2_nick);
 
-	Chat addChatRoom(Chat chat);
+	List<Chat> findChatRoom2(String user1_nick, int p_num);
+
+	List<Chat> findChatRoomLog2(String user1_nick, int p_num);
+
+	List<Chat> findChatRoomNum2(Chat chat);
+
+	Chat findChatInfo(int room_num);
+
+	List<Chat> findChatRoomNum3(Chat chat);
+
 
 }

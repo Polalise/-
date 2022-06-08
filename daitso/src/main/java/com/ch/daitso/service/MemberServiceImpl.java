@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ch.daitso.dao.MemberDao;
 import com.ch.daitso.model.Member;
+import com.ch.daitso.model.Reply;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -110,10 +111,28 @@ public class MemberServiceImpl implements MemberService {
 	public List<Member> mbList(Member member) {
 		return md.list(member);
 	}
-    //별점 등급영향
+
+	// 별점 등급영향
 	@Override
-	public void star(int rating,String id) {
-		md.star(rating,id);
+	public void star(int rating, String id) {
+		md.star(rating, id);
+
+	}
+	
+
+	@Override
+	public void penalty(int score, String id) {
+		md.penalty(score, id);
 		
+	}
+
+	@Override
+	public int getCount3() {
+		return md.getCount3(); 
+	}
+
+	@Override
+	public int fired(String id) {
+		return md.fired(id);
 	}
 }

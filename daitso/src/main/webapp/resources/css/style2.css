@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 13px;
+}
+ul, li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.btn_local{
+	border: 0;
+	outline: 0;
+	background-color:#FBE0C4;
+}
+.board_wrap{
+    width: 1000px;
+    margin: 100px auto;
+}
+.board_title{
+    margin-bottom: 30px;
+}
+.board_title strong{
+    font-size: 3rem;
+}
+.board_title p{
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
+.board_write{
+    border-top: 2px solid #000;
+}
+.board_write .info{
+    border-top: 1px dashed #ddd;
+    font-size: 0;
+}
+
+.board_write .info dl{
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+.board_write .title dt,
+.board_write .title dd,
+.board_write .info dt,
+.board_write .info dd{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.2rem;
+} 
+.board_write .title dt,
+.board_write .info dt{
+    width: 100px;
+}
+.board_write .title dl{
+    font-size: 0;
+}
+.board_write .title dd{
+    width: calc(100% - 100px);
+}
+.board_write .title input[type="text"],
+.board_write .info input[type="text"],
+.board_write .info input[type="password"]{
+    padding: 10px;
+    box-sizing: border-box; 
+
+}
+.board_write .title input[type="text"]  {
+    width: 80%;
+}
+ 
+.board_write .cont{
+    border-bottom: 1px solid #000;
+}
+.cont textarea{
+    display: block;
+    width: 100%; 
+    height: 100px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+    margin-top:30px;
+    border: 2px solid #000;
+}

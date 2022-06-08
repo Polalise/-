@@ -9,7 +9,7 @@
 <style>
    caption {font-size: 30px;}
    .err{color:red; font-weight:bold;}
-   th{background:green; color:white;}
+   th{background:white; color:black;}
 </style>
 <c:set var="path" value="${pageContext.request.contextPath }"></c:set>
 <link rel="stylesheet" type="text/css" href="${path }/resources/bootstrap/css/bootstrap.min.css">

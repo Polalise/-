@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ch.daitso.model.Member;
+import com.ch.daitso.model.Reply;
 
 @Repository
 public class MemberDaoImpl implements MemberDao {
@@ -18,7 +19,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	// 아이디 중복체크
 	@Override
-	public Member selectId(String id) {	
+	public Member selectId(String id) {
 		return sst.selectOne("memberns.selectId", id);
 	}
 
@@ -61,19 +62,20 @@ public class MemberDaoImpl implements MemberDao {
 	public int updatePassword(Member member) {
 		return sst.update("memberns.updatePassword", member);
 	}
+
 	@Override
 	public int getMbTotal(Member member) {
 		return sst.selectOne("memberns.getMbTotal", member);
 	}
 
-	//@Override
-	//public List<Member> mbList(int startRow, int endRow) {
+	// @Override
+	// public List<Member> mbList(int startRow, int endRow) {
 //		/* selectList 는 변수 하나밖에 안들어가서 map으로 startRow,endRow 를 넣고 map을 변수로넣는다 */
 //		Map<String, Integer> map = new HashMap<String, Integer>();
 //	    map.put("startRow",startRow);
 //	    map.put("endRow",endRow);
 //		return sst.selectList("memberns.list",map);
-	//}
+	// }
 
 	@Override
 	public int adminDelete(String id) {
@@ -92,11 +94,12 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int adminUpdate(Member member) {
-//		System.out.println("member"+member.getAddress());
-//		System.out.println("member"+member.getName());
-//		System.out.println("member"+member.getPassword());
-//		System.out.println("member"+member.getNickName());
-		
+		/*
+		 * System.out.println("member" + member.getAddress());
+		 * System.out.println("member" + member.getName()); System.out.println("member"
+		 * + member.getPassword()); System.out.println("member" + member.getNickName());
+		 */
+
 		return sst.update("memberns.adminUpdate", member);
 	}
 
@@ -117,15 +120,35 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public List<Member> list(Member member) {
-		return sst.selectList("memberns.list",member);
+		return sst.selectList("memberns.list", member);
 	}
-    //별점 등급 영향
+
+	// 별점 등급 영향
 	@Override
-	public void star(int rating,String id) {
-		Map<Object,Object> map = new HashMap<Object,Object>();
-	    map.put("rating",rating);
-         map.put("id",id);
-		sst.update("memberns.star",map);
-		
+	public void star(int rating, String id) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("rating", rating);
+		map.put("id", id);
+		sst.update("memberns.star", map);
+
+	}
+
+	@Override
+	public void penalty(int score, String id) {
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("score", score);
+		map.put("id", id);
+		sst.update("memberns.penalty", map);
+
+	}
+
+	@Override
+	public int getCount3() {
+		return sst.selectOne("memberns.getCount3");
+	}
+
+	@Override
+	public int fired(String id) {
+		return sst.update("memberns.fired", id);
 	}
 }

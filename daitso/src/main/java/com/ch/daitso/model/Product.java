@@ -32,6 +32,8 @@ public class Product {
 	private String thumnails3; //계시글 사진
 	private String thumnails4; //계시글 사진
 	private String thumnails5; //계시글 사진
+	private Date updateday;
+	private String review;
 	//페이징
 	private int startRow;
 	private int endRow;
@@ -41,10 +43,14 @@ public class Product {
 	private MultipartFile file3;
 	private MultipartFile file4;
 	private MultipartFile file5;
-	//검색용
+	//search용
 	private String search;
 	private String keyword;
 	// 판매,구매 select바
 	private String search2;
 	private String keyword2;
+	//tag용
+	private String search3;
+	private String keyword3;
+	
 }

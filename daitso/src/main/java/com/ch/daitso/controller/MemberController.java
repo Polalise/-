@@ -46,6 +46,7 @@ public class MemberController {
 	// 임시로 만든 메인 화면
 	@RequestMapping("main1")
 	public String main() {
+		System.out.println(1);
 		return "main";
 	}
 	
@@ -126,19 +127,24 @@ public class MemberController {
 				session.setAttribute("id", member.getId());
 				// 로그인 했을때 리스트 보여주려고 리스트 가져옴 
 				if (pageNum == null || pageNum.equals("")) pageNum = "1";
-				int rowPerPage = 10;
-				int currentPage = Integer.parseInt(pageNum);
-				int total = ps.getTotal(product);
-				int startRow = (currentPage - 1) * rowPerPage + 1;
-				int endRow = startRow + rowPerPage - 1;
-				List<Product> list = ps.list(product);
-				PageBean pb = new PageBean(currentPage,rowPerPage,total);
-				int p_num = total - startRow + 1;
-				
-				model.addAttribute("p_num", p_num);
-				model.addAttribute("pb", pb);
-				model.addAttribute("list", list);
-				System.out.println("id="+session.getAttribute("id"));
+			      int rowPerPage = 10;
+			      int currentPage = Integer.parseInt(pageNum);
+			      int total = ps.getTotal(product);
+			      int startRow = (currentPage - 1) * rowPerPage + 1;
+			      int endRow = startRow + rowPerPage - 1;
+			      product.setStartRow(startRow); 
+			      product.setEndRow(endRow);
+			      List<Product> list = ps.list(product);
+			      PageBean pb = new PageBean(currentPage, rowPerPage, total);
+			      int p_num = total - startRow + 1;
+			      //매개변수로 넘어온데이터를 같은 url로 변경없이 전달할 때는 model.addAttribute 생략 가능 
+			      String[] title = {"작성자","제목","내용","제목+내용"};
+//			      String[] title2 = {"판매","구매"};
+			      model.addAttribute("title", title);
+//			       model.addAttribute("title2", title2);
+			      model.addAttribute("p_num", p_num);
+			      model.addAttribute("pb", pb);
+			      model.addAttribute("list", list);
 			}
 		}
 		model.addAttribute("result", result);
@@ -171,6 +177,24 @@ public class MemberController {
 		String id = (String)session.getAttribute("id");
 		Member member = ms.selectId(id);
 		model.addAttribute("member", member);
+		
+		int tier = member.getGrade();
+		String tierBC = "";
+		if (tier <= 20) {
+			tierBC = "warning";
+		} else if (tier > 20 && tier < 50) {
+			tierBC = "silver";
+		} else if (tier >= 50 && tier < 100) {
+			tierBC = "gold";
+		} else if (tier >= 100 && tier < 200) {
+			tierBC = "platinum";
+		} else if (tier >= 200 && tier < 300) {
+			tierBC = "diamond";
+		} else if (tier >= 300) {
+			tierBC = "vip";
+		}
+		model.addAttribute("tierBC", tierBC);
+		
 		return "/member/updateForm";
 	}
 	
@@ -354,16 +378,21 @@ public class MemberController {
 	  		int noticeCount = ns.getNoticeCount();
 	  		int eventCount = es.getEventCount();
 	  		int productCount2 = ps.getProductCount2();
+	  		int productCount3 = ps.getProductCount3();
 	   //회원 
 	  		int memberCount = ms.getCount();
 	  		int member2Count = ms.getCount2();
-			/* System.out.println("productCount2 :"+ productCount2); */
+	  		int member3Count = ms.getCount3();
+            
+	  	
+	  		model.addAttribute("productCount3", productCount3);
 	  		model.addAttribute("productConunt", productConunt);
 	  		model.addAttribute("productCount2", productCount2);
 	  		model.addAttribute("noticeCount", noticeCount);
 	  		model.addAttribute("eventCount", eventCount);
 	  		model.addAttribute("memberCount", memberCount);
 	  		model.addAttribute("member2Count", member2Count);
+	  		model.addAttribute("member3Count", member3Count);
 	  		model.addAttribute("title", title);
 	  		model.addAttribute("pb", pb);	// paginbean pb
 	  		model.addAttribute("mbList", mbList);
@@ -372,10 +401,10 @@ public class MemberController {
 	  	}
 	      @RequestMapping("adminDelete")
 	  	public String adminDelete(String id, String pageNum, Model model) {
+	    	  Member member = ms.select(id);
 	  		int result = ms.adminDelete(id);
-	  		Member member = ms.select(id);
 	  
-
+//            System.out.println("result="+result);
 	  		model.addAttribute("result", result);
 	  		model.addAttribute("pageNum", pageNum);
 	  		return "admin/member/adminDelete";

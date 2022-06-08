@@ -1,0 +1,141 @@
+/* 리스트 전체 div */
+.main .list {
+	display: flex;
+	height: 1000px;
+	width: 1600x;
+	flex-direction: column;
+}
+
+/* 리스트 상단 바 div */
+.main .list .header {
+	display: inline-block;
+	text-align: left;
+	height: 110px;
+	width: 100%;
+	margin-bottom: 30px;
+}
+/* 판매목록 긴 div */
+.main .list .header .header_title {
+	display: inline-block;
+	text-align: center;
+	line-height: 50px;
+	width: 100%;
+	height: 50px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	margin-right: 0;
+	margin-left: 0;
+}
+/* 판매목록 info bar */
+.header .header_info {
+	display: flex;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	align-content: center;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	text-align: center;
+}
+
+.header .header_info * {
+	margin-left: 35px;
+}
+
+/* 판매물품 */
+.header_info .title {
+	background-color: #FBE0C4;
+	display: inline-block;
+	width: 600px;
+}
+/* 판매일 */
+.header_info .s_date {
+	background-color: #FBE0C4;
+	display: inline-block;
+	margin-left: 70px;
+	width: 220px;
+}
+/* 물품가격 */
+.header_info .s_price {
+	background-color: #FBE0C4;
+	display: inline-block;
+	margin-left: 70px;
+	width: 220px;
+}
+/* 리뷰 */
+.header_info .s_review {
+	background-color: #FBE0C4;
+	display: inline-block;
+	margin-left: 70px;
+	width: 220px;
+}
+/* 판매한 물품들 list div */
+.main .list .viewList {
+	display: inline-block;
+	height: 100%;
+}
+
+.viewList .product {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	align-content: center;
+	flex-wrap: nowrap;
+	flex-direction: row;
+}
+/* 판매한 물품 사진 div */
+.product .thumbnail {
+	display: flex;
+	text-align: center;
+	line-height: 150px;
+	border: solid rgb(26, 122, 69) 1px;
+	margin-left: 35px;
+	width: 150px;
+	height: 150px;
+	margin-bottom: 0px;
+}
+/* 물품 사진 크기 조절 */
+.thumbnail img {
+	width: 149px;
+	height: 149px;
+	object-fit: cover;
+}
+/* 판매물품 */
+.viewList .product .mp_name {
+	display: inline-block;
+	background-color: #F2EBE9;
+	height: 150px;
+	margin-left: 30px;
+	width: 420px;
+	text-align: center;
+	line-height: 150px;
+}
+/* 판매 일시 */
+.viewList .product .mp_date {
+	display: inline-block;
+	background-color: #F2EBE9;
+	height: 150px;
+	width: 220px;
+	margin-left: 70px;
+	text-align: center;
+	line-height: 150px;
+}
+/* 판매 가격 */
+.viewList .product .mp_price {
+	display: inline-block;
+	background-color: #F2EBE9;
+	height: 150px;
+	width: 220px;
+	margin-left: 70px;
+	text-align: center;
+	line-height: 150px;
+} /* 리뷰 */
+.viewList .product .mp_review {
+	display: inline-block;
+	background-color: #F2EBE9;
+	height: 150px;
+	width: 220px;
+	margin-left: 70px;
+	text-align: center;
+	line-height: 150px;
+}

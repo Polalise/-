@@ -6,7 +6,7 @@
 	<select id="getTotal" parameterType="product" resultType="integer">
 		select count(*) from product
 			<where>
-				<if test="keyword != null and keyword !=''">
+			<if test="keyword != null and keyword !=''">
 					<if test="search =='subcon'">
 						p_name like '%'||#{keyword}||'%' or
 						p_content like '%'||#{keyword}||'%'
@@ -14,17 +14,15 @@
 					<if test="search !='subcon'">
 						${search} like '%'||#{keyword}||'%'					
 					</if>
-				</if>
-				<if test="keyword2 != null and keyword2 !=''">
-					<if test="search2 =='판매'">
-						p_value like '%'||'판매'||'%'
+			</if>
+			<if test="keyword2 != null and keyword2 !=''">
+					<if test="search2 !='전체보기'">
+						p_value like '%'||#{keyword2}||'%' 
 					</if>
-					<if test="search2 =='구매'">
-						p_value like '%'||'구매'||'%'
-					</if>
-					<if test="search2 =='전체보기'">						
-					</if>
-				</if>
+			</if>
+			<if test="keyword3 != null and keyword3 !=''">
+					p_tag like '%'||#{keyword3}||'%'	
+			</if>				
 			</where>
 	</select>
 	<select id="list" parameterType="product" resultType="product">
@@ -40,17 +38,15 @@
 					<if test="search !='subcon'">
 						${search} like '%'||#{keyword}||'%'					
 					</if>
-				</if>
-				<if test="keyword2 != null and keyword2 !=''">
-					<if test="search2 =='판매'">
-						p_value like '%'||'판매'||'%'
+			</if>
+			<if test="keyword2 != null and keyword2 !=''">
+					<if test="search2 !='전체보기'">
+						p_value like '%'||#{keyword2}||'%' 
 					</if>
-					<if test="search2 =='구매'">
-						p_value like '%'||'구매'||'%'
-					</if>
-					<if test="search2 =='전체보기'">		
-					</if>
-				</if>
+			</if>
+			<if test="keyword3 != null and keyword3 !=''">
+					p_tag like '%'||#{keyword3}||'%'	
+			</if>				
 		</where>
 			order by p_num desc) a) where rn between #{startRow} and #{endRow}
 	</select>
@@ -67,17 +63,18 @@
 	<update id="update" parameterType="product">
 		update product set p_name=#{p_name},p_writer=#{p_writer},price=#{price},
 			p_local=#{p_local},p_content=#{p_content},thumnails=#{thumnails,jdbcType=VARCHAR},thumnails2=#{thumnails2,jdbcType=VARCHAR},thumnails3=#{thumnails3,jdbcType=VARCHAR}
-			,thumnails4=#{thumnails4jdbcType=VARCHAR},thumnails5=#{thumnails5,jdbcType=VARCHAR},p_tag=#{p_tag} where p_num=#{p_num}
+			,thumnails4=#{thumnails4,jdbcType=VARCHAR},thumnails5=#{thumnails5,jdbcType=VARCHAR},p_tag=#{p_tag} where p_num=#{p_num}
 	</update>
 	<update id="delete" parameterType="product">
 		update product set p_del='y' where p_num=#{p_num}
 	</update>
 	<insert id="insert" parameterType="product">
-		insert into product (p_num, p_writer, p_name, p_content, p_local, price, p_date, ip, p_del,p_value,p_tag,thumnails,thumnails2,thumnails3,thumnails4,thumnails5)
+		insert into product (p_num, p_writer, p_name, p_content, p_local, price, p_date, ip, p_del,p_value,p_tag,thumnails,thumnails2,thumnails3,thumnails4,thumnails5,id,sel,review)
 		 values (#{p_num},#{p_writer},#{p_name},#{p_content},#{p_local},#{price},sysdate,
 		#{ip},'n',#{p_value},#{p_tag},#{thumnails,jdbcType=VARCHAR},#{thumnails2,jdbcType=VARCHAR},#{thumnails3,jdbcType=VARCHAR}
-		,#{thumnails4,jdbcType=VARCHAR},#{thumnails5,jdbcType=VARCHAR})
+		,#{thumnails4,jdbcType=VARCHAR},#{thumnails5,jdbcType=VARCHAR},#{id},'n','n')
 	</insert>
+	
 	<!-- 판매자 아이디 가져오기 -->
 	<select id="select2" parameterType="integer" resultType="product"> <!-- view -->
 		select * from product where p_num=#{p_num}
@@ -88,6 +85,10 @@
    </select>
    <!-- 판매 게시글수 -->
 	<select id = "getProductCount2" resultType="integer">
-     select count(*) from product where sel = 's'
+     select count(*) from product where sel = 'y'
+   </select>
+	 <!-- 판매 게시글수 -->
+	<select id = "getProductCount3" resultType="integer">
+     select count(*) from product where sel = 'n'
    </select>
 </mapper>

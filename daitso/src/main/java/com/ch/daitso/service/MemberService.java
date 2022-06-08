@@ -3,6 +3,7 @@ package com.ch.daitso.service;
 import java.util.List;
 
 import com.ch.daitso.model.Member;
+import com.ch.daitso.model.Reply;
 
 public interface MemberService {
 
@@ -49,7 +50,13 @@ public interface MemberService {
 	int getCount2();
 
 	List<Member> mbList(Member member);
-
+	
 	void star(int rating,String id);
+
+	void penalty(int score, String id);
+
+	int getCount3();
+
+	int fired(String id);
 
 }

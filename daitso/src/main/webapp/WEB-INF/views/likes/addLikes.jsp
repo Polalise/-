@@ -10,13 +10,11 @@
 <body>
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
-			alert("좋아요 등록 성공");
 			history.go(-1);
 		</script>
 	</c:if>
 	<c:if test="${result == 0 }">
 		<script type="text/javascript">
-			alert("좋아요 등록 실패");
 			history.go(-1);
 		</script>
 	</c:if>

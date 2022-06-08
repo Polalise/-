@@ -28,7 +28,6 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	public int insert(Product product) {
-		System.out.println("p_num :" + product.getP_num());
 		return sst.insert("productns.insert", product);
 	}
 
@@ -67,6 +66,11 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public int getProductCount2() {
 		return sst.selectOne("productns.getProductCount2");
+	}
+
+	@Override
+	public int getProductCount3() {
+		return sst.selectOne("productns.getProductCount3");
 	}
 
 }

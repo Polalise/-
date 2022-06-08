@@ -1,0 +1,80 @@
+.Fired_layout {
+	display: flex;
+	height: 1000px;
+	align-items: center;
+	justify-content: center;
+}
+
+.Fired_bg {
+	display: flex;
+	width: 700px;
+	height: 600px;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	background-color: #fbe0c4;
+}
+
+.Fired_main {
+	display: flex;
+	border: 1px solid black;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	width: 350px;
+	height: 200px;
+	border-radius: 20px;
+}
+
+.Fired_Header {
+	margin-bottom: 30px;
+	margin-top: 30px;;
+}
+
+.fired_btn_div {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+}
+
+.passInput {
+	margin-bottom: 15px;
+}
+
+.fired_submit {
+	width: 80px;
+	height: 30px;
+	background-color: rgb(231, 124, 124);
+	border-radius: 20px;
+	color: white;
+	border: none;
+}
+
+.fired_submit:hover {
+	background-color: red;
+	width: 85px;
+	transition: 0.1s;
+}
+
+.fired_submit_a {
+	width: 80px;
+	height: 30px;
+	background-color: rgb(231, 124, 124);
+	border-radius: 20px;
+	color: white;
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	line-height: 30px;
+}
+
+.fired_submit_a:hover {
+	background-color: red;
+	width: 85px;
+	height: 40px;
+	line-height: 40px;
+	transition: 0.1s;
+}

@@ -66,7 +66,7 @@ public class NoticeController {
 		//  model.addAttribute("id", id);
 			model.addAttribute("member", member);
 			//검색 한글로 계속유지하게 
-			String[] title = {"작성자","제목","내용","제목+내용"};
+			String[] title = {"제목","내용","제목+내용"};
 			model.addAttribute("title", title);
 		   model.addAttribute("num",num);
 		   model.addAttribute("pb",pb);
@@ -178,7 +178,7 @@ public class NoticeController {
 	     public void fileDown(String fileName , HttpServletResponse response) throws Exception {
 
 	     // 파일을 저장했던 위치에서 첨부파일을 읽어 byte[]형식으로 변환한다.
-	     byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File("C:\\Devspace\\git\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\daitso\\resources\\upload/" + fileName));
+	     byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File("C:\\DevSpace\\final_project\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\daitso\\resources\\upload/" + fileName));
 
 	     response.setContentType("application/octet-stream");
 	     response.setContentLength(fileByte.length);

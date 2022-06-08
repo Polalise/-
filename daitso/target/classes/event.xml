@@ -83,4 +83,8 @@
 	<select id = "getEventCount" resultType="int">
      select count(*) from event_board 
    </select>
+   
+    <select id="list2"  resultType="event">
+     <![CDATA[ select * from (select * from event_board order by e_num DESC) WHERE ROWNUM <= 5]]>
+    </select>
 </mapper>
